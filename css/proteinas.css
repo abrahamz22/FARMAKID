@@ -1,0 +1,590 @@
+*{
+    font-family: "Roboto";
+    padding: 0;
+    margin: 0 ;
+    box-sizing: border-box;
+}
+/*------------PROTEINAS INCIOOOOO---------*/
+.container-general{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 45px;
+    
+}   
+
+.title-prote  h1{
+    font-weight: normal;
+    
+    font-family: "Manrope";
+    background-color: #79B4E3;
+    color: white;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 16%;
+    padding: 4px ;
+}
+
+.filtro{
+    padding-top: 20px;}
+
+.filtro input[type="text"]{
+    border-radius: 8px;
+    padding: 6px;
+    border: 1px solid #928A8A;
+    max-width: 30%;
+}
+
+
+#btn-admin{
+    margin: auto;
+    margin-top: 4%;
+    
+}
+
+  #añadir{
+    background-color: #79B4E3;
+    border-radius: 15px;
+    color: white;
+    padding: 11%;
+    border:none;
+    cursor: pointer;
+}
+.container-proteinas{
+    display: grid;
+    grid-gap: 34px;
+    padding: 15px;
+    padding-top: 123px;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.proteina{
+    border: 1px solid #928A8A;
+    max-width: 244px;
+    border-radius: 15px;
+    padding: 15px;
+    position: relative;
+    padding-bottom: 30px;
+    flex: 1 1 calc(25% - 20px);
+}
+
+.proteina  .img-ejem {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    max-height: 300px;
+}
+
+.proteina .superpos{
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.proteina  p{
+    text-align: center;
+}
+
+.boton{
+    background-color: #79B4E3;
+    width: 45%;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    border-radius: 10px;
+    position: relative;
+    
+    bottom: -39px;
+    z-index: 1;
+    color: white;
+    cursor: pointer;
+    padding: 3%;
+    list-style: none;
+    border: none;
+    /* display: flex; */
+    /* align-items: center; */
+    margin: auto;
+}
+/*/------------PROTEINAS INCIOOOOO---------*/
+
+/*-----------PROTEINAS BUSQUEDAAAAA-----------*/
+
+
+
+.contenedor-principal{
+    width: 76%;
+    margin: auto;
+    margin: auto;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr 2fr;
+
+
+
+}
+
+.contenedor-titulo{
+    text-align: left;
+    width: 100%;
+    max-width: 344px;
+    background-color: #79B4E3;
+    color: white;
+    border-radius: 10px;
+}
+
+ 
+.contenedor-titulo > h1{
+    padding: 4px;
+    font-family: "Manrope";
+    font-weight: normal;
+
+}
+
+.contenedor-img{
+    height: 27%;
+    padding-top: 15px;
+    width: 35%;
+    /* margin: auto; */
+    /* margin: 12px; */
+    display: flex;
+    flex-direction: column;
+    margin: auto 0 auto 0;
+}
+
+.contenedor-img > .img1{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    max-width: 100%;
+    align-items: center;
+    
+    
+}
+.edit-prot{
+    background-color: #79B4E3;
+    color: white;
+    border-radius: 15px;
+    width: 102px;
+    margin: auto;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+
+}
+
+
+main{
+    flex-wrap: wrap;
+    gap: 41px;
+    box-shadow: 0 5px 5px #c7c2c2;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #ebeaea;
+    width: 73%;
+    display: flex;
+}
+
+.container-info{
+    width: 56%;
+}
+
+
+.container-table table{
+    width: 100%;
+}
+
+
+td{
+    border: 1px solid #ffff;
+    padding: 10px;
+    text-align: left;
+}
+
+
+table input {
+    padding: 10px;
+    width: 100%;
+    
+}
+
+table .edit {
+    background-color: white;
+    color: white;
+    /* margin-top: 3%; */
+    cursor: pointer;
+    border: none;
+    border: 1px solid #79B4E3;
+    border-radius: 5px;
+    color: #79B4E3;
+    margin-left: 30px;
+    width: 24%; 
+    font-size: calc(8px + 0.25vw);
+}
+
+table .edit2{
+    background-color: #79B4E3;
+    color: white;
+    /* margin-top: 3%; */
+    cursor: pointer;
+    border: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    margin-left: 30px;
+    width: 24%;
+    font-size: calc(8px + 0.25vw);
+}
+
+.edit_tr1 td input[type="text"] {
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    border: 1px solid #79B4E3;
+}
+
+.edit_tr td input[type="text"] {
+    padding: 10px;
+    width: 65%;
+    border: none;
+    border-radius: 5px;
+    border: 1px solid #79B4E3;
+}
+
+.editar_tr td {
+    /* border: 1px solid #ffffffd1; */
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    /* flex-direction: column; */
+    /* background-color: #f6fbff; */
+}
+
+
+td:nth-child(even) {
+    border-bottom: 2px solid black;
+}
+
+
+tr:nth-child(even){
+    background-color: #79B4E3;
+}
+
+.input_field{
+    max-width: 100px;
+    margin: auto;
+    padding-top: 30px;}
+    
+
+.enviar{
+    width: 100%;
+    max-width: 100px;
+    background-color: #79B4E3;
+    box-shadow: 0 6px 5px #c7c2c2;
+    margin-bottom: 67%;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+}
+
+.enviar > a{
+    color: white;
+}
+
+
+@media screen and (max-width:867px) {
+    .edit {
+        font-size: 1vw;
+        margin-top: 5px;
+    }
+}
+
+@media screen and (max-width:768px){
+    html{
+        font-size:15px;
+    }
+
+    .container-info{
+        width: 100%;
+    }
+    .contenedor-img {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 47%;
+    }
+
+    
+    .columna1{
+        width: 44%;
+    }
+    .contenedor-principal{
+        margin: auto;
+        align-items: center;
+    }
+    .title-prote h1{
+            /* width: 100%; */
+    max-width: 75%;
+    font-size: 3vw;
+    /* margin-left: 3%; */
+    margin: auto;
+    text-align: center;
+    padding: 13px;
+    }
+
+    #añadir  {
+        margin: 0;
+    }
+    #seleccion{
+        margin: auto;
+        display: flex;
+    }
+    .edit-prot{
+        font-size: 1.9vw;
+        text-align: center;
+    }
+
+
+  
+}
+
+@media screen and (max-width:460px){
+    .title-prote h1{
+        display: inline;    
+    }
+    #seleccion{
+        display: inline;
+    }
+    #añadir  {
+        padding: 2%;
+        margin-top: 7%;    
+    }
+
+   
+}
+
+
+@media screen and (max-width: 600px) {
+    body{
+        font-size: 15px;
+    }
+
+    table{
+        margin: auto;
+    }
+    tr{
+        display: block;
+        
+    }
+
+    #columna1{
+        width: auto;
+        text-align: center;
+    }
+
+    
+   
+    td{
+        display: block;
+        font-size: 12px;
+    }
+
+    .contenedor-principal{
+        
+        font-size: 2vw;
+        width: 62%;
+    }
+
+    .input_field{
+        width: 19%;
+    }
+    .enviar{
+        font-size: 2vw;
+    }
+    .edit_tr1 td {
+        width: auto; /* Cambiado a auto para que se ajuste al contenido */
+        text-align: center; /* Alineado al centro para mejorar la apariencia */
+    }
+
+
+}
+
+@media screen and (max-width:571px){
+    .container-proteinas{
+        grid-template-columns: inherit;
+    }
+    .proteina{
+        max-width: 275px;
+    }
+}
+
+@media screen and (max-width: 1146px){
+    .edit {
+       font-size: 1vw;
+
+}
+
+    .edit2{
+       font-size: 1vw;
+   }
+}
+/*-----------PROTEINAS BUSQUEDAAAAA-----------*/
+
+
+/*-------------------AQUI INFORMACION DE PROTEINAS-------------------------*/
+.contenedor-principal-info{
+    width: 100%;
+    margin: auto;
+    max-width: 1200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 45px;
+
+}
+
+/* Estilos para el div con la clase .title */
+.title {
+    text-align: left;
+    padding: 4px 0 4px 15px;
+    background-color: #79B4E3;
+    max-width: 176px;
+    border-radius: 15px;
+    color: white
+}
+
+
+.title > h1{
+    font-family: "Manrope";
+    font-weight: normal;
+
+}
+
+.informacion{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+ }
+
+ .imagen{
+    margin: 1% 2% 0% 0%;   
+}
+.imagen img{
+    width: 100%;
+    max-width: 450px;
+    
+    
+}
+
+ .texto{
+    padding: 0 20px;
+    font-size: 14px;
+    line-height: 1.75em;
+}
+
+.subtitulo{
+    width: 100%;
+    /* text-align: left; */
+    padding: 4px 0 4px 15px;
+    background-color: #79B4E3;
+    max-width: 400px;
+    color: white;
+    border-radius: 20px;
+    margin: 35px 0 25px 0;
+} 
+
+.subtitulo > h2{
+    font-family: "Manrope";
+    font-weight: normal;
+}
+
+.banco-img{
+    display: grid;
+    width: 100%;
+    background-color: #FFF;
+    justify-items: center;
+    grid-gap: 20px;
+    padding: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    box-shadow: 0 1px 2px #1e233a;
+    margin-top: 15px;
+    
+
+
+
+}
+
+.proteina-lista{
+    border: 3px solid #000000;
+    border-radius:20px ;
+    width: 100%;
+    max-width:494px;
+    /*margin-right: 30px;*/
+    padding-bottom: 10px;
+}
+
+.proteina-lista > h3{
+    font-family: "Manriope";
+    font-weight: normal;
+    padding-bottom: 10px;
+}
+
+.proteina-lista >p{
+    padding: 15px;
+}
+
+.proteimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 250px;
+    max-height: 150px;
+    margin-bottom: 17px;
+}
+    
+
+
+
+.banco-img h3{
+    text-align: center;
+}
+
+.edit-prot, #añadir, .boton, .edit, .edit2{
+    display: none;
+}
+
+
+
+
+
+
+@media screen and (max-width: 1150px) {
+    .banco-img {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        padding-top: 10px;
+    }
+  }
+
+
+
+/*TERMINA INFORMACION DE PROTEINAS*/
+
+/*-----------SECCION PARA ADMINISTRADOR Y EDITOR DE PROTEINAS----------------*/
+
+
+
+/*//-----------SECCION PARA ADMINISTRADOR Y EDITOR DE PROTEINAS----------------*/

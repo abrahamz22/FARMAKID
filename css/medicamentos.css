@@ -1,0 +1,688 @@
+*{
+    font-family: "Roboto";
+    padding: 0;
+    margin: 0 ;
+    box-sizing: border-box;
+}
+
+
+#asideMeciamentos{
+    position: fixed;
+    top:23%;
+    left:7%;
+    background-color:#e7e7e7;
+    width: 10%;
+    border-radius: 1em;
+    padding-left: 1%;
+    padding-top: 1%;
+}
+
+/*AQUI VA EL INICIO DE MEDICAMENTOS*/
+.container-general{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 45px;
+    
+}   
+
+.title > h1 {
+    background-color: #47B191;
+    color: white;
+    border-radius: 15px;
+    max-width: 220px;
+    /* text-align: center; */
+    padding: 4px 0 4px 15px;
+    font-weight: normal;
+    font-family: Manrope;
+}
+
+.filtro{
+    padding-top: 20px;}
+
+.filtro input[type="text"]{
+    border-radius: 8px;
+    padding: 6px;
+    border: 1px solid #928A8A;
+    max-width: 30%;
+}
+
+#btn-admin{
+    margin: auto;
+    margin-top: 4%;
+}
+
+ #añadir{
+    background-color: #47B191;
+    border-radius: 15px;
+    color: white;
+    padding: 11%;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+
+.container-medica{
+    display: grid;
+    grid-gap: 34px;
+    display: flex;
+    padding: 15px;
+    padding-top: 123px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.med{
+    border: 1px solid #928A8A;
+    max-width: 244px;
+    border-radius: 15px;
+    padding: 15px;
+    position: relative;
+    padding-bottom: 30px;
+    flex: 1 1 calc(25% - 20px);
+}
+
+
+.med  .img-ej   {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    max-height: 300px;
+}
+
+.med .superpos{
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.med > p{
+    text-align: center;
+}
+
+.boton{
+    background-color: #47B191;
+    width: 100px;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    border-radius: 10px;
+    position: relative;
+    /* bottom: -14px; */
+    /* transform: translateX(55%); */
+    bottom: -43px;
+    z-index: 1;
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 4%;
+    display: none;
+}
+
+
+
+
+/*TERMINA EL INICIO DE MEDICAMENTOS*/
+
+/*INTERACCIONES ENTRE MEDICAMENTOS */
+
+/*A partir de aqui empieza la pagina de interacciones entre medicamentos*/
+/*Contenedor de todo los divs*/
+.contenedor-principal{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    padding: 45px
+}
+
+.contenedor-principal > .titulo{
+    padding-bottom: 15px;
+    font-family: "Manrope";
+    font-weight: normal;
+    background-color: #47B191;
+    padding: 4px 0 4px 15px;
+    max-width: 460px;
+    width: 100%;
+    border-radius: 15px;
+    color: white;
+}
+
+.contenedor-principal> h2{
+    font-family: "Manrope";
+    font-weight: normal;
+    background-color: #47B191;
+    padding: 4px 0 4px 10px;
+    max-width: 216px;
+    width: 100%;
+    border-radius: 15px;
+    color: white;
+    
+
+}
+
+.contenedor-principal > p{
+    line-height: 30px;
+    padding-bottom: 36px;
+    padding-top: 15px;
+    
+    
+}
+
+
+.contenedor-principal> .banco-img{
+    width: 100%;
+    display: grid;
+    background-color: #FFF;
+    box-shadow: 0 1px 2px #1e233a;
+    grid-gap: 20px;
+    padding: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin-top: 30px;
+
+}
+
+.container-imagen  b{
+    text-align: center;
+    padding-top: 28px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+
+.container-imagen {
+    width: 100%;
+    max-width: 310px;
+    border: 1px solid #000;
+    border-radius: 25px;
+    padding: 15px;
+}
+.imagen{
+    width: 100%;
+    max-width: 170px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+
+/*/------------INTERACCIONES ENTRE MEDICAMENTOS-------- */
+
+/*---------------MEDICAMENTOS RETIRADOS------------------ */
+.contenedor-principal2{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    padding: 45px;
+    
+
+}
+
+.contenedor-principal2 > h1{
+    font-family: "Manrope";
+    font-weight: normal;
+    background-color: #47B191;
+    padding: 4px 0 4px 10px;
+    max-width: 340px;
+    width: 100%;
+    border-radius: 15px;
+    color: white;
+
+}
+
+.contenedor-principal2 > .banco-img{
+    width: 100%;
+    display: grid;
+    background-color: #FFF;
+    box-shadow: 0 1px 2px #1e233a;
+    grid-gap: 20px;
+    padding: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    margin-top: 30px;
+}
+
+.proteina{
+    width: 100%;
+    max-width: 340px;
+    border: 1px solid #000000;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+
+.proteimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    max-width: 250px;
+    max-height: 150px;
+}
+
+.info{
+    padding: 20px;
+    box-shadow: 0 1px 2px #1e233a;
+    margin-top: 45px;
+    
+}
+
+
+
+.contenedor-principal2 > h3 {
+    text-align: center;
+    padding-top: 10px;
+}
+
+
+
+@media screen and (max-width: 1050px) {
+    .banco-img {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        padding-top: 10px;
+    }
+  }
+
+
+/*/HASTA AQUI LOS MEDICAMENTOS RETIRADOS */
+
+
+/*----------SECCION SOLO PARA ADMINISTRADORDES O EDITORES DE MEDICAMENTOS/FARMACOS---------- */
+.contenedor-principal{
+    width: 76%;
+    margin: auto;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr 2fr;
+}
+
+.contenedor-titulo{
+    text-align: left;
+    width: 100%;
+    max-width: 344px;
+    background-color: #47B191;
+    border-radius: 10px;
+}
+
+.editar-fot{
+    margin: auto;
+    background-color: #47B191;
+    border-radius: 15px;
+    color: white;
+    /* padding: 13px; */
+    font-size: normal;
+    /* font-size: 1.1vw; */
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+
+
+}
+
+ 
+.contenedor-titulo > h1{
+    padding: 4px ;
+    font-family: "Manrope";
+    font-weight: normal;
+    color: white;
+
+}
+
+.contenedor-img{
+    height: 27%;
+    padding-top: 15px;
+    width: 35%;
+    margin: auto;
+    margin: 12px;
+    display: flex;
+    flex-direction: column;
+    margin: auto 0 auto 0;
+}
+
+.contenedor-img >.img1{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    max-width: 100%;
+    align-items: center;
+    
+}
+
+.edit-fot-med{
+    background-color: #47B191;
+    color: white;
+    border-radius: 15px;
+    width: 102px;
+    margin: auto;
+    border: none;
+    padding: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 0 6px 5px #c7c2c2;
+
+}
+
+
+main{
+   
+    flex-wrap: wrap;
+    gap: 41px;
+    box-shadow: 0 5px 5px #c7c2c2;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #ebeaea;
+    width: 73%;
+    display: flex;
+}
+
+
+.editar_tr td {
+    /*border: 1px solid #ffffffd1;*/ 
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    /* flex-direction: column; */
+    /* background-color: #f6fbff;*/
+}
+
+
+.editar_tr td > .buscar{
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.edit_tr1 td {
+    padding: 10px;
+    text-align: left;
+    width: 30%;
+    justify-content: space-between;
+}
+
+ .edit_tr1 td input[type="text"] {
+    padding: 10px;
+    width: 100%;
+    /* border: none; */
+    border-radius: 5px;
+    border: 1px solid #47B191;
+}
+
+.editar_tr td input[type="text"] {
+    padding: 10px;
+    width: 65%;
+    /* border: none; */
+    border-radius: 5px;
+    border: 1px solid #47B191;
+}
+
+table .edit{
+      
+    background-color: white;
+    /* color: white; */
+    /* margin-top: 3%; */
+    cursor: pointer;
+    /* border: none; */
+    border: 1px solid #47B191;
+    border-radius: 5px;
+    color: #47B191;
+    /* box-shadow: 0 6px 5px #c7c2c2; */
+    /* margin-left: 30px; */
+    width: 30%;
+    font-size: calc(8px + 0.25vw);
+   
+}
+
+table .edit2{
+  
+    background-color: #47B191;
+    /* color: white; */
+    /* margin-top: 3%; */
+    cursor: pointer;
+    /* border: none; */
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: white;
+    /* box-shadow: 0 6px 5px #c7c2c2; */
+    /* margin-left: 30px; */
+    width: 30%;
+    font-size: calc(8px + 0.25vw);
+}
+
+ .edit, .edit2, .edit-fot-med, .editar-fot{
+    display: none;
+}
+
+
+table input{
+    padding: 10px;
+    
+}
+
+
+
+
+
+tr:nth-child(even){
+    background-color: #47B191;
+    
+}
+tr{
+    width: 100%;
+    max-width: 1600px;
+}
+
+
+td:nth-child(even) {
+    border-bottom: 2px solid black;
+}
+.container-table{
+    width: 100%;
+}
+
+
+.container-info{
+    width: 56%;
+}
+
+.container-table table{
+    width: 100%;
+} 
+
+
+.input_field{
+    width: 100px;
+    margin: auto;
+    padding-top: 30px;
+
+}
+
+.enviar{
+    width: 100%;
+    max-width: 100px;
+    background-color: #47B191;
+    box-shadow: 0 6px 5px #c7c2c2;
+    margin-bottom: 67%;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+}
+
+.enviar > a{
+    color: white;
+}
+
+@media screen and (max-width: 1146px){
+     .edit {
+        font-size: 1vw;
+
+}
+
+     .edit2{
+        font-size: 1vw;
+    }
+}
+
+
+@media screen and (max-width:768px){
+    
+    body{
+        font-size:15px;
+    }
+   
+    .container-info{
+       width: 100%;
+    }
+
+    .contenedor-img{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 47%;
+    }
+
+    .columna1{
+        width: 44%;
+    }
+
+    .buscar{
+        width: 60%;
+    }
+
+    .contenedor-principal{
+        margin: auto;
+        align-items: center;
+    }
+    /*-----SESSION MEDICAMENTOS.OPCION-----*/
+    .title >h1{
+            /* width: 100%; */
+    max-width: 75%;
+    font-size: 3vw;
+    /* margin-left: 3%; */
+    margin: auto;
+    text-align: center;
+    padding: 13px;
+    }
+
+    #seleccion{
+        margin: auto;
+        display: flex;
+    }
+
+    #añadir{
+        margin-top:80%
+;    }
+        
+
+
+    .edit-fot-med{
+        font-size: 1vw;
+    }
+     .edit {
+        font-size: 1.5vw;
+    }
+     .edit2 {
+        font-size: 1.5vw;
+    }
+
+    .editar-fot{
+        font-size: 2vw;
+    }
+
+
+    }
+    /*-----SESSION MEDICAMENTOS.OPCION-----*/
+
+@media screen and (max-width: 600px) {
+    
+    table{
+        margin: auto;
+    }
+    tr{
+        display: block;
+        
+    }
+    
+
+    #columna1{
+        width: auto;
+        text-align: center;
+    }
+
+    .input   {
+        display: flex;
+        width: 100%;
+        
+    } 
+    .edit_tr1 td {
+        width: auto; 
+        text-align: center;
+    }
+   
+    
+
+    .contenedor-principal{
+        
+        font-size: 2vw;
+        width: 62%;
+    }
+
+    .input_field{
+        width: 19%;
+    }
+    .enviar{
+        font-size: 2vw;
+    }
+
+   
+
+}
+
+@media screen and (max-width:571px){
+    .contenedor-medica{
+        grid-template-columns: inherit;
+    }
+
+}
+
+@media screen and (max-width:460px){
+    .title >h1{
+        display: inline;
+    }
+
+    #seleccion{
+        display: inline;
+        font-size: 2.5vw;
+
+    }
+
+    #añadir{
+    padding: 2%;
+    margin-top: 7%;
+    }
+
+     .edit{
+        font-size: 2.5vw;
+    }
+    .edit2{
+        font-size: 2.5vw;
+    }
+}
+/*------------SECCION SOLO PARA ADMINISTRADORDES O EDITORES DE MEDICAMENTOS O FARMACOS------------- */

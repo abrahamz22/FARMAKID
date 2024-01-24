@@ -1,0 +1,113 @@
+/*FOOTER*/
+.barraFooter, .barraFooter2{
+    width: 100%;
+
+}
+.barraFooter{
+    background-color: #F1D4D3;
+    color: #F1D4D3;
+}
+.barraFooter2{
+    background-color:  #F18D8C;
+    color:  #F18D8C;
+}
+footer{
+    color: #FFFFFF;
+    background-color: #2c2c2c;
+}
+
+ #ayuda,  #conocenos, #descarga, #siguenos {
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+}
+
+#descarga h4{
+    margin-bottom: 10px;
+}
+#conocenos {
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    vertical-align: top;
+    padding: 20px 10px;
+    min-height: 200px; 
+}
+
+#ayuda a,#conocenos a{
+    display: block;
+}
+
+#ayuda a, #conocenos a, #ayuda h4, #conocenos h4{
+    margin-top: 2%;
+}
+h4{
+    text-decoration: underline;
+}
+
+#ayuda{
+    margin-left: 10%;
+    padding-top: 24px;
+}
+
+#siguenos img {
+   width: 13%;
+}
+
+#siguenos p {
+    display: inline-block;
+}
+
+#descarga img{
+    width: 40%;
+}
+footer a {
+    color: #FFFFFF;
+}
+
+#footer2, #footer1{
+    display: inline;
+}
+
+/*PONERLO EN TODAS LAS PGINAS-*/
+.sitemap{
+    
+    text-align: center;
+    margin-top: 20px;
+    background-color: #0a2a14;
+    width: 100%;
+    padding: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    #siguenos, #descarga, #conocenos, #ayuda{
+        font-size: x-small;
+    }
+    #footer2, #footer1{
+        display: block;
+        margin: auto;
+        width: 50%;
+    } 
+    #footer1{
+        margin-bottom: 10%;
+    } 
+
+    #footer2 div{
+        width: 45%;
+    } 
+    #siguenos img{
+        width: 20px;
+    }
+    #ayuda{
+        margin-right: 30%;
+    }
+    #siguenos {
+        margin-right: 6%;
+    }
+    #descarga img{
+        width: 50px;
+    }
+}
+
+
+/*/FOOTER*/

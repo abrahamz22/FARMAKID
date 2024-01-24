@@ -1,0 +1,141 @@
+*{
+    font-family: "Roboto";
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#megadiv{
+    margin-left: 6%;
+    margin-right: 6%;
+    padding: 45px;
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+    
+}
+#presentacion h1{
+    margin-bottom: 2%;
+    font-family: "Manrope";
+    font-weight: normal;
+    background-color: #F18D8C;
+    max-width: 500px;
+    border-radius: 15px;
+    padding: 4px 0 4px 15px;
+    color: white;
+}
+
+#datosCont, #doctora{
+    display: inline-block;
+
+} 
+#datosCont{
+    display: inline-block;
+    width: 40%;
+} 
+
+#doctora{
+    display: inline-block;
+    width: 40%;
+} 
+#doctora img{
+  width: 200%;
+} 
+#datosCont{
+    margin-left: 19%;
+    text-align: center;
+}
+
+#datosCont h2{
+    margin-top: 10%;
+}
+
+input{
+    margin-bottom: 3%;
+}
+ .input1:first-child, #datosCont input[type="submit"] {
+    margin-top: 5%;
+} 
+
+
+#datosCont input, #datosCont textarea {
+    display: block;
+}
+
+#datosCont div input {
+    display: inline;
+    
+}
+textarea, .input1{
+    border-radius: 2em;
+    background-color: #e7e7e7;
+    width: 100%;
+    border-color: transparent;
+    padding-left: 3%;
+}
+textarea{
+    padding-top: 4%;
+}
+.input1 {
+    height: 2.5em; 
+}
+.input2{
+    border-radius: 2em;
+    background-color: #e7e7e7;
+    width: 48%;
+    height: 2.5em; 
+    border-color: transparent;
+}
+
+#datosCont input[type="submit"] {
+    background-color: #F18D8C;
+    color: #FFFFFF;
+    border-radius: 2em;
+    width: 20%;
+    border-color: transparent;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3px;
+}
+
+#datosCont  form{
+    margin-bottom: 20%
+}
+
+
+@media only screen and (max-width: 1100px) {
+    #doctora img{
+       height: 35em;
+      } 
+
+}
+
+@media only screen and (max-width: 850px) {
+    #megadiv{
+        display: flex;
+        flex-direction: column; 
+    }
+    #doctora {
+        margin: auto;
+        margin-top:10% ;
+        width: 100%;
+       } 
+    #doctora img{
+        height: auto;
+        width: 100%;
+       } 
+    #datosCont{
+       margin: auto;
+       margin-top:10% ;
+       width: 100%;
+    }
+
+    #datosCont input[type="submit"] {
+        width: 100%;
+
+    }
+
+
+}
+
+

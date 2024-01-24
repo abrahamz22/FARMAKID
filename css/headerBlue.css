@@ -1,0 +1,296 @@
+
+/*Conf general*/
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+/*/Conf general*/
+
+/*HEADER*/
+header{
+    position: relative;
+    background-color: #79B4E3 ;
+    color: #FFFFFF;
+    width: 100%;
+    height: 9em;
+}
+header a{
+    color: #FFFFFF;
+}
+header form{
+    position: absolute;
+    left: 20%;
+    top: 30%;
+    width: 50%;
+}
+/*logo*/
+.imgNav {
+    position: absolute;
+    height: 7em;
+    width: 7em;
+    top: 8%;
+    left: 4%;
+}
+
+/*buscador*/
+header input[type="search"]{
+    border: 2px solid #FFFFFF;
+    border-left: none;
+    border-radius: 0 2em 2em 0; 
+    width: 97%;
+    height: 2.5em;
+    background-color: #79B4E3 ;
+    color: #FFFFFF;
+    position: absolute;
+}
+/*menu hamburguesa*/
+#menuHamburguesa{
+    width: 25px;
+    height:20px;
+    visibility:hidden;
+}
+/*placeholder del buscador*/
+header input[type="search"]::placeholder {
+    color: #FFFFFF;
+  }
+  /*boton de la lupa*/
+header button{  
+    border: 2px solid #FFFFFF;
+    border-right: none;
+    height: 2.5em;
+    width: 10%;
+    border-radius:  2em 0 0 2em;
+    background-color: #79B4E3 ;
+    margin: 0;
+    padding: 0;
+}
+/*imagen de lupa*/
+#lupa{
+    width: 10px;
+    height: 10px;
+}
+.divNav{
+   position: absolute; 
+}
+/*contenedor links navegación*/
+.linksNavegacion {
+    position: absolute;
+    left: 3%;
+    bottom: 0%;
+    width:91%;
+    text-align: center;
+}
+
+.linksNavegacionn:nth-child(2){
+    visibility: hidden;
+}
+
+/*links individuales navegación*/
+.linksNavegacion a:hover{
+    background-color:#b8d0e3;
+}
+/* hoover links individuales navegación*/
+.linksNavegacion a{
+    display: inline-block;
+    padding-top: 1%;
+    height: 3em;
+    width: 15%;
+    border-radius: 2%;
+}
+/*img icono desplegable*/
+
+.deplegableIcon {
+    width: 15px;
+    height:15px;
+    margin-left: 60%;
+    display: none;
+}
+/*responsive logo*/
+@media only screen and (max-width: 1200px) {
+    .imgNav {
+        height: 6em;
+        width: 6em;
+        left: 2%;
+    }
+
+        /*icono del cuenta*/
+    .divNav:nth-last-of-type(2){
+        right:13%;
+    }
+
+}
+/*1 responsive*/
+@media only screen and (max-width: 920px) {
+    .linksNavegacion a{
+        font-size: small;
+    }
+
+    .divNav a{
+       font-size: small;
+    
+    }
+    #desplegableMedicamentos, #desplegableProteinas{
+        font-size: small;
+    }
+
+}
+/*2 responsive*/
+@media only screen and (max-width: 747px) {
+    .linksNavegacion a{
+        font-size:x-small;
+    }
+    .imgNav {
+        height: 4em;
+        width: 4em;
+    }
+    #desplegableMedicamentos, #desplegableProteinas{
+        font-size: x-small;
+    }
+}
+@media only screen and (max-width: 700px) {
+
+    header{
+        height: 11em;
+        position: static;
+        padding-top: 5%;
+    }
+
+    .linksNavegacion{
+        display: flex;
+        flex-direction: column; 
+        position: static;
+        width: 100%;
+        visibility: hidden;
+    }
+    .linksNavegacion a{
+        font-size:medium;
+        width: 100%;
+        margin-top:5%;
+    }
+    .imgNav {
+        position: static;
+        margin-bottom: 5%;
+    }
+    #buscador{
+        position: static;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    #userInfo{
+        float: right;
+        margin-top: 5%;
+
+    }
+    .divNav{
+        position: static;
+        margin-top: 10%;
+
+    }
+    header input[type="search"]{
+        width: 70%;
+    }
+    header form{
+        display: inline;
+    }
+    #menuHamburguesa{
+        visibility:visible;
+        display: inline;
+        margin-right: 2%;
+        margin-left: 3%;
+    }
+
+    .deplegableIcon{
+        display: inline;
+    }
+    
+
+}
+/*icono del cuenta*/
+.divNav:nth-last-of-type(2){
+    left: 81%;
+    top: 35%;
+
+}
+
+/*icono del carro*/
+.divNav:last-child{
+    left: 89%;
+    top: 35%;
+
+}
+
+/*imagenes de los iconos de carrito y cuenta*/
+.divNav:nth-last-of-type(2) img, .divNav:last-child img{
+    width: 15px;
+    height:15px;
+}
+
+
+
+
+/*/HEADER*/
+
+/*modificaciones que afectan a ambos menus desplegables*/
+#desplegableMedicamentos, #desplegableProteinas{
+    position: absolute;
+    visibility: hidden;
+    height:10em;
+    width: 13.8%;
+    z-index: 20;
+    background-color: #79B4E3 ;
+}
+/*MENU DESPLEGABLE DE MEDICAMENTOS*/
+/*contenedor del menu desplegable*/
+#desplegableMedicamentos{
+    left: 27.7%;
+}
+
+/*/MENU DESPLEGABLE DE MEDICAMENTOS*/
+
+/*MENU DESPLEGABLE DE PROTEINAS*/
+/*contenedor del menu desplegable*/
+#desplegableProteinas{
+    left: 41.6%;
+}
+
+/*/MENU DESPLEGABLE DE PROTEINAS*/
+
+/*LISTA DESPLEGABLES*/
+/*estilo de las listas que están dentro de ambos desplegables*/
+#desplegableMedicamentos ul, #desplegableProteinas ul {
+    list-style: none;
+    padding-left: 0%;
+    
+}
+#desplegableMedicamentos ul li, #desplegableProteinas ul li {
+    margin-top: 10%;
+    width: 100%;
+}
+
+#desplegableMedicamentos ul li a, #desplegableProteinas ul li a {
+    color: #FFFFFF;
+    
+}
+
+#desplegableMedicamentos ul li:hover, #desplegableProteinas ul li:hover {
+    background-color:#b8d0e3 ;
+}
+/*/LISTA DESPLEGABLES*/
+
+/*links secundarios*/
+.nav2 {
+    width: 40%;
+    margin: auto;
+    list-style: none;
+    display: none;
+}
+
+.nav2 a {
+    font-size: x-small;
+}
+
