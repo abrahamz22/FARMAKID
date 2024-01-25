@@ -71,15 +71,16 @@
 }
 #titulo1{
     background-color: #3ec59d;
-    color:#FFFFFF !important ;
+    color: #FFFFFF !important;
     border-radius: 2em;
     text-align: center;
-    width: 50%;
+    width: 40%;
     margin: auto;
-    height: 4em;
-    padding-top: 2%;
-    margin-bottom: 10%;
+    /* height: 4em; */
+    /* padding-top: 2%; */
+    /* margin-bottom: 10%; */
 }
+
 
 #publi {
     position: relative;
@@ -151,9 +152,10 @@
     margin: auto;
 }
  #titulo1 {
-    padding-bottom: 50px;
     text-align: center;
-    color: black
+    color: black;
+    font-size: 22px;
+    padding: 13px;
 }
 
 #container-paragrag{
