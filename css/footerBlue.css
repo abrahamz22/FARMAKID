@@ -13,7 +13,7 @@
 }
 footer{
     color: #FFFFFF;
-    background-color: #2c2c2c;
+    background-color: #1e2543;
 }
 
  #ayuda,  #conocenos, #descarga, #siguenos {
@@ -74,7 +74,7 @@ footer a {
     
     text-align: center;
     margin-top: 20px;
-    background-color: #0a2a14;
+    background-color: #190e0e;
     width: 100%;
     padding: 20px;
 }
