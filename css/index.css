@@ -134,6 +134,106 @@
 }
 /*/----------------PUBLICIDAD1111111--------------*/
 
+/* ------------------------AÑADIENDO EL POPUP COOKIESS -----------------------*/
+
+
+.aviso-cookies{
+    display: none;
+    background:#fff;
+    padding: 20px;
+    width: calc(100% - 40px);
+    max-width: 300px;
+    line-height: 150%;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 20px;
+    left:20px;
+    z-index: 100;
+    padding-top: 60px;
+    box-shadow: 0px 2px 20px 10px rgba(222,222,222, .25);
+    text-align: center;
+}
+
+.aviso-cookies.activo{
+    display: block;
+}
+
+
+.aviso-cookies .galleta{
+    max-width: 100px;
+    position: absolute;
+    top: -45px;
+    left:calc(50% - 50px);
+}
+
+.aviso-cookies .enlace{
+    border:none;
+    width: 100%;
+    background-color: #4DBFFF;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 15px 20px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.aviso-cookies .enlace:hover{
+    text-decoration: underline;
+}
+
+
+.aviso-cookies #btn-aceptar-cookies{
+    border:none;
+    width: 100%;
+    font-weight: 700;
+    background-color: #595959;
+    color: #fff;
+    padding: 15px 20px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    transition: .3s ease all;
+    font-size: 14px;
+}
+
+.aviso-cookies #btn-aceptar-cookies:hover{
+    background:#000;
+}
+
+.aviso-cookies .titulo,
+.aviso-cookies .parrafo{
+    
+    margin-bottom: 15px;
+    
+
+}
+
+.fondo-aviso-cookies{
+    display: none;
+    background:rgba(0,0,0,.20);
+    position: fixed;
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+
+}
+
+.fondo-aviso-cookies.activo {
+    display: block;
+    
+}
+
+/* ------------------------AQUI TERMINA  EL POPUP COOKIESS -----------------------*/
+
+
+
 /*/----------------MAS INFORMACION EN HOME-------------- PONERLOOOOOO GUARDARRRRR*/
 
 #info-home{
@@ -159,23 +259,40 @@
 }
 
 #container-paragrag{
-    display: flex;
+    /* display: flex;
     justify-content: space-around;
     margin: auto;
     justify-content: center;
     align-items: center;
     padding: 20px;
     width: 100%;
+    max-width: 1650px; */
+
+    display: flex;
+    justify-content: space-around;
+    /* margin: auto; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* padding: 20px; */
+    width: 100%;
     max-width: 1650px;
 }
 
+
 #container-paragrag p{
-    margin: auto;
+    /* margin: auto;
     width: 45%;
     
 
     line-height: 1.75em;
+    margin-bottom: 40px; */
+
+    /* margin: auto;  */
+    width: 45%;
+    line-height: 1.75em;
     margin-bottom: 40px;
+    display: flex;
+    padding: 1px;
 }
 
 
