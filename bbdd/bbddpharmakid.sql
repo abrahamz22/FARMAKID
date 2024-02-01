@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2024 at 05:51 PM
+-- Generation Time: Feb 01, 2024 at 06:22 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -125,7 +125,8 @@ CREATE TABLE `usuario` (
   `telefono` int(9) NOT NULL,
   `contrasena` varchar(50) NOT NULL,
   `dni` varchar(9) NOT NULL,
-  `idUsuario` varchar(10) NOT NULL
+  `idUsuario` varchar(10) NOT NULL,
+  `rol` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
