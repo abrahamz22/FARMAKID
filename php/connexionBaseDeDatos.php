@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";//
 $database = "bbddpharmakid";//pongo el nombre de la base de datos
-$user = "usuarioErnesto";//mi usuario
+$user = "pharmaKid";//mi usuario
 $password = "12345678";//mi contraseña de la base de datos
 $conexion = mysqli_connect($host, $user, $password,$database);
 
