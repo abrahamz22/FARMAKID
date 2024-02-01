@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 01, 2024 at 06:22 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 01-02-2024 a las 20:38:03
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bbddpharmakid`
+-- Base de datos: `bbddpharmakid`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `citar`
+-- Estructura de tabla para la tabla `citar`
 --
 
 CREATE TABLE `citar` (
@@ -38,7 +38,7 @@ CREATE TABLE `citar` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comprar`
+-- Estructura de tabla para la tabla `comprar`
 --
 
 CREATE TABLE `comprar` (
@@ -50,7 +50,7 @@ CREATE TABLE `comprar` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `consultar`
+-- Estructura de tabla para la tabla `consultar`
 --
 
 CREATE TABLE `consultar` (
@@ -62,7 +62,7 @@ CREATE TABLE `consultar` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `medicamento`
+-- Estructura de tabla para la tabla `medicamento`
 --
 
 CREATE TABLE `medicamento` (
@@ -80,7 +80,7 @@ CREATE TABLE `medicamento` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `medico`
+-- Estructura de tabla para la tabla `medico`
 --
 
 CREATE TABLE `medico` (
@@ -96,7 +96,7 @@ CREATE TABLE `medico` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proteina`
+-- Estructura de tabla para la tabla `proteina`
 --
 
 CREATE TABLE `proteina` (
@@ -113,7 +113,7 @@ CREATE TABLE `proteina` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -130,88 +130,93 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Indexes for dumped tables
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`codigoPostal`, `nombre`, `apellidos`, `email`, `usuario`, `telefono`, `contrasena`, `dni`, `idUsuario`, `rol`) VALUES
+(8023, 'Abraham', 'Zambrano', 'abraham543@hotmail.com', 'abraham', 654123345, '12345', '39237681V', '0001', 'administrador'),
+(8023, 'Ernesto', 'Diaz', 'ernesto543@hotmail.com', 'ernesto', 641233459, 'abcde', '39237681B', '0002', 'administrador'),
+(8023, 'Ismael', 'Zambrano', 'ismael543@hotmail.com', 'ismael', 654123348, 'abcd123', '39237681N', '0003', 'editor'),
+(8023, 'Pedro', 'Mejia', 'pedro543@hotmail.com', 'pedro', 654123341, '0987', '39237681M', '0004', 'usuario');
+
+--
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `citar`
+-- Indices de la tabla `citar`
 --
 ALTER TABLE `citar`
   ADD PRIMARY KEY (`doctorId`,`usuarioId`,`fecha`),
   ADD KEY `usuarioId` (`usuarioId`);
 
 --
--- Indexes for table `comprar`
+-- Indices de la tabla `comprar`
 --
 ALTER TABLE `comprar`
   ADD PRIMARY KEY (`idUsuario`,`fecha`,`idMedicamento`),
   ADD KEY `idMedicamento` (`idMedicamento`);
 
 --
--- Indexes for table `consultar`
+-- Indices de la tabla `consultar`
 --
 ALTER TABLE `consultar`
   ADD PRIMARY KEY (`idUsuario`,`idProteina`,`fecha`),
   ADD KEY `idProteina` (`idProteina`);
 
 --
--- Indexes for table `medicamento`
+-- Indices de la tabla `medicamento`
 --
 ALTER TABLE `medicamento`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `medico`
+-- Indices de la tabla `medico`
 --
 ALTER TABLE `medico`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `proteina`
+-- Indices de la tabla `proteina`
 --
 ALTER TABLE `proteina`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `usuario`
+-- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idUsuario`);
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `citar`
+-- Filtros para la tabla `citar`
 --
 ALTER TABLE `citar`
   ADD CONSTRAINT `citar_ibfk_1` FOREIGN KEY (`usuarioId`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `comprar`
+-- Filtros para la tabla `comprar`
 --
 ALTER TABLE `comprar`
-  ADD CONSTRAINT `comprar_ibfk_1` FOREIGN KEY (`idMedicamento`) REFERENCES `medicamento` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `comprar_ibfk_1` FOREIGN KEY (`idMedicamento`) REFERENCES `medicamento` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `comprar_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `consultar`
+-- Filtros para la tabla `consultar`
 --
 ALTER TABLE `consultar`
   ADD CONSTRAINT `consultar_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `consultar_ibfk_2` FOREIGN KEY (`idProteina`) REFERENCES `proteina` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `medico`
+-- Filtros para la tabla `medico`
 --
 ALTER TABLE `medico`
   ADD CONSTRAINT `medico_ibfk_1` FOREIGN KEY (`id`) REFERENCES `citar` (`doctorId`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Constraints for table `usuario`
---
-ALTER TABLE `usuario`
-  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `comprar` (`idUsuario`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
