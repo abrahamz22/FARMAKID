@@ -12,34 +12,10 @@
 </head>
 <body>
     <!--HEADER-->
-    <header id="header">
-        <!--NAV-->
-        <nav>
-            <!--BUSCADOR-->
-            <form>
-            <input type="search" name="buscadorProtMed" placeholder="busca entre más de 50 marcas...">
-            </form>
-            <!--/BUSCADOR-->
-            <img class="imgNav" src="multimedia/logoHeader.png" alt="logo">
-            <div class="linksNavegacion">
-                <a class="navLink" href="index.php">Inicio</a>
-                <a class="navLink" href="medicamentos.php">Medicamentos</a>
-                <a class="navLink" href="proteinas.php">Proteínas</a>
-                <a class="navLink" href="profesionales.php">Contacto</a>
-                <a class="navLink" href="quienesSomos.php">¿Quiénes somos?</a>
-            </div>
-            <div class="divNav">
-                <img src="multimedia/userIcon.png" alt="User">
-                <a href="loggin.php">tu cuenta</a>
-            </div>
-            <div class="divNav">
-                 <img src="multimedia/shopping.png" alt="carrito">
-                 <a href="carrito.php">carrito</a>
-            </div>
-        </nav>
-        <!--/NAV-->
-    </header>
+    <?php require("footerHeader/header.php")?>
     <!--/HEADER-->
+
+
     <!--MENU DESPLEGABLE MEDICAMENTOS-->
     <div id="desplegableMedicamentos">
         <ul id="listaD">
@@ -557,7 +533,7 @@
 
     <!--/HEADER-->
     <!--FOOTER-->
-    <?php require("footer.php")?>
+    <?php require("footerHeader/footer.php")?>
     <!--/FOOTER-->
 </body>
 </html>

@@ -7,7 +7,7 @@ window.addEventListener('load', function() {
             if(usuario == "usuario"){
                 if(contrasena == "123"){
                     document.cookie = "usuario="+usuario;
-                    window.location.href = "usuario.html";
+                    window.location.href = "usuario.php";
                 }else{
                     document.getElementById("divError").innerHTML = "La <b>contraseña</b> es incorrecta";
                     document.getElementById("divError").style.display = "block";
@@ -16,7 +16,7 @@ window.addEventListener('load', function() {
             if(usuario == "editor"){
                 if(contrasena == "1a2b"){
                     document.cookie = "usuario="+usuario;
-                    window.location.href = "editor.html";
+                    window.location.href = "editor.php";
                 }else{
                     document.getElementById("divError").innerHTML = "La <b>contraseña</b> es incorrecta";
                     document.getElementById("divError").style.display = "block";
@@ -25,7 +25,7 @@ window.addEventListener('load', function() {
             if(usuario == "admin"){
                 if(contrasena == "abc"){
                     document.cookie = "usuario="+usuario;
-                    window.location.href = "administrador.html";
+                    window.location.href = "administrador.php";
                 }else{
                     document.getElementById("divError").innerHTML = "La <b>contraseña</b> es incorrecta";
                     document.getElementById("divError").style.display = "block";

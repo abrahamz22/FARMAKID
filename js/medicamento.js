@@ -17,7 +17,7 @@ window.addEventListener('load', function() {
     function ocultarBotones(){
     let usuario = getCookie("usuario");
     if(usuario == "admin"){ 
-        document.getElementById("nombreUsuario").href = "administrador.html";
+        document.getElementById("nombreUsuario").href = "administrador.php";
             for(posicion in document.getElementsByClassName("boton")){
                 document.getElementsByClassName("boton")[posicion].style.display = "block";
             }

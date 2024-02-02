@@ -24,8 +24,8 @@ window.addEventListener('load', function() {
             let usuario = getCookie("usuario");
      
             if( usuario == ""){
-                document.getElementById("carrito").href = "loggin.html";
-                document.getElementsByClassName("navLink")[3].href = "loggin.html";
+                document.getElementById("carrito").href = "loggin.php";
+                document.getElementsByClassName("navLink")[3].href = "loggin.php";
             }
             if(usuario == "usuario"){
                 document.getElementById("nombreUsuario").innerHTML = usuario;
