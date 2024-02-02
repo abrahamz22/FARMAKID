@@ -138,7 +138,7 @@
                 <i class="fa-solid fa-user-lock login"></i>
             </div>
             <input type="text" name="usuario" id="usuario" placeholder="Tu usuario">
-            <input type="password" id="contrasena" name="contraseña" placeholder="Contraseña">
+            <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña">
             <div class="form">
                 <a href="#">Recordar contraseña</a>
                 <a href="#">¿Olvidaste tu contraseña?</a>
