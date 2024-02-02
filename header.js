@@ -29,16 +29,16 @@ window.addEventListener('load', function() {
             }
             if(usuario == "usuario"){
                 document.getElementById("nombreUsuario").innerHTML = usuario;
-                document.getElementById("nombreUsuario").href = "usuario.html";
+                document.getElementById("nombreUsuario").href = "usuario.php";
             }
             if(usuario == "editor"){
                 document.getElementById("nombreUsuario").innerHTML = usuario;
-                document.getElementById("nombreUsuario").href = "editor.html";
+                document.getElementById("nombreUsuario").href = "editor.php";
             }
     
             if(usuario == "admin"){
                 document.getElementById("nombreUsuario").innerHTML = usuario;
-                document.getElementById("nombreUsuario").href = "administrador.html";
+                document.getElementById("nombreUsuario").href = "administrador.php";
             }
         }
     

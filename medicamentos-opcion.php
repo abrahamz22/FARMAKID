@@ -23,11 +23,11 @@
             <div id="userInfo">
                 <div class="divNav">
                     <img src="multimedia/userIcon.png" alt="User">
-                    <a id="nombreUsuario" href="loggin.html">tu cuenta</a>
+                    <a id="nombreUsuario" href="loggin.php">tu cuenta</a>
                 </div>
                 <div class="divNav">
                     <img src="multimedia/shopping.png" alt="carrito">
-                    <a id="carrito" href="carrito.html">carrito</a>
+                    <a id="carrito" href="carrito.php">carrito</a>
                 </div>
             </div>
             <!--BUSCADOR-->
@@ -40,18 +40,18 @@
             </div>
             <!--/BUSCADOR-->
             <div class="linksNavegacion">
-                <a class="navLink" href="index.html">Inicio</a>
-                <a class="navLink" href="medicamentos.html">Medicamentos</a>
+                <a class="navLink" href="index.php">Inicio</a>
+                <a class="navLink" href="medicamentos.php">Medicamentos</a>
                 <ul class="nav2">
-                    <li><a  href="medicamentos-interaccion.html">⚪Interecciones entre medicamentos</a></li>
-                    <li><a  href="medicamentos-retirados.html">⚪Medicamentos retirados</a></li>
+                    <li><a  href="medicamentos-interaccion.php">⚪Interecciones entre medicamentos</a></li>
+                    <li><a  href="medicamentos-retirados.php">⚪Medicamentos retirados</a></li>
                 </ul>
-                <a class="navLink" href="proteinas.html">Proteínas</a>
+                <a class="navLink" href="proteinas.php">Proteínas</a>
                 <ul class="nav2">
-                    <li><a href="info-proteinas.html">⚪Información general sobre las proteínas</a></li>
+                    <li><a href="info-proteinas.php">⚪Información general sobre las proteínas</a></li>
                 </ul>
-                <a class="navLink" href="profesionales.html">Contacto</a>
-                <a class="navLink" href="quienesSomos.html">¿Quiénes somos?</a>
+                <a class="navLink" href="profesionales.php">Contacto</a>
+                <a class="navLink" href="quienesSomos.php">¿Quiénes somos?</a>
             </div>
         </nav>
         <!--/NAV-->
@@ -60,8 +60,8 @@
     <!--MENU DESPLEGABLE MEDICAMENTOS-->
     <div id="desplegableMedicamentos" class="removeId">
         <ul id="listaD">
-            <li><a href="medicamentos-interaccion.html">Interecciones entre medicamentos</a></li>
-            <li><a href="medicamentos-retirados.html">Medicamentos retirados</a></li>
+            <li><a href="medicamentos-interaccion.php">Interecciones entre medicamentos</a></li>
+            <li><a href="medicamentos-retirados.php">Medicamentos retirados</a></li>
         </ul>
     </div>
     <!--/MENU DESPLEGABLE MEDICAMENTOS-->
@@ -69,7 +69,7 @@
     <div id="desplegableProteinas" class="removeId">
         <ul id="listaD">
         
-            <li><a href="info-proteinas.html">Información general sobre las proteínas</a></li>
+            <li><a href="info-proteinas.php">Información general sobre las proteínas</a></li>
         </ul>
     </div>
     <!--/MENU DESPLEGABLE MEDICAMENTOS-->
@@ -100,7 +100,7 @@
         <div class="container-medica">
 
             <div class="med">
-                <a href="editar_medicamento.html">
+                <a href="editar_medicamento.php">
                     <img class="img-ej" src="multimedia/proteinas/Albumina.jpg">
                 </a>
                 <p>Dextrometorfano</p>
@@ -110,7 +110,7 @@
             </div>
 
             <div class="med">
-                <a href="editar_medicamento.html">
+                <a href="editar_medicamento.php">
                     <img class="img-ej" src="multimedia/proteinas/Albumina.jpg">
                 </a>                <p>Paracetamol</p>
                 <div class="superpos">
@@ -119,7 +119,7 @@
             </div>
 
             <div class="med">
-                <a href="editar_medicamento.html">
+                <a href="editar_medicamento.php">
                     <img class="img-ej" src="multimedia/proteinas/Albumina.jpg">
                 </a>                <p>Ibuprofeno</p>
                 <div class="superpos">
@@ -128,7 +128,7 @@
             </div>
 
             <div class="med">
-                <a href="editar_medicamento.html">
+                <a href="editar_medicamento.php">
                     <img class="img-ej" src="multimedia/proteinas/Albumina.jpg">
                 </a>             
                 <p>Amoxicilina</p>
@@ -140,7 +140,7 @@
 
 
             <div class="med">
-                <a href="editar_medicamento.html">
+                <a href="editar_medicamento.php">
                     <img class="img-ej" src="multimedia/proteinas/Albumina.jpg">
                 </a>                <p>Ranitidina</p>
                 <div class="superpos">
@@ -149,7 +149,7 @@
             </div>
 
             <div class="med">
-                <a href="editar_medicamento.html">
+                <a href="editar_medicamento.php">
                     <img class="img-ej" src="multimedia/proteinas/Albumina.jpg">
                 </a> 
                 <p>Cetirizina</p>
@@ -159,7 +159,7 @@
             </div>
 
             <div class="med">
-                <a href="editar_medicamento.html">
+                <a href="editar_medicamento.php">
                     <img class="img-ej" src="multimedia/proteinas/Albumina.jpg">
                 </a>
                 <p>Salbutamol</p>
@@ -170,7 +170,7 @@
             </div>
 
             <div class="med">
-                <a href="editar_medicamento.html">
+                <a href="editar_medicamento.php">
                     <img class="img-ej" src="multimedia/proteinas/Albumina.jpg">
                 </a>
                 <p>Vitamina D</p>
@@ -189,17 +189,17 @@
         <div id="footer1">
             <div id="ayuda">
                 <h4>Ayuda</h4>
-                <a href="preguntasFrecuentes.html">Preguntas Frecuentes</a>
-                <a href="tengoUnProblema.html">Tengo un problema</a>
+                <a href="preguntasFrecuentes.php">Preguntas Frecuentes</a>
+                <a href="tengoUnProblema.php">Tengo un problema</a>
             </div>
             <div id="conocenos">
                 <h4>Conónocenos</h4>
-                <a href="publicidad.html">Publicidad</a>
-                <a href="aviso_legal.html">Aviso legal</a>
-                <a href="proteccion_datos.html">Protección de datos</a>
-                <a href="politica-cookies.html">Políticad de cookies</a>
-                <a href="condiciones-generales.html">Condiciones generales</a>
-                <a href="aviso-confidencialidad.html">Aviso de confidencialidad</a>
+                <a href="publicidad.php">Publicidad</a>
+                <a href="aviso_legal.php">Aviso legal</a>
+                <a href="proteccion_datos.php">Protección de datos</a>
+                <a href="politica-cookies.php">Políticad de cookies</a>
+                <a href="condiciones-generales.php">Condiciones generales</a>
+                <a href="aviso-confidencialidad.php">Aviso de confidencialidad</a>
             </div>
         </div>
         <div id="footer2">
