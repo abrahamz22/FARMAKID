@@ -1,57 +1,5 @@
 <?php
-// session_start();
-// if(!empty($_SESSION['activo'])){
-//     header("location: index.php");
-// }else{
-
-
-// if(!empty($_POST)){
-//     if(empty($_POST["usuario"]) || empty($_POST["contraseña"]) ) {
-//         echo "INGRESA TU USUARIO Y CONTRASEÑA";
-//     }else{
-//         include_once('connexionBaseDeDatos.php');
-//         $user = mysqli_real_escape_string($conexion, $_POST["usuario"]);
-//         $pass = mysqli_real_escape_string($conexion, $_POST["contraseña"]);
-
-//         // $pass = md5(mysqli_real_escape_string($conexion, $_POST["password"]));
-
-//         $query = mysqli_query($conexion, "SELECT * FROM usuario WHERE usuario = '$user' AND Password = '$pass' ");
-//         $resultado = mysqli_num_rows($query);
-
-//         if($resultado > 0){
-//             $row = mysqli_fetch_assoc($query);
-//             session_start();
-//             $_SESSION['activo'] = true;
-//             $_SESSION['idUsuario'] = $row['IdUsuario'];
-//             $_SESSION['nombre'] = $row['nombre']; 
-//             // $_SESSION['tipo'] = $row['Tipo']; 
-
-
-//             header("location: index.php");
-
-
-//         }else{
-//             echo "EL USUARIO Y LA CONTRASEÑA SON INCORRECTOS";
-//             session_destroy();
-//         }
-//     }
-// }
-// }
-
-
-// include("bbdd/connexionBaseDeDatos.php");
-// session_start();
-// $usuarioLocal = $_POST["usuario"];
-// // $contraseñaLocal = $_POST["contraseña"];
-// $consultaUsuario = "SELECT * FROM `usuario` WHERE usuario LIKE \"$usuarioLocal\"";
-// $resultado = mysqli_query($conexion, $consultaUsuario);
-// if(mysqli_num_rows($resultado) > 0){
-//     $row = mysqli_fetch_assoc($resultado);
-//     echo  "Bienvenido " . $row['usuario'];
-// }else{
-//     echo  "El usuario solicitado no existe";
-// }
-// echo "</br> Consulta utilizada para la busqueda = " . $consultaUsuario;
+    session_start();
 ?>
 
 
@@ -67,7 +15,6 @@
     <link rel="stylesheet" type="text/css" href="css/footer.css" >
     <script src="https://kit.fontawesome.com/b0bcda9532.js" crossorigin="anonymous"></script>
     <script src="header.js"></script>
-    <script src="js/login.js"></script>
     <script src="js/login.js"></script>
 </head>
 <body>
@@ -93,7 +40,11 @@
     </div>
     <!--/MENU DESPLEGABLE MEDICAMENTOS-->
     <!--LOGINNNN-->
-    <p id="divError"></p>
+    <?php if(isset($_SESSION["mensajeError"]))://si el mensaje de error existe?>
+            <p id="divError"><?php echo $_SESSION["mensajeError"]//imprimimos?></p>
+            <?php unset($_SESSION['mensajeError']);//borramos variable por si el usuario reinicia la página, así no volverá a aparecer el mensaje de error?>
+    <?php endif;?>
+
     <div id="contenedor">
         <form id="formulario" action="bbdd/conexionUser.php" method="post">
             <div class="container_login">
@@ -109,11 +60,9 @@
             <div class="register">
                 <a  href="registrate.php">¿No tienes cuenta? Registrate</a>
             </div>
-   
-            <input type="button" value="LOGIN" id="buttonLogin">
-            <input type="submit" value="Entrar">
-
+            <input type="submit" value="LOGIN" id="buttonLogin">
         </form>
+
     </div>
 
     <!--/LOGINNNN-->

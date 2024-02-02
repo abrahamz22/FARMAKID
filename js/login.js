@@ -1,4 +1,4 @@
-window.addEventListener('load', function() {
+/*window.addEventListener('load', function() {
     document.getElementById("buttonLogin").addEventListener("click", function logearse(event) {
         let usuario = document.getElementById("usuario").value;
         let contrasena = document.getElementById("contrasena").value;
@@ -53,4 +53,5 @@ window.addEventListener('load', function() {
     }
 
     console.log("Cookies borradas");
-}
+}*/
+

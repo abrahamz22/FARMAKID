@@ -7,5 +7,5 @@ $conexion = mysqli_connect($host, $user, $password,$database);
 
 if (!$conexion) die("No ha podido realizarse la conexión".mysqli_connect_error());//si no la concexion no es posible, sale ujn mensaje de no se ha podido conectar
 else 
-    echo "<script>alert('base de datos conectada')</script>"
+    echo "<script>cosole.log('base de datos conectada')</script>"
 ?>

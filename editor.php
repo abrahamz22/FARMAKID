@@ -1,4 +1,6 @@
-
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +37,7 @@
     <!--/MENU DESPLEGABLE MEDICAMENTOS-->
     <!--DIV DE USUARIO-->
     <div  id="divUsuario">
-        <h1>Cuenta Editor</h1>
+        <h1><?php echo $_SESSION["usuario"]?> (Editor)</h1>
         <div id="contImg">
         <img src="multimedia/editorIcon.png" alt="Administrador">
         </div>

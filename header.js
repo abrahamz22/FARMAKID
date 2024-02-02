@@ -1,5 +1,5 @@
 window.addEventListener('load', function() {
-      let navLinks = document.getElementsByClassName("navLink");
+      /*let navLinks = document.getElementsByClassName("navLink");
       let inicio = navLinks[0];
       let medicamentos = navLinks[1];
       let proteinas = navLinks[2];
@@ -150,12 +150,11 @@ window.addEventListener('load', function() {
             }
       }
 
-      menu();
+      menu();*/
+
+
 
 });
-
-
-
 
       
 
