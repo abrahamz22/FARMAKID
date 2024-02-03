@@ -64,7 +64,7 @@ if($_SESSION['rol'] != 'administrador'){
 
         <!-- BOTON DE BUSCAR TABLA USUARIOS -->
         
-        <button><a href="administrador.php">Volver a opciones de administrador</a></button>
+        
  
     <!-- CONSULTA PARA GENERAR LA TABLA DINAMICA DESDE LA BASE DE DATOS -->
     <?php
@@ -106,6 +106,14 @@ if($_SESSION['rol'] != 'administrador'){
               <td>$email</td>
               <td>$contrasena</td>
               <td>$rol</td>
+
+              <td class='td-btn'>
+                        <div class='btn-mod-act'>    
+                            <input class='modificar' type='submit' value='MODIFICAR'/> 
+                            <input class='eliminar' type='submit' value='ELIMINAR'/>
+                    
+                        </div>  
+                    </td>
             </tr>
                 ";
       
@@ -118,6 +126,8 @@ if($_SESSION['rol'] != 'administrador'){
     }
     ?>
   </table>
+  <button><a href="administrador.php">Volver a opciones de administrador</a></button>
+
 </div>
     <!--FOOTER-->
     <?php require("footerHeader/footer.php")?>
