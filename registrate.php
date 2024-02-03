@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,23 +38,25 @@
     <!--/MENU DESPLEGABLE MEDICAMENTOS-->
     <!--CONTENEDOR REGISTRATEE-->
     <div class="container-registro">
-        
-        <form class="formulario-register">
-            
-                <div class="signup">
-                    <img class="registro" src="multimedia/loggin-register/registro2.jpg" alt="no funciona">
-                </div>
+        <?php if(isset($_SESSION["mensajeError"]))://si el mensaje de error existe?>
+            <p id="divError"><?php echo $_SESSION["mensajeError"]//imprimimos?></p>
+        <?php endif;?> 
+        <?php unset($_SESSION['mensajeError']);//borramos variable por si el usuario reinicia la página, así no volverá a aparecer el mensaje de error?>
+        <form class="formulario-register" action = "bbdd/registro.php" method="post">
+            <div class="signup">
+                <img class="registro" src="multimedia/loggin-register/registro2.jpg" alt="no funciona">
+            </div>
             <div class="container-reg">
-                <input type="text" name="nombre" placeholder="Nombre" required>
-                <input type="text" name="apellido" placeholder="Apellidos" required>
-                <input type="text" name="email" placeholder="Email">
-                <input type="tetx" name="usuario" placeholder="Usuario">
-                <input type="text" name="C.P" placeholder="Código postal">
-                <input type="id" id="identification" placeholder="DNI/NIE" required>
-                <input type="text" name="phone contact" placeholder="Otro teléfono de contacto" required>
-                <input type="password" name="contraseña" placeholder="Contraseña" required>
-                <input type="password" name="confirm" placeholder="Confirmar contraseña" required>
-                <button type="submit" name="registrarse" >Registrarse</button>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" >
+                    <input type="text" name="apellido" placeholder="Apellidos">
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="tetx" name="usuario" placeholder="Usuario">
+                    <input type="text" name="cp" placeholder="Código postal">
+                    <input type="id" name="dni" placeholder="DNI/NIE">
+                    <input type="text" name="telefono" placeholder="Otro teléfono de contacto">
+                    <input type="password" name="contrasena" placeholder="Contraseña">
+                    <input type="password" name="confirm" placeholder="Confirmar contraseña">
+                    <button type="submit" name="registrarse" >Registrarse</button>
             </div>
         </form>
     </div>

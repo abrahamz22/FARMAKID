@@ -42,8 +42,8 @@
     <!--LOGINNNN-->
     <?php if(isset($_SESSION["mensajeError"]))://si el mensaje de error existe?>
             <p id="divError"><?php echo $_SESSION["mensajeError"]//imprimimos?></p>
-            <?php unset($_SESSION['mensajeError']);//borramos variable por si el usuario reinicia la página, así no volverá a aparecer el mensaje de error?>
     <?php endif;?>
+    <?php unset($_SESSION['mensajeError']);//borramos variable por si el usuario reinicia la página, así no volverá a aparecer el mensaje de error?>
 
     <div id="contenedor">
         <form id="formulario" action="bbdd/conexionUser.php" method="post">
