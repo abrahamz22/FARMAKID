@@ -13,8 +13,11 @@
     $contrasenaComp = $_POST["confirm"];
     $_SESSION["mensajeError"] = "";
     $compFormularios = true;
+    $compColumnasBbdd = "SELECT * FROM usuario";
+    $resultado1 = mysqli_query($conexion,$compColumnasBbdd);
+    $numColumnas = mysqli_num_rows($resultado1) + 1;
+    $idUsuario = "#". $numColumnas;
     $rol = "usuario";
-    $idUsuario = "00011";
     $consultaUsuario = "INSERT INTO `usuario`(`codigoPostal`, `nombre`, `apellidos`, `email`, `usuario`, `telefono`, `contrasena`, `dni`, `idUsuario`, `rol`) VALUES ('".$cp."','".$nombre."','".$apellido."','".$email."','".$usuario."','".$telefono."','".$contrasena."','".$dni."','".$idUsuario."','".$rol."');";
 ?>
 
@@ -91,8 +94,8 @@
         $_SESSION["mensajeError"] .= "-Introduzca un número de teléfono</br>";
         $compFormularios = false;
     }
-    if(strlen($telefono) != 6 && !empty($telefono)){
-        $_SESSION["mensajeError"] .= "-El número de teléfono debe ser de 6 dígitos</br>";
+    if(strlen($telefono) != 9 && !empty($telefono)){
+        $_SESSION["mensajeError"] .= "-El número de teléfono debe ser de 9 dígitos</br>";
         $compFormularios = false;
     }
     //COMPROBACIONES CONTRASEÑA
@@ -116,8 +119,8 @@
    if($compFormularios){
         $_SESSION["ExitoRegistro"] = "INSERT INTO `usuario`(`codigoPostal`, `nombre`, `apellidos`, `email`, `usuario`, `telefono`, `contrasena`, `dni`, `idUsuario`, `rol`) VALUES ('".$cp."','".$nombre."','".$apellido."','".$email."','".$usuario."','".$telefono."','".$contrasena."','".$dni."','".$idUsuario."','".$rol."');";
         unset($_SESSION['mensajeError']);
-        $_SESSION["ExitoRegistro"] = "El resgitro fue realizado con exito.";
         mysqli_query($conexion, $consultaUsuario);
+        $_SESSION["ExitoRegistro"] = "El resgitro fue realizado con exito." . $idUsuario;
     }
 
 
