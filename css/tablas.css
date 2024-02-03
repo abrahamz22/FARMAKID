@@ -58,16 +58,22 @@ table {
 
   /*Tabla de medicamentos*/
 #divTabla {
-    margin: auto;
+    /* margin: auto; */
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 1200px;
     padding: 45px;
     text-align: center;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
 }
+
+#divTabla form{
+    margin-left: 0;
+    width: 40%;
+}
+
 #divTabla h1 {
     
 
@@ -97,7 +103,7 @@ table{
     border-collapse: collapse;
     padding: 10px;
 }
-#divTabla button{
+#divTabla > button{
     margin-top: 5%;
     background-color: #7FC6AF;
     border-radius: 2em;
@@ -108,6 +114,38 @@ table{
     border: none;
 
 }
+
+
+ .buscar-user{
+    color: white;
+    border: 2px solid black;
+    background-color: #439A97; /* Fondo blanco */
+    border: 2px solid green; 
+    margin-left:10px ;
+    padding:10px 20px;
+}
+.busqueda{
+     border:2px solid black;
+     width: 100%;
+}
+
+
+ .form-buscar-user{
+    border: 2px solid black;
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    justify-content: flex-start; /* Alinea el formulario a la izquierda */
+
+    
+}
+
+.inputs-buscar-user{
+    display: flex;
+    width: 100%;
+}
+
+
 #divTabla button a{
     color: #FFFFFF;
 }

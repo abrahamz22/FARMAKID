@@ -1,3 +1,6 @@
+<?php
+include_once("connexionBaseDeDatos.php");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,9 +18,15 @@
     <script src="js/admin.js"></script>
 </head>
 <body>
+
     <!--HEADER-->
-    <?php require("footerHeader/header.php")?>
+    <?php require("footerHeader/header.php");
+    if($_SESSION['rol'] != 'administrador'){
+        header('location: index.php');
+    }
+    ?>
     <!--/HEADER-->
+
 
     
     <!--MENU DESPLEGABLE MEDICAMENTOS-->
@@ -37,106 +46,94 @@
     </div>
     <!--/MENU DESPLEGABLE MEDICAMENTOS-->
     <!--/HEADER-->
+    
+
      <!--DIV DE TABLA-->
      <div id="divTabla">
+
         <h1>Tabla de usuarios</h1>
-        <table>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Email</th>
-                <th>Usuario</th>
-                <th>Código Postal</th>
-                <th>DNI</th>
-                <th>Otro teléfono de contacto</th>
-                <th>Contraseña</th>
-            </tr>
-            <tr>
-                <td>Julio</td>
-                <td>Martinez Vazquez</td>
-                <td>Martinez_Vazquez@hotmail.es</td>
-                <td>MartVez</td>
-                <td>08020</td>
-                <td>12345678B</td>
-                <td>6453789873</td>
-                <td>AellaLeGustaLaGasolina44</td>
-            </tr>
-            <tr>
-                <td>Julio</td>
-                <td>Martinez Vazquez</td>
-                <td>Martinez_Vazquez@hotmail.es</td>
-                <td>MartVez</td>
-                <td>08020</td>
-                <td>12345678B</td>
-                <td>6453789873</td>
-                <td>AellaLeGustaLaGasolina44</td>
-            </tr>
-            <tr>
-                <td>Julio</td>
-                <td>Martinez Vazquez</td>
-                <td>Martinez_Vazquez@hotmail.es</td>
-                <td>MartVez</td>
-                <td>08020</td>
-                <td>12345678B</td>
-                <td>6453789873</td>
-                <td>AellaLeGustaLaGasolina44</td>
-            </tr>
-            <tr>
-                <td>Julio</td>
-                <td>Martinez Vazquez</td>
-                <td>Martinez_Vazquez@hotmail.es</td>
-                <td>MartVez</td>
-                <td>08020</td>
-                <td>12345678B</td>
-                <td>6453789873</td>
-                <td>AellaLeGustaLaGasolina44</td>
-            </tr>
-            <tr>
-                <td>Julio</td>
-                <td>Martinez Vazquez</td>
-                <td>Martinez_Vazquez@hotmail.es</td>
-                <td>MartVez</td>
-                <td>08020</td>
-                <td>12345678B</td>
-                <td>6453789873</td>
-                <td>AellaLeGustaLaGasolina44</td>
-            </tr>
-            <tr>
-                <td>Julio</td>
-                <td>Martinez Vazquez</td>
-                <td>Martinez_Vazquez@hotmail.es</td>
-                <td>MartVez</td>
-                <td>08020</td>
-                <td>12345678B</td>
-                <td>6453789873</td>
-                <td>AellaLeGustaLaGasolina44</td>
-            </tr>
-            <tr>
-                <td>Julio</td>
-                <td>Martinez Vazquez</td>
-                <td>Martinez_Vazquez@hotmail.es</td>
-                <td>MartVez</td>
-                <td>08020</td>
-                <td>12345678B</td>
-                <td>6453789873</td>
-                <td>AellaLeGustaLaGasolina44</td>
-            </tr>
-            <tr>
-                <td>Julio</td>
-                <td>Martinez Vazquez</td>
-                <td>Martinez_Vazquez@hotmail.es</td>
-                <td>MartVez</td>
-                <td>08020</td>
-                <td>12345678B</td>
-                <td>6453789873</td>
-                <td>AellaLeGustaLaGasolina44</td>
-            </tr>
-        </table>
+        <!-- BOTON DE BUSCAR TABLA USUARIOS -->
+            <form action="buscar-user.php" class="form-buscar-user" method="get" name="formu">
+                <div class="inputs-buscar-user"> 
+                    <input class="busqueda" type="text" placeholder="Buscar"/>
+                    <input class="buscar-user" type="submit" value="buscar"/>
+                </div>
+            </form>
+
+        <!-- BOTON DE BUSCAR TABLA USUARIOS -->
+        
         <button><a href="administrador.php">Volver a opciones de administrador</a></button>
     </div>
     <!--/DIV DE TABLA-->
+
+    <!-- CONSULTA PARA GENERAR LA TABLA DINAMICA DESDE LA BASE DE DATOS -->
+    <?php
+    $sql = mysqli_query($conexion, "SELECT * FROM  usuario ORDER BY usuario");
+
+    $resultado = mysqli_num_rows($sql);
+
+    if($resultado > 0){
+        echo "
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>DNI</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Usuario</th>
+                <th>Contraseña</th>
+            </tr>
+        </table>
+        ";
+
+        while ($row = mysqli_fetch_assoc($sql)) {
+            $nombre = $row["nombre"];
+            $apellido = $row['apellidos'];
+            $dni = $row["DNI"];
+            $telefono = $row["telefono"];
+            $email = $row["email"];
+            $contrasena = $row["contrasena"];
+            $rol = $row["rol"];
+      
+      
+            
+            echo"
+            <tr>
+              <td>$nombre</td>
+              <td>$apellido</td>
+              <td>$dni</td>
+              <td>$telefono</td>
+              <td>$email</td>
+              <td>$contrasena</td>
+              <td>$rol</td>
+
+            </tr>
+                ";
+              
+      
+      
+            }
+    }
+
+    else 
+    {
+      echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
+    }
+    ?>
+
     <!--FOOTER-->
     <?php require("footerHeader/footer.php")?>
     <!--/FOOTER-->
+    <?php
+
+
+  
+
+
+
+mysqli_close($conexion); //cierra la BBDD
+
+?>
 </body>
 </html>
