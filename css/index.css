@@ -499,6 +499,12 @@
    
 /* ---------------PAGINA LOGIN----------------- */
 
+#registro{
+    width: 100%;
+}
+#registro form{
+    margin: auto;
+}
 #contenedor{
     display: flex;
     min-height: 100vh;
@@ -596,6 +602,15 @@
     color: red;
     border:2px solid red;
 }
+#ExitoRegistro{
+    margin: auto;
+    width: 25%;
+    margin-top: 4%;
+    text-align: center;
+    color: green;
+    border:2px solid green;
+}
+
 
    /*/------------LOGINNN------------------*/
 
