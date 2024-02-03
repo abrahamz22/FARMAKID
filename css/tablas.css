@@ -58,15 +58,13 @@ table {
 
   /*Tabla de medicamentos*/
 #divTabla {
-    /* margin: auto; */
+    margin: auto;
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 1200px;
     padding: 45px;
     text-align: center;
-    /* justify-content: center; */
-    /* align-items: center; */
 }
 
 #divTabla form{
@@ -195,13 +193,11 @@ table{
   @media screen and (max-width:1009px){
      /*SECION DE MEDICAMENTOS Y USUARIOS*/
 
-     #divTabla{
-        width: 80%;
-        padding: 10px;
-    }
+    
     #divTabla {
-        width: 80%; 
-        padding: 20px; 
+    max-width: 1600px;
+    padding: 10px;
+    margin: 0 auto;
     }
 
     #divTabla h1 {

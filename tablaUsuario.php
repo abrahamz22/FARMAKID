@@ -1,5 +1,11 @@
 <?php
-include_once("connexionBaseDeDatos.php");
+include_once("bbdd/connexionBaseDeDatos.php");
+
+session_start();
+
+if($_SESSION['rol'] != 'administrador'){
+    header('location: index.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,11 +26,7 @@ include_once("connexionBaseDeDatos.php");
 <body>
 
     <!--HEADER-->
-    <?php require("footerHeader/header.php");
-    if($_SESSION['rol'] != 'administrador'){
-        header('location: index.php');
-    }
-    ?>
+    <?php require("footerHeader/header.php")?>
     <!--/HEADER-->
 
 
@@ -63,12 +65,10 @@ include_once("connexionBaseDeDatos.php");
         <!-- BOTON DE BUSCAR TABLA USUARIOS -->
         
         <button><a href="administrador.php">Volver a opciones de administrador</a></button>
-    </div>
-    <!--/DIV DE TABLA-->
-
+ 
     <!-- CONSULTA PARA GENERAR LA TABLA DINAMICA DESDE LA BASE DE DATOS -->
     <?php
-    $sql = mysqli_query($conexion, "SELECT * FROM  usuario ORDER BY usuario");
+    $sql = mysqli_query($conexion, "SELECT * FROM usuario ORDER BY usuario");
 
     $resultado = mysqli_num_rows($sql);
 
@@ -84,13 +84,12 @@ include_once("connexionBaseDeDatos.php");
                 <th>Usuario</th>
                 <th>Contraseña</th>
             </tr>
-        </table>
         ";
 
         while ($row = mysqli_fetch_assoc($sql)) {
             $nombre = $row["nombre"];
             $apellido = $row['apellidos'];
-            $dni = $row["DNI"];
+            $dni = $row["dni"];
             $telefono = $row["telefono"];
             $email = $row["email"];
             $contrasena = $row["contrasena"];
@@ -107,11 +106,8 @@ include_once("connexionBaseDeDatos.php");
               <td>$email</td>
               <td>$contrasena</td>
               <td>$rol</td>
-
             </tr>
                 ";
-              
-      
       
             }
     }
@@ -121,7 +117,8 @@ include_once("connexionBaseDeDatos.php");
       echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
     }
     ?>
-
+  </table>
+</div>
     <!--FOOTER-->
     <?php require("footerHeader/footer.php")?>
     <!--/FOOTER-->

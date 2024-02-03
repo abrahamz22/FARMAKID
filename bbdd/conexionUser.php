@@ -9,6 +9,7 @@
         $row = mysqli_fetch_assoc($resultado);//asociamos esa columna a una variable
         if($contrasena == $row["contrasena"]){//si la contraseña es correcta
             $_SESSION["usuario"] = $row['usuario'];//creamos variable usuario de sesion con el usario encontrado
+            $_SESSION["rol"] = $row['rol'];//creo la variable rol  y le asigno el valor de la columna que tiene los roles en la BD
             if($row["rol"] == "administrador"){//si se trata de un administrador
                 header("location: ../administrador.php");//redirigimos a administrador
             }else if($row["rol"] == "editor"){//si se trata de un editor
