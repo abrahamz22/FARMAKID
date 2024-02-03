@@ -83,6 +83,7 @@ if($_SESSION['rol'] != 'administrador'){
                 <th>Email</th>
                 <th>Usuario</th>
                 <th>Contraseña</th>
+                <th>ACCIONS</th>
             </tr>
         ";
 
