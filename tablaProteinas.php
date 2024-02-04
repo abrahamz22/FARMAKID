@@ -56,7 +56,7 @@ if($_SESSION['rol'] != 'administrador'){//compruebo si el usuario rol  es admini
         <form action="buscar-user.php" class="form-buscar-user" method="get" name="formu">
                 <div class="inputs-buscar-user"> 
                     <input class="busqueda" type="text" placeholder="Buscar"/>
-                    <input class="buscar-user" type="submit" value="buscar"/>
+                    <input class="buscar-user-prot" type="submit" value="buscar"/>
                 </div>
             </form>
         
@@ -71,15 +71,15 @@ if($_SESSION['rol'] != 'administrador'){//compruebo si el usuario rol  es admini
             echo "
                 <table>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Id</th>
-                        <th>Metodo</th>
-                        <th>Resolucion</th>
-                        <th>Especie</th>
-                        <th>Nombre fichero</th>
-                        <th>Tipos de fichero</th>
-                        <th>Fecha</th>
-                    
+                        <th>NOMBRE</th>
+                        <th>ID</th>
+                        <th>METODO</th>
+                        <th>RESOLUCION</th>
+                        <th>ESPECIE</th>
+                        <th>NOMBRE DE FICHERO</th>
+                        <th>TIPOS DE FICHERO</th>
+                        <th>FECHA</th>
+                        <th>ACCIONES</th>
                     </tr>
                 
                 
@@ -110,10 +110,8 @@ if($_SESSION['rol'] != 'administrador'){//compruebo si el usuario rol  es admini
                     <td>$fecha</td>
                     
                     <td class='td-btn'>
-                        <div class='btn-mod-act'>    
-                            <input class='modificar' type='submit' value='MODIFICAR'/> 
-                            <input class='eliminar' type='submit' value='ELIMINAR'/>
-                        </div>  
+                        <input class='modificar-prot' style='background:#1f469d;' type='submit' value='MODIFICAR'/> 
+                        <input class='eliminar-prot' type='submit' value='ELIMINAR'/>
                     </td>
                     
                 </tr>

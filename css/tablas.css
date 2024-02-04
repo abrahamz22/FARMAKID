@@ -1,15 +1,37 @@
 /*Tabla de proteinas----cambiarla a la nueva version de ernest*/
 #divTablaProteina {
-    margin: auto;
+    /*margin: auto; */
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     padding: 45px;
     text-align: center;
-    justify-content: center;
-    align-items: center;
 }
+
+#divTablaProteina form {
+    margin-left: 0;
+    width: 40%;
+    margin-bottom: 5%;
+}
+
+
+.form-buscar-user {
+    border: 2px solid black;
+    padding: 10px;
+}
+
+#divTablaProteina table th {
+    background-color: #0e1119;
+    color: #fff;
+    padding: 10px;
+}
+
+#divTablaProteina > table tr:nth-child(odd) {
+    background-color: #81bee5;
+}
+
+
 #divTablaProteina  h1 {
     text-align: center;
     color: #FFFFFF;
@@ -32,13 +54,28 @@ table {
 }
 
 
-#divTablaProteina table, #divTablaProteina table td , #divTablaProteina table th{
-    border: 2px solid #79B4E3;
-    background-color:#b8d0e3 ;
-    color: #FFFFFF;
-    border-collapse: collapse;
-    padding: 10px;
+ #divTablaProteina table td {
+    color: #000;
+    border-spacing: 4px;
+    border-collapse: separate;
+    padding: 5px;
+    text-align: center;
+    font-size: calc(8px + 0.5vw);
 }
+
+#divTablaProteina .td-btn {
+    width: 100%;
+    background-color: #F1F1F1;
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+
+
+
+
 #divTablaProteina button{
     margin-top: 5%;
     background-color: #b8d0e3;
@@ -57,7 +94,8 @@ table {
   /*/Tabla de proteinas*/
 
   
-  /*Tabla de medicamentos*/
+/*----------------Tabla de medicamentos---------------*/
+
 #divTabla {
     /* margin: auto; */
     display: flex;
@@ -66,6 +104,7 @@ table {
     /* max-width: 1200px; */
     padding: 45px;
     text-align: center;
+
 }
 
 #divTabla form{
@@ -99,12 +138,14 @@ table{
 
 }
 
-#divTabla table, #divTabla table td , #divTabla table th{
+#divTabla table td {
     color: #000;
     border-spacing: 4px;
     border-collapse: separate;
-    padding: 5px 0;
+    padding: 5px;
     text-align: center;
+    font-size: calc(8px + 0.5vw);
+
 }
 
 
@@ -132,7 +173,7 @@ table tr:nth-child(odd){
 
 }
 
-
+.buscar-user-prot,/*le cambie la clase al boton de buscar de la proteina para que tenga otro color de fondo*/
  .buscar-user{
     color: white;
     border: 2px solid black;
@@ -141,6 +182,11 @@ table tr:nth-child(odd){
     margin-left:10px ;
     padding:10px 20px;
 }
+.buscar-user-prot{
+    background-color: #0e1119; /* Fondo blanco */
+
+}
+
 .busqueda{
      border:2px solid black;
      width: 100%;
@@ -150,9 +196,7 @@ table tr:nth-child(odd){
  .form-buscar-user{
     border: 2px solid black;
     display: flex;
-    margin: 10px;
     padding: 10px;
-    justify-content: flex-start; /* Alinea el formulario a la izquierda */
 
     
 }
@@ -170,7 +214,13 @@ table tr:nth-child(odd){
 /* PARA LOS BOTONES DE MODIFICAR Y ACTUALIZAR DE LAS TABLAS CUANDO EL USER SE LOGEA COMO ADMINISTRADOR */
 
 #divTabla .td-btn{
-background: white;
+    width: 100%;
+    background-color: #F1F1F1;
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
 }
 
 .btn-mod-act
@@ -182,23 +232,74 @@ background: white;
 }
 
 
-.btn-mod-act > input{
-    color: white;
-    border: 2px solid black;
-    background-color: #439A97;
-    padding: 10px 20px;
-    /* border: none; */
-    margin: 3px;
-    width: 100%;
-}
 
-.btn-mod-act > .modificar{
+
+.modificar{ /*para tabla => boton de usuario*/
     background-color: #35a631;
+    color: white;
+    padding: 10px;
+    height: 100%;
+    margin-right: 2px;
+    width: 100%;
+    border: none;
+
 }
 
-.btn-mod-act > .eliminar{
+.eliminar{/*para tabla => boton de usuario*/
+    width: 100%;
+    height: 100%;
     background-color: #ae3636;
+    color: white;
+    padding: 10px;
+    border: none;
 }
+
+
+.modificar-med{ /*para tabla => boton de usuario*/
+    background-color: #35a631;
+    color: white;
+    padding: 26px;
+    height: 100%;
+    margin-right: 2px;
+    width: 100%;
+    border: none;
+
+}
+
+.eliminar-med{/*para tabla => boton de usuario*/
+    width: 100%;
+    height: 100%;
+    background-color: #ae3636;
+    color: white;
+    padding: 26px;
+    border: none;
+}
+
+
+.modificar-prot{ /*para tabla => boton de usuario*/
+    background-color: #1f469d;
+    color: white;
+    padding: 13px;
+    height: 100%;
+    margin-right: 2px;
+    width: 100%;
+    border: none;
+
+}
+
+.eliminar-prot{/*para tabla => boton de usuario*/
+    width: 100%;
+    height: 100%;
+    background-color: #ae3636;
+    color: white;
+    padding: 13px;
+    border: none;
+}
+
+
+#divTabla table td:last-child{
+    background-color: #fff;
+    }
 /*AQUI TERMINA  LOS BOTONES DE MODIFICAR Y ACTUALIZAR DE LAS TABLAS CUANDO EL USER SE LOGEA COMO ADMINISTRADOR */
 
 
@@ -260,7 +361,6 @@ background: white;
     #divTabla table th {
         max-width: 100%;
         box-sizing: border-box; 
-        font-size: 80%; 
     }
 
     #divTabla table th,

@@ -69,16 +69,16 @@ if($_SESSION['rol'] != 'administrador'){//compruebo si el usuario rol  es admini
             echo "
                 <table>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Id</th>
-                        <th>Inchi</th>
-                        <th>Smiles</th>
-                        <th>Estado Medicamento</th>
-                        <th>Nombre fichero</th>
-                        <th>Tipos de fichero</th>
-                        <th>Fecha</th>
-                        <th>Precio</th>
-                    
+                        <th>NOMBRE</th>
+                        <th>ID</th>
+                        <th>INCHI</th>
+                        <th>SMILES</th>
+                        <th>ESTADO</th>
+                        <th>NOMBRE FICHERO</th>
+                        <th>TTIPO FICHERO</th>
+                        <th>FECHA</th>
+                        <th>PRECIO</th>
+                        <th>ACCIONES</th>
                     </tr>
                 
                 
@@ -111,10 +111,8 @@ if($_SESSION['rol'] != 'administrador'){//compruebo si el usuario rol  es admini
                     <td>$precio</td>
                     
                     <td class='td-btn'>
-                        <div class='btn-mod-act'>    
-                            <input class='modificar' type='submit' value='MODIFICAR'/> 
-                            <input class='eliminar' type='submit' value='ELIMINAR'/>
-                        </div>  
+                            <input class='modificar-med' type='submit' value='MODIFICAR'/> 
+                            <input class='eliminar-med' type='submit' value='ELIMINAR'/>
                     </td>
                     
                 </tr>

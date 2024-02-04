@@ -76,14 +76,14 @@ if($_SESSION['rol'] != 'administrador'){
         echo "
         <table>
             <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
                 <th>DNI</th>
-                <th>Telefono</th>
-                <th>Email</th>
-                <th>Usuario</th>
-                <th>Contraseña</th>
-                <th>ACCIONS</th>
+                <th>TELEFONO</th>
+                <th>EMAIL</th>
+                <th>USUARIO</th>
+                <th>CONTRASEÑA</th>
+                <th>ACCIONES</th>
             </tr>
         ";
 
@@ -109,11 +109,9 @@ if($_SESSION['rol'] != 'administrador'){
               <td>$rol</td>
 
               <td class='td-btn'>
-                        <div class='btn-mod-act'>    
                             <input class='modificar' type='submit' value='MODIFICAR'/> 
                             <input class='eliminar' type='submit' value='ELIMINAR'/>
                     
-                        </div>  
                     </td>
             </tr>
                 ";
