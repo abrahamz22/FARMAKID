@@ -2,12 +2,15 @@
     include("connexionBaseDeDatos.php");
     session_start();
     unset($_SESSION['mensajeError']);
-    $nombre = $_POST["nombre"];
-    $apellido = $_POST["apellido"];
+    $nombre = ucwords($_POST["nombre"]);
+    $apellido = ucwords($_POST["apellido"]);
     $email = $_POST["email"];
-    $usuario = $_POST["usuario"];
+    $usuario = strtolower($_POST["usuario"]);
     $cp= $_POST["cp"];
     $dni = $_POST["dni"];
+    $ultimoCaracter = substr($dni, -1);  // Obtener el último carácter
+    $restoCadena = substr($dni, 0, -1);   // Obtener todos los caracteres excepto el último
+    $dni = $restoCadena . strtolower($ultimoCaracter);  // Concatenar el último carácter en minúsculas
     $telefono = $_POST["telefono"];
     $contrasena = $_POST["contrasena"];
     $contrasenaComp = $_POST["confirm"];
@@ -19,6 +22,8 @@
     $idUsuario = "#". $numColumnas;
     $rol = "usuario";
     $consultaUsuario = "INSERT INTO `usuario`(`codigoPostal`, `nombre`, `apellidos`, `email`, `usuario`, `telefono`, `contrasena`, `dni`, `idUsuario`, `rol`) VALUES ('".$cp."','".$nombre."','".$apellido."','".$email."','".$usuario."','".$telefono."','".$contrasena."','".$dni."','".$idUsuario."','".$rol."');";
+    $consultaCompNom = "SELECT usuario FROM usuario WHERE usuario LIKE '".$usuario."';";
+    $resultado2 = mysqli_query($conexion,$consultaCompNom);
 ?>
 
 <?php 
@@ -31,8 +36,8 @@
         $_SESSION["mensajeError"] .= "-El campo nombre no puede superar los 50 caracteres</br>";
         $compFormularios = false;
     }
-    if(!ctype_alpha($nombre) && !empty($nombre)){
-        $_SESSION["mensajeError"] .= "-El campo nombre no puede contener caracteres numéricos</br>";
+    if(!preg_match("/^[A-Za-z ]+$/", $apellido)  && !empty($nombre)){
+        $_SESSION["mensajeError"] .= "-El campo nombre no puede contener caracteres numéricos o especiales</br>";
         $compFormularios = false;
     }
     //COMPROBACIONES APELLIDOS
@@ -44,8 +49,8 @@
         $_SESSION["mensajeError"] .= "-El campo apellidos no puede superar los 100 caracteres</br>";
         $compFormularios = false;
     }
-    if(!ctype_alpha($apellido) && !empty($apellido)){
-        $_SESSION["mensajeError"] .= "-El campo apellidos no puede contener caracteres numéricos</br>";
+    if(!preg_match("/^[A-Za-z ]+$/", $apellido) && !empty($apellido)){
+        $_SESSION["mensajeError"] .= "-El campo apellidos no puede contener caracteres numéricos o especiales</br>";
         $compFormularios = false;
 
     }
@@ -71,6 +76,10 @@
         $_SESSION["mensajeError"] .= "-El campo usuario no puede contener espacios o caracteres especiales</br>";
         $compFormularios = false;
     } 
+    if(mysqli_num_rows($resultado2) > 0){
+        $_SESSION["mensajeError"] .= "-Ya existe un usuario con el mismo nick</br>";
+        $compFormularios = false;
+    }
     //COMPROBACIONES CP
     if(empty($cp)){
         $_SESSION["mensajeError"] .= "-Introduzca su código postal</br>";
@@ -120,7 +129,7 @@
         $_SESSION["ExitoRegistro"] = "INSERT INTO `usuario`(`codigoPostal`, `nombre`, `apellidos`, `email`, `usuario`, `telefono`, `contrasena`, `dni`, `idUsuario`, `rol`) VALUES ('".$cp."','".$nombre."','".$apellido."','".$email."','".$usuario."','".$telefono."','".$contrasena."','".$dni."','".$idUsuario."','".$rol."');";
         unset($_SESSION['mensajeError']);
         mysqli_query($conexion, $consultaUsuario);
-        $_SESSION["ExitoRegistro"] = "El resgitro fue realizado con exito." . $idUsuario;
+        $_SESSION["ExitoRegistro"] = "El resgitro fue realizado con exito.";
     }
 
 
