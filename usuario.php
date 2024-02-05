@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +40,7 @@
         <img src="multimedia/userIcon1.png" alt="Administrador">
         </div>
         <div>
-            <button class="botonUsuario"><a href="loggin.php">Salir de Tu cuenta</a></button>
+            <button class="botonUsuario"><a href="bbdd/desconexion.php">Salir de Tu cuenta</a></button>
         </div>
     </div>
     <!--/DIV DE USUARIO-->

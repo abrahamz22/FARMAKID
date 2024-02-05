@@ -113,7 +113,7 @@
         $compFormularios = false;
     }
     if (strpos($contrasena, ' ') !== false) {
-        echo "La contraseña no puede contener espacios.";
+        $_SESSION["mensajeError"] .= "La contraseña no puede contener espacios.";
         $compFormularios = false;
     }
     if(strlen($contrasena) > 50 && !empty($contrasena)){

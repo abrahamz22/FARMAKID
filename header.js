@@ -1,26 +1,11 @@
 window.addEventListener('load', function() {
-      /*let navLinks = document.getElementsByClassName("navLink");
+      let navLinks = document.getElementsByClassName("navLink");
       let inicio = navLinks[0];
       let medicamentos = navLinks[1];
       let proteinas = navLinks[2];
       let profesionales = navLinks[3];
-
-      function getCookie(cname) {
-            let name = cname + "=";
-            let ca = document.cookie.split(';');
-            for(let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) == ' ') { //c.trim()
-            c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-            }
-            }
-            return "";
-            }
     
-        function obtenerUsuario(){
+      /*  function obtenerUsuario(){
             let usuario = getCookie("usuario");
      
             if( usuario == ""){
@@ -42,7 +27,7 @@ window.addEventListener('load', function() {
             }
         }
     
-        obtenerUsuario();
+        obtenerUsuario();*/
       
 
       //funcion para ocultar y mostrar menu desplegable de medicamentos
@@ -150,7 +135,7 @@ window.addEventListener('load', function() {
             }
       }
 
-      menu();*/
+      menu();
 
 
 

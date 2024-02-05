@@ -1,6 +1,4 @@
-<?php
-    session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -35,7 +33,7 @@
             <button class="botonUsuario"><a href="tablaProteinas.php">Tabla proteínas</a></button>
         </div>
         <div>
-            <button class="botonUsuario"><a href="loggin.php">Salir de Tu cuenta</a></button>
+            <button class="botonUsuario"><a href="bbdd/desconexion.php">Salir de Tu cuenta</a></button>
         </div>
     </div>
     <!--/DIV DE USUARIO-->

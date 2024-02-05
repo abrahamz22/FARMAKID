@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!--HEADER-->
 <header id="header">
         <!--NAV-->
@@ -6,11 +10,19 @@
             <div id="userInfo">
                 <div class="divNav">
                     <img src="multimedia/userIcon.png" alt="User">
-                    <a  id="nombreUsuario" href="loggin.php">tu cuenta</a>
+                    <?php if(isset($_SESSION["usuario"])):?>
+                        <a id="nombreUsuario" href="<?php echo $_SESSION['rol'] . '.php';?>"><?php echo $_SESSION['usuario'];?></a>
+                    <?php else:?>
+                        <a id="nombreUsuario" href="loggin.php">tu cuenta</a>
+                    <?php endif;?>
                 </div>
                 <div class="divNav">
                     <img src="multimedia/shopping.png" alt="carrito">
-                    <a id="carrito" href="carrito.php">carrito</a>
+                    <?php if(isset($_SESSION["usuario"])):?>
+                        <a id="carrito" href="carrito.php">carrito</a>
+                    <?php else:?>
+                        <a id="carrito" href="loggin.php">carrito</a>
+                    <?php endif;?>
                 </div>
             </div>
             <!--BUSCADOR-->
@@ -33,7 +45,11 @@
                 <ul class="nav2">
                     <li><a href="info-proteinas.php">⚪Información general sobre las proteínas</a></li>
                 </ul>
-                <a class="navLink" href="profesionales.php">Contacto</a>
+                <?php if(isset($_SESSION["usuario"])):?>
+                    <a class="navLink" href="profesionales.php">Contacto</a>
+                <?php else:?>
+                    <a class="navLink" href="loggin.php">Contacto</a>
+                <?php endif;?>
                 <a class="navLink" href="quienesSomos.php">¿Quiénes somos?</a>
             </div>
         </nav>
