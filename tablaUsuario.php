@@ -1,11 +1,9 @@
 <?php
 include_once("bbdd/connexionBaseDeDatos.php");
 
-session_start();
 
-if($_SESSION['rol'] != 'administrador'){
-    header('location: index.php');
-}
+
+
 ?>
 
 <!DOCTYPE html>

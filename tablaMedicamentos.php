@@ -1,11 +1,8 @@
 <?php
 include_once("bbdd/connexionBaseDeDatos.php");
 
-session_start();//para crear sesion
 
-if($_SESSION['rol'] != 'administrador'){//compruebo si el usuario rol  es administrador, en caso de no serlo se redirige a la pagina principal
-    header('location: index.php');
-}
+
 ?>
 
 
