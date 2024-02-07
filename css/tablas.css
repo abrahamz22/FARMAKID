@@ -409,3 +409,7 @@ table tr:nth-child(odd){
     }
 
     }
+
+    .modificar, .eliminar {
+        cursor: pointer;
+    }

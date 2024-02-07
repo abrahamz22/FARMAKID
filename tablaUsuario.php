@@ -68,7 +68,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
     
     <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
     <div style='display:flex'>
-        <a href="crear_usuario.php" class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp CREAR USUARIO</a>
+       <a href="crear_usuario.php" class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp CREAR USUARIO</a>
     </div>
     <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
 
@@ -89,12 +89,15 @@ if($resultado > 0){
     <table>
         <tr>
             <th>NOMBRE</th>
-            <th>APELLIDO</th>
+            <th>APELLIDOS</th>
             <th>DNI</th>
+            <th>CÓDIGO POSTAL</th>
             <th>TELEFONO</th>
             <th>EMAIL</th>
             <th>USUARIO</th>
+            <th>ROL</th>
             <th>CONTRASEÑA</th>
+            <th>ID USUARIO</th>
             <th>ACCIONES</th>
         </tr>
     ";
@@ -103,29 +106,34 @@ if($resultado > 0){
         $nombre = $row["nombre"];
         $apellido = $row['apellidos'];
         $dni = $row["dni"];
+        $cp = $row["codigoPostal"];
         $telefono = $row["telefono"];
         $email = $row["email"];
-        $contrasena = $row["contrasena"];
+        $usuario = $row["usuario"];
         $rol = $row["rol"];
+        $contrasena = $row["contrasena"];
+        $idUsuario = $row["idUsuario"];
 
 
         
         echo"
-        <tr>
+    <tr>
         <td>$nombre</td>
         <td>$apellido</td>
         <td>$dni</td>
+        <td>$cp</td>
         <td>$telefono</td>
         <td>$email</td>
-        <td>$contrasena</td>
+        <td>$usuario</td>
         <td>$rol</td>
+        <td>$contrasena</td>
+        <td>$idUsuario</td>
 
         <td class='td-btn'>
-                        <input class='modificar' type='submit' value='MODIFICAR'/> 
-                        <input class='eliminar' type='submit' value='ELIMINAR'/>
-                
-                </td>
-        </tr>
+                <button class='modificar'>MODIFICAR</button>
+                <button class='eliminar'>ELIMINAR</button>
+        </td>
+    </tr>
             ";
 
         }
@@ -146,7 +154,7 @@ echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
 <?php
 
 
-  
+
 
 
 
@@ -154,4 +162,5 @@ mysqli_close($conexion); //cierra la BBDD
 
 ?>
 </body>
+
 </html>
