@@ -23,113 +23,127 @@ include_once("bbdd/connexionBaseDeDatos.php");
 </head>
 <body>
 
-    <!--HEADER-->
-    <?php require("footerHeader/header.php")?>
-    <!--/HEADER-->
+<!--HEADER-->
+<?php require("footerHeader/header.php")?>
+<!--/HEADER-->
 
 
     
-    <!--MENU DESPLEGABLE MEDICAMENTOS-->
-    <div id="desplegableMedicamentos" class="removeId">
-        <ul id="listaD">
-            <li><a href="medicamentos-interaccion.php">Interecciones entre medicamentos</a></li>
-            <li><a href="medicamentos-retirados.php">Medicamentos retirados</a></li>
-        </ul>
+<!--MENU DESPLEGABLE MEDICAMENTOS-->
+<div id="desplegableMedicamentos" class="removeId">
+    <ul id="listaD">
+        <li><a href="medicamentos-interaccion.php">Interecciones entre medicamentos</a></li>
+        <li><a href="medicamentos-retirados.php">Medicamentos retirados</a></li>
+    </ul>
+</div>
+<!--/MENU DESPLEGABLE MEDICAMENTOS-->
+<!--MENU DESPLEGABLE MEDICAMENTOS-->
+<div id="desplegableProteinas" class="removeId">
+    <ul id="listaD">
+
+        <li><a href="info-proteinas.php">Información general sobre las proteínas</a></li>
+    </ul>
+</div>
+<!--/MENU DESPLEGABLE MEDICAMENTOS-->
+<!--/HEADER-->
+
+
+<!--DIV DE TABLA-->
+<div id="divTabla">
+
+    <h1>Tabla de usuarios</h1>
+
+    <div class="contenedor-botones">
+
+
+     <!-- BOTON DE BUSCAR TABLA USUARIOS -->
+     <form action="buscar-user.php" class="form-busqueda" method="get" name="formu">
+            <div style="display:flex"> 
+                <input class="input-busqueda" type="text" placeholder="Buscar"/>
+                <input class="btn-busqueda" type="submit" value="Buscar"/>
+            </div>
+        </form>
+
+    <!-- BOTON DE BUSCAR TABLA USUARIOS -->
+    
+    <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
+    <div style='display:flex'>
+        <a href="crear_usuario.php" class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp CREAR USUARIO</a>
     </div>
-    <!--/MENU DESPLEGABLE MEDICAMENTOS-->
-    <!--MENU DESPLEGABLE MEDICAMENTOS-->
-    <div id="desplegableProteinas" class="removeId">
-        <ul id="listaD">
+    <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
+
+
    
-            <li><a href="info-proteinas.php">Información general sobre las proteínas</a></li>
-        </ul>
     </div>
-    <!--/MENU DESPLEGABLE MEDICAMENTOS-->
-    <!--/HEADER-->
+
     
 
-     <!--DIV DE TABLA-->
-     <div id="divTabla">
+<!-- CONSULTA PARA GENERAR LA TABLA DINAMICA DESDE LA BASE DE DATOS -->
+<?php
+$sql = mysqli_query($conexion, "SELECT * FROM usuario ORDER BY usuario");
 
-        <h1>Tabla de usuarios</h1>
-        <!-- BOTON DE BUSCAR TABLA USUARIOS -->
-            <form action="buscar-user.php" class="form-buscar-user" method="get" name="formu">
-                <div class="inputs-buscar-user"> 
-                    <input class="busqueda" type="text" placeholder="Buscar"/>
-                    <input class="buscar-user" type="submit" value="buscar"/>
-                </div>
-            </form>
+$resultado = mysqli_num_rows($sql);
 
-        <!-- BOTON DE BUSCAR TABLA USUARIOS -->
+if($resultado > 0){
+    echo "
+    <table>
+        <tr>
+            <th>NOMBRE</th>
+            <th>APELLIDO</th>
+            <th>DNI</th>
+            <th>TELEFONO</th>
+            <th>EMAIL</th>
+            <th>USUARIO</th>
+            <th>CONTRASEÑA</th>
+            <th>ACCIONES</th>
+        </tr>
+    ";
+
+    while ($row = mysqli_fetch_assoc($sql)) {
+        $nombre = $row["nombre"];
+        $apellido = $row['apellidos'];
+        $dni = $row["dni"];
+        $telefono = $row["telefono"];
+        $email = $row["email"];
+        $contrasena = $row["contrasena"];
+        $rol = $row["rol"];
+
+
         
-        
- 
-    <!-- CONSULTA PARA GENERAR LA TABLA DINAMICA DESDE LA BASE DE DATOS -->
-    <?php
-    $sql = mysqli_query($conexion, "SELECT * FROM usuario ORDER BY usuario");
+        echo"
+        <tr>
+        <td>$nombre</td>
+        <td>$apellido</td>
+        <td>$dni</td>
+        <td>$telefono</td>
+        <td>$email</td>
+        <td>$contrasena</td>
+        <td>$rol</td>
 
-    $resultado = mysqli_num_rows($sql);
+        <td class='td-btn'>
+                        <input class='modificar' type='submit' value='MODIFICAR'/> 
+                        <input class='eliminar' type='submit' value='ELIMINAR'/>
+                
+                </td>
+        </tr>
+            ";
 
-    if($resultado > 0){
-        echo "
-        <table>
-            <tr>
-                <th>NOMBRE</th>
-                <th>APELLIDO</th>
-                <th>DNI</th>
-                <th>TELEFONO</th>
-                <th>EMAIL</th>
-                <th>USUARIO</th>
-                <th>CONTRASEÑA</th>
-                <th>ACCIONES</th>
-            </tr>
-        ";
+        }
+}
 
-        while ($row = mysqli_fetch_assoc($sql)) {
-            $nombre = $row["nombre"];
-            $apellido = $row['apellidos'];
-            $dni = $row["dni"];
-            $telefono = $row["telefono"];
-            $email = $row["email"];
-            $contrasena = $row["contrasena"];
-            $rol = $row["rol"];
-      
-      
-            
-            echo"
-            <tr>
-              <td>$nombre</td>
-              <td>$apellido</td>
-              <td>$dni</td>
-              <td>$telefono</td>
-              <td>$email</td>
-              <td>$contrasena</td>
-              <td>$rol</td>
-
-              <td class='td-btn'>
-                            <input class='modificar' type='submit' value='MODIFICAR'/> 
-                            <input class='eliminar' type='submit' value='ELIMINAR'/>
-                    
-                    </td>
-            </tr>
-                ";
-      
-            }
-    }
-
-    else 
-    {
-      echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
-    }
-    ?>
-  </table>
-  <button><a href="administrador.php">Volver a opciones de administrador</a></button>
+else 
+{
+echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
+}
+?>
+</table>
+<a href="administrador.php">Volver a opciones de administrador</a>
 
 </div>
-    <!--FOOTER-->
-    <?php require("footerHeader/footer.php")?>
-    <!--/FOOTER-->
-    <?php
+<!--FOOTER-->
+<?php require("footerHeader/footer.php")?>
+<!--/FOOTER-->
+<?php
 
 
   

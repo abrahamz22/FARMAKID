@@ -22,112 +22,121 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <script src="js/admin.js"></script>
 </head>
 <body>
-    <!--HEADER-->
-    <?php require("footerHeader/header.php")?>
-    <!--/HEADER-->
+<!--HEADER-->
+<?php require("footerHeader/header.php")?>
+<!--/HEADER-->
+
+
+<!--MENU DESPLEGABLE MEDICAMENTOS-->
+<div id="desplegableMedicamentos" class="removeId">
+    <ul id="listaD">
+        <li><a href="medicamentos-interaccion.php">Interecciones entre medicamentos</a></li>
+        <li><a href="medicamentos-retirados.php">Medicamentos retirados</a></li>
+    </ul>
+</div>
+<!--/MENU DESPLEGABLE MEDICAMENTOS-->
+<!--MENU DESPLEGABLE MEDICAMENTOS-->
+<div id="desplegableProteinas" class="removeId">
+    <ul id="listaD">
+        
+        <li><a href="info-proteinas.php">Información general sobre las proteínas</a></li>
+    </ul>
+</div>
+<!--/MENU DESPLEGABLE MEDICAMENTOS-->
+<!--/HEADER-->
+    <!--DIV DE TABLA-->
+    <div id="divTablaProteina">
+    <h1>Tabla de proteínas</h1>
+<div class="contenedor-botones">
+<!-- BOTON DE BUSCAR TABLA PROTEINAS -->
+<form action="buscar-proteina.php" class="form-busqueda" method="get" name="formu">
+            <div style='display:flex'> 
+                <input class="input-busqueda" type="text" placeholder="Buscar"/>
+                <input class="btn-busqueda-proteina" type="submit" value="Buscar"/>
+            </div>
+        </form>
+    
+    <!-- BOTON DE BUSCAR TABLA PROTEINAS -->
+
+
+    <div style='display:flex'>
+        <a href='crear_proteina.php' class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp AÑADIR USUARIO</a>
+    </div>
 
     
-    <!--MENU DESPLEGABLE MEDICAMENTOS-->
-    <div id="desplegableMedicamentos" class="removeId">
-        <ul id="listaD">
-            <li><a href="medicamentos-interaccion.php">Interecciones entre medicamentos</a></li>
-            <li><a href="medicamentos-retirados.php">Medicamentos retirados</a></li>
-        </ul>
     </div>
-    <!--/MENU DESPLEGABLE MEDICAMENTOS-->
-    <!--MENU DESPLEGABLE MEDICAMENTOS-->
-    <div id="desplegableProteinas" class="removeId">
-        <ul id="listaD">
+
+
+    <?php
+    //CONSULTA PARA PILLAR LOS DATOS DE LA TABLA MEDICAMENTO MEDIANTE EL NOMBRE
+    $sql= mysqli_query($conexion, "SELECT * FROM proteina ORDER BY nombre");
+    $resultado = mysqli_num_rows($sql);
+
+    if ($resultado > 0){//SI EN LAS COLUMN ES MAYOR QUE 0 PUES SE CREARA LA TABLA CON CON SUS COLUMNS
+        echo "
+            <table>
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>ID</th>
+                    <th>METODO</th>
+                    <th>RESOLUCION</th>
+                    <th>ESPECIE</th>
+                    <th>NOMBRE DE FICHERO</th>
+                    <th>TIPOS DE FICHERO</th>
+                    <th>FECHA</th>
+                    <th>ACCIONES</th>
+                </tr>
             
-            <li><a href="info-proteinas.php">Información general sobre las proteínas</a></li>
-        </ul>
-    </div>
-    <!--/MENU DESPLEGABLE MEDICAMENTOS-->
-    <!--/HEADER-->
-     <!--DIV DE TABLA-->
-     <div id="divTablaProteina">
-        <h1>Tabla de proteínas</h1>
+            
+        ";
 
-        <!-- BOTON DE BUSCAR TABLA MEDICAMENTOS -->
-        <form action="buscar-user.php" class="form-buscar-user" method="get" name="formu">
-                <div class="inputs-buscar-user"> 
-                    <input class="busqueda" type="text" placeholder="Buscar"/>
-                    <input class="buscar-user-prot" type="submit" value="buscar"/>
-                </div>
-            </form>
-        
-        <!-- BOTON DE BUSCAR TABLA MEDICAMENTOS -->
 
-        <?php
-        //CONSULTA PARA PILLAR LOS DATOS DE LA TABLA MEDICAMENTO MEDIANTE EL NOMBRE
-        $sql= mysqli_query($conexion, "SELECT * FROM proteina ORDER BY nombre");
-        $resultado = mysqli_num_rows($sql);
+        while($row = mysqli_fetch_assoc($sql)){//GENERO UN BUCLE EN DONDE  VOY A IMPRIMIR TODOS LOS VALORES DE LAS COLUMNAS
+            $nombre = $row["nombre"];
+            $id = $row['id'];
+            $metodo = $row["metodo"];
+            $resolucion= $row["resolucion"];
+            $especie = $row["especie"];
+            $nombreFichero = $row["nombreFichero"];
+            $tipoFichero = $row["tipoFichero"];
+            $fecha = $row["fecha"];
 
-        if ($resultado > 0){//SI EN LAS COLUMN ES MAYOR QUE 0 PUES SE CREARA LA TABLA CON CON SUS COLUMNS
             echo "
-                <table>
-                    <tr>
-                        <th>NOMBRE</th>
-                        <th>ID</th>
-                        <th>METODO</th>
-                        <th>RESOLUCION</th>
-                        <th>ESPECIE</th>
-                        <th>NOMBRE DE FICHERO</th>
-                        <th>TIPOS DE FICHERO</th>
-                        <th>FECHA</th>
-                        <th>ACCIONES</th>
-                    </tr>
+            
+            <tr>
+                <td>$nombre</td>
+
+                <td>$id</td>
+                <td>$metodo</td>
+                <td>$resolucion</td>
+                <td>$especie</td>
+                <td>$nombreFichero</td>
+                <td>$tipoFichero</td>
+                <td>$fecha</td>
                 
+                <td class='td-btn'>
+                    <input class='modificar-prot' style='background:#1f469d;' type='submit' value='MODIFICAR'/> 
+                    <input class='eliminar-prot' type='submit' value='ELIMINAR'/>
+                </td>
                 
+            </tr>
+            
             ";
 
-
-            while($row = mysqli_fetch_assoc($sql)){//GENERO UN BUCLE EN DONDE  VOY A IMPRIMIR TODOS LOS VALORES DE LAS COLUMNAS
-                $nombre = $row["nombre"];
-                $id = $row['id'];
-                $metodo = $row["metodo"];
-                $resolucion= $row["resolucion"];
-                $especie = $row["especie"];
-                $nombreFichero = $row["nombreFichero"];
-                $tipoFichero = $row["tipoFichero"];
-                $fecha = $row["fecha"];
-
-                echo "
-               
-                <tr>
-                    <td>$nombre</td>
-
-                    <td>$id</td>
-                    <td>$metodo</td>
-                    <td>$resolucion</td>
-                    <td>$especie</td>
-                    <td>$nombreFichero</td>
-                    <td>$tipoFichero</td>
-                    <td>$fecha</td>
-                    
-                    <td class='td-btn'>
-                        <input class='modificar-prot' style='background:#1f469d;' type='submit' value='MODIFICAR'/> 
-                        <input class='eliminar-prot' type='submit' value='ELIMINAR'/>
-                    </td>
-                    
-                </tr>
-                
-                ";
-
-            }
         }
-
-        else 
-    {
-      echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
     }
-        ?>
-        </table>
-        <button><a href="administrador.php">Volver a opciones de administrador</a></button>
-    </div>
-    <!--/DIV DE TABLA-->
-    <!--FOOTER-->
-    <?php require("footerHeader/footer.php")?>
-    <!--/FOOTER-->
+
+    else 
+{
+    echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
+}
+    ?>
+    </table>
+    <button><a href="administrador.php">Volver a opciones de administrador</a></button>
+</div>
+<!--/DIV DE TABLA-->
+<!--FOOTER-->
+<?php require("footerHeader/footer.php")?>
+<!--/FOOTER-->
 </body>
 </html>

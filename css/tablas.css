@@ -11,10 +11,12 @@
 
 #divTablaProteina form {
     margin-left: 0;
-    width: 40%;
-    margin-bottom: 5%;
+    /* width: 40%; */
+    /* margin-bottom: 5%; */
 }
-
+#divTablaProteina .btn_anadir{
+    background-color: #000;
+}
 
 .form-buscar-user {
     border: 2px solid black;
@@ -107,10 +109,34 @@ table {
 
 }
 
+.contenedor-botones{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5%;
+}
+
+.btn_anadir{
+    background: #439A97;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    color: white;
+    border-radius: 4px;
+}
+
+.fa-user-plus:before {
+    content: "\f234";
+}
+
+.fa-solid, .fas {
+    font-weight: 900;
+}
+
 #divTabla form{
     margin-left: 0;
-    width: 40%;
-    margin-bottom: 5%;
+    /* width: 40%; */
 
 }
 
@@ -161,7 +187,7 @@ table tr:nth-child(odd){
     
 }
 
-#divTabla > button{
+#divTabla > a{
     margin-top: 5%;
     background-color: #7FC6AF;
     border-radius: 2em;
@@ -170,40 +196,43 @@ table tr:nth-child(odd){
     padding: 6px;
     max-width: 274px;
     border: none;
+    color: white;
 
 }
 
-.buscar-user-prot,/*le cambie la clase al boton de buscar de la proteina para que tenga otro color de fondo*/
- .buscar-user{
+.btn-busqueda-proteina,/*le cambie la clase al boton de buscar de la proteina para que tenga otro color de fondo*/
+ .btn-busqueda{
     color: white;
     border: 2px solid black;
-    background-color: #439A97; /* Fondo blanco */
-    border: 2px solid green; 
-    margin-left:10px ;
-    padding:10px 20px;
+    background-color: #439A97;
+    /* border: 2px solid green; */
+    margin-left: 10px;
+    padding: 10px 20px;
 }
-.buscar-user-prot{
+.btn-busqueda-proteina{
     background-color: #0e1119; /* Fondo blanco */
 
 }
 
-.busqueda{
-     border:2px solid black;
-     width: 100%;
-}
 
 
- .form-buscar-user{
-    border: 2px solid black;
+ .form-busqueda{
     display: flex;
+    float: right;
+    background-color: initial;
     padding: 10px;
+    border-radius: 4px;
+    border: 2px solid gray;
 
     
 }
 
-.inputs-buscar-user{
+.form-busqueda .input-busqueda{
     display: flex;
-    width: 100%;
+    /* width: 100%; */
+    border: 2px solid black;
+    padding: 10px
+
 }
 
 
@@ -305,7 +334,7 @@ table tr:nth-child(odd){
 
   /*/Tabla de proteinas*/
 
-  @media screen  and (max-width:768px){
+  @media screen  and (max-width:922px){
     #divTablaProteina{
         width: 80%;
         padding: 10px;
@@ -342,15 +371,11 @@ table tr:nth-child(odd){
 
   }
 
-  @media screen and (max-width:1009px){
+  @media screen and (max-width:936px){
      /*SECION DE MEDICAMENTOS Y USUARIOS*/
 
     
-    #divTabla {
-    max-width: 1600px;
-    padding: 10px;
-    margin: 0 auto;
-    }
+    
 
     #divTabla h1 {
         font-size: 3vw;
@@ -358,9 +383,11 @@ table tr:nth-child(odd){
 
     #divTabla table,
     #divTabla table td,
-    #divTabla table th {
+    #divTabla table th,
+    .modificar, .eliminar {
         max-width: 100%;
         box-sizing: border-box; 
+        font-size: calc(8px + 0.5vw);
     }
 
     #divTabla table th,
@@ -369,3 +396,16 @@ table tr:nth-child(odd){
     }
     
   }
+
+  @media screen and (max-width:757px){
+    #divTabla table,
+    #divTabla table td,
+    #divTabla table th,
+    .modificar, .eliminar {
+        max-width: 100%;
+        box-sizing: border-box; 
+        font-size: calc(5px + 0.5vw);
+        
+    }
+
+    }

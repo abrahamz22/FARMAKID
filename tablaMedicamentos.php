@@ -46,17 +46,23 @@ include_once("bbdd/connexionBaseDeDatos.php");
      <!--DIV DE TABLA-->
      <div id="divTabla">
         <h1>Tabla de Medicamentos</h1>
-
+        <div class="contenedor-botones">
         <!-- BOTON DE BUSCAR TABLA MEDICAMENTOS -->
-        <form action="buscar-user.php" class="form-buscar-user" method="get" name="formu">
-                <div class="inputs-buscar-user"> 
-                    <input class="busqueda" type="text" placeholder="Buscar"/>
-                    <input class="buscar-user" type="submit" value="buscar"/>
+        <form action="buscar-medicamento.php" class="form-busqueda" method="get" name="formu">
+                <div style='display:flex'> 
+                    <input class="input-busqueda" type="text" placeholder="Buscar"/>
+                    <input class="btn-busqueda" type="submit" value="Buscar"/>
                 </div>
             </form>
         
         <!-- BOTON DE BUSCAR TABLA MEDICAMENTOS -->
 
+            <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
+        <div style='display:flex'>
+            <a href="crear_medicamento.php" class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp AÑADIR MEDICAMENTO</a>
+        </div>
+        <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
+        </div>
         <?php
         //CONSULTA PARA PILLAR LOS DATOS DE LA TABLA MEDICAMENTO MEDIANTE EL NOMBRE
         $sql= mysqli_query($conexion, "SELECT * FROM medicamento ORDER BY nombre");
@@ -125,7 +131,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
     }
         ?>
         </table>
-        <button><a href="administrador.php">Volver a opciones de administrador</a></button>
+        <a href="administrador.php">Volver a opciones de administrador</a>
     </div>
     <!-- BOTON DE BUSCAR TABLA MEDICAMENTOS -->
 
