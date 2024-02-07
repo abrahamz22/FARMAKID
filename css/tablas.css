@@ -409,3 +409,20 @@ table tr:nth-child(odd){
     }
 
     }
+
+    .modificar, .eliminar {
+        cursor: pointer;
+    }
+
+    #anadir{
+        display: none;
+    }
+    #anadir input{
+         width: 10% !important;
+         display: inline; 
+    }
+
+
+#anadirButton{
+    width: 20% !important;
+}

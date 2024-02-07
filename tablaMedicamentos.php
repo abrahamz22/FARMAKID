@@ -99,8 +99,8 @@ include_once("bbdd/connexionBaseDeDatos.php");
                     <td>$precio</td>
                     
                     <td class='td-btn'>
-                            <input class='modificar-med' type='submit' value='MODIFICAR'/> 
-                            <input class='eliminar-med' type='submit' value='ELIMINAR'/>
+                        <button class='modificar'>MODIFICAR</button>
+                        <button class='eliminar'>ELIMINAR</button>
                     </td>
                     
                 </tr>

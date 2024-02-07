@@ -20,6 +20,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <script src="header.js"></script>
     <script src="js/login.js"></script>
     <script src="js/admin.js"></script>
+    <script src="js/tablas.js"></script>
 </head>
 <body>
 
@@ -52,16 +53,26 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <!-- BOTON DE BUSCAR TABLA USUARIOS -->
     
     <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
-    <div style='display:flex'>
-        <a href="crear_usuario.php" class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp CREAR USUARIO</a>
-    </div>
-    <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
-
-
-   
-    </div>
+   <!-- <div style='display:flex'>
+       <a href="crear_usuario.php" class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp CREAR USUARIO</a>
+    </div> -->
 
     
+    <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
+    </div>
+    <button id="anadirButton">Añadir usuario</button>
+    <form  id="anadir" action="">
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre" >
+        <input type="text" name="apellido" placeholder="Apellidos">
+        <input type="email" name="email" placeholder="Email">
+        <input type="tetx" name="usuario" placeholder="Usuario">
+        <input type="number" name="cp" placeholder="Código postal">
+        <input type="id" name="dni" placeholder="DNI/NIE">
+        <input type="number" name="telefono" placeholder="Otro teléfono de contacto">
+        <input type="password" name="contrasena" placeholder="Contraseña">
+        <input type="password" name="confirm" placeholder="Confirmar contraseña">
+        <button type="submit" name="registrarse" >Añadir usuario</button>
+    </form>
 
 <!-- CONSULTA PARA GENERAR LA TABLA DINAMICA DESDE LA BASE DE DATOS -->
 <?php
@@ -74,12 +85,15 @@ if($resultado > 0){
     <table>
         <tr>
             <th>NOMBRE</th>
-            <th>APELLIDO</th>
+            <th>APELLIDOS</th>
             <th>DNI</th>
+            <th>CÓDIGO POSTAL</th>
             <th>TELEFONO</th>
             <th>EMAIL</th>
             <th>USUARIO</th>
+            <th>ROL</th>
             <th>CONTRASEÑA</th>
+            <th>ID USUARIO</th>
             <th>ACCIONES</th>
         </tr>
     ";
@@ -88,29 +102,34 @@ if($resultado > 0){
         $nombre = $row["nombre"];
         $apellido = $row['apellidos'];
         $dni = $row["dni"];
+        $cp = $row["codigoPostal"];
         $telefono = $row["telefono"];
         $email = $row["email"];
-        $contrasena = $row["contrasena"];
+        $usuario = $row["usuario"];
         $rol = $row["rol"];
+        $contrasena = $row["contrasena"];
+        $idUsuario = $row["idUsuario"];
 
 
         
         echo"
-        <tr>
+    <tr>
         <td>$nombre</td>
         <td>$apellido</td>
         <td>$dni</td>
+        <td>$cp</td>
         <td>$telefono</td>
         <td>$email</td>
-        <td>$contrasena</td>
+        <td>$usuario</td>
         <td>$rol</td>
+        <td>$contrasena</td>
+        <td>$idUsuario</td>
 
         <td class='td-btn'>
-                        <input class='modificar' type='submit' value='MODIFICAR'/> 
-                        <input class='eliminar' type='submit' value='ELIMINAR'/>
-                
-                </td>
-        </tr>
+                <button class='modificar'>MODIFICAR</button>
+                <button class='eliminar'>ELIMINAR</button>
+        </td>
+    </tr>
             ";
 
         }
@@ -131,7 +150,7 @@ echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
 <?php
 
 
-  
+
 
 
 
@@ -139,4 +158,5 @@ mysqli_close($conexion); //cierra la BBDD
 
 ?>
 </body>
+
 </html>

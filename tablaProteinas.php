@@ -100,8 +100,8 @@ include_once("bbdd/connexionBaseDeDatos.php");
                 <td>$fecha</td>
                 
                 <td class='td-btn'>
-                    <input class='modificar-prot' style='background:#1f469d;' type='submit' value='MODIFICAR'/> 
-                    <input class='eliminar-prot' type='submit' value='ELIMINAR'/>
+                <button class='modificar'>MODIFICAR</button>
+                <button class='eliminar'>ELIMINAR</button>
                 </td>
                 
             </tr>
