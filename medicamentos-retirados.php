@@ -18,22 +18,7 @@
     <?php require("footerHeader/header.php")?>
     <!--/HEADER-->
 
-    <!--MENU DESPLEGABLE MEDICAMENTOS-->
-    <div id="desplegableMedicamentos" class="removeId">
-        <ul id="listaD">
-            <li><a href="medicamentos-interaccion.php">Interecciones entre medicamentos</a></li>
-            <li><a href="medicamentos-retirados.php">Medicamentos retirados</a></li>
-        </ul>
-    </div>
-    <!--/MENU DESPLEGABLE MEDICAMENTOS-->
-    <!--MENU DESPLEGABLE MEDICAMENTOS-->
-    <div id="desplegableProteinas" class="removeId">
-        <ul id="listaD">
-         
-            <li><a href="info-proteinas.php">Información general sobre las proteínas</a></li>
-        </ul>
-    </div>
-    <!--/MENU DESPLEGABLE MEDICAMENTOS-->
+   
 
     <div class="contenedor-principal2">
         <h1>Medicamentos retirados</h1>

@@ -20,22 +20,6 @@
     <?php require("footerHeader/header.php")?>
     <!--/HEADER-->
 
-    <!--MENU DESPLEGABLE MEDICAMENTOS-->
-    <div id="desplegableMedicamentos" class="removeId">
-        <ul id="listaD">
-            <li><a href="medicamentos-interaccion.php">Interecciones entre medicamentos</a></li>
-            <li><a href="medicamentos-retirados.php">Medicamentos retirados</a></li>
-        </ul>
-    </div>
-    <!--/MENU DESPLEGABLE MEDICAMENTOS-->
-    <!--MENU DESPLEGABLE MEDICAMENTOS-->
-    <div id="desplegableProteinas" class="removeId">
-        <ul id="listaD">
-         
-            <li><a href="info-proteinas.php">Información general sobre las proteínas</a></li>
-        </ul>
-    </div>
-    <!--/MENU DESPLEGABLE MEDICAMENTOS-->
 
 
    <!--SECCION DE EDITAR MEDICAMENTOS-->
@@ -61,42 +45,42 @@
             
             <tr class="editar_tr">
               <td class="columna1">Name:</td>
-              <td ><input type="text" id="name" placeholder="T STATE HUMAN HEMOGLOBIN"></input><input class="edit" type="button" value="EDITAR NOMBRE"></td>
+              <td ><input type="text" id="name" value="T STATE HUMAN HEMOGLOBIN" readonly></input><input class="edit" type="button" value="EDITAR NOMBRE"></td>
               
             </tr>
 
             <tr class="editar_tr">
               <td class="columna1">ID:</td>
-              <td><input type="text" id="id" placeholder="1VWT"></input><input class="edit2" type="button" value="EDITAR ID"></td>
+              <td><input type="text" id="id" value="1VWT" readonly></input><input class="edit2" type="button" value="EDITAR ID"></td>
             </tr>
 
             <tr class="editar_tr">
               <td class="columna1">Data:</td>
-              <td><input type="text" id="data" placeholder="...."></input><input class="edit" type="button" value="EDITAR DATA"></td>
+              <td><input type="text" id="data" value="...." readonly></input><input class="edit" type="button" value="EDITAR DATA"></td>
             </tr>
             
             <tr class="editar_tr">
                 <td class="columna1">Especie:</td>
-                <td><input type="text" id="Especie" placeholder="Homo sapiens"></input><input class="edit2" type="button" value="EDITAR ESPECIE"></td>
+                <td><input type="text" id="Especie" value="Homo sapiens" readonly></input><input class="edit2" type="button" value="EDITAR ESPECIE"></td>
             </tr>
 
             <tr class="editar_tr">
                 <td class="columna1">Metodo:</td>
-                <td><input type="text" id="metodo" placeholder="X-RAY DIFFRACTION"></input><input class="edit" type="button" value="EDITAR METODO"></td>
+                <td><input type="text" id="metodo" value="X-RAY DIFFRACTION" readonly></input><input class="edit" type="button" value="EDITAR METODO"></td>
             </tr>
 
             <tr class="editar_tr">
                 <td class="columna1">Nombre del fichero:</td>
-                <td><input type="text" id="nombre_fichero" placeholder="1vwt.pdb"></input><input class="edit2" type="button" value="EDITAR"></td>
+                <td><input type="text" id="nombre_fichero" value="1vwt.pdb" readonly></input><input class="edit2" type="button" value="EDITAR"></td>
             </tr>
 
             <tr class="editar_tr">
                 <td class="columna1">Tipos del fichero:</td>
-                <td><input type="text" id="tipos" placeholder="(.pdb)"></input><input class="edit" type="button" value="EDITAR TIPO"></td>
+                <td><input type="text" id="tipos" value="(.pdb)" readonly></input><input class="edit" type="button" value="EDITAR TIPO"></td>
             </tr>
             <tr class="editar_tr">
                 <td class="columna1">Resolucion:</td>
-                <td><input type="text" id="resolucion" placeholder=" 1.90 Å"></input><input class="edit2" type="button" value="EDITAR RESOLUCION"></td>
+                <td><input type="text" id="resolucion" value=" 1.90 Å" readonly></input><input class="edit2" type="button" value="EDITAR RESOLUCION"></td>
             </tr>
 
           </table>

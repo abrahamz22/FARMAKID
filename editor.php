@@ -16,22 +16,7 @@
     <?php require("footerHeader/header.php")?>
     <!--/HEADER-->
 
-    <!--MENU DESPLEGABLE MEDICAMENTOS-->
-    <div id="desplegableMedicamentos" class="removeId">
-        <ul id="listaD">
-            <li><a href="medicamentos-interaccion.php">Interecciones entre medicamentos</a></li>
-            <li><a href="medicamentos-retirados.php">Medicamentos retirados</a></li>
-        </ul>
-    </div>
-    <!--/MENU DESPLEGABLE MEDICAMENTOS-->
-    <!--MENU DESPLEGABLE MEDICAMENTOS-->
-    <div id="desplegableProteinas" class="removeId">
-        <ul id="listaD">
-            
-            <li><a href="info-proteinas.php">Información general sobre las proteínas</a></li>
-        </ul>
-    </div>
-    <!--/MENU DESPLEGABLE MEDICAMENTOS-->
+    
     <!--DIV DE USUARIO-->
     <div  id="divUsuario">
         <h1><?php echo $_SESSION["usuario"]?> (Editor)</h1>

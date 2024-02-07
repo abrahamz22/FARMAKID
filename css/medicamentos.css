@@ -25,6 +25,7 @@
     display: flex;
     flex-direction: column;
     padding: 45px;
+    margin-top: 140px;
     
 }   
 
@@ -306,6 +307,7 @@
     display: flex;
     flex-direction: column;
     grid-template-columns: 1fr 2fr;
+    margin-top: 143px;
 }
 
 .contenedor-titulo{

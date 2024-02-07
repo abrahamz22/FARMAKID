@@ -241,7 +241,7 @@ header button{
 #desplegableMedicamentos, #desplegableProteinas{
     position: absolute;
     visibility: hidden;
-    height:10em;
+    /* height: 14em; */
     width: 13.8%;
     z-index: 20;
     background-color: #47B191;
@@ -267,10 +267,14 @@ header button{
 #desplegableMedicamentos ul, #desplegableProteinas ul {
     list-style: none;
     padding-left: 0%;
+    padding: 10px;
     
 }
 #desplegableMedicamentos ul li, #desplegableProteinas ul li {
-    margin-top: 10%;
+    /* margin-top: 43%;
+    width: 100%; */
+
+    margin-top: 17%;
     width: 100%;
 }
 

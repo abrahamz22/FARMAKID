@@ -19,22 +19,7 @@
     <?php require("footerHeader/header.php")?>
     <!--/HEADER-->
 
-    <!--MENU DESPLEGABLE MEDICAMENTOS-->
-    <div id="desplegableMedicamentos" class="removeId">
-        <ul id="listaD">
-            <li><a href="medicamentos-interaccion.php">Interecciones entre medicamentos</a></li>
-            <li><a href="medicamentos-retirados.php">Medicamentos retirados</a></li>
-        </ul>
-    </div>
-    <!--/MENU DESPLEGABLE MEDICAMENTOS-->
-    <!--MENU DESPLEGABLE MEDICAMENTOS-->
-    <div id="desplegableProteinas" class="removeId">
-        <ul id="listaD">
-       
-            <li><a href="info-proteinas.php">Información general sobre las proteínas</a></li>
-        </ul>
-    </div>
-    <!--/MENU DESPLEGABLE MEDICAMENTOS-->
+    
 
    <!--SECCION DE EDITAR MEDICAMENTOS-->
    
@@ -61,43 +46,43 @@
             
             <tr class="editar_tr">
               <td id="columna1">Name:</td>
-              <td ><input type="text" id="name" placeholder="IBUPROFEN"></input><input class="edit" type="button" value="EDITAR NOMBRE"></input></td>
+              <td ><input type="text" id="name" value="IBUPROFEN" readonly></input><input class="edit" type="button" value="EDITAR NOMBRE"></input></td>
             </tr>
 
             <tr class="editar_tr">
               <td id="columna1">ID:</td>
-              <td><input type="text" id="id" placeholder="CHEMBL521"><input class="edit2" type="button" value="EDITAR ID"></input></td>
+              <td><input type="text" id="id" value="CHEMBL521" readonly><input class="edit2" type="button" value="EDITAR ID"></input></td>
             </tr>
 
             <tr class="editar_tr">
               <td id="columna1">Data:</td>
-              <td><input type="text" id="data" placeholder="...."><input class="edit" type="button" value="EDITAR DATA"></input></td>
+              <td><input type="text" id="data" value="...." readonly><input class="edit" type="button" value="EDITAR DATA"></input></td>
             </tr>
             
             
 
             <tr class="editar_tr">
                 <td id="columna1">InChl:</td>
-                <td><input type="text" id="InChl" placeholder="InChI=1S/C13H18O2/c1-9(2)8-11-4-6-12(7-5-11)10(3)13(14)15/h4-7,9-10H,8H2,1-3H3,(H,14,15)"><input class="edit2" type="button" value="EDITAR InChl"></input></td>
+                <td><input type="text" id="InChl" value="InChI=1S/C13H18O2/c1-9(2)8-11-4-6-12(7-5-11)10(3)13(14)15/h4-7,9-10H,8H2,1-3H3,(H,14,15)" readonly><input class="edit2" type="button" value="EDITAR InChl"></input></td>
             </tr>
 
             <tr class="editar_tr">
             <td id="columna1">SMILES:</td>
-            <td><input type="text" id="SMILES" placeholder="CC(C)Cc1ccc(C(C)C(=O)O)cc1"><input class="edit" type="button" value="EDITAR SMILES"></input></td>
+            <td><input type="text" id="SMILES" value="CC(C)Cc1ccc(C(C)C(=O)O)cc1" readonly><input class="edit" type="button" value="EDITAR SMILES"></input></td>
             </tr>
 
             <tr class="editar_tr">
             <td id="columna1">Nombre del fichero:</td>
-            <td><input type="text" id="nombre_fichero" placeholder="CHEMBL521.smi"><input class="edit2" type="button" value="EDITAR"></input></td>
+            <td><input type="text" id="nombre_fichero" value="CHEMBL521.smi" readonly><input class="edit2" type="button" value="EDITAR"></input></td>
             </tr>
 
             <tr class="editar_tr">
             <td id="columna1">Tipos del fichero:</td>
-            <td><input type="text" id="tipos" placeholder="(.smi)"><input class="edit" type="button" value="EDITAR FICHERO"></input></td>
+            <td><input type="text" id="tipos" value="(.smi)" readonly><input class="edit" type="button" value="EDITAR FICHERO"></input></td>
             </tr>
             <tr class="editar_tr">
                 <td id="columna1">Estado del medicamento:</td>
-                <td><input type="text" id="especie" placeholder="Aprobado"><input class="edit2" type="button" value="EDITAR ESTADO"></input></td>
+                <td><input type="text" id="especie" value="Aprobado" readonly><input class="edit2" type="button" value="EDITAR ESTADO"></input></td>
               </tr>
 
           </table>
