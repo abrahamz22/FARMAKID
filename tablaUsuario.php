@@ -20,6 +20,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <script src="header.js"></script>
     <script src="js/login.js"></script>
     <script src="js/admin.js"></script>
+    <script src="js/tablas.js"></script>
 </head>
 <body>
 
@@ -67,16 +68,26 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <!-- BOTON DE BUSCAR TABLA USUARIOS -->
     
     <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
-    <div style='display:flex'>
+   <!-- <div style='display:flex'>
        <a href="crear_usuario.php" class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp CREAR USUARIO</a>
-    </div>
-    <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
-
-
-   
-    </div>
+    </div> -->
 
     
+    <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
+    </div>
+    <button id="anadirButton">Añadir usuario</button>
+    <form  id="anadir" action="">
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre" >
+        <input type="text" name="apellido" placeholder="Apellidos">
+        <input type="email" name="email" placeholder="Email">
+        <input type="tetx" name="usuario" placeholder="Usuario">
+        <input type="number" name="cp" placeholder="Código postal">
+        <input type="id" name="dni" placeholder="DNI/NIE">
+        <input type="number" name="telefono" placeholder="Otro teléfono de contacto">
+        <input type="password" name="contrasena" placeholder="Contraseña">
+        <input type="password" name="confirm" placeholder="Confirmar contraseña">
+        <button type="submit" name="registrarse" >Añadir usuario</button>
+    </form>
 
 <!-- CONSULTA PARA GENERAR LA TABLA DINAMICA DESDE LA BASE DE DATOS -->
 <?php
