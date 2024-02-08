@@ -44,7 +44,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
      <!-- BOTON DE BUSCAR TABLA USUARIOS -->
      <form action="buscar-user.php" class="form-busqueda" method="get" name="formu">
-            <div style="display:flex"> 
+            <div class="botones-filtrar" style="display:flex"> 
                 <input class="input-busqueda" type="text" placeholder="Buscar"/>
                 <input class="btn-busqueda" type="submit" value="Buscar"/>
             </div>
@@ -101,14 +101,19 @@ include_once("bbdd/connexionBaseDeDatos.php");
             <input type="password" name="contrasena" placeholder="Contraseña">
         </div>
         
-        <div class="input-box">
+        <div class="input-box" >
             <span class='detalles'>Confirmar contraseña</span>
             <input type="password" name="confirm" placeholder="Confirmar contraseña">
         </div>
+
+        <div class="input-box" >
+            <span class='detalles'>Rol</span>
+            <input type="password" name="rol" placeholder="Tipo de rol">
+        </div>
         
-        <div class="input-box">
+        <div class="input-box"  >
             <span class='detalles'>Crear</span>
-            <button type="submit" name="registrarse" >Añadir usuario</button>
+            <button type="submit" name="registrarse">Añadir usuario</button>
         </div>
         </div>
     </form>

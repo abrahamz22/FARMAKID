@@ -53,7 +53,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 </div>
 
 <form  id="anadir" action="">
-        <div class="anadir-usuario">
+    <div class="anadir-usuario">
         <div class="input-box">
             <span class='detalles'>Nombre </span>
             <input style="background-color:#a2c1e7" type="text" id="nombre" name="nombre" placeholder="Nombre" >
@@ -92,17 +92,16 @@ include_once("bbdd/connexionBaseDeDatos.php");
             <input style="background-color:#a2c1e7" type="password" name="contrasena" placeholder="Contraseña">
         </div>
         
-        <div class="input-box">
+        <div class="input-box" style='width:100%'>
             <span class='detalles'>Confirmar contraseña</span>
             <input style="background-color:#a2c1e7" type="password" name="confirm" placeholder="Confirmar contraseña">
         </div>
-        
-        <div class="input-box">
-            <span class='detalles'>Crear</span>
-            <button style="background-color:#a2c1e7" type="submit" name="registrarse" >Añadir usuario</button>
+        <div class="input-box-segundo">
+            <span class='detalles'>Crear proteina</span>
+            <button style="background-color:#a2c1e7"  type="submit" name="registrarse" >Añadir proteina</button>
         </div>
-        </div>
-    </form>
+    </div>
+</form>
 
     <?php
     //CONSULTA PARA PILLAR LOS DATOS DE LA TABLA MEDICAMENTO MEDIANTE EL NOMBRE
@@ -169,7 +168,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 }
     ?>
     </table>
-    <button><a href="administrador.php">Volver a opciones de administrador</a></button>
+    <a href="administrador.php">Volver a opciones de administrador</a>
 </div>
 <!--/DIV DE TABLA-->
 <!--FOOTER-->

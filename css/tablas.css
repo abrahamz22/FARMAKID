@@ -80,7 +80,10 @@ table {
 
 
 
-#divTablaProteina button{
+#divTablaProteina button,
+#divTabla button[name="registrarse"]
+
+{
     /*margin-top: 5%; */
     background-color: #b8d0e3;
     border-radius: 4px;
@@ -91,6 +94,23 @@ table {
     border: none;
 
 }
+
+#divTabla button[name="registrarse"],
+#divTablaProteina button[name="registrarse"]
+{
+    background-color:#97DECE;
+    padding: 11px;
+}
+
+#divTabla button[type="submit"],
+#divTablaProteina button[type="submit"]{
+    color: #999;
+}
+
+
+
+
+
 #divTablaProteina button a{
     color: #FFFFFF;
 }
@@ -171,7 +191,7 @@ table {
 }
 
 
-#anadir-prote{
+#divTablaProteina #anadir{
     width: 443px;
     /* max-width: 43%; */
     display: none;
@@ -268,17 +288,23 @@ table tr:nth-child(odd){
     
 }
 
-#divTabla > a{
+#divTabla > a,
+#divTablaProteina a
+{
     margin-top: 5%;
     background-color: #7FC6AF;
-    border-radius: 2em;
+    border-radius: 6px;
     width: 100%;
     /* height: 2em; */
-    padding: 6px;
+    padding: 17px 0;
     max-width: 274px;
     border: none;
     color: white;
 
+}
+
+#divTablaProteina a{
+    background-color: #b8d0e3;
 }
 
 .btn-busqueda-proteina,/*le cambie la clase al boton de buscar de la proteina para que tenga otro color de fondo*/
@@ -415,6 +441,33 @@ table tr:nth-child(odd){
 
   /*/Tabla de proteinas*/
 
+     @media screen and (max-width:1210px){
+        
+        #divTabla table td,
+        #divTabla table th,
+        #divTabla table td button
+         {
+            font-size: 1vw;
+        }
+
+       
+    }
+
+    @media screen and (max-width:700px){
+        #divTabla .contenedor-botones {
+            display: flex;
+            flex-direction: column;
+            display: contents;
+        }
+
+       /* .botones-filtrar .input-busqueda[type='text'] {
+            width: 100%;
+        } -------------------------------FALTAAAAAAAAAAAAAAAAAAAAAAA´-----------*/
+
+        
+    }
+
+/*
   @media screen  and (max-width:922px){
     #divTablaProteina{
         width: 80%;
@@ -450,10 +503,13 @@ table tr:nth-child(odd){
 
    
 
-  }
+  } */
 
-  @media screen and (max-width:936px){
+
+
      /*SECION DE MEDICAMENTOS Y USUARIOS*/
+
+  /* @media screen and (max-width:936px){
 
     
     
@@ -499,8 +555,8 @@ table tr:nth-child(odd){
         display: none;
     }
     #anadir input{
-         /* width: 10% !important; he comentado esto por de momento */
+         /* width: 10% !important; he comentado esto por de momento 
          display: inline; 
-    }
+    } */
 
 

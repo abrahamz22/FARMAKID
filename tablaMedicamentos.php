@@ -60,46 +60,49 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
         </div>
         <div class="input-box">    
-            <span class='detalles'>Apellido</span>
-            <input type="text" name="apellido" placeholder="Apellidos">
+            <span class='detalles'>Id</span>
+            <input type="text" name="id" placeholder="Id">
+        </div>
+
+        <div class="input-box" >
+            <span class='detalles'>Precio</span>
+            <input type="password" name="precio" placeholder="Precio">
+        </div>
+
+        
+
+        <div class="input-box">
+            <span class='detalles'>Smiles</span>
+            <input type="tetx" name="smiles" placeholder="Smiles">
         </div>
         <div class="input-box">
-            <span class='detalles'>Email</span>
-            <input type="email" name="email" placeholder="Email">
+            <span class='detalles'>Estado</span>
+            <input type="number" name="estado" placeholder="Estado">
         </div>
 
         <div class="input-box">
-            <span class='detalles'>Usuario</span>
-            <input type="tetx" name="usuario" placeholder="Usuario">
-        </div>
-        <div class="input-box">
-            <span class='detalles'>Codigo  postal</span>
-            <input type="number" name="cp" placeholder="Código postal">
+            <span class='detalles'>Nombre fichero</span>
+            <input type="id" name="nombre-fichero" placeholder="Nombre fichero">
         </div>
 
         <div class="input-box">
-            <span class='detalles'>DNI</span>
-            <input type="id" name="dni" placeholder="DNI/NIE">
+            <span class='detalles'>Tipo fichero</span>
+            <input type="number" name="tipo-fichero" placeholder="Tipo fichero">
         </div>
 
         <div class="input-box">
-            <span class='detalles'>Telefono de contacto</span>
-            <input type="number" name="telefono" placeholder="Otro teléfono de contacto">
-        </div>
-
-        <div class="input-box">
-            <span class='detalles'>Contraseña</span>
-            <input type="password" name="contrasena" placeholder="Contraseña">
+            <span class='detalles'>Fecha</span>
+            <input type="password" name="fecha" placeholder="Fecha">
         </div>
         
-        <div class="input-box">
-            <span class='detalles'>Confirmar contraseña</span>
-            <input type="password" name="confirm" placeholder="Confirmar contraseña">
+        <div class="input-box" style="width: 100%">
+            <span class='detalles'>Inchi</span>
+            <input type="email" name="inchi" placeholder="Inchi">
         </div>
         
-        <div class="input-box">
+        <div class="input-box" >
             <span class='detalles'>Crear</span>
-            <button type="submit" name="registrarse" >Añadir usuario</button>
+            <button type="submit" name="registrarse" >Añadir medicamento</button>
         </div>
         </div>
     </form>
