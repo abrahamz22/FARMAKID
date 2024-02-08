@@ -14,7 +14,7 @@
     $telefono = $_POST["telefono"];
     $contrasena = $_POST["contrasena"];
     $contrasenaComp = $_POST["confirm"];
-    $_SESSION["mensajeError"] = "";
+    $mensajeError = "";
     $compFormularios = true;
     $compColumnasBbdd = "SELECT * FROM usuario";
     $resultado1 = mysqli_query($conexion,$compColumnasBbdd);
@@ -27,20 +27,53 @@
 ?>
 
 <?php 
+
     //COMPROBACIONES NOMBRE
-    if(empty($nombre)){
-        $_SESSION["mensajeError"] .= "-Introduzca un nombre</br>";
-        $compFormularios = false;
+    function isVariableVacia($compFormularios,$columna, $nombreColumna, &$mensajeError){
+        if(empty($columna)){
+            $mensajeError  .= "-Introduzca " . $nombreColumna ."</br>";
+            $compFormularios = false;
+        }
+        return $compFormularios;
     }
-    if(strlen($nombre) > 50 && !empty($nombre)){
-        $_SESSION["mensajeError"] .= "-El campo nombre no puede superar los 50 caracteres</br>";
-        $compFormularios = false;
+
+    function comprobacionLength($compFormularios,$columna, $nombreColumna, $length,&$mensajeError){
+        if(strlen($columna) > $length && !empty($columna)){
+            $mensajeError .= "-El campo ". $nombreColumna ." no puede superar los ". $length ." caracteres</br>";
+            $compFormularios = false;
+        }
+        return $compFormularios;
     }
-    if(!preg_match("/^[A-Za-z ]+$/", $apellido)  && !empty($nombre)){
-        $_SESSION["mensajeError"] .= "-El campo nombre no puede contener caracteres numéricos o especiales</br>";
-        $compFormularios = false;
+    function compCaracteres($compFormularios,$columna, $nombreColumna, $caracteres,$nomComprobacion ,&$mensajeError){
+        if(!preg_match($caracteres, $columna)  && !empty($columna)){
+            $mensajeError .= "-El campo ". $nombreColumna ." no puede contener " .$nomComprobacion."</br>";
+            $compFormularios = false;
+        }
+        return $compFormularios;
     }
-    //COMPROBACIONES APELLIDOS
+
+    function comprobacionNombre($compFormularios, $nombre, &$mensajeError){
+        $compFormularios = isVariableVacia($compFormularios, $nombre,"nombre", $mensajeError);
+        $compFormularios = comprobacionLength($compFormularios,  $nombre, "nombre", 50, $mensajeError);
+        $compFormularios = compCaracteres($compFormularios, $nombre, "nombre", "/^[A-Za-z ]+$/" ,"caracteres especiales o caracteres númericos",$mensajeError);
+        return $compFormularios;
+    }
+
+
+
+    $compFormularios = comprobacionNombre($compFormularios, $nombre, $mensajeError);
+    
+    $_SESSION["mensajeError"] = $mensajeError;
+
+    echo $_SESSION["mensajeError"];
+    echo $compFormularios ? "true" : "false";
+    //header("location: ../registrate.php");
+
+  /*  
+*/
+    
+  
+  /*  //COMPROBACIONES APELLIDOS
     if(empty($apellido)){
         $_SESSION["mensajeError"] .= "-Introduzca sus apellidos</br>";
         $compFormularios = false;
@@ -130,8 +163,7 @@
         unset($_SESSION['mensajeError']);
         mysqli_query($conexion, $consultaUsuario);
         $_SESSION["ExitoRegistro"] = "El resgitro fue realizado con exito.";
-    }
+    }*/
 
-
-
+  
 ?>
