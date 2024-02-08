@@ -20,6 +20,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <script src="header.js"></script>
     <script src="js/login.js"></script>
     <script src="js/admin.js"></script>
+    <script src="js/tablas.js"></script>
 </head>
 <body>
 <!--HEADER-->
@@ -39,18 +40,69 @@ include_once("bbdd/connexionBaseDeDatos.php");
                 <input class="input-busqueda" type="text" placeholder="Buscar"/>
                 <input class="btn-busqueda-proteina" type="submit" value="Buscar"/>
             </div>
-        </form>
+</form>
     
     <!-- BOTON DE BUSCAR TABLA PROTEINAS -->
 
 
-    <div style='display:flex'>
+    <!-- <div style='display:flex'>
         <a href='crear_proteina.php' class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp AÑADIR USUARIO</a>
-    </div>
-
+    </div> -->
     
-    </div>
+    <button id="anadirButton" style='background-color:#0e1119'>Añadir usuario</button>
+</div>
 
+<form  id="anadir" action="">
+        <div class="anadir-usuario">
+        <div class="input-box">
+            <span class='detalles'>Nombre </span>
+            <input style="background-color:#a2c1e7" type="text" id="nombre" name="nombre" placeholder="Nombre" >
+
+        </div>
+        <div class="input-box">    
+            <span class='detalles'>Apellido</span>
+            <input style="background-color:#a2c1e7" type="text" name="apellido" placeholder="Apellidos">
+        </div>
+        <div class="input-box">
+            <span class='detalles'>Email</span>
+            <input style="background-color:#a2c1e7" type="email" name="email" placeholder="Email">
+        </div>
+
+        <div class="input-box">
+            <span class='detalles'>Usuario</span>
+            <input style="background-color:#a2c1e7" type="tetx" name="usuario" placeholder="Usuario">
+        </div>
+        <div class="input-box">
+            <span class='detalles'>Codigo  postal</span>
+            <input style="background-color:#a2c1e7" type="number" name="cp" placeholder="Código postal">
+        </div>
+
+        <div class="input-box">
+            <span class='detalles'>DNI</span>
+            <input style="background-color:#a2c1e7" type="id" name="dni" placeholder="DNI/NIE">
+        </div>
+
+        <div class="input-box">
+            <span class='detalles'>Telefono de contacto</span>
+            <input style="background-color:#a2c1e7" type="number" name="telefono" placeholder="Otro teléfono de contacto">
+        </div>
+
+        <div class="input-box">
+            <span class='detalles'>Contraseña</span>
+            <input style="background-color:#a2c1e7" type="password" name="contrasena" placeholder="Contraseña">
+        </div>
+        
+        <div class="input-box">
+            <span class='detalles'>Confirmar contraseña</span>
+            <input style="background-color:#a2c1e7" type="password" name="confirm" placeholder="Confirmar contraseña">
+        </div>
+        
+        <div class="input-box">
+            <span class='detalles'>Crear</span>
+            <button style="background-color:#a2c1e7" type="submit" name="registrarse" >Añadir usuario</button>
+        </div>
+        </div>
+    </form>
 
     <?php
     //CONSULTA PARA PILLAR LOS DATOS DE LA TABLA MEDICAMENTO MEDIANTE EL NOMBRE

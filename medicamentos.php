@@ -36,7 +36,7 @@
 
 
     <!--CONTENEDOR DE BUSQUEDA DE MEDICAMENTOS-->
-    <div class="contenedor-principal" style='margin-top:131px'>
+    <div class="contenedor-principal" style='margin-top:144px'>
         <div class="contenedor-titulo">
             <h1>Búsqueda de estructura</h1>
         </div>

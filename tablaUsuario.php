@@ -56,22 +56,61 @@ include_once("bbdd/connexionBaseDeDatos.php");
    <!-- <div style='display:flex'>
        <a href="crear_usuario.php" class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp CREAR USUARIO</a>
     </div> -->
-
+    <button id="anadirButton">Añadir usuario</button>
     
     <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
     </div>
-    <button id="anadirButton">Añadir usuario</button>
+    
     <form  id="anadir" action="">
-        <input type="text" id="nombre" name="nombre" placeholder="Nombre" >
-        <input type="text" name="apellido" placeholder="Apellidos">
-        <input type="email" name="email" placeholder="Email">
-        <input type="tetx" name="usuario" placeholder="Usuario">
-        <input type="number" name="cp" placeholder="Código postal">
-        <input type="id" name="dni" placeholder="DNI/NIE">
-        <input type="number" name="telefono" placeholder="Otro teléfono de contacto">
-        <input type="password" name="contrasena" placeholder="Contraseña">
-        <input type="password" name="confirm" placeholder="Confirmar contraseña">
-        <button type="submit" name="registrarse" >Añadir usuario</button>
+        <div class="anadir-usuario">
+        <div class="input-box">
+            <span class='detalles'>Nombre </span>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre" >
+
+        </div>
+        <div class="input-box">    
+            <span class='detalles'>Apellido</span>
+            <input type="text" name="apellido" placeholder="Apellidos">
+        </div>
+        <div class="input-box">
+            <span class='detalles'>Email</span>
+            <input type="email" name="email" placeholder="Email">
+        </div>
+
+        <div class="input-box">
+            <span class='detalles'>Usuario</span>
+            <input type="tetx" name="usuario" placeholder="Usuario">
+        </div>
+        <div class="input-box">
+            <span class='detalles'>Codigo  postal</span>
+            <input type="number" name="cp" placeholder="Código postal">
+        </div>
+
+        <div class="input-box">
+            <span class='detalles'>DNI</span>
+            <input type="id" name="dni" placeholder="DNI/NIE">
+        </div>
+
+        <div class="input-box">
+            <span class='detalles'>Telefono de contacto</span>
+            <input type="number" name="telefono" placeholder="Otro teléfono de contacto">
+        </div>
+
+        <div class="input-box">
+            <span class='detalles'>Contraseña</span>
+            <input type="password" name="contrasena" placeholder="Contraseña">
+        </div>
+        
+        <div class="input-box">
+            <span class='detalles'>Confirmar contraseña</span>
+            <input type="password" name="confirm" placeholder="Confirmar contraseña">
+        </div>
+        
+        <div class="input-box">
+            <span class='detalles'>Crear</span>
+            <button type="submit" name="registrarse" >Añadir usuario</button>
+        </div>
+        </div>
     </form>
 
 <!-- CONSULTA PARA GENERAR LA TABLA DINAMICA DESDE LA BASE DE DATOS -->

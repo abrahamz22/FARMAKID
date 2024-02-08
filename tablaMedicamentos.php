@@ -19,6 +19,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <link rel="stylesheet" type="text/css" href="css/tablas.css" >
     <script src="header.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/tablas.js"></script>
 </head>
 <body>
     <!--HEADER-->
@@ -43,11 +44,66 @@ include_once("bbdd/connexionBaseDeDatos.php");
         <!-- BOTON DE BUSCAR TABLA MEDICAMENTOS -->
 
             <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
-        <div style='display:flex'>
+        <!-- <div style='display:flex'>
             <a href="crear_medicamento.php" class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp AÑADIR MEDICAMENTO</a>
-        </div>
+        </div> -->
         <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
+        <button id="anadirButton">Añadir usuario</button>
         </div>
+
+        
+    <form  id="anadir" action="">
+        <div class="anadir-usuario">
+        <div class="input-box">
+            <span class='detalles'>Nombre </span>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre" >
+
+        </div>
+        <div class="input-box">    
+            <span class='detalles'>Apellido</span>
+            <input type="text" name="apellido" placeholder="Apellidos">
+        </div>
+        <div class="input-box">
+            <span class='detalles'>Email</span>
+            <input type="email" name="email" placeholder="Email">
+        </div>
+
+        <div class="input-box">
+            <span class='detalles'>Usuario</span>
+            <input type="tetx" name="usuario" placeholder="Usuario">
+        </div>
+        <div class="input-box">
+            <span class='detalles'>Codigo  postal</span>
+            <input type="number" name="cp" placeholder="Código postal">
+        </div>
+
+        <div class="input-box">
+            <span class='detalles'>DNI</span>
+            <input type="id" name="dni" placeholder="DNI/NIE">
+        </div>
+
+        <div class="input-box">
+            <span class='detalles'>Telefono de contacto</span>
+            <input type="number" name="telefono" placeholder="Otro teléfono de contacto">
+        </div>
+
+        <div class="input-box">
+            <span class='detalles'>Contraseña</span>
+            <input type="password" name="contrasena" placeholder="Contraseña">
+        </div>
+        
+        <div class="input-box">
+            <span class='detalles'>Confirmar contraseña</span>
+            <input type="password" name="confirm" placeholder="Confirmar contraseña">
+        </div>
+        
+        <div class="input-box">
+            <span class='detalles'>Crear</span>
+            <button type="submit" name="registrarse" >Añadir usuario</button>
+        </div>
+        </div>
+    </form>
+
         <?php
         //CONSULTA PARA PILLAR LOS DATOS DE LA TABLA MEDICAMENTO MEDIANTE EL NOMBRE
         $sql= mysqli_query($conexion, "SELECT * FROM medicamento ORDER BY nombre");
