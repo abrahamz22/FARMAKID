@@ -35,6 +35,10 @@
     padding: 14px;
 }
 
+.botonUsuario:hover{
+    background-color: #055d41cc;
+}
+
 .botonUsuario a{ 
     color: #FFFFFF;
 }

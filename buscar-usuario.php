@@ -1,13 +1,17 @@
 <?php
 include_once("bbdd/connexionBaseDeDatos.php");
+
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>buscar</title>
     <link rel="icon" href="multimedia/icono.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/index.css" >
     <link rel="stylesheet" type="text/css" href="css/header.css" >
@@ -20,16 +24,20 @@ include_once("bbdd/connexionBaseDeDatos.php");
 </head>
 <body>
 
-<!--HEADER-->
+
 <?php require("footerHeader/header.php")?>
 
-<!--/HEADER-->
+
+<?php
+
+$busqueda = strtolower($_REQUEST['busqueda']);
+
+if(empty($busqueda)){
+ header("location: tablaUsuario.php");
+}
 
 
-    
-
-<!--/HEADER-->
-
+?>
 
 <!--DIV DE TABLA-->
 <div id="divTabla">
@@ -40,7 +48,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
         <!-- BOTON DE BUSCAR TABLA USUARIOS -->
         <form action="buscar-usuario.php" class="form-busqueda" method="get" name="formu">
             <div class="botones-filtrar" style="display:flex"> 
-                <input class="input-busqueda" type="text"name="busqueda"  placeholder="Buscar" />
+                <input class="input-busqueda" name="busqueda" type="text" placeholder="Buscar" value="<?php echo $busqueda; ?>"/>
                 <input class="btn-busqueda" type="submit" value="Buscar"/>
             </div>
         </form>
@@ -116,7 +124,14 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
 <!-- CONSULTA PARA GENERAR LA TABLA DINAMICA DESDE LA BASE DE DATOS -->
 <?php
-$sql = mysqli_query($conexion, "SELECT * FROM usuario ORDER BY usuario");
+
+
+$sql = mysqli_query($conexion, "SELECT * FROM usuario 
+WHERE nombre LIKE '%$busqueda%'
+ORDER BY nombre ASC  
+
+");
+
 
 $resultado = mysqli_num_rows($sql);
 
@@ -198,5 +213,4 @@ mysqli_close($conexion); //cierra la BBDD
 
 ?>
 </body>
-
 </html>

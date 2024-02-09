@@ -32,15 +32,16 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <!--/HEADER-->
     <!--DIV DE TABLA-->
     <div id="divTablaProteina">
-    <h1>Tabla de proteínas</h1>
 <div class="contenedor-botones">
 <!-- BOTON DE BUSCAR TABLA PROTEINAS -->
-<form action="buscar-proteina.php" class="form-busqueda" method="get" name="formu">
-            <div style='display:flex'> 
-                <input class="input-busqueda" type="text" placeholder="Buscar"/>
-                <input class="btn-busqueda-proteina" type="submit" value="Buscar"/>
-            </div>
-</form>
+<h1>Tabla de proteínas</h1>
+<div class="conjunto-buscar-anadir">
+    <form action="buscar-proteina.php" class="form-busqueda" method="get" name="formu">
+                <div style='display:flex'>
+                    <input class="input-busqueda" type="text" placeholder="Buscar"/>
+                    <input class="btn-busqueda-proteina" type="submit" value="Buscar"/>
+                </div>
+    </form>
     
     <!-- BOTON DE BUSCAR TABLA PROTEINAS -->
 
@@ -49,7 +50,8 @@ include_once("bbdd/connexionBaseDeDatos.php");
         <a href='crear_proteina.php' class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp AÑADIR USUARIO</a>
     </div> -->
     
-    <button id="anadirButton" style='background-color:#0e1119'>Añadir usuario</button>
+    <button id="anadirButton" >Añadir usuario</button>
+</div>
 </div>
 
 <form  id="anadir" action="">
@@ -60,45 +62,45 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
         </div>
         <div class="input-box">    
-            <span class='detalles'>Apellido</span>
-            <input style="background-color:#a2c1e7" type="text" name="apellido" placeholder="Apellidos">
+            <span class='detalles'>Especie</span>
+            <input style="background-color:#a2c1e7" type="text" name="especie" placeholder="Especie">
+        </div>
+       
+
+        <div class="input-box">
+            <span class='detalles'>Resolución</span>
+            <input style="background-color:#a2c1e7" type="text" name="resolucion" placeholder="Resolución">
         </div>
         <div class="input-box">
-            <span class='detalles'>Email</span>
-            <input style="background-color:#a2c1e7" type="email" name="email" placeholder="Email">
+            <span class='detalles'>Id</span>
+            <input style="background-color:#a2c1e7" type="number" name="id-prote" placeholder="Id">
         </div>
 
         <div class="input-box">
-            <span class='detalles'>Usuario</span>
-            <input style="background-color:#a2c1e7" type="tetx" name="usuario" placeholder="Usuario">
-        </div>
-        <div class="input-box">
-            <span class='detalles'>Codigo  postal</span>
-            <input style="background-color:#a2c1e7" type="number" name="cp" placeholder="Código postal">
+            <span class='detalles'>Nombre fichero</span>
+            <input style="background-color:#a2c1e7" type="id" name="nombre-fichero-prote" placeholder="Nombre fichero">
         </div>
 
         <div class="input-box">
-            <span class='detalles'>DNI</span>
-            <input style="background-color:#a2c1e7" type="id" name="dni" placeholder="DNI/NIE">
+            <span class='detalles'>Tipo fichero</span>
+            <input style="background-color:#a2c1e7" type="number" name="tipo-fichero-prote" placeholder="Tipo fichero">
         </div>
 
-        <div class="input-box">
-            <span class='detalles'>Telefono de contacto</span>
-            <input style="background-color:#a2c1e7" type="number" name="telefono" placeholder="Otro teléfono de contacto">
-        </div>
-
-        <div class="input-box">
-            <span class='detalles'>Contraseña</span>
-            <input style="background-color:#a2c1e7" type="password" name="contrasena" placeholder="Contraseña">
+        <div class="input-box" >
+            <span class='detalles'>Fecha</span>
+            <input style="background-color:#a2c1e7" type="text" name="fecha" placeholder="Fecha">
         </div>
         
-        <div class="input-box" style='width:100%'>
-            <span class='detalles'>Confirmar contraseña</span>
-            <input style="background-color:#a2c1e7" type="password" name="confirm" placeholder="Confirmar contraseña">
+       
+
+        <div class="input-box" style='margin-bottom:10px' >
+            <span class='detalles'>Método</span>
+            <input style="background-color:#a2c1e7" type="text" name="metodo" placeholder="Método">
         </div>
-        <div class="input-box-segundo">
+
+        <div class="input-box-segundo" style="margin-bottom:12px" style=''>
             <span class='detalles'>Crear proteina</span>
-            <button style="background-color:#a2c1e7"  type="submit" name="registrarse" >Añadir proteina</button>
+            <button  type="submit" name="registrarse" >Añadir proteina</button>
         </div>
     </div>
 </form>
