@@ -724,113 +724,259 @@
 /*------------------CONTENEDOR DE CARRITO-------------*/
 
 .container-carrito{
-margin: auto;
-display: flex;
-flex-direction: column;
-width: 100%;
-max-width: 1200px;
-padding: 45px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    /* flex-direction: column; */
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    margin-top: 143px;
+    contain: paint;/*oara ocultar lo que hay fuera del contenedor*/
+
 
 }
 
-.container-carrito > h1
+.header-titulo
 {
     margin-bottom: 40px;
-    font-family: "Manrope";
-    font-weight: normal;
+    margin-left: 8%;
     background-color: #47B191;
-    padding: 4px 0 4px 10px;
-    max-width: 270px;
-    width: 100%;
-    border-radius: 15px;
-    color: white;
-}
-
- 
-
-.linea{
-    width: 100%;
-    max-width: 500px;
-    height: 2px; 
-    background-color: #000; 
-    margin-top: 20px; 
-}
-
-.imagenes-carrito{
-    display: grid;
-    width: 100%;
-    max-width: 550px;
-    background-color: #FFF;
-    justify-items: center;
-    grid-gap: 20px;
     padding: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    box-shadow: 0 1px 2px #1e233a;
-    margin-top: 15px;
-    margin-bottom: 67px;
-
-}
-
-.carrito > p{
-   
-    padding-bottom: 10px;
-
-  
-}
-
-.carrito{
+    max-width: 310px;
     width: 100%;
-    max-width: 147px;
-    padding: 15px;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 200px;
+}
+
+.header-titulo h1{
+    color: white;
+    font-family: 'Manrope';
+    font-weight: normal;
+}
+
+
+.container-carrito .contenedor-items{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-gap:30px;
+    grid-row-gap:30px;
+    width: 70%;
+    transition: .3s;
+
+} 
+
+.container-carrito .contenedor-items .item{
+    max-width: 200px;
+    padding: 10px;
+    margin: auto;
+    border: 1px solid #666;
+    border-radius: 10px;
+    padding: 20px;
+    transition: .3s;
+}
+
+.contenedor-items .item:hover{
+    box-shadow: 0 0 10px #666;
+    scale: 1.05;
+}
+.container-carrito .item .img-item{
+    width: 100%;
+}
+
+.contenedor-items .item .titulo-item{
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}   
+
+
+.contenedor-items .item  .precio{
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.contenedor-items .item .boton-item{
+    display: block;
+    margin: 10px auto;
+    border: none;
+    background-color:#439A97;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* PARTE DE CARRITO */
+.carrito{
+    border: 1px solid #666;
+    width: 35%;
+    margin-top: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: auto;
+    position: sticky !important;
+    top: 0;
+    transition:.3s;
     
 }
 
-.img {
-    width: 100%;
-    max-width: 117px;
-    border: 1px solid #000;
-    border-radius: 25px;
-    max-height: 117px;
-    margin: 0 0 15px 0;
-}
-
-
-
-
-.pedido {
-    flex: 1; 
-    padding: 1px 0 0 15px;
-    background-color: #FFF;
-}
-
-.contenido-carrito {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 20px; 
-}
-
-.pedido > .linea{
-    margin-bottom: 25px;
-}
-
-.pedido > input{
-    width: 100%;
-    max-width: 300px;
-    padding-bottom:10px ;
-}
-
-.my-input{
-    background-color: black;
-    color: white;
+.carrito .header-carrito{
+    background-color: #439A97;
+    color: #fff;
     text-align: center;
-    border: none; 
-    padding: 10px; 
-    width: 200px;
+    padding: 30px 0;
+
 }
 
-.my-input::placeholder{
-    color: white;
+.carrito .carrito-elemento{
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px solid #666;
+    padding: 20px;
 }
+
+.carrito .carrito-elemento img{
+    margin-right: 20px;
+
+}
+
+.carrito .carrito-elemento .carrito-item-titulo{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.carrito .carrito-elemento .cantidad{
+    display: inline-block;
+    margin-right: 25px;
+
+}
+
+.carrito .carrito-elemento .carrito-cantidad{
+    border: none;
+    font-size: 18px;
+    background: transparent;
+    display: inline-block;
+    width: 30px;
+    padding: 5px;
+    text-align: center;
+}
+
+.carrito .carrito-elemento .cantidad i{
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.carrito .carrito-elemento .carrito-item-precio{
+    font-weight: bold;
+    display: inline-block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.carrito .carrito-elemento .boton-eliminar{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    columns:#000;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #000;
+    cursor: pointer;
+    display: block;
+    background-color: transparent;
+    z-index: 20;
+}
+
+.carrito .carrito-elemento .boton-eliminar i {
+    pointer-events: none;
+}
+
+.carrito-total{
+    background-color: #f3f3f3;
+    padding: 30px;
+} 
+
+.carrito-total .fila{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom:10px ;
+}
+
+
+.carrito-total .btn-pagar{
+    display: block;
+    width: 100%;
+    border: none;
+    background: #439A97;
+    color: white;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.carrito-total .btn-pagar:hover{
+    scale: 1.05;
+}
+
+
+
+
+
+/* seccion responsive */
+
+@media screen and (max-width:850px){
+    .container-carrito{
+        display: block;
+    }
+
+    .contenedor-items{
+        width: 100% !important;
+    }
+
+    .carrito{
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+ 
+/*  */
+
+
+
+
+
 /*/-----------------CONTENEDOR DE CARRITO---------------*/
 
 /*--------------CONTENEDOR DE AVISO LEGAL-------------*/
