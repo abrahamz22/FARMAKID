@@ -8,22 +8,22 @@
     $usuario = strtolower($_POST["usuario"]);
     $cp= $_POST["cp"];
     $dni = $_POST["dni"];
-    $ultimoCaracter = substr($dni, -1);  // Obtener el último carácter
-    $restoCadena = substr($dni, 0, -1);   // Obtener todos los caracteres excepto el último
-    $dni = $restoCadena . strtolower($ultimoCaracter);  // Concatenar el último carácter en minúsculas
     $telefono = $_POST["telefono"];
     $contrasena = $_POST["contrasena"];
     $contrasenaComp = $_POST["confirm"];
     $rol = "usuario";
     $mensajeError = "";
     $compFormularios = true;
-    $compColumnasBbdd = "SELECT * FROM usuario";
-    $resultado1 = mysqli_query($conexion,$compColumnasBbdd);
     $idUsuario = "";
-    $consultaCompNom = "SELECT usuario FROM usuario WHERE usuario LIKE '".$usuario."';";
-    $resultado2 = mysqli_query($conexion,$consultaCompNom);
 ?>
-<?php 
+<?php
+    //CONVERTIR LETRA DE DNI EN MINÚSCULA
+    function letraDni($dni){
+        $ultimoCaracter = substr($dni, -1);  // Obtener el último carácter
+        $restoCadena = substr($dni, 0, -1);   // Obtener todos los caracteres excepto el último
+        $dni = $restoCadena . strtolower($ultimoCaracter);
+        return $dni;
+    }
     //COMPROBACIONES VARIABLE VACÍA
     function isVariableVacia($compFormularios,$columna, $nombreColumna, &$mensajeError){
         if(empty($columna)){
@@ -57,8 +57,8 @@
         return $compFormularios;
     }
     //COMPROBACION EN LA BASE DE DATOS DEL USUARIO
-    function compUsuarioBbdd($compFormularios,$columna, $query, &$mensajeError){
-        if(mysqli_num_rows($query) > 0){
+    function compUsuarioBbdd($compFormularios,$columna, $sql, &$mensajeError){
+        if(mysqli_num_rows($sql) > 0){
             $mensajeError .= "-Ya existe un usuario con el nick ".$columna.".</br>";
             $compFormularios = false;
         }
@@ -80,18 +80,11 @@
         }
         return $compFormularios;
     }
-    //COMPROBACIÓN DEL NOMBRE
-    function comprobacionNombre($compFormularios, $nombre, &$mensajeError){
-        $compFormularios = isVariableVacia($compFormularios, $nombre,"nombre", $mensajeError);
-        $compFormularios = comprobacionLengthMayor($compFormularios,  $nombre, "nombre", 50, $mensajeError);
-        $compFormularios = compCaracteres($compFormularios, $nombre, "nombre", "/^[A-Za-z ]+$/" ,"caracteres especiales o caracteres númericos",$mensajeError);
-        return $compFormularios;
-    }
-    //COMPROBACIÓN DE LOS APELLIDOS
-    function comprobacionApellido($compFormularios, $apellido, &$mensajeError){
-        $compFormularios = isVariableVacia($compFormularios, $apellido,"apellidos", $mensajeError);
-        $compFormularios = comprobacionLengthMayor($compFormularios,  $apellido, "apellidos", 100, $mensajeError);
-        $compFormularios = compCaracteres($compFormularios, $apellido, "apellidos", "/^[A-Za-z ]+$/" ,"caracteres especiales o caracteres númericos",$mensajeError);
+    //FUNCIÓN COMPROBAR VARIABLE VACÍA, SOBREPASA LENGHT Y COMPROBACIÓN DE CARACTERES
+    function vacioLenghtmasCaracteres($compFormularios, $columna, $nombreColumna,$lenght,$patron,$patronError,&$mensajeError){
+        $compFormularios = isVariableVacia($compFormularios, $columna,$nombreColumna, $mensajeError);
+        $compFormularios = comprobacionLengthMayor($compFormularios,  $columna, $nombreColumna, $lenght, $mensajeError);
+        $compFormularios = compCaracteres($compFormularios, $columna, $nombreColumna, $patron,$patronError,$mensajeError);
         return $compFormularios;
     }
     //COMPROBACIÓN EMAIL
@@ -101,11 +94,13 @@
         return $compFormularios;
     }
     //COMPROBACION USUARIO
-    function comprobacionUsuario($compFormularios, $usuario, $query, &$mensajeError){
+    function comprobacionUsuario($compFormularios, $usuario, $conexion,&$mensajeError){
+        $query= "SELECT usuario FROM usuario WHERE usuario LIKE '".$usuario."';";
+        $sql = mysqli_query($conexion,$query);
         $compFormularios = isVariableVacia($compFormularios, $usuario,"usuario", $mensajeError);
         $compFormularios = comprobacionLengthMayor($compFormularios,  $usuario, "usuario", 50, $mensajeError);
         $compFormularios = compCaracteres($compFormularios, $usuario, "usuario", '/^[a-zA-Z0-9]+$/' ,"espacios o caracteres especiales",$mensajeError);
-        $compFormularios = compUsuarioBbdd($compFormularios,$usuario, $query, $mensajeError);
+        $compFormularios = compUsuarioBbdd($compFormularios,$usuario, $sql, $mensajeError);
         return $compFormularios;
     }
     //COMPROBACIÓN CP
@@ -135,11 +130,13 @@
         return $compFormularios;
     } 
     //CREAR ID USUARIO
-    function asignarIdUsuario($query){
+    function asignarIdUsuario($conexion){
+        $query = "SELECT * FROM usuario";
+        $sql = mysqli_query($conexion,$query);
         $cont = 1;
         $newId = 1;
         $idAsignada = false;
-        while($row = mysqli_fetch_assoc($query)){
+        while($row = mysqli_fetch_assoc($sql)){
             $numId = substr($row["idUsuario"], -1); 
             echo $numId;
             if($numId != $cont){
@@ -149,7 +146,7 @@
             $cont++;
         }
         if(!$idAsignada){
-            $newId = "#" . (mysqli_num_rows($query) + 1);
+            $newId = "#" . (mysqli_num_rows($sql) + 1);
         }
         return $newId;
     }
@@ -162,17 +159,23 @@
             $_SESSION["ExitoRegistro"] = "El resgitro fue realizado con exito.";
         }
     }
-    $compFormularios = comprobacionNombre($compFormularios, $nombre, $mensajeError);
-    $compFormularios = comprobacionApellido($compFormularios, $apellido, $mensajeError);
-    $compFormularios = comprobacionEmail($compFormularios, $email, $mensajeError);
-    $compFormularios = comprobacionUsuario($compFormularios, $usuario, $resultado2,$mensajeError);
-    $compFormularios = comprobacionCp($compFormularios, $cp, $mensajeError);
-    $compFormularios = comprobacionDni($compFormularios, $dni, $mensajeError);
-    $compFormularios = comprobacionTelf($compFormularios, $telefono, $mensajeError);
-    $compFormularios = comprobacionContrasena($compFormularios, $contrasena,$contrasenaComp, $mensajeError);
-    $idUsuario = asignarIdUsuario($resultado1);
-    $_SESSION["mensajeError"] = $mensajeError;
-    insertarUsuario($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$dni,$idUsuario,$rol,$conexion);
+    function resgistrarse($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$contrasenaComp,$dni,$idUsuario,$rol,&$mensajeError,$conexion){
+        $dni = letraDni($dni);
+        $compFormularios = vacioLenghtmasCaracteres($compFormularios, $nombre, "nombre",50,"/^[A-Za-z ]+$/","caracteres especiales o caracteres númericos",$mensajeError);//nombre
+        $compFormularios = vacioLenghtmasCaracteres($compFormularios, $apellido, "apellidos",100,"/^[A-Za-z ]+$/","caracteres especiales o caracteres númericos",$mensajeError);//apellido
+        $compFormularios = comprobacionEmail($compFormularios, $email, $mensajeError);
+        $compFormularios = comprobacionUsuario($compFormularios, $usuario, $conexion,$mensajeError);
+        $compFormularios = comprobacionCp($compFormularios, $cp, $mensajeError);
+        $compFormularios = comprobacionDni($compFormularios, $dni, $mensajeError);
+        $compFormularios = comprobacionTelf($compFormularios, $telefono, $mensajeError);
+        $compFormularios = comprobacionContrasena($compFormularios, $contrasena,$contrasenaComp, $mensajeError);
+        $idUsuario = asignarIdUsuario($conexion);
+        $_SESSION["mensajeError"] = $mensajeError;
+        insertarUsuario($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$dni,$idUsuario,$rol,$conexion);
+    }
+
+    resgistrarse($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$contrasenaComp,$dni,$idUsuario,$rol,$mensajeError,$conexion);
+
 
     echo $_SESSION["mensajeError"];
     echo $compFormularios ? "true" : "false";
