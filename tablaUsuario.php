@@ -1,9 +1,5 @@
 <?php
 include_once("bbdd/connexionBaseDeDatos.php");
-
-
-
-
 ?>
 
 <!DOCTYPE html>
