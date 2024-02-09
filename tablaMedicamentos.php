@@ -28,19 +28,20 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
     
     
-    <!--/HEADER-->
-     <!--DIV DE TABLA-->
-     <div id="divTabla">
-        <h1>Tabla de Medicamentos</h1>
-        <div class="contenedor-botones">
-        <!-- BOTON DE BUSCAR TABLA MEDICAMENTOS -->
+<!--/HEADER-->
+<!--DIV DE TABLA-->
+<div id="divTabla">
+    <div class="contenedor-botones">
+    <h1>Tabla de Medicamentos</h1>
+    <div class="conjunto-buscar-anadir">
+    <!-- BOTON DE BUSCAR TABLA MEDICAMENTOS -->
         <form action="buscar-medicamento.php" class="form-busqueda" method="get" name="formu">
                 <div style='display:flex'> 
                     <input class="input-busqueda" type="text" placeholder="Buscar"/>
                     <input class="btn-busqueda" type="submit" value="Buscar"/>
                 </div>
             </form>
-        
+
         <!-- BOTON DE BUSCAR TABLA MEDICAMENTOS -->
 
             <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
@@ -49,7 +50,8 @@ include_once("bbdd/connexionBaseDeDatos.php");
         </div> -->
         <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
         <button id="anadirButton">Añadir usuario</button>
-        </div>
+    </div>
+</div>
 
         
     <form  id="anadir" action="">
@@ -61,7 +63,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
         </div>
         <div class="input-box">    
             <span class='detalles'>Id</span>
-            <input type="text" name="id" placeholder="Id">
+            <input type="text" name="id-med" placeholder="Id">
         </div>
 
         <div class="input-box" >

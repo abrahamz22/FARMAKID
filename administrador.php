@@ -27,11 +27,13 @@
         <div id="contImg">
         <img src="multimedia/icon-admin.png" alt="Administrador">
         </div>
+    
         <div>
             <button class="botonUsuario"><a href="tablaUsuario.php">Tabla usuario</a></button>
             <button class="botonUsuario"><a href="tablaMedicamentos.php">Tabla medicamentos</a></button>
             <button class="botonUsuario"><a href="tablaProteinas.php">Tabla proteínas</a></button>
         </div>
+
         <div>
             <button class="botonUsuario"><a href="bbdd/desconexion.php">Salir de Tu cuenta</a></button>
         </div>

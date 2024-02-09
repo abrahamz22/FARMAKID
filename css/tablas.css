@@ -5,9 +5,13 @@
     flex-direction: column;
     width: 100%;
     /* max-width: 1200px; */
-    padding: 45px;
+    padding: 45px 20px;
     text-align: center;
+    margin-top: 143px;
 }
+
+
+
 
 /* #divTablaProteina form {
     margin-left: 0;
@@ -40,8 +44,7 @@
     text-align: center;
     color: #FFFFFF;
     background-color: #79B4E3;
-    border-radius: 2em;
-    margin-bottom: 5%;
+    border-radius: 6px;
     /* margin-top: 5%; */
     width: 100%;
     text-align: center;
@@ -50,6 +53,9 @@
     /* font-size: calc(15px + 0.25vw); */
     font-weight: normal;
     font-family: Manrope;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     
 }
 
@@ -77,7 +83,9 @@ table {
     align-items: center;
 }
 
-
+#divTablaProteina #anadirButton{
+    background-color:#0e1119;
+}
 
 
 #divTablaProteina button,
@@ -89,18 +97,33 @@ table {
     border-radius: 4px;
     width: 100%;
     /* height: 2em; */
-    padding: 6px;
+    padding: 10px;
     max-width: 274px;
     border: none;
 
 }
 
-#divTabla button[name="registrarse"],
-#divTablaProteina button[name="registrarse"]
+#divTabla button[name="registrarse"]
+
+
 {
     background-color:#97DECE;
     padding: 11px;
+    cursor: pointer;
 }
+
+
+#divTablaProteina button[name="registrarse"]{
+    background-color:#a2c1e7;
+}
+
+
+
+#divTablaProteina button[type="submit"]:hover{
+    background-color: #214f70cc;
+    color: white;
+}
+
 
 #divTabla button[type="submit"],
 #divTablaProteina button[type="submit"]{
@@ -109,11 +132,23 @@ table {
 
 
 
-
-
-#divTablaProteina button a{
+#divTablaProteina button a{/*Este es el enlace , forma de boton de redireccion a login desde lista de proteinas*/
     color: #FFFFFF;
 }
+
+#divTabla button[type="submit"]:hover{
+    background-color: #439A97;
+    color: white;
+}
+
+
+.conjunto-buscar-anadir{
+    display: flex;
+    /* width: 54%; */
+    justify-content: space-between;
+    gap: 38px;
+}
+
 
   /*/Tabla de proteinas*/
 
@@ -125,9 +160,10 @@ table {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     padding: 45px 20px;
     text-align: center;
+    margin-top: 143px;
 
 }
 
@@ -135,14 +171,26 @@ table {
     display: flex;
     justify-content: space-between;
     margin-bottom: 5%;
-    margin-top: 30px;
 }
 
+
 #anadirButton{
-    width: 20% !important;
+    width: 26% !important;
     background-color: #439A97;
     color: white;
     border-radius: 4px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+
+
+#anadirButton:hover{
+    background-color: #055d41cc;
+}
+
+#divTablaProteina #anadirButton:hover{
+    background-color: #214f70cc;
 }
 
 
@@ -241,13 +289,11 @@ table {
 }
 
 #divTabla h1 {
-    
-
     text-align: center;
     color: #FFFFFF;
     background-color: #7FC6AF;
-    border-radius: 2em;
-    margin-bottom: 5%;
+    border-radius: 6px;
+    /* margin-bottom: 5%; */
     /* margin-top: 5%; */
     width: 100%;
     text-align: center;
@@ -255,7 +301,10 @@ table {
     padding: 4px;
     /* font-size: calc(15px + 0.25vw); */
     font-weight: normal;
-    font-family: Manrope; 
+    font-family: Manrope;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 table{
@@ -303,9 +352,19 @@ table tr:nth-child(odd){
 
 }
 
-#divTablaProteina a{
-    background-color: #b8d0e3;
+#divTabla > a:hover{
+    background-color: #055d41cc;
 }
+
+
+#divTablaProteina a{
+    background-color: #0e1119;
+}
+
+#divTablaProteina a:hover{
+    background-color: #214f70cc;
+}
+
 
 .btn-busqueda-proteina,/*le cambie la clase al boton de buscar de la proteina para que tenga otro color de fondo*/
  .btn-busqueda{
@@ -315,13 +374,20 @@ table tr:nth-child(odd){
     /* border: 2px solid green; */
     margin-left: 10px;
     padding: 10px 20px;
+    cursor: pointer;
 }
+
 .btn-busqueda-proteina{
-    background-color: #0e1119; /* Fondo blanco */
-
+    background-color: #000;
 }
 
+.btn-busqueda-proteina:hover{
+    background-color: #214f70cc;
+}
 
+.btn-busqueda:hover{
+    background-color: #055d41cc;
+}
 
  .form-busqueda{
     display: flex;
