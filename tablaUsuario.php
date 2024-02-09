@@ -24,13 +24,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <?php require("footerHeader/header.php")?>
 
 <!--/HEADER-->
-
-
-    
-
 <!--/HEADER-->
-
-
 <!--DIV DE TABLA-->
 <div id="divTabla">
     <div class="contenedor-botones">
@@ -57,7 +51,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
 </div>
     
-    <form  id="anadir" action="">
+    <form  id="anadir" action="bbdd/blibliotecaUsuarios.php">
         <div class="anadir-usuario">
         <div class="input-box">
             <span class='detalles'>Nombre </span>
@@ -188,11 +182,6 @@ echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
 <?php require("footerHeader/footer.php")?>
 <!--/FOOTER-->
 <?php
-
-
-
-
-
 
 mysqli_close($conexion); //cierra la BBDD
 
