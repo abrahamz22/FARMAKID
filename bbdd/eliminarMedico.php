@@ -1,6 +1,6 @@
-<?php 
+<?php
     include_once("connexionBaseDeDatos.php");
-    include_once("bibliotecaUsuarios.php");
+    include("bibliotecaMedico.php");
     session_start();
     unset($_SESSION['mensajeError']);
     unset($_SESSION['ExitoRegistro']);
@@ -10,10 +10,6 @@
         $comprobacion = false;
     }
     $id = $_POST["idValueEliminar"];
-?>
-
-<?php
-    eliminarUsuario($comprobacion, $id, $conexion);
-    header("location: ../tablaUsuario.php");
-
+    eliminarMedico($comprobacion, $id, $conexion);
+    header("location: ../tablaMedico.php");
 ?>

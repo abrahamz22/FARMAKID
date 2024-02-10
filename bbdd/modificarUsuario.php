@@ -20,6 +20,6 @@
 <?php
     $sql = "UPDATE usario SET nombre='".$nombre."', apellidos='".$apellido."', email='".$nombre."', usuario='".$usuario."', telefono='".$telefono."', contrasena='".$contrasena."', dni='".$dni."', rol='".$rol."', cp='".$cp."' WHERE idUsuario LIKE '".$idUsuario."';";
     modificarUsuarioTabla($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$dni,$idUsuario,$rol,$mensajeError,$conexion);
-    header("location: ../tablaUsuario.php")
+    header("location: ../tablaUsuario.php");
 
 ?>
