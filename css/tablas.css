@@ -502,6 +502,11 @@ table tr:nth-child(odd){
 #divTabla table td:last-child{
     background-color: #fff;
     }
+
+    /*TABLA MODIFICAR*/
+    #tablaModificar{
+        display: none;
+    }
 /*AQUI TERMINA  LOS BOTONES DE MODIFICAR Y ACTUALIZAR DE LAS TABLAS CUANDO EL USER SE LOGEA COMO ADMINISTRADOR */
 
 

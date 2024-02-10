@@ -68,6 +68,42 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <input type="submit" value ="Aceptar">
 </form>
 <!--/FORMULARIO DE COMPROBACIÓN PARA ELIMINAR USUARIO -->
+<!-- FORMULARIO DE COMPROBACIÓN PARA MODIFICAR USUARIO -->
+    <table id="tablaModificar">
+        <tr>
+            <th>NOMBRE</th>
+            <th>APELLIDOS</th>
+            <th>DNI</th>
+            <th>CÓDIGO POSTAL</th>
+            <th>TELEFONO</th>
+            <th>EMAIL</th>
+            <th>USUARIO</th>
+            <th>ROL</th>
+            <th>CONTRASEÑA</th>
+            <th>ACCIONES</th>
+        </tr>
+        <tr>
+        <form action="bbdd/modificarUsuario.php" method="post">
+            <input id="idMod" name="id" type="hidden" value="0">
+        <th><input id="nombreMod" name="nombre" type="text"></th>
+        <th><input id="apellidosMod" name="apellidos" type="text"></th>
+        <th><input id="dniMod" name="dni" type="text"></th>
+        <th><input id="cpMod" name="cp" type="number"></th>
+        <th><input id="telefonoMod" name="telefono" type="number"></th>
+        <th><input id="emailMod" name="email" type="email"></th>
+        <th><input id="usuarioMod" name="usuario" type="text"></th>
+        <th><select id="rolMod" name="rol">
+                <option value="administrador">Administrador</option>
+                <option value="editor">Editor</option>
+                <option value="usuario">Usuario</option>
+            </select>
+        </th>
+        <th><input id="contrasenaMod" name="contrasena" type="password"></th>
+        <th><input type="submit" value="Verificar cambios"></th>
+        </form>
+        </tr>
+    </table>
+<!-- /FORMULARIO DE COMPROBACIÓN PARA MODIFICAR USUARIO -->
 <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
     <form  id="anadir" action="bbdd/anadirUsuarioTabla.php" method="post">
         <div class="anadir-usuario">

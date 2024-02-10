@@ -46,6 +46,16 @@
         }
         return $compFormularios;
     }
+        //COMPROBACION EN LA BASE DE DATOS DEL USUARIO SIN COMPARAR AL USUARIO MISMA ID
+        function compUsuarioBbdd2($compFormularios,$columna, $sql, &$mensajeError){
+            while ($row = mysqli_fetch_assoc($sql)) {
+                if($row["usuario"] == $columna ){
+                    $mensajeError .= "-Ya existe un usuario con el nick ".$columna.".</br>";
+                    $compFormularios = false;
+                }
+            }
+            return $compFormularios;
+        }
     //COMPROBACIÓN ESPACIOS
     function compEspacios($compFormularios,$columna, &$mensajeError){
         if (strpos($columna, ' ') !== false) {
@@ -83,6 +93,14 @@
         $compFormularios = compUsuarioBbdd($compFormularios,$usuario, $sql, $mensajeError);
         return $compFormularios;
     }
+    //COMPROBACION USUARIO CUANDO LO MODIFICAS
+       function comprobacionUsuario2($compFormularios, $usuario, $idUsuario,$conexion,&$mensajeError){
+        $query= "SELECT * FROM usuario WHERE idUsuario != '".$idUsuario."';";
+        $sql = mysqli_query($conexion,$query);
+        $compFormularios = vacioLenghtmasCaracteres($compFormularios, $usuario, "usuario", 50 ,'/^[a-zA-Z0-9]+$/',"espacios o caracteres especiales",$mensajeError);
+        $compFormularios = compUsuarioBbdd2($compFormularios,$usuario, $sql, $mensajeError);
+        return $compFormularios;
+    }
     //COMPROBACIÓN CP
     function comprobacionCp($compFormularios, $cp, &$mensajeError){
         $compFormularios = isVariableVacia($compFormularios, $cp,"cp", $mensajeError);
@@ -109,6 +127,13 @@
         $compFormularios = comp2Var($compFormularios,$contrasena,$contrasenaComp, "contraseña", $mensajeError);
         return $compFormularios;
     } 
+    //COMPROBACIÓN CONTRASEÑA SIN COMPARACION VARIABLE
+    function comprobacionContrasena2($compFormularios, $contrasena, &$mensajeError){
+        $compFormularios = isVariableVacia($compFormularios, $contrasena,"contraseña", $mensajeError);
+        $compFormularios = compEspacios($compFormularios,$contrasena, $mensajeError);
+        $compFormularios = comprobacionLengthMayor($compFormularios,  $contrasena, "contraseña", 50, $mensajeError);
+        return $compFormularios;
+    }
     //CREAR ID USUARIO
     function asignarIdUsuario($conexion){
         $query = "SELECT * FROM usuario";
@@ -138,19 +163,30 @@
             $_SESSION["ExitoRegistro"] = "El resgitro fue realizado con exito.";
         }
     }
+    //MODIFICAR USUARIO
+    function modificarUsuario($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$dni,$rol,$idUsuario,$conexion){
+        if($compFormularios){
+            $query = "UPDATE usuario SET nombre='".$nombre."', apellidos='".$apellido."', email='".$email."', usuario='".$usuario."', telefono='".$telefono."', contrasena='".$contrasena."', dni='".$dni."', rol='".$rol."', codigoPostal='".$cp."' WHERE idUsuario LIKE '".$idUsuario."';";
+            mysqli_query($conexion, $query);
+            $_SESSION["ExitoRegistro"] = "El usuario con la id " . $idUsuario . " fue modificado exitosamente.";
+        }
+    }
     //FUNCIÓN PARA ELIMINAR USUARIO 
     function eliminarUsuario($comprobacion, $id, $conexion){
         if($comprobacion){
             $query = "DELETE FROM usuario WHERE idUsuario LIKE '" .$id. "';";
             mysqli_query($conexion, $query);
             $_SESSION["ExitoRegistro"] = "El usuario con la id " . $id . " fue eliminado exitosamente.";
+            unset($_SESSION['mensajeError']);
         }
     }
     //FUNCIÓN PARA REGISTARSE
     function resgistrarse($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$contrasenaComp,$dni,$idUsuario,$rol,&$mensajeError,$conexion){
         $dni = strtolower($dni);
         $usuario = strtolower($usuario);
+        $nombre = strtolower($nombre);
         $nombre = ucwords($nombre);
+        $apellido = strtolower($apellido);
         $apellido = ucwords($apellido);
         $compFormularios = vacioLenghtmasCaracteres($compFormularios, $nombre, "nombre",50,"/^[A-Za-z ]+$/","caracteres especiales o caracteres númericos",$mensajeError);//nombre
         $compFormularios = vacioLenghtmasCaracteres($compFormularios, $apellido, "apellidos",100,"/^[A-Za-z ]+$/","caracteres especiales o caracteres númericos",$mensajeError);//apellido
@@ -168,7 +204,9 @@
     function anadirUsuarioTabla($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$contrasenaComp,$dni,$idUsuario,$rol,&$mensajeError,$conexion){
         $dni = strtolower($dni);
         $usuario = strtolower($usuario);
+        $nombre = strtolower($nombre);
         $nombre = ucwords($nombre);
+        $apellido = strtolower($apellido);
         $apellido = ucwords($apellido);
         $compFormularios = vacioLenghtmasCaracteres($compFormularios, $nombre, "nombre",50,"/^[A-Za-z ]+$/","caracteres especiales o caracteres númericos",$mensajeError);//nombre
         $compFormularios = vacioLenghtmasCaracteres($compFormularios, $apellido, "apellidos",100,"/^[A-Za-z ]+$/","caracteres especiales o caracteres númericos",$mensajeError);//apellido
@@ -181,6 +219,28 @@
         $idUsuario = asignarIdUsuario($conexion);
         $_SESSION["mensajeError"] = $mensajeError;
         insertarUsuario($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$dni,$idUsuario,$rol,$conexion);
+    }
+    //FUNCION PARA MODIFICAR UN USUARIO
+    function modificarUsuarioTabla($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$dni,$idUsuario,$rol,&$mensajeError,$conexion){
+        $dni = strtolower($dni);
+        $usuario = strtolower($usuario);
+        $nombre = strtolower($nombre);
+        $nombre = ucwords($nombre);
+        $apellido = strtolower($apellido);
+        $apellido = ucwords($apellido);
+        $compFormularios = vacioLenghtmasCaracteres($compFormularios, $nombre, "nombre",50,"/^[A-Za-z ]+$/","caracteres especiales o caracteres númericos",$mensajeError);//nombre
+        $compFormularios = vacioLenghtmasCaracteres($compFormularios, $apellido, "apellidos",100,"/^[A-Za-z ]+$/","caracteres especiales o caracteres númericos",$mensajeError);//apellido
+        $compFormularios = comprobacionEmail($compFormularios, $email, $mensajeError);
+        $compFormularios = comprobacionUsuario2($compFormularios, $usuario, $idUsuario,$conexion,$mensajeError);
+        $compFormularios = comprobacionCp($compFormularios, $cp, $mensajeError);
+        $compFormularios = comprobacionDni($compFormularios, $dni, $mensajeError);
+        $compFormularios = comprobacionTelf($compFormularios, $telefono, $mensajeError);
+        $compFormularios = comprobacionContrasena2($compFormularios, $contrasena,$mensajeError);
+         modificarUsuario($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$dni,$rol,$idUsuario,$conexion);
+         $_SESSION["mensajeError"] = $mensajeError;
+         if(isset($_SESSION['ExitoRegistro'])){
+            unset($_SESSION['mensajeError']);
+        }
     }
 
 ?>
