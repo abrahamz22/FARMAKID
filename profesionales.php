@@ -61,9 +61,15 @@
      <!--/HEADER-->
     <!--FOOTER-->
     <?php require("footerHeader/footer.php")?>
+    
     <!--/FOOTER-->
     
 </body>
 <?php 
 ?>
 </html>
+
+<?php
+unset($_SESSION["ExitoRegistro"]);
+unset($_SESSION["mensajeError"]);
+?>
