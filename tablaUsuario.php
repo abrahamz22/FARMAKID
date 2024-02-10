@@ -50,8 +50,13 @@ include_once("bbdd/connexionBaseDeDatos.php");
     </div>
     <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
 </div>
-    
-    <form  id="anadir" action="bbdd/blibliotecaUsuarios.php">
+<?php if(isset($_SESSION["mensajeError"]))://si el mensaje de error existe?>
+        <p id="divError"><?php echo $_SESSION["mensajeError"]//imprimimos?></p>
+<?php endif;?>
+<?php if(isset($_SESSION["ExitoRegistro"]))://si el mensaje de error existe?>
+        <p id="ExitoRegistro"><?php echo $_SESSION["ExitoRegistro"]//imprimimos?></p>
+<?php endif;?>
+    <form  id="anadir" action="bbdd/anadirUsuarioTabla.php" method="post">
         <div class="anadir-usuario">
         <div class="input-box">
             <span class='detalles'>Nombre </span>
@@ -98,7 +103,12 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
         <div class="input-box" >
             <span class='detalles'>Rol</span>
-            <input type="password" name="rol" placeholder="Tipo de rol">
+            <select name="rol" id="rol">
+                <option value="administrador">administrador</option>
+                <option value="editor">editor</option>
+                <option value="usuario">usuario</option>
+            </select>
+           <!-- <input type="text" name="rol" placeholder="Tipo de rol">-->
         </div>
         
         <div class="input-box"  >
@@ -110,7 +120,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
 <!-- CONSULTA PARA GENERAR LA TABLA DINAMICA DESDE LA BASE DE DATOS -->
 <?php
-$sql = mysqli_query($conexion, "SELECT * FROM usuario ORDER BY usuario");
+$sql = mysqli_query($conexion, "SELECT * FROM usuario ORDER BY idUsuario");
 
 $resultado = mysqli_num_rows($sql);
 
@@ -189,3 +199,8 @@ mysqli_close($conexion); //cierra la BBDD
 </body>
 
 </html>
+
+<?php
+    unset($_SESSION['mensajeError']);
+    unset($_SESSION['ExitoRegistro']);
+?>

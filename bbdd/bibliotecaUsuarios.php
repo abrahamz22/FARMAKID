@@ -109,13 +109,6 @@
         $compFormularios = comp2Var($compFormularios,$contrasena,$contrasenaComp, "contraseña", $mensajeError);
         return $compFormularios;
     } 
-    //COMPROBACIÓN ROL
-    function comprobacionRol($compFormularios,$rol){
-        if($rol != "administrador" || $rol != "editor" || $rol != "usuario"){
-            $compFormularios = false;
-        }
-        return $compFormularios;
-    }
     //CREAR ID USUARIO
     function asignarIdUsuario($conexion){
         $query = "SELECT * FROM usuario";
@@ -125,7 +118,6 @@
         $idAsignada = false;
         while($row = mysqli_fetch_assoc($sql)){
             $numId = substr($row["idUsuario"], -1); 
-            echo $numId;
             if($numId != $cont){
                 $newId = "#" . $cont;
                 $idAsignada = true;
@@ -147,7 +139,7 @@
         }
     }
     //FUNCIÓN PARA REGISTARSE
-    function anadirUsuarioTabla($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$contrasenaComp,$dni,$idUsuario,$rol,&$mensajeError,$conexion){
+    function resgistrarse($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$contrasenaComp,$dni,$idUsuario,$rol,&$mensajeError,$conexion){
         $dni = strtolower($dni);
         $usuario = strtolower($usuario);
         $nombre = ucwords($nombre);
@@ -165,5 +157,21 @@
         insertarUsuario($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$dni,$idUsuario,$rol,$conexion);
     }
     //FUNCIÓN AÑADIR USURIO DESDE LA TABLA DE USUARIOS
-
+    function anadirUsuarioTabla($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$contrasenaComp,$dni,$idUsuario,$rol,&$mensajeError,$conexion){
+        $dni = strtolower($dni);
+        $usuario = strtolower($usuario);
+        $nombre = ucwords($nombre);
+        $apellido = ucwords($apellido);
+        $compFormularios = vacioLenghtmasCaracteres($compFormularios, $nombre, "nombre",50,"/^[A-Za-z ]+$/","caracteres especiales o caracteres númericos",$mensajeError);//nombre
+        $compFormularios = vacioLenghtmasCaracteres($compFormularios, $apellido, "apellidos",100,"/^[A-Za-z ]+$/","caracteres especiales o caracteres númericos",$mensajeError);//apellido
+        $compFormularios = comprobacionEmail($compFormularios, $email, $mensajeError);
+        $compFormularios = comprobacionUsuario($compFormularios, $usuario, $conexion,$mensajeError);
+        $compFormularios = comprobacionCp($compFormularios, $cp, $mensajeError);
+        $compFormularios = comprobacionDni($compFormularios, $dni, $mensajeError);
+        $compFormularios = comprobacionTelf($compFormularios, $telefono, $mensajeError);
+        $compFormularios = comprobacionContrasena($compFormularios, $contrasena,$contrasenaComp, $mensajeError);
+        $idUsuario = asignarIdUsuario($conexion);
+        $_SESSION["mensajeError"] = $mensajeError;
+        insertarUsuario($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$dni,$idUsuario,$rol,$conexion);
+    }
 ?>

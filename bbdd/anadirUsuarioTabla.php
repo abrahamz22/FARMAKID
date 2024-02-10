@@ -13,13 +13,13 @@
     $telefono = $_POST["telefono"];
     $contrasena = $_POST["contrasena"];
     $contrasenaComp = $_POST["confirm"];
-    $rol = "usuario";
+    $rol = $_POST["rol"];
     $mensajeError = "";
     $compFormularios = true;
     $idUsuario = "";
 ?>
 <?php
-    echo $_SESSION["mensajeError"];
-    echo $compFormularios ? "true" : "false";
+    anadirUsuarioTabla($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$contrasenaComp,$dni,$idUsuario,$rol,$mensajeError,$conexion);
     header("location: ../tablaUsuario.php");
+    
 ?>
