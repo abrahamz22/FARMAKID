@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2024 at 12:02 AM
+-- Generation Time: Feb 10, 2024 at 11:15 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -94,13 +94,20 @@ INSERT INTO `medicamento` (`inchi`, `smiles`, `estadoMedicamento`, `precio`, `no
 
 CREATE TABLE `medico` (
   `id` varchar(10) NOT NULL,
-  `nombre` varchar(20) NOT NULL,
-  `apellidos` varchar(50) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `apellidos` varchar(100) NOT NULL,
   `especialidad` varchar(50) NOT NULL,
   `numeroColegiado` int(9) NOT NULL,
   `email` varchar(100) NOT NULL,
   `telefono` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Dumping data for table `medico`
+--
+
+INSERT INTO `medico` (`id`, `nombre`, `apellidos`, `especialidad`, `numeroColegiado`, `email`, `telefono`) VALUES
+('m1', 'Manolo', 'Mendez Rod', 'ortopedia', 283499999, 'antoniMendez@gmail.es', 665437653);
 
 -- --------------------------------------------------------
 
@@ -151,7 +158,7 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`codigoPostal`, `nombre`, `apellidos`, `email`, `usuario`, `telefono`, `contrasena`, `dni`, `idUsuario`, `rol`) VALUES
 ('80467', 'Abraham', 'Zambrano', 'abrahamZ@gmail.es', 'abraham', 654265345, '1234', '12345678o', '#1', 'administrador'),
-('80467', 'Ernesto', 'Diaz', 'ernestoD@gmail.es', 'ernesto', 652265234, 'abcd', '12345678b', '#2', 'administrador'),
+('80467', 'Ernesto', 'Diaz', 'ernestoD@gmail.es', 'ernesto', 652265234, 'abcd', '12345678b', '#2', 'usuario'),
 ('80467', 'Ismael', 'Zambrano', 'ismaelZ@gmail.es', 'ismael', 624256345, 'ab34', '12345678i', '#3', 'editor'),
 ('80467', 'Juan', 'Merino', 'juanM@gmail.es', 'juan', 624567855, 'ef45', '12345678e', '#4', 'usuario');
 
@@ -212,7 +219,8 @@ ALTER TABLE `usuario`
 -- Constraints for table `citar`
 --
 ALTER TABLE `citar`
-  ADD CONSTRAINT `citar_ibfk_1` FOREIGN KEY (`usuarioId`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `citar_ibfk_1` FOREIGN KEY (`usuarioId`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `citar_ibfk_2` FOREIGN KEY (`doctorId`) REFERENCES `medico` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `comprar`
@@ -227,12 +235,6 @@ ALTER TABLE `comprar`
 ALTER TABLE `consultar`
   ADD CONSTRAINT `consultar_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `consultar_ibfk_2` FOREIGN KEY (`idProteina`) REFERENCES `proteina` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Constraints for table `medico`
---
-ALTER TABLE `medico`
-  ADD CONSTRAINT `medico_ibfk_1` FOREIGN KEY (`id`) REFERENCES `citar` (`doctorId`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
