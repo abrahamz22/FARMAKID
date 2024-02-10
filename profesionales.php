@@ -64,4 +64,6 @@
     <!--/FOOTER-->
     
 </body>
+<?php 
+?>
 </html>
