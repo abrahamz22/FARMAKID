@@ -531,7 +531,7 @@
     border-radius: 25px;
 
 }
-#formulario input[type="text"] , input[type="password"]{
+ #contenedor #formulario input[type="text"]  input[type="password"]{
     font-size: 100%;
     color: black;
     margin: 5px 0;

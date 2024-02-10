@@ -28,7 +28,6 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <!--DIV DE TABLA-->
 <div id="divTabla">
     <div class="contenedor-botones">
-
     <h1>Tabla de usuarios</h1>
     <div class="conjunto-buscar-anadir">
         <!-- BOTON DE BUSCAR TABLA USUARIOS -->
@@ -39,12 +38,12 @@ include_once("bbdd/connexionBaseDeDatos.php");
             </div>
         </form>
 
-    <!-- BOTON DE BUSCAR TABLA USUARIOS -->
-    
-    <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
-   <!-- <div style='display:flex'>
-       <a href="crear_usuario.php" class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp CREAR USUARIO</a>
-    </div> -->
+                <!-- BOTON DE BUSCAR TABLA USUARIOS -->
+                
+                <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
+            <!-- <div style='display:flex'>
+                <a href="crear_usuario.php" class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp CREAR USUARIO</a>
+                </div> -->
 
         <button id="anadirButton">Añadir usuario</button>
     </div>
