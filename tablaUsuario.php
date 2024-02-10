@@ -48,14 +48,27 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
         <button id="anadirButton">Añadir usuario</button>
     </div>
-    <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
 </div>
+<!-- DIVS CON LOS MENSAJES DE COMPROBACIÓN -->
 <?php if(isset($_SESSION["mensajeError"]))://si el mensaje de error existe?>
         <p id="divError"><?php echo $_SESSION["mensajeError"]//imprimimos?></p>
 <?php endif;?>
 <?php if(isset($_SESSION["ExitoRegistro"]))://si el mensaje de error existe?>
         <p id="ExitoRegistro"><?php echo $_SESSION["ExitoRegistro"]//imprimimos?></p>
 <?php endif;?>
+<!-- /DIVS CON LOS MENSAJES DE COMPROBACIÓN -->
+<!-- FORMULARIO DE COMPROBACIÓN PARA ELIMINAR USUARIO -->
+<form  id="compEliminarUsuario" action="bbdd/eliminarUsuario.php" method="post">
+    <p id="infoBlockEliminar" ></p>
+    <input id="idValueEliminar" name="idValueEliminar" type="hidden" value="0">
+    <input id="checkbox1" type="checkBox" name="si">
+    <label for="si">Sí</label>
+    <input id="checkbox2" type="checkBox" name="no">
+    <label for="no">No</label>
+    <input type="submit" value ="Aceptar">
+</form>
+<!--/FORMULARIO DE COMPROBACIÓN PARA ELIMINAR USUARIO -->
+<!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
     <form  id="anadir" action="bbdd/anadirUsuarioTabla.php" method="post">
         <div class="anadir-usuario">
         <div class="input-box">
@@ -185,7 +198,6 @@ echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
 }
 ?>
 </table>
-<a href="administrador.php">Volver a opciones de administrador</a>
 
 </div>
 <!--FOOTER-->

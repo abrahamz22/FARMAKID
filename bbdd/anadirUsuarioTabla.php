@@ -4,6 +4,7 @@
     include("bibliotecaUsuarios.php");
     session_start();
     unset($_SESSION['mensajeError']);
+    unset($_SESSION['ExitoRegistro']);
     $nombre = $_POST["nombre"];
     $apellido = $_POST["apellido"];
     $email = $_POST["email"];

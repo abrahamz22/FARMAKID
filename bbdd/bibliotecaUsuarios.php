@@ -138,6 +138,14 @@
             $_SESSION["ExitoRegistro"] = "El resgitro fue realizado con exito.";
         }
     }
+    //FUNCIÓN PARA ELIMINAR USUARIO 
+    function eliminarUsuario($comprobacion, $id, $conexion){
+        if($comprobacion){
+            $query = "DELETE FROM usuario WHERE idUsuario LIKE '" .$id. "';";
+            mysqli_query($conexion, $query);
+            $_SESSION["ExitoRegistro"] = "El usuario con la id " . $id . " fue eliminado exitosamente.";
+        }
+    }
     //FUNCIÓN PARA REGISTARSE
     function resgistrarse($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$contrasenaComp,$dni,$idUsuario,$rol,&$mensajeError,$conexion){
         $dni = strtolower($dni);
@@ -174,4 +182,5 @@
         $_SESSION["mensajeError"] = $mensajeError;
         insertarUsuario($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$dni,$idUsuario,$rol,$conexion);
     }
+
 ?>

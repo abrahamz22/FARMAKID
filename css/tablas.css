@@ -533,6 +533,10 @@ table tr:nth-child(odd){
         
     }
 
+    /*Formulario para elimar usuario de las tablas*/
+    #compEliminarUsuario{
+        display: none;
+    }
 /*
   @media screen  and (max-width:922px){
     #divTablaProteina{
