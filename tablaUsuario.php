@@ -69,36 +69,38 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <!--/FORMULARIO DE COMPROBACIÓN PARA ELIMINAR USUARIO -->
 <!-- FORMULARIO DE COMPROBACIÓN PARA MODIFICAR USUARIO -->
     <table id="tablaModificar">
-        <tr>
-            <th>NOMBRE</th>
-            <th>APELLIDOS</th>
-            <th>DNI</th>
-            <th>CÓDIGO POSTAL</th>
-            <th>TELEFONO</th>
-            <th>EMAIL</th>
-            <th>USUARIO</th>
-            <th>ROL</th>
-            <th>CONTRASEÑA</th>
-            <th>ACCIONES</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>NOMBRE</th>
+                <th>APELLIDOS</th>
+                <th>DNI</th>
+                <th>CÓDIGO POSTAL</th>
+                <th>TELEFONO</th>
+                <th>EMAIL</th>
+                <th>USUARIO</th>
+                <th>ROL</th>
+                <th>CONTRASEÑA</th>
+                <th>ACCIONES</th>
+        </thead>
+            </tr>
         <tr>
         <form action="bbdd/modificarUsuario.php" method="post">
             <input id="idMod" name="id" type="hidden" value="0">
-        <th titulo='NOMBRE:'><input id="nombreMod" name="nombre" type="text"></th>
-        <th titulo='NOMBRE:'><input id="apellidosMod" name="apellidos" type="text"></th>
-        <th titulo='NOMBRE:'><input id="dniMod" name="dni" type="text"></th>
-        <th titulo='NOMBRE:'><input id="cpMod" name="cp" type="number"></th>
-        <th titulo='NOMBRE:'><input id="telefonoMod" name="telefono" type="number"></th>
-        <th titulo='NOMBRE:'><input id="emailMod" name="email" type="email"></th>
-        <th><input id="usuarioMod" name="usuario" type="text"></th>
-        <th><select id="rolMod" name="rol">
+        <td titulo='NOMBRE:'><input id="nombreMod" name="nombre" type="text"></th>
+        <td titulo='APELLIDOS:'><input id="apellidosMod" name="apellidos" type="text"></td>
+        <td titulo='DNI:'><input id="dniMod" name="dni" type="text"></td>
+        <td titulo='CODIGO POSTAL:'><input id="cpMod" name="cp" type="number"></td>
+        <td titulo='TELEFONO:'><input id="telefonoMod" name="telefono" type="number"></td>
+        <td titulo='EMAIL:'><input id="emailMod" name="email" type="email"></td>
+        <td titulo='USUARIO:'><input id="usuarioMod" name="usuario" type="text"></td>
+        <td titulo='ROL:'><select id="rolMod" name="rol">
                 <option value="administrador">Administrador</option>
                 <option value="editor">Editor</option>
                 <option value="usuario">Usuario</option>
             </select>
-        </th>
-        <th><input id="contrasenaMod" name="contrasena" type="password"></th>
-        <th><input type="submit" value="Verificar cambios"></th>
+        </td>
+        <td titulo='CONTRASEÑA:'><input id="contrasenaMod" name="contrasena" type="password"></td>
+        <td titulo='VERIFICAR CAMBIOS:'><input type="submit" value="Verificar cambios"></td>
         </form>
         </tr>
     </table>
@@ -190,7 +192,7 @@ if($resultado > 0){
                 <th>ACCIONES</th>
         </thead>
             </tr>
-    ";
+    <tbody class='clase_tbody'>";
 
     while ($row = mysqli_fetch_assoc($sql)) {
         $nombre = $row["nombre"];
@@ -227,6 +229,7 @@ if($resultado > 0){
             ";
 
         }
+        echo "</tbody>";
 }
 
 else 
