@@ -7,7 +7,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tabla Medico</title>
+    <title>tabla citas</title>
     <link rel="icon" href="multimedia/icono.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/index.css" >
     <link rel="stylesheet" type="text/css" href="css/header.css" >
@@ -29,7 +29,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <div id="divTabla">
     <div class="contenedor-botones">
 
-    <h1>Tabla de pediatras</h1>
+    <h1>Tabla de citas concertadas</h1>
     <div class="conjunto-buscar-anadir">
         <!-- BOTON DE BUSCAR TABLA USUARIOS -->
         <form action="buscar-usuario.php" class="form-busqueda" method="get" name="formu">
@@ -46,7 +46,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
        <a href="crear_usuario.php" class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp CREAR USUARIO</a>
     </div> -->
 
-        <button id="anadirButton">Añadir especialista</button>
+        <button id="anadirButton">Añadir cita</button>
     </div>
 </div>
 <!-- DIVS CON LOS MENSAJES DE COMPROBACIÓN -->
@@ -152,7 +152,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
 <!-- CONSULTA PARA GENERAR LA TABLA DINAMICA DESDE LA BASE DE DATOS -->
 <?php
-$sql = mysqli_query($conexion, "SELECT * FROM medico ORDER BY CAST(SUBSTRING(id, 2) AS UNSIGNED);");
+$sql = mysqli_query($conexion, "SELECT * FROM citar ORDER BY CAST(SUBSTRING(doctorId, 2) AS UNSIGNED);");
 
 $resultado = mysqli_num_rows($sql);
 
@@ -160,37 +160,28 @@ if($resultado > 0){
     echo "
     <table>
         <tr>
-            <th>NOMBRE</th>
-            <th>APELLIDOS</th>
-            <th>ESPECIALIDAD</th>
-            <th>NUMERO DE COLEGIADO</th>
-            <th>EMAIL</th>
-            <th>TELEFONO</th>
-            <th>ID</th>
+            <th>ID DEL DOCTOR</th>
+            <th>ID DEL USUARIOS</th>
+            <th>OBSERVACIONES DE LA CITA</th>
+            <th>DISPONIBILIDAD HORARIA</th>
+            <th>FECHA DE LA CITA</th>
             <th>ACCIONES</th>
         </tr>
     ";
 
     while ($row = mysqli_fetch_assoc($sql)) {
-        $nombre = $row["nombre"];
-        $apellido = $row['apellidos'];
-        $especialidad = $row["especialidad"];
-        $numeroColegiado = $row["numeroColegiado"];
-        $email = $row["email"];
-        $telefono = $row["telefono"];
-        $id = $row["id"];
-
-
-        
+        $doctorId= $row["doctorId"];
+        $usuarioId = $row['usuarioId'];
+        $observaciones = $row["observaciones"];
+        $disponibilidad = $row["disponibilidad"];
+        $fecha = $row["fecha"];  
         echo"
     <tr>
-        <td>$nombre</td>
-        <td>$apellido</td>
-        <td>$especialidad</td>
-        <td>$numeroColegiado</td>
-        <td>$email</td>
-        <td>$telefono</td>
-        <td>$id</td>
+        <td>$doctorId</td>
+        <td>$usuarioId</td>
+        <td>$observaciones</td>
+        <td>$disponibilidad</td>
+        <td>$fecha</td>
         <td class='td-btn'>
                 <button class='modificar'>MODIFICAR</button>
                 <button class='eliminar'>ELIMINAR</button>

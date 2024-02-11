@@ -33,6 +33,7 @@
             <button class="botonUsuario"><a href="tablaMedicamentos.php">Tabla medicamentos</a></button>
             <button class="botonUsuario"><a href="tablaProteinas.php">Tabla proteínas</a></button>
             <button class="botonUsuario"><a href="tablaMedico.php">Tabla pediatras</a></button>
+            <button class="botonUsuario"><a href="tablaCitas.php">Tabla citas</a></button>
         </div>
 
         <div>
