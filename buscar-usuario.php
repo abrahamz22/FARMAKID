@@ -139,21 +139,21 @@ if($resultado > 0){
     echo "
     <table id='tabla-user'>
         <thead>
-            <tr>
-                <th>NOMBRE</th>
-                <th>APELLIDOS</th>
-                <th>DNI</th>
-                <th>CÓDIGO POSTAL</th>
-                <th>TELEFONO</th>
-                <th>EMAIL</th>
-                <th>USUARIO</th>
-                <th>ROL</th>
-                <th>CONTRASEÑA</th>
-                <th>ID USUARIO</th>
-                <th>ACCIONES</th>
-        </thead>
-            </tr>
-    ";
+        <tr>
+            <th>NOMBRE</th>
+            <th>APELLIDOS</th>
+            <th>DNI</th>
+            <th>CÓDIGO POSTAL</th>
+            <th>TELEFONO</th>
+            <th>EMAIL</th>
+            <th>USUARIO</th>
+            <th>ROL</th>
+            <th>CONTRASEÑA</th>
+            <th>ID USUARIO</th>
+            <th>ACCIONES</th>
+    </thead>
+        </tr>
+    <tbody class='clase_tbody'>";
 
     while ($row = mysqli_fetch_assoc($sql)) {
         $nombre = $row["nombre"];
@@ -166,8 +166,6 @@ if($resultado > 0){
         $rol = $row["rol"];
         $contrasena = $row["contrasena"];
         $idUsuario = $row["idUsuario"];
-
-
         
         echo"
     <tr>

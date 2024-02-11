@@ -139,7 +139,7 @@
                     </span>
                 </div>
             
-            <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i></button>
+                <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i></button>
 
             </div>
 

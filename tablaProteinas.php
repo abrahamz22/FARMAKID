@@ -37,7 +37,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <h1>Tabla de proteínas</h1>
 <div class="conjunto-buscar-anadir">
     <form action="buscar-proteina.php" class="form-busqueda" method="get" name="formu">
-                <div style='display:flex'>
+                <div  class="botones-filtrar" style='display:flex'>
                     <input class="input-busqueda" type="text" placeholder="Buscar"/>
                     <input class="btn-busqueda-proteina" type="submit" value="Buscar"/>
                 </div>
@@ -112,20 +112,21 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
     if ($resultado > 0){//SI EN LAS COLUMN ES MAYOR QUE 0 PUES SE CREARA LA TABLA CON CON SUS COLUMNS
         echo "
-            <table>
-                <tr>
-                    <th>NOMBRE</th>
-                    <th>ID</th>
-                    <th>METODO</th>
-                    <th>RESOLUCION</th>
-                    <th>ESPECIE</th>
-                    <th>NOMBRE DE FICHERO</th>
-                    <th>TIPOS DE FICHERO</th>
-                    <th>FECHA</th>
-                    <th>ACCIONES</th>
-                </tr>
-            
-            
+            <table id='tabla_proteina'>
+                <thead>
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>ID</th>
+                        <th>METODO</th>
+                        <th>RESOLUCION</th>
+                        <th>ESPECIE</th>
+                        <th>NOMBRE DE FICHERO</th>
+                        <th>TIPOS DE FICHERO</th>
+                        <th>FECHA</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                <thead>
+                <tbody class='clase_tbody'>
         ";
 
 
@@ -142,17 +143,17 @@ include_once("bbdd/connexionBaseDeDatos.php");
             echo "
             
             <tr>
-                <td>$nombre</td>
+                <td titulo='NOMBRE:'>$nombre</td>
 
-                <td>$id</td>
-                <td>$metodo</td>
-                <td>$resolucion</td>
-                <td>$especie</td>
-                <td>$nombreFichero</td>
-                <td>$tipoFichero</td>
-                <td>$fecha</td>
+                <td titulo='ID:'>$id</td>
+                <td titulo='METODO:'>$metodo</td>
+                <td titulo='RESOLUCION:'>$resolucion</td>
+                <td titulo='ESPECIE:'>$especie</td>
+                <td titulo='NOMBRE FICHERO:'>$nombreFichero</td>
+                <td titulo='TIPO FICHERO:'>$tipoFichero</td>
+                <td titulo='FECHA:'>$fecha</td>
                 
-                <td class='td-btn'>
+                <td titulo='ACCIONES:' class='td-btn'>
                 <button class='modificar'>MODIFICAR</button>
                 <button class='eliminar'>ELIMINAR</button>
                 </td>
@@ -162,6 +163,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
             ";
 
         }
+        echo "</tbody>";
     }
 
     else 

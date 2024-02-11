@@ -35,7 +35,7 @@
     padding: 10px;
 }
 
-#divTablaProteina > table tr:nth-child(odd) {
+#divTablaProteina  table tr:nth-child(odd) {
     background-color: #81bee5;
 }
 
@@ -70,7 +70,7 @@ table {
     border-collapse: separate;
     padding: 5px;
     text-align: center;
-    font-size: calc(8px + 0.5vw);
+    /* font-size: calc(8px + 0.5vw); */
 }
 
 #divTablaProteina .td-btn {
@@ -85,6 +85,8 @@ table {
 
 #divTablaProteina #anadirButton{
     background-color:#0e1119;
+    width: 26%;
+
 }
 
 
@@ -97,16 +99,13 @@ table {
     border-radius: 4px;
     width: 100%;
     /* height: 2em; */
-    padding: 10px;
-    max-width: 274px;
+    padding: 16px 10px;
+    /* max-width: 274px; */
     border: none;
 
 }
 
-#divTabla button[name="registrarse"]
-
-
-{
+#divTabla button[name="registrarse"]{
     background-color:#97DECE;
     padding: 11px;
     cursor: pointer;
@@ -125,9 +124,10 @@ table {
 }
 
 
-#divTabla button[type="submit"],
+#divTabla #anadir button[type="submit"],
 #divTablaProteina button[type="submit"]{
     color: #999;
+    transition: .3s;
 }
 
 
@@ -136,9 +136,11 @@ table {
     color: #FFFFFF;
 }
 
-#divTabla button[type="submit"]:hover{
+#divTabla #anadir button[type="submit"]:hover{
     background-color: #439A97;
     color: white;
+    scale: 1.05;
+
 }
 
 
@@ -181,16 +183,20 @@ table {
     border-radius: 4px;
     cursor: pointer;
     padding: 10px;
+    transition: .3s;
 }
 
 
 
 #anadirButton:hover{
     background-color: #055d41cc;
+    scale: 1.05;
 }
 
 #divTablaProteina #anadirButton:hover{
     background-color: #214f70cc;
+    scale: 1.05;
+    
 }
 
 
@@ -333,7 +339,8 @@ table{
 
 }
 
-#divTabla table td {
+#divTabla #tabla-user td,
+#divTabla #tabla_medicamento td{
     color: #000;
     border-spacing: 4px;
     border-collapse: separate;
@@ -342,10 +349,18 @@ table{
     /* font-size: calc(8px + 0.5vw); */
 
 }
+#divTabla #tabla_medicamento td{
+    padding: 2px;
+
+}
 
 
 
-#divTabla #tabla-user th{
+
+
+#divTabla #tabla-user th,
+#divTabla #tabla_medicamento th
+{
     background-color: #439A97;
     color: #fff;
     padding: 10px;
@@ -368,11 +383,13 @@ table tr:nth-child(odd){
     max-width: 274px;
     border: none;
     color: white;
+    transition: .3s;
 
 }
 
 #divTabla > a:hover{
     background-color: #055d41cc;
+    scale: 1.05;
 }
 
 
@@ -382,6 +399,7 @@ table tr:nth-child(odd){
 
 #divTablaProteina a:hover{
     background-color: #214f70cc;
+    scale:1.05;
 }
 
 
@@ -394,6 +412,7 @@ table tr:nth-child(odd){
     margin-left: 10px;
     padding: 10px 20px;
     cursor: pointer;
+    transition: .3s;
 }
 
 .btn-busqueda-proteina{
@@ -402,10 +421,12 @@ table tr:nth-child(odd){
 
 .btn-busqueda-proteina:hover{
     background-color: #214f70cc;
+    scale:1.05
 }
 
 .btn-busqueda:hover{
     background-color: #055d41cc;
+    scale: 1.05;
 }
 
  .form-busqueda{
@@ -463,6 +484,8 @@ table tr:nth-child(odd){
     margin-right: 2px;
     width: 100%;
     border: none;
+    cursor: pointer;
+    transition: .3s;
 
 }
 
@@ -473,6 +496,14 @@ table tr:nth-child(odd){
     color: white;
     padding: 10px;
     border: none;
+    cursor: pointer;
+    transition: .3s;
+
+}
+
+.modificar:hover,
+.eliminar:hover{
+    scale: 1.05;
 }
 
 
@@ -484,6 +515,8 @@ table tr:nth-child(odd){
     margin-right: 2px;
     width: 100%;
     border: none;
+    transition: .3s;
+
 
 }
 
@@ -494,6 +527,8 @@ table tr:nth-child(odd){
     color: white;
     padding: 26px;
     border: none;
+    transition: .3s;
+
 }
 
 
@@ -505,6 +540,8 @@ table tr:nth-child(odd){
     margin-right: 2px;
     width: 100%;
     border: none;
+    transition: .3s;
+
 
 }
 
@@ -515,6 +552,8 @@ table tr:nth-child(odd){
     color: white;
     padding: 13px;
     border: none;
+    transition: .3s;
+
 }
 
 
@@ -527,11 +566,24 @@ table tr:nth-child(odd){
         display: none;
     }
 
-    #tablaModificar form td #nombreMod{
+    /* #tablaModificar form td #nombreMod{
         width: 135px;
-    }
-    #tablaModificar th input{
+    } */
+    #tablaModificar td input{
         width: 100%;
+        border: none;
+        padding: 4px;
+        text-align: center;
+    }
+
+    #tablaModificar td input[type='submit']{
+        background-color: #fff;
+        cursor: pointer;
+        transition: .3s;
+
+    }
+    #tablaModificar td input[type='submit']:hover{
+        scale: 1.05;
     }
 
   
@@ -540,25 +592,82 @@ table tr:nth-child(odd){
 /*AQUI TERMINA  LOS BOTONES DE MODIFICAR Y ACTUALIZAR DE LAS TABLAS CUANDO EL USER SE LOGEA COMO ADMINISTRADOR */
 
 
+/* RESPONSIVE TABLA DE MEDICAMENTOS */
+@media screen and (max-width:1277px){
+    #divTabla table td:last-child {
+        padding: 10px;
+        background-color: initial;
+        justify-content: initial;
+    }
+    #tabla_medicamento tr{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #tabla_medicamento thead {
+        display: none;
+    }
+
+    #tabla_medicamento .clase_tbody{
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-gap: 30px;
+        width: 100%;
+        transition: .3s;
+    }
+    #divTabla #tabla_medicamento td[titulo]{
+        display: flex;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    #tabla_medicamento td[titulo]{
+        border: 1px solid ;
+    }
+    #tabla_medicamento td[titulo]::before {
+        content: attr(titulo);
+        padding: 0 10px 0 0;
+        font-weight: bold;
+        text-transform: uppercase;
+
+    }
+
+    /* #tabla_medicamento > .inchi{
+        text-align: left;
+    } */
+    #tabla_medicamento .td-btn button{
+        max-width: 130px;
+        padding: 6px;
+    }
+}
+/* AQUI TERMINA EL RESPONSIVE DE LA TABLA MEDICAMENTOS */
+
+
+
      /* RESPONSIVE TABLAS DE USUARIO */
 
-     @media screen and (max-width:1252px){
-        #divTabla table td:last-child {
+     @media screen and (max-width:1267px){
+        #divTabla table td:last-child,
+        #divTablaProteina table td:last-child {
             padding: 10px;
             background-color: initial;
             justify-content: initial;
         }
 
-        #tabla-user tr{
+        #tabla-user tr,
+        #tabla_proteina tr {
             display: flex;
             flex-direction: column;
         }
 
-        #tabla-user thead {
+        #tabla-user thead,
+        #tabla_proteina thead {
             display: none;
         }
     
-        .clase_tbody{
+        #tabla-user .clase_tbody,
+        #tabla_proteina .clase_tbody{
             margin-top: 30px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -567,16 +676,19 @@ table tr:nth-child(odd){
             transition: .3s;
         }
 
-        #divTabla #tabla-user td[titulo]{
+        #divTabla #tabla-user td[titulo],
+        #divTablaProteina #tabla_proteina td[titulo]{
             display: flex;
             padding: 10px;
             border: 1px solid black;
         }
 
-        #tabla-user td[titulo]{
+        #tabla_proteina td[titulo]{
             border: 1px solid ;
         }
-        #tabla-user td[titulo]::before {
+        
+        #tabla-user td[titulo]::before,
+        #tabla_proteina td[titulo]::before {
             content: attr(titulo);
             padding: 0 10px 0 0;
             font-weight: bold;
@@ -584,7 +696,7 @@ table tr:nth-child(odd){
 
         }
 
-        #tabla-user .td-btn button{
+        #tabla_proteina .td-btn button{
             max-width: 130px;
             padding: 6px;
         }
@@ -619,6 +731,7 @@ table tr:nth-child(odd){
     }
 
 
+    
 
 
   /*/Tabla de proteinas*/
@@ -639,19 +752,23 @@ table tr:nth-child(odd){
    
     @media screen and (max-width:825px){
         
-        #divTabla .contenedor-botones{
+        #divTabla .contenedor-botones,
+        #divTablaProteina .contenedor-botones
+        {
             display: flex;
             flex-direction: column;
         }
 
-        #divTabla .conjunto-buscar-anadir{
+        #divTabla .conjunto-buscar-anadir,
+        #divTablaProteina .conjunto-buscar-anadir{
             display: flex;
             flex-direction: column;
             margin-top: 30px;
 
         }
 
-        #divTabla .conjunto-buscar-anadir .form-busqueda{
+        #divTabla .conjunto-buscar-anadir .form-busqueda,
+        #divTablaProteina .conjunto-buscar-anadir .form-busqueda{
             width: 38%;
         }
 
@@ -664,7 +781,9 @@ table tr:nth-child(odd){
 
     @media screen and (max-width:535px){
         #divTabla .conjunto-buscar-anadir .form-busqueda,
-        #divTabla .conjunto-buscar-anadir .botones-filtrar{
+        #divTabla .conjunto-buscar-anadir .botones-filtrar,
+        #divTablaProteina .conjunto-buscar-anadir .form-busqueda,
+        #divTablaProteina .conjunto-buscar-anadir .botones-filtrar{
             width: 100%;
         }
 
@@ -672,12 +791,15 @@ table tr:nth-child(odd){
             width: 100%;
         } */
         #divTabla h1,
-        #divTabla a{
+        #divTabla a,
+        #divTablaProteina h1,
+        #divTablaProteina a{
             width: 100%;
             max-width: none;
         }
 
-        #divTabla #anadirButton{
+        #divTabla #anadirButton,
+        #divTablaProteina #anadirButton{
             width: 100%;
         }
 

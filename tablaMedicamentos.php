@@ -36,7 +36,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <div class="conjunto-buscar-anadir">
     <!-- BOTON DE BUSCAR TABLA MEDICAMENTOS -->
         <form action="buscar-medicamento.php" class="form-busqueda" method="get" name="formu">
-                <div style='display:flex'> 
+                <div class="botones-filtrar" style='display:flex'> 
                     <input class="input-busqueda" type="text" placeholder="Buscar"/>
                     <input class="btn-busqueda" type="submit" value="Buscar"/>
                 </div>
@@ -116,24 +116,24 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
         if ($resultado > 0){//SI EN LAS COLUMN ES MAYOR QUE 0 PUES SE CREARA LA TABLA CON CON SUS COLUMNS
             echo "
-                <table>
-                    <tr>
-                        <th>NOMBRE</th>
-                        <th>ID</th>
-                        <th>INCHI</th>
-                        <th>SMILES</th>
-                        <th>ESTADO</th>
-                        <th>NOMBRE FICHERO</th>
-                        <th>TTIPO FICHERO</th>
-                        <th>FECHA</th>
-                        <th>PRECIO</th>
-                        <th>ACCIONES</th>
-                    </tr>
-                
-                
-            ";
-
-
+                <table id='tabla_medicamento'>
+                    <thead>
+                        <tr>
+                            <th>NOMBRE</th>
+                            <th>ID</th>
+                            <th>INCHI</th>
+                            <th>SMILES</th>
+                            <th>ESTADO</th>
+                            <th>NOMBRE FICHERO</th>
+                            <th>TTIPO FICHERO</th>
+                            <th>FECHA</th>
+                            <th>PRECIO</th>
+                            <th>ACCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody class='clase_tbody'>"
+            ;
+            
             while($row = mysqli_fetch_assoc($sql)){//GENERO UN BUCLE EN DONDE  VOY A IMPRIMIR TODOS LOS VALORES DE LAS
                 $nombre = $row["nombre"];
                 $id = $row['id'];
@@ -148,18 +148,18 @@ include_once("bbdd/connexionBaseDeDatos.php");
                 echo "
                
                 <tr>
-                    <td>$nombre</td>
+                    <td titulo='NOMBRE:'>$nombre</td>
 
-                    <td>$id</td>
-                    <td>$inchi</td>
-                    <td>$smiles</td>
-                    <td>$estado</td>
-                    <td>$nombreFichero</td>
-                    <td>$tipoFichero</td>
-                    <td>$fecha</td>
-                    <td>$precio</td>
+                    <td titulo='ID:'>$id</td>
+                    <td style='text-align:left' titulo='INCHI:'>$inchi</td>
+                    <td titulo='SMILES:'>$smiles</td>
+                    <td titulo='ESTADO:'>$estado</td>
+                    <td titulo='NOMBRE FICHERO:'>$nombreFichero</td>
+                    <td titulo='TIPO FICHERO:'>$tipoFichero</td>
+                    <td titulo='FECHA:'>$fecha</td>
+                    <td titulo='PRECIO:'>$precio</td>
                     
-                    <td class='td-btn'>
+                    <td titulo='ACCIONES:' class='td-btn'>
                         <button class='modificar'>MODIFICAR</button>
                         <button class='eliminar'>ELIMINAR</button>
                     </td>
@@ -169,6 +169,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
                 ";
 
             }
+            echo "</tbody>";
         }
 
         else 
