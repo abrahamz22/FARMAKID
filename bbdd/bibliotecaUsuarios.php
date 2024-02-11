@@ -136,13 +136,13 @@
     }
     //CREAR ID USUARIO
     function asignarIdUsuario($conexion){
-        $query = "SELECT * FROM usuario";
+        $query = "SELECT * FROM usuario ORDER BY CAST(SUBSTRING(idUsuario, 2) AS UNSIGNED);";
         $sql = mysqli_query($conexion,$query);
         $cont = 1;
         $newId = 1;
         $idAsignada = false;
         while($row = mysqli_fetch_assoc($sql)){
-            $numId = substr($row["idUsuario"], -1); 
+            $numId = substr($row["idUsuario"], 1); 
             if($numId != $cont){
                 $newId = "#" . $cont;
                 $idAsignada = true;

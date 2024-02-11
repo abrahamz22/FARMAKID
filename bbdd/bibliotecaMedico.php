@@ -15,13 +15,13 @@ function comprobacionNumColegiado($compFormularios, $numColegiado, &$mensajeErro
 
 //CREAR ID MEDICO
 function asignarIdMedico($conexion){
-    $query = "SELECT * FROM medico";
+    $query = "SELECT * FROM medico ORDER BY CAST(SUBSTRING(id, 2) AS UNSIGNED);";
     $sql = mysqli_query($conexion,$query);
     $cont = 1;
     $newId = 1;
     $idAsignada = false;
     while($row = mysqli_fetch_assoc($sql)){
-        $numId = substr($row["id"], -1); 
+        $numId = substr($row["id"], 1); 
         if($numId != $cont){
             $newId = "m" . $cont;
             $idAsignada = true;

@@ -170,7 +170,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
 <!-- CONSULTA PARA GENERAR LA TABLA DINAMICA DESDE LA BASE DE DATOS -->
 <?php
-$sql = mysqli_query($conexion, "SELECT * FROM usuario ORDER BY idUsuario");
+$sql = mysqli_query($conexion, "SELECT * FROM usuario ORDER BY CAST(SUBSTRING(idUsuario, 2) AS UNSIGNED);");
 
 $resultado = mysqli_num_rows($sql);
 

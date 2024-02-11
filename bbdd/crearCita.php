@@ -14,7 +14,6 @@ $mensajeError = "";
 $idUsuario = "";
 $idMedico = "";
 ?>
-
 <?php
 
 $nombre = strtolower($nombre);
