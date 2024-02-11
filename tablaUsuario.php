@@ -29,25 +29,25 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <div id="divTabla">
     <div class="contenedor-botones">
     <h1>Tabla de usuarios</h1>
-    <div class="conjunto-buscar-anadir">
-        <!-- BOTON DE BUSCAR TABLA USUARIOS -->
-        <form action="buscar-usuario.php" class="form-busqueda" method="get" name="formu">
-            <div class="botones-filtrar" style="display:flex"> 
-                <input class="input-busqueda" type="text"name="busqueda"  placeholder="Buscar" />
-                <input class="btn-busqueda" type="submit" value="Buscar"/>
-            </div>
-        </form>
+        <div class="conjunto-buscar-anadir">
+            <!-- BOTON DE BUSCAR TABLA USUARIOS -->
+            <form action="buscar-usuario.php" class="form-busqueda" method="get" name="formu">
+                <div class="botones-filtrar" style="display:flex"> 
+                    <input class="input-busqueda" type="text"name="busqueda"  placeholder="Buscar" />
+                    <input class="btn-busqueda" type="submit" value="Buscar"/>
+                </div>
+            </form>
 
-                <!-- BOTON DE BUSCAR TABLA USUARIOS -->
-                
-                <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
-            <!-- <div style='display:flex'>
-                <a href="crear_usuario.php" class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp CREAR USUARIO</a>
-                </div> -->
+                    <!-- BOTON DE BUSCAR TABLA USUARIOS -->
+                    
+                    <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
+                <!-- <div style='display:flex'>
+                    <a href="crear_usuario.php" class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp CREAR USUARIO</a>
+                    </div> -->
 
-        <button id="anadirButton">Añadir usuario</button>
+            <button id="anadirButton">Añadir usuario</button>
+        </div>
     </div>
-</div>
 <!-- DIVS CON LOS MENSAJES DE COMPROBACIÓN -->
 <?php if(isset($_SESSION["mensajeError"]))://si el mensaje de error existe?>
         <p id="divError"><?php echo $_SESSION["mensajeError"]//imprimimos?></p>
@@ -84,12 +84,12 @@ include_once("bbdd/connexionBaseDeDatos.php");
         <tr>
         <form action="bbdd/modificarUsuario.php" method="post">
             <input id="idMod" name="id" type="hidden" value="0">
-        <th><input id="nombreMod" name="nombre" type="text"></th>
-        <th><input id="apellidosMod" name="apellidos" type="text"></th>
-        <th><input id="dniMod" name="dni" type="text"></th>
-        <th><input id="cpMod" name="cp" type="number"></th>
-        <th><input id="telefonoMod" name="telefono" type="number"></th>
-        <th><input id="emailMod" name="email" type="email"></th>
+        <th titulo='NOMBRE:'><input id="nombreMod" name="nombre" type="text"></th>
+        <th titulo='NOMBRE:'><input id="apellidosMod" name="apellidos" type="text"></th>
+        <th titulo='NOMBRE:'><input id="dniMod" name="dni" type="text"></th>
+        <th titulo='NOMBRE:'><input id="cpMod" name="cp" type="number"></th>
+        <th titulo='NOMBRE:'><input id="telefonoMod" name="telefono" type="number"></th>
+        <th titulo='NOMBRE:'><input id="emailMod" name="email" type="email"></th>
         <th><input id="usuarioMod" name="usuario" type="text"></th>
         <th><select id="rolMod" name="rol">
                 <option value="administrador">Administrador</option>
@@ -174,20 +174,22 @@ $resultado = mysqli_num_rows($sql);
 
 if($resultado > 0){
     echo "
-    <table>
-        <tr>
-            <th>NOMBRE</th>
-            <th>APELLIDOS</th>
-            <th>DNI</th>
-            <th>CÓDIGO POSTAL</th>
-            <th>TELEFONO</th>
-            <th>EMAIL</th>
-            <th>USUARIO</th>
-            <th>ROL</th>
-            <th>CONTRASEÑA</th>
-            <th>ID USUARIO</th>
-            <th>ACCIONES</th>
-        </tr>
+    <table id='tabla-user'>
+        <thead>
+            <tr>
+                <th>NOMBRE</th>
+                <th>APELLIDOS</th>
+                <th>DNI</th>
+                <th>CÓDIGO POSTAL</th>
+                <th>TELEFONO</th>
+                <th>EMAIL</th>
+                <th>USUARIO</th>
+                <th>ROL</th>
+                <th>CONTRASEÑA</th>
+                <th>ID USUARIO</th>
+                <th>ACCIONES</th>
+        </thead>
+            </tr>
     ";
 
     while ($row = mysqli_fetch_assoc($sql)) {
@@ -206,18 +208,18 @@ if($resultado > 0){
         
         echo"
     <tr>
-        <td>$nombre</td>
-        <td>$apellido</td>
-        <td>$dni</td>
-        <td>$cp</td>
-        <td>$telefono</td>
-        <td>$email</td>
-        <td>$usuario</td>
-        <td>$rol</td>
-        <td>$contrasena</td>
-        <td>$idUsuario</td>
+        <td titulo='NOMBRE:'>$nombre</td>
+        <td titulo='APELLIDOS:'>$apellido</td>
+        <td titulo='DNI:'>$dni</td>
+        <td titulo='CODIGO POSTAL:'>$cp</td>
+        <td titulo='TEELFONO:'>$telefono</td>
+        <td titulo='EMAIL:'>$email</td>
+        <td titulo='USUARIO:'>$usuario</td>
+        <td titulo='ROL:'>$rol</td>
+        <td titulo='CONTRASEÑA:'>$contrasena</td>
+        <td titulo='ID USUARIO:'>$idUsuario</td>
 
-        <td class='td-btn'>
+        <td titulo='ACCIONES:'class='td-btn'>
                 <button class='modificar'>MODIFICAR</button>
                 <button class='eliminar'>ELIMINAR</button>
         </td>
@@ -233,7 +235,7 @@ echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
 }
 ?>
 </table>
-
+<a href="administrador.php">Volver a opciones de administrador</a>
 </div>
 <!--FOOTER-->
 <?php require("footerHeader/footer.php")?>

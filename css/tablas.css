@@ -175,7 +175,7 @@ table {
 
 
 #anadirButton{
-    width: 26% !important;
+    width: 26% ;/*!important*/
     background-color: #439A97;
     color: white;
     border-radius: 4px;
@@ -339,13 +339,13 @@ table{
     border-collapse: separate;
     padding: 5px;
     text-align: center;
-    font-size: calc(8px + 0.5vw);
+    /* font-size: calc(8px + 0.5vw); */
 
 }
 
 
 
-#divTabla table th{
+#divTabla #tabla-user th{
     background-color: #439A97;
     color: #fff;
     padding: 10px;
@@ -421,7 +421,7 @@ table tr:nth-child(odd){
 
 .form-busqueda .input-busqueda{
     display: flex;
-    /* width: 100%; */
+    width: 100%;
     border: 2px solid black;
     padding: 10px
 
@@ -439,7 +439,7 @@ table tr:nth-child(odd){
     background-color: #F1F1F1;
     display: flex;
     padding: 0;
-    justify-content: center;
+    /* justify-content: center; */
     height: 100%;
     align-items: center;
 }
@@ -526,7 +526,63 @@ table tr:nth-child(odd){
     #tablaModificar{
         display: none;
     }
+
+    #tablaModificar th input{
+        width: 100%;
+    }
+
+
+
+
 /*AQUI TERMINA  LOS BOTONES DE MODIFICAR Y ACTUALIZAR DE LAS TABLAS CUANDO EL USER SE LOGEA COMO ADMINISTRADOR */
+
+
+     /* RESPONSIVE TABLAS DE USUARIO */
+
+     @media screen and (max-width:1252px){
+        table td:last-child {
+            padding: 10px;
+            background-color: initial;
+            justify-content: initial;
+        }
+
+        #tabla-user tr{
+            display: flex;
+            flex-direction: column;
+        }
+
+        #tabla-user thead {
+            display: none;
+        }
+    
+
+
+        #divTabla #tabla-user td[titulo]{
+            display: flex;
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        #tabla-user td[titulo]{
+            border: 1px solid ;
+        }
+        #tabla-user td[titulo]::before {
+            content: attr(titulo);
+            padding: 0 10px 0 0;
+            font-weight: bold;
+            text-transform: uppercase;
+
+        }
+
+        #tabla-user .td-btn button{
+            max-width: 130px;
+            padding: 6px;
+        }
+
+
+    }
+
+
 
 
   /*/Tabla de proteinas*/
@@ -537,13 +593,63 @@ table tr:nth-child(odd){
         #divTabla table th,
         #divTabla table td button
          {
-            font-size: 1vw;
+            /* font-size: 1vw; */
         }
 
        
     }
 
-    @media screen and (max-width:700px){
+    /* RESPONSIVE PARA BOTONES DE AÑADIR USUARIO. MEDICAMENTO Y PROTEINA */
+   
+    @media screen and (max-width:825px){
+        
+        #divTabla .contenedor-botones{
+            display: flex;
+            flex-direction: column;
+        }
+
+        #divTabla .conjunto-buscar-anadir{
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+
+        }
+
+        #divTabla .conjunto-buscar-anadir .form-busqueda{
+            width: 38%;
+        }
+
+        /* #divTabla .conjunto-buscar-anadir .form-busqueda .botones-filtrar{
+            width: ;
+        } */
+
+    }
+
+
+    @media screen and (max-width:535px){
+        #divTabla .conjunto-buscar-anadir .form-busqueda,
+        #divTabla .conjunto-buscar-anadir .botones-filtrar{
+            width: 100%;
+        }
+
+        /* #divTabla .conjunto-buscar-anadir .form-busqueda .botones-filtrar{
+            width: 100%;
+        } */
+        #divTabla h1,
+        #divTabla a{
+            width: 100%;
+            max-width: none;
+        }
+
+        #divTabla #anadirButton{
+            width: 100%;
+        }
+
+
+    }
+
+
+    /* @media screen and (max-width:700px){
         #divTabla .contenedor-botones {
             display: flex;
             flex-direction: column;
@@ -552,15 +658,20 @@ table tr:nth-child(odd){
 
        /* .botones-filtrar .input-busqueda[type='text'] {
             width: 100%;
-        } -------------------------------FALTAAAAAAAAAAAAAAAAAAAAAAA´-----------*/
+        } -------------------------------FALTAAAAAAAAAAAAAAAAAAAAAAA´-----------
 
         
-    }
+    } */
+
+
+
+
 
     /*Formulario para elimar usuario de las tablas*/
     #compEliminarUsuario{
         display: none;
     }
+    
 /*
   @media screen  and (max-width:922px){
     #divTablaProteina{

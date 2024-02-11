@@ -137,20 +137,22 @@ $resultado = mysqli_num_rows($sql);
 
 if($resultado > 0){
     echo "
-    <table>
-        <tr>
-            <th>NOMBRE</th>
-            <th>APELLIDOS</th>
-            <th>DNI</th>
-            <th>CÓDIGO POSTAL</th>
-            <th>TELEFONO</th>
-            <th>EMAIL</th>
-            <th>USUARIO</th>
-            <th>ROL</th>
-            <th>CONTRASEÑA</th>
-            <th>ID USUARIO</th>
-            <th>ACCIONES</th>
-        </tr>
+    <table id='tabla-user'>
+        <thead>
+            <tr>
+                <th>NOMBRE</th>
+                <th>APELLIDOS</th>
+                <th>DNI</th>
+                <th>CÓDIGO POSTAL</th>
+                <th>TELEFONO</th>
+                <th>EMAIL</th>
+                <th>USUARIO</th>
+                <th>ROL</th>
+                <th>CONTRASEÑA</th>
+                <th>ID USUARIO</th>
+                <th>ACCIONES</th>
+        </thead>
+            </tr>
     ";
 
     while ($row = mysqli_fetch_assoc($sql)) {
@@ -169,18 +171,18 @@ if($resultado > 0){
         
         echo"
     <tr>
-        <td>$nombre</td>
-        <td>$apellido</td>
-        <td>$dni</td>
-        <td>$cp</td>
-        <td>$telefono</td>
-        <td>$email</td>
-        <td>$usuario</td>
-        <td>$rol</td>
-        <td>$contrasena</td>
-        <td>$idUsuario</td>
+    <td titulo='NOMBRE:'>$nombre</td>
+    <td titulo='APELLIDOS:'>$apellido</td>
+    <td titulo='DNI:'>$dni</td>
+    <td titulo='CODIGO POSTAL:'>$cp</td>
+    <td titulo='TEELFONO:'>$telefono</td>
+    <td titulo='EMAIL:'>$email</td>
+    <td titulo='USUARIO:'>$usuario</td>
+    <td titulo='ROL:'>$rol</td>
+    <td titulo='CONTRASEÑA:'>$contrasena</td>
+    <td titulo='ID USUARIO:'>$idUsuario</td>
 
-        <td class='td-btn'>
+        <td titulo='ACCIONES:' class='td-btn'>
                 <button class='modificar'>MODIFICAR</button>
                 <button class='eliminar'>ELIMINAR</button>
         </td>
