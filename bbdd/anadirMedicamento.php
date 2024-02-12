@@ -3,6 +3,7 @@
     include("bibliotecaUsuarios.php");
     session_start();
     unset($_SESSION['mensajeError']);
+    unset($_SESSION['ExitoRegistro']);
     $nombre = $_POST["nombre"];
     $apellido = $_POST["apellido"];
     $email = $_POST["email"];
@@ -12,12 +13,8 @@
     $telefono = $_POST["telefono"];
     $contrasena = $_POST["contrasena"];
     $contrasenaComp = $_POST["confirm"];
-    $rol = "usuario";
+    $rol = $_POST["rol"];
     $mensajeError = "";
     $compFormularios = true;
     $idUsuario = "";
-?>
-<?php
-    resgistrarse($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$contrasenaComp,$dni,$idUsuario,$rol,$mensajeError,$conexion);
-    header("location: ../registrate.php");
 ?>

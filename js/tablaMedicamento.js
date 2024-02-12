@@ -1,5 +1,5 @@
 window.addEventListener('load', function() {
-    //FUNCIÓN PARA DESMARCAR LAS CASILLAS DE LAS CHEXBOXES DEL FORMULARIO ELIMINAR
+  /*  //FUNCIÓN PARA DESMARCAR LAS CASILLAS DE LAS CHEXBOXES DEL FORMULARIO ELIMINAR
     let checkbox1 = document.getElementById("checkbox1");
     let checkbox2 = document.getElementById("checkbox2");
     
@@ -17,7 +17,7 @@ window.addEventListener('load', function() {
         if (checkbox2.checked) {
             checkbox1.checked = false;
         }
-    });
+    });*/
 
     //FUNCIONALIDAD DE AÑADIR
     document.getElementById("anadirButton").addEventListener("click", function() {
@@ -25,7 +25,7 @@ window.addEventListener('load', function() {
         document.getElementById("compEliminarUsuario").style.display="none";
         document.getElementById("tablaModificar").style.display="none";
     });
-    //FUNCIONALIDAD DE ELIMINAR
+  /*  //FUNCIONALIDAD DE ELIMINAR
     let botonesEliminar = document.querySelectorAll(".eliminar"); 
 
     botonesEliminar.forEach(function(elemento) {
@@ -67,7 +67,8 @@ window.addEventListener('load', function() {
             document.getElementById("rolMod").value = valores[7];
             document.getElementById("contrasenaMod").value = valores[8];
             document.getElementById("idMod").value = valores[9];
+
         });
-    }); 
+    }); */
 
 });

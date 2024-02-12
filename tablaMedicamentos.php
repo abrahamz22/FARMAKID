@@ -1,8 +1,5 @@
 <?php
 include_once("bbdd/connexionBaseDeDatos.php");
-
-
-
 ?>
 
 
@@ -19,15 +16,12 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <link rel="stylesheet" type="text/css" href="css/tablas.css" >
     <script src="header.js"></script>
     <script src="js/login.js"></script>
-    <script src="js/tablas.js"></script>
+    <script src="js/tablaMedicamento.js"></script>
 </head>
 <body>
     <!--HEADER-->
     <?php require("footerHeader/header.php")?>
     <!--/HEADER-->
-
-    
-    
 <!--/HEADER-->
 <!--DIV DE TABLA-->
 <div id="divTabla">
@@ -41,7 +35,6 @@ include_once("bbdd/connexionBaseDeDatos.php");
                     <input class="btn-busqueda" type="submit" value="Buscar"/>
                 </div>
             </form>
-
         <!-- BOTON DE BUSCAR TABLA MEDICAMENTOS -->
 
             <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
@@ -53,53 +46,59 @@ include_once("bbdd/connexionBaseDeDatos.php");
     </div>
 </div>
 
-        
+<!-- DIVS CON LOS MENSAJES DE COMPROBACIÓN -->
+<?php if(isset($_SESSION["mensajeError"]))://si el mensaje de error existe?>
+        <p id="divError"><?php echo $_SESSION["mensajeError"]//imprimimos?></p>
+<?php endif;?>
+<?php if(isset($_SESSION["ExitoRegistro"]))://si el mensaje de error existe?>
+        <p id="ExitoRegistro"><?php echo $_SESSION["ExitoRegistro"]//imprimimos?></p>
+<?php endif;?>
+<!-- /DIVS CON LOS MENSAJES DE COMPROBACIÓN -->        
     <form  id="anadir" action="">
         <div class="anadir-usuario">
         <div class="input-box">
             <span class='detalles'>Nombre </span>
-            <input type="text" id="nombre" name="nombre" placeholder="Nombre" >
-
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre">
         </div>
-        <div class="input-box">    
-            <span class='detalles'>Id</span>
-            <input type="text" name="id-med" placeholder="Id">
-        </div>
-
         <div class="input-box" >
             <span class='detalles'>Precio</span>
-            <input type="password" name="precio" placeholder="Precio">
+            <input type="text" name="precio" placeholder="Precio">
         </div>
-
-        
-
         <div class="input-box">
             <span class='detalles'>Smiles</span>
             <input type="tetx" name="smiles" placeholder="Smiles">
         </div>
-        <div class="input-box">
-            <span class='detalles'>Estado</span>
-            <input type="number" name="estado" placeholder="Estado">
+        <div class="input-box" >
+            <span class='detalles'>estado</span>
+            <select name="estado" id="estado">
+                <option value="aprobado">Aprobado</option>
+                <option value="regulacion">Regulación</option>
+                <option value="ensayo clinico">Ensayo clínico</option>
+                <option value="en desarrollo">En desarrollo</option>
+                <option value="suspendido">suspendido</option>
+                <option value="retirado del mercado">Retirado del mercado</option>
+                <option value="rechazado">rechazado</option>
+                <option value="investigacion preclinica">Investigación preclínica</option>
+            </select>
         </div>
-
         <div class="input-box">
             <span class='detalles'>Nombre fichero</span>
-            <input type="id" name="nombre-fichero" placeholder="Nombre fichero">
+            <input type="text" name="nombreFichero" placeholder="Nombre fichero">
         </div>
 
         <div class="input-box">
             <span class='detalles'>Tipo fichero</span>
-            <input type="number" name="tipo-fichero" placeholder="Tipo fichero">
+            <input type="text" name="tipoFichero" placeholder="Tipo fichero">
         </div>
 
         <div class="input-box">
             <span class='detalles'>Fecha</span>
-            <input type="password" name="fecha" placeholder="Fecha">
+            <input type="text" name="fecha" placeholder="Fecha">
         </div>
         
         <div class="input-box" style="width: 100%">
             <span class='detalles'>Inchi</span>
-            <input type="email" name="inchi" placeholder="Inchi">
+            <input type="text" name="inchi" placeholder="Inchi">
         </div>
         
         <div class="input-box" >

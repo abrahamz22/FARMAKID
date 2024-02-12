@@ -158,9 +158,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
                 <option value="editor">editor</option>
                 <option value="usuario">usuario</option>
             </select>
-           <!-- <input type="text" name="rol" placeholder="Tipo de rol">-->
         </div>
-        
         <div class="input-box"  >
             <span class='detalles'>Crear</span>
             <button type="submit" name="registrarse">Añadir usuario</button>

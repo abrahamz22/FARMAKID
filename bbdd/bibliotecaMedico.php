@@ -2,7 +2,6 @@
 include("connexionBaseDeDatos.php");
 include("bibliotecaUsuarios.php");
 session_start();
-
 ?>
 
 <?php
