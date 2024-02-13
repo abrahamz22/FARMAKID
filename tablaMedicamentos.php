@@ -53,8 +53,9 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <?php if(isset($_SESSION["ExitoRegistro"]))://si el mensaje de error existe?>
         <p id="ExitoRegistro"><?php echo $_SESSION["ExitoRegistro"]//imprimimos?></p>
 <?php endif;?>
-<!-- /DIVS CON LOS MENSAJES DE COMPROBACIÓN -->        
-    <form  id="anadir" action="">
+<!-- /DIVS CON LOS MENSAJES DE COMPROBACIÓN -->
+<!-- ANADIR MEDICAMENTO -->        
+    <form  id="anadir" action="bbdd/anadirMedicamento.php" method="post">
         <div class="anadir-usuario">
         <div class="input-box">
             <span class='detalles'>Nombre </span>
@@ -62,7 +63,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
         </div>
         <div class="input-box" >
             <span class='detalles'>Precio</span>
-            <input type="text" name="precio" placeholder="Precio">
+            <input type="number"  step="0.01" min="0.00" name="precio" placeholder="Precio">
         </div>
         <div class="input-box">
             <span class='detalles'>Smiles</span>
@@ -107,7 +108,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
         </div>
         </div>
     </form>
-
+<!-- /ANADIR MEDICAMENTO -->
         <?php
         //CONSULTA PARA PILLAR LOS DATOS DE LA TABLA MEDICAMENTO MEDIANTE EL NOMBRE
         $sql= mysqli_query($conexion, "SELECT * FROM medicamento ORDER BY nombre");

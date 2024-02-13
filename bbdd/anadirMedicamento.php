@@ -5,16 +5,24 @@
     unset($_SESSION['mensajeError']);
     unset($_SESSION['ExitoRegistro']);
     $nombre = $_POST["nombre"];
-    $apellido = $_POST["apellido"];
-    $email = $_POST["email"];
-    $usuario = $_POST["usuario"];
-    $cp= $_POST["cp"];
-    $dni = $_POST["dni"];
-    $telefono = $_POST["telefono"];
-    $contrasena = $_POST["contrasena"];
-    $contrasenaComp = $_POST["confirm"];
-    $rol = $_POST["rol"];
+    $precio = $_POST["precio"];
+    $smiles = $_POST["smiles"];
+    $estado = $_POST["estado"];
+    $nombreFichero= $_POST["nombreFichero"];
+    $fecha = $_POST["fecha"];
+    $inchi= $_POST["inchi"];
     $mensajeError = "";
     $compFormularios = true;
-    $idUsuario = "";
+    $idMedicamento = "";
+
+
+?>
+
+<?php
+    echo "nombre:". $nombre . " precio:" . $precio. " smiles:" . $smiles . " estado:" . $estado . " nombre del ficher:" . $nombreFichero . " fecha:" . $fecha . " ichi:" . $inchi;
+    $nombre = strtolower($nombre);
+    $nombre = ucwords($nombre);
+    $compFormularios = vacioLenghtmasCaracteres($compFormularios, $nombre, "nombre del medicamento",150,"/^[A-Za-z ]+$/","caracteres especiales o caracteres númericos",$mensajeError);//nombre;
+    
+
 ?>
