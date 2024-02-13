@@ -22,5 +22,4 @@
 <?php
     anadirUsuarioTabla($compFormularios, $cp,$nombre,$apellido,$email,$usuario ,$telefono,$contrasena,$contrasenaComp,$dni,$idUsuario,$rol,$mensajeError,$conexion);
     header("location: ../tablaUsuario.php");
-    
 ?>

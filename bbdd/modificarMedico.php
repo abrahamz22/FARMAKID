@@ -17,6 +17,5 @@
 
 <?php
 modificarTablaMedico($compFormularios, $nombre,$apellido,$especialidad,$numColegiado,$telefono,$email,$id,$mensajeError,$conexion);
-header("location: ../tablaMedico.php")
-
+header("location: ../tablaMedico.php");
 ?>
