@@ -94,7 +94,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
         <div class="input-box">
             <span class='detalles'>Fecha</span>
-            <input type="text" name="fecha" placeholder="Fecha">
+            <input type="datetime-local" name="fecha" placeholder="Fecha">
         </div>
         
         <div class="input-box" style="width: 100%">
