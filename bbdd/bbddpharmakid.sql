@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2024 at 11:15 PM
+-- Generation Time: Feb 14, 2024 at 08:33 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -67,12 +67,12 @@ CREATE TABLE `consultar` (
 
 CREATE TABLE `medicamento` (
   `inchi` varchar(200) NOT NULL,
-  `smiles` varchar(200) NOT NULL,
+  `smiles` varchar(100) NOT NULL,
   `estadoMedicamento` varchar(20) NOT NULL,
   `precio` float NOT NULL,
   `nombre` varchar(150) NOT NULL,
   `id` varchar(10) NOT NULL,
-  `nombreFichero` varchar(50) NOT NULL,
+  `nombreFichero` varchar(100) NOT NULL,
   `tiposFichero` varchar(10) NOT NULL,
   `fecha` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
@@ -82,9 +82,9 @@ CREATE TABLE `medicamento` (
 --
 
 INSERT INTO `medicamento` (`inchi`, `smiles`, `estadoMedicamento`, `precio`, `nombre`, `id`, `nombreFichero`, `tiposFichero`, `fecha`) VALUES
-('	InChI=1S/C13H18O2/c1-9(2)8-11-4-6-12(7-5-11)10(3)13(14)15/h4-7,9-10H,8H2,1-3H3,(H,14,15)', 'CC(C)Cc1ccc(C(C)C(=O)O)cc1', 'Aprobado', 4.12, 'IBUPROFEN', 'CHEMBL521', 'CHEMBL521.smi', '(.smi)', '2020-11-09 16:48:44'),
-('	InChI=1S/C13H18O2/c1-9(2)8-11-4-6-12(7-5-11)10(3)13(14)15/h4-7,9-10H,8H2,1-3H3,(H,14,15)', 'CC(C)Cc1ccc(C(C)C(=O)O)cc1', 'Aprobado', 5.2, 'AMOXICILINA', 'CHEMBL530', 'CHEMBL521.smi', '(.smi)', '2018-02-04 16:50:03'),
-('	InChI=1S/C13H18O2/c1-9(2)8-11-4-6-12(7-5-11)10(3)13(14)15/h4-7,9-10H,8H2,1-3H3,(H,14,15)', 'CC(C)Cc1ccc(C(C)C(=O)O)cc1', 'Aprobado', 6.15, 'PARACETAMOL', 'CHEMBL540', 'CHEMBL521.smi', '(.smi)', '2019-05-04 16:50:12');
+('1S/C13H18O2/c1-9(2)8-11-4-6-12(7-5-11)10(3)13(14)15/h4-7,9-10H,8H2,1-3H3,(H,14,15)', 'CC(C)Cc1ccc(C(C)C(=O)O)cc1', 'Aprobado', 4.12, 'IBUPROFEN', 'CHEMBL521', 'CHEMBL521.smi', '(.smi)', '2020-11-09 16:48:44'),
+('1S/C13H18O2/c1-9(2)8-11-4-6-12(7-5-11)10(3)13(14)15/h4-7,9-10H,8H2,1-3H3,(H,14,15)', 'CC(C)Cc1ccc(C(C)C(=O)O)cc1', 'Aprobado', 5.2, 'AMOXICILINA', 'CHEMBL530', 'CHEMBL521.smi', '(.smi)', '2018-02-04 16:50:03'),
+('1S/C13H18O2/c1-9(2)8-11-4-6-12(7-5-11)10(3)13(14)15/h4-7,9-10H,8H2,1-3H3,(H,14,15)', 'CC(C)Cc1ccc(C(C)C(=O)O)cc1', 'Aprobado', 6.15, 'PARACETAMOL', 'CHEMBL540', 'CHEMBL521.smi', '(.smi)', '2019-05-04 16:50:12');
 
 -- --------------------------------------------------------
 
@@ -107,7 +107,7 @@ CREATE TABLE `medico` (
 --
 
 INSERT INTO `medico` (`id`, `nombre`, `apellidos`, `especialidad`, `numeroColegiado`, `email`, `telefono`) VALUES
-('m1', 'Manolo', 'Mendez Rod', 'ortopedia', 283499999, 'antoniMendez@gmail.es', 665437653);
+('m1', 'Ernesto', ' Diaz Jimenez', 'alergologo', 123456789, 'valdrick_menethil@hotmail.es', 123456789);
 
 -- --------------------------------------------------------
 
@@ -157,9 +157,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`codigoPostal`, `nombre`, `apellidos`, `email`, `usuario`, `telefono`, `contrasena`, `dni`, `idUsuario`, `rol`) VALUES
-('80467', 'Abraham', 'Zambrano', 'abrahamZ@gmail.es', 'abraham', 654265345, '1234', '12345678o', '#1', 'administrador'),
-('80467', 'Ernesto', 'Diaz', 'ernestoD@gmail.es', 'ernesto', 652265234, 'abcd', '12345678b', '#2', 'usuario'),
-('80467', 'Ismael', 'Zambrano', 'ismaelZ@gmail.es', 'ismael', 624256345, 'ab34', '12345678i', '#3', 'editor'),
+('00909', 'Abraham', 'Zambrano', 'abrahamZ@gmail.es', '665626456', 665626345, '1234', '12345678o', '#1', 'administrador'),
+('00909', 'Ernesto', 'Diaz Jimenez', 'ernestoD@gmail.es', 'ernesto', 665626234, 'abc', '12345678b', '#2', 'administrador'),
+('00909', 'Ismael', 'Zambrano', 'ismaelZ@gmail.es', 'ismael', 665626234, 'ab34', '12345678b', '#3', 'editor'),
 ('80467', 'Juan', 'Merino', 'juanM@gmail.es', 'juan', 624567855, 'ef45', '12345678e', '#4', 'usuario');
 
 --
@@ -219,7 +219,7 @@ ALTER TABLE `usuario`
 -- Constraints for table `citar`
 --
 ALTER TABLE `citar`
-  ADD CONSTRAINT `citar_ibfk_1` FOREIGN KEY (`usuarioId`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `citar_ibfk_1` FOREIGN KEY (`usuarioId`) REFERENCES `usuario` (`idUsuario`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `citar_ibfk_2` FOREIGN KEY (`doctorId`) REFERENCES `medico` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -233,7 +233,7 @@ ALTER TABLE `comprar`
 -- Constraints for table `consultar`
 --
 ALTER TABLE `consultar`
-  ADD CONSTRAINT `consultar_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `consultar_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `consultar_ibfk_2` FOREIGN KEY (`idProteina`) REFERENCES `proteina` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 

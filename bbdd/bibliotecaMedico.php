@@ -3,7 +3,6 @@ include("connexionBaseDeDatos.php");
 include("bibliotecaUsuarios.php");
 session_start();
 ?>
-
 <?php
 //COMPROBACIÓN NUM COLEGIADO
 function comprobacionNumColegiado($compFormularios, $numColegiado, &$mensajeError){
@@ -11,26 +10,26 @@ function comprobacionNumColegiado($compFormularios, $numColegiado, &$mensajeErro
         $compFormularios = comprobacionLengthIgual($compFormularios,$numColegiado, "Número de colegiado", 9,$mensajeError);
         return $compFormularios;
 } 
-
 //CREAR ID MEDICO
 function asignarIdMedico($conexion){
     $query = "SELECT * FROM medico ORDER BY CAST(SUBSTRING(id, 2) AS UNSIGNED);";
     $sql = mysqli_query($conexion,$query);
-    $cont = 1;
     $newId = 1;
+    $cont = 1;
     $idAsignada = false;
     while($row = mysqli_fetch_assoc($sql)){
-        $numId = substr($row["id"], 1); 
+        $numId = substr($row["id"], 1);
         if($numId != $cont){
             $newId = "m" . $cont;
             $idAsignada = true;
+            break;
         }
-            $cont++;
+        $cont++;
     }
     if(!$idAsignada){
         $newId = "m" . (mysqli_num_rows($sql) + 1);
     }
-        return $newId;
+    return $newId;
     }
 //QUERY INSERTAR MEDICO
 function insertarMedico($compFormularios,$id,$nombre,$apellido,$especialidad,$numColegiado,$email,$telefono ,$conexion){
