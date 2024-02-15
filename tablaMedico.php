@@ -32,7 +32,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <h1>Tabla de pediatras</h1>
     <div class="conjunto-buscar-anadir">
         <!-- BOTON DE BUSCAR TABLA USUARIOS -->
-        <form action="buscar-usuario.php" class="form-busqueda" method="get" name="formu">
+        <form action="buscar-medico.php" class="form-busqueda" method="get" name="formu">
             <div class="botones-filtrar" style="display:flex"> 
                 <input class="input-busqueda" type="text"name="busqueda"  placeholder="Buscar" />
                 <input class="btn-busqueda" type="submit" value="Buscar"/>

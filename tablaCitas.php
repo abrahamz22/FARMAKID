@@ -32,9 +32,9 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <h1>Tabla de citas concertadas</h1>
     <div class="conjunto-buscar-anadir">
         <!-- BOTON DE BUSCAR TABLA USUARIOS -->
-        <form action="buscar-usuario.php" class="form-busqueda" method="get" name="formu">
+        <form action="buscar-cita.php" class="form-busqueda" method="get" name="formu">
             <div class="botones-filtrar" style="display:flex"> 
-                <input class="input-busqueda" type="text"name="busqueda"  placeholder="Buscar" />
+                <input class="input-busqueda" type="text" name="busqueda"  placeholder="Buscar" />
                 <input class="btn-busqueda" type="submit" value="Buscar"/>
             </div>
         </form>
@@ -159,14 +159,17 @@ $resultado = mysqli_num_rows($sql);
 if($resultado > 0){
     echo "
     <table>
-        <tr>
-            <th>ID DEL DOCTOR</th>
-            <th>ID DEL USUARIOS</th>
-            <th>OBSERVACIONES DE LA CITA</th>
-            <th>DISPONIBILIDAD HORARIA</th>
-            <th>FECHA DE LA CITA</th>
-            <th>ACCIONES</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>ID DEL DOCTOR</th>
+                <th>ID DEL USUARIOS</th>
+                <th>OBSERVACIONES DE LA CITA</th>
+                <th>DISPONIBILIDAD HORARIA</th>
+                <th>FECHA DE LA CITA</th>
+                <th>ACCIONES</th>
+            </tr>
+        </thead>
+        <tbody class='clase_tbody'>
     ";
 
     while ($row = mysqli_fetch_assoc($sql)) {
@@ -177,12 +180,12 @@ if($resultado > 0){
         $fecha = $row["fecha"];  
         echo"
     <tr>
-        <td>$doctorId</td>
-        <td>$usuarioId</td>
-        <td>$observaciones</td>
-        <td>$disponibilidad</td>
-        <td>$fecha</td>
-        <td class='td-btn'>
+        <td titulo='DOCTOR:'>$doctorId</td>
+        <td titulo='USUARIO:'>$usuarioId</td>
+        <td titulo='OBSERVACIONES:'>$observaciones</td>
+        <td titulo='DISPONIBILIDAD:'>$disponibilidad</td>
+        <td titulo='FECHA:'>$fecha</td>
+        <td titulo='ACCIONES:' class='td-btn'>
                 <button class='modificar'>MODIFICAR</button>
                 <button class='eliminar'>ELIMINAR</button>
         </td>
@@ -190,6 +193,7 @@ if($resultado > 0){
             ";
 
         }
+        echo "</tbody>";
 }
 
 else 

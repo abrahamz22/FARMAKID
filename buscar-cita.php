@@ -7,7 +7,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tabla Medico</title>
+    <title>tabla citas</title>
     <link rel="icon" href="multimedia/icono.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/index.css" >
     <link rel="stylesheet" type="text/css" href="css/header.css" >
@@ -22,10 +22,12 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
 <!--HEADER-->
 <?php require("footerHeader/header.php")?>
+
 <?php
-$busqueda_medico = strtolower($_REQUEST['busqueda']);// pillo el valor de input de busqueda, y lo paso todo a minuscula
-if(empty($busqueda_medico)){//si esta vcacio entonces te manda a tabla de Medico
-    header("location: tablaMedico.php");
+$busqueda_cita = strtolower($_REQUEST['busqueda']);
+
+if(empty($busqueda_cita)){
+    header('location: tablaCitas.php');
 }
 ?>
 <!--/HEADER-->
@@ -34,10 +36,10 @@ if(empty($busqueda_medico)){//si esta vcacio entonces te manda a tabla de Medico
 <div id="divTabla">
     <div class="contenedor-botones">
 
-    <h1>Tabla de pediatras</h1>
+    <h1>Tabla de citas concertadas</h1>
     <div class="conjunto-buscar-anadir">
         <!-- BOTON DE BUSCAR TABLA USUARIOS -->
-        <form action="buscar-medico.php" class="form-busqueda" method="get" name="formu">
+        <form action="buscar-cita.php" class="form-busqueda" method="get" name="formu">
             <div class="botones-filtrar" style="display:flex"> 
                 <input class="input-busqueda" type="text" name="busqueda"  placeholder="Buscar" />
                 <input class="btn-busqueda" type="submit" value="Buscar"/>
@@ -51,7 +53,7 @@ if(empty($busqueda_medico)){//si esta vcacio entonces te manda a tabla de Medico
        <a href="crear_usuario.php" class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp CREAR USUARIO</a>
     </div> -->
 
-        <button id="anadirButton">Añadir especialista</button>
+        <button id="anadirButton">Añadir cita</button>
     </div>
 </div>
 <!-- DIVS CON LOS MENSAJES DE COMPROBACIÓN -->
@@ -87,9 +89,9 @@ if(empty($busqueda_medico)){//si esta vcacio entonces te manda a tabla de Medico
         <tr>
         <form action="bbdd/modificarMedico.php" method="post">
         <input id="idMod" name="id" type="hidden" value="0">
-        <td titulo='NOMBRE:'><input id="nombreMod" name="nombre" type="text"></th>
-        <td titulo='APELLIDOS:'><input id="apellidosMod" name="apellidos" type="text"></td>
-        <td titulo='ESPECIALIDAD:'><select id="especialidadMod" name="especialidad">
+        <th><input id="nombreMod" name="nombre" type="text"></th>
+        <th><input id="apellidosMod" name="apellidos" type="text"></th>
+        <th><select id="especialidadMod" name="especialidad">
                 <option value="alergologo">Alergólogo</option>
                 <option value="neonatologo">Neonatólogo</option>
                 <option value="cardiologo">Cardiólogo</option>
@@ -99,11 +101,11 @@ if(empty($busqueda_medico)){//si esta vcacio entonces te manda a tabla de Medico
                 <option value="ortopedia">Ortopedia</option>
                 <option value="otorrinolaringologia">Otorrinolaringología</option>
             </select>
-        </td>
-        <td titulo='NUM COLEGIADO:'><input id="numColegiadoMod" name="numColegiado" type="number"></td>
-        <td titulo='EMAIL:'><input id="emailMod" name="email" type="email"></td>
-        <td titulo='TELEFONO:'><input id="telefonoMod" name="telefono" type="number"></td>
-        <td titulo='ACCIONES:'><input type="submit" value="Verificar cambios"></td>
+        </th>
+        <th><input id="numColegiadoMod" name="numColegiado" type="number"></th>
+        <th><input id="emailMod" name="email" type="email"></th>
+        <th><input id="telefonoMod" name="telefono" type="number"></th>
+        <th><input type="submit" value="Verificar cambios"></th>
         </form>
         </tr>
     </table>
@@ -157,9 +159,9 @@ if(empty($busqueda_medico)){//si esta vcacio entonces te manda a tabla de Medico
 
 <!-- CONSULTA PARA GENERAR LA TABLA DINAMICA DESDE LA BASE DE DATOS -->
 <?php
-$sql = mysqli_query($conexion, "SELECT * FROM medico
-WHERE nombre LIKE '%$busqueda_medico%'
-ORDER BY nombre ASC ");
+$sql = mysqli_query($conexion, "SELECT * FROM citar
+WHERE doctorId LIKE '%$busqueda_cita%'
+ORDER BY doctorId ASC");
 
 $resultado = mysqli_num_rows($sql);
 
@@ -168,38 +170,30 @@ if($resultado > 0){
     <table>
         <thead>
             <tr>
-                <th>NOMBRE</th>
-                <th>APELLIDOS</th>
-                <th>ESPECIALIDAD</th>
-                <th>NUMERO DE COLEGIADO</th>
-                <th>EMAIL</th>
-                <th>TELEFONO</th>
-                <th>ID</th>
+                <th>ID DEL DOCTOR</th>
+                <th>ID DEL USUARIOS</th>
+                <th>OBSERVACIONES DE LA CITA</th>
+                <th>DISPONIBILIDAD HORARIA</th>
+                <th>FECHA DE LA CITA</th>
                 <th>ACCIONES</th>
             </tr>
         </thead>
-        <tbody class='clase_tbody'>";
+        <tbody class='clase_tbody'>
+    ";
 
     while ($row = mysqli_fetch_assoc($sql)) {
-        $nombre = $row["nombre"];
-        $apellido = $row['apellidos'];
-        $especialidad = $row["especialidad"];
-        $numeroColegiado = $row["numeroColegiado"];
-        $email = $row["email"];
-        $telefono = $row["telefono"];
-        $id = $row["id"];
-
-
-        
+        $doctorId= $row["doctorId"];
+        $usuarioId = $row['usuarioId'];
+        $observaciones = $row["observaciones"];
+        $disponibilidad = $row["disponibilidad"];
+        $fecha = $row["fecha"];  
         echo"
     <tr>
-        <td titulo='NOMBRE:'>$nombre</td>
-        <td titulo='APELLIDOS:'>$apellido</td>
-        <td titulo='ESPECIALIDAD:'>$especialidad</td>
-        <td titulo='NUMERO COLEGIADO:'>$numeroColegiado</td>
-        <td titulo='EMAIL:'>$email</td>
-        <td titulo='TELEFONO:'>$telefono</td>
-        <td titulo='ID:'>$id</td>
+        <td titulo='DOCTOR:'>$doctorId</td>
+        <td titulo='USUARIO:'>$usuarioId</td>
+        <td titulo='OBSERVACIONES:'>$observaciones</td>
+        <td titulo='DISPONIBILIDAD:'>$disponibilidad</td>
+        <td titulo='FECHA:'>$fecha</td>
         <td titulo='ACCIONES:' class='td-btn'>
                 <button class='modificar'>MODIFICAR</button>
                 <button class='eliminar'>ELIMINAR</button>
