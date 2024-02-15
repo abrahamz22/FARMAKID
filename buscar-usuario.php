@@ -1,10 +1,6 @@
 <?php
 include_once("bbdd/connexionBaseDeDatos.php");
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,9 +20,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 </head>
 <body>
 
-
 <?php require("footerHeader/header.php")?>
-
 
 <?php
 
@@ -64,7 +58,71 @@ if(empty($busqueda)){
     </div>
     <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
 </div>
+
+
+<!-- DIVS CON LOS MENSAJES DE COMPROBACIÓN -->
+<?php if(isset($_SESSION["mensajeError"]))://si el mensaje de error existe?>
+        <p id="divError"><?php echo $_SESSION["mensajeError"]//imprimimos?></p>
+<?php endif;?>
+<?php if(isset($_SESSION["ExitoRegistro"]))://si el mensaje de error existe?>
+        <p id="ExitoRegistro"><?php echo $_SESSION["ExitoRegistro"]//imprimimos?></p>
+<?php endif;?>
+<!-- /DIVS CON LOS MENSAJES DE COMPROBACIÓN -->
+
+
+<!-- FORMULARIO DE COMPROBACIÓN PARA ELIMINAR USUARIO -->
+<form  id="compEliminarUsuario" action="bbdd/eliminarUsuario.php" method="post">
+    <p id="infoBlockEliminar" ></p>
+    <input id="idValueEliminar" name="idValueEliminar" type="hidden" value="0">
+    <input id="checkbox1" type="checkBox" name="si">
+    <label for="si">Sí</label>
+    <input id="checkbox2" type="checkBox" name="no">
+    <label for="no">No</label>
+    <input type="submit" value ="Aceptar">
+</form>
+<!--/FORMULARIO DE COMPROBACIÓN PARA ELIMINAR USUARIO -->
+
+
+<!-- FORMULARIO DE COMPROBACIÓN PARA MODIFICAR USUARIO -->
+<table id="tablaModificar">
+        <thead>
+            <tr>
+                <th>NOMBRE</th>
+                <th>APELLIDOS</th>
+                <th>DNI</th>
+                <th>CÓDIGO POSTAL</th>
+                <th>TELEFONO</th>
+                <th>EMAIL</th>
+                <th>USUARIO</th>
+                <th>ROL</th>
+                <th>CONTRASEÑA</th>
+                <th>ACCIONES</th>
+        </thead>
+            </tr>
+        <tr>
+        <form action="bbdd/modificarUsuario.php" method="post">
+            <input id="idMod" name="id" type="hidden" value="0">
+        <td titulo='NOMBRE:'><input id="nombreMod" name="nombre" type="text"></th>
+        <td titulo='APELLIDOS:'><input id="apellidosMod" name="apellidos" type="text"></td>
+        <td titulo='DNI:'><input id="dniMod" name="dni" type="text"></td>
+        <td titulo='CODIGO POSTAL:'><input id="cpMod" name="cp" type="number"></td>
+        <td titulo='TELEFONO:'><input id="telefonoMod" name="telefono" type="number"></td>
+        <td titulo='EMAIL:'><input id="emailMod" name="email" type="email"></td>
+        <td titulo='USUARIO:'><input id="usuarioMod" name="usuario" type="text"></td>
+        <td titulo='ROL:'><select id="rolMod" name="rol">
+                <option value="administrador">Administrador</option>
+                <option value="editor">Editor</option>
+                <option value="usuario">Usuario</option>
+            </select>
+        </td>
+        <td titulo='CONTRASEÑA:'><input id="contrasenaMod" name="contrasena" type="password"></td>
+        <td titulo='VERIFICAR CAMBIOS:'><input type="submit" value="Verificar cambios"></td>
+        </form>
+        </tr>
+    </table>
+<!-- /FORMULARIO DE COMPROBACIÓN PARA MODIFICAR USUARIO -->
     
+<!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
     <form  id="anadir" action="">
         <div class="anadir-usuario">
         <div class="input-box">
@@ -121,6 +179,7 @@ if(empty($busqueda)){
         </div>
         </div>
     </form>
+
 
 <!-- CONSULTA PARA GENERAR LA TABLA DINAMICA DESDE LA BASE DE DATOS -->
 <?php
@@ -188,6 +247,7 @@ if($resultado > 0){
             ";
 
         }
+        echo "</tbody>";
 }
 
 else 
@@ -204,13 +264,13 @@ echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
 <!--/FOOTER-->
 <?php
 
-
-
-
-
-
 mysqli_close($conexion); //cierra la BBDD
 
 ?>
 </body>
 </html>
+
+<?php
+    unset($_SESSION['mensajeError']);
+    unset($_SESSION['ExitoRegistro']);
+?>

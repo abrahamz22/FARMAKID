@@ -22,7 +22,12 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
 <!--HEADER-->
 <?php require("footerHeader/header.php")?>
-
+<?php
+$busqueda_medico = strtolower($REQUEST['busqueda']);// pillo el valor de input de busqueda, y lo paso todo a minuscula
+if(empty($busqueda_medico)){//si esta vcacio entonces te manda a tabla de Medico
+    header('location: tablaMedico.php');
+}
+?>
 <!--/HEADER-->
 <!--/HEADER-->
 <!--DIV DE TABLA-->
@@ -152,7 +157,9 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
 <!-- CONSULTA PARA GENERAR LA TABLA DINAMICA DESDE LA BASE DE DATOS -->
 <?php
-$sql = mysqli_query($conexion, "SELECT * FROM medico ORDER BY CAST(SUBSTRING(id, 2) AS UNSIGNED);");
+$sql = mysqli_query($conexion, "SELECT * FROM medico
+WHERE nombre LIKE '%$busqueda_medico%'
+ORDER BY nombre ASC ");
 
 $resultado = mysqli_num_rows($sql);
 

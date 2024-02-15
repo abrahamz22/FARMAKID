@@ -17,13 +17,20 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <script src="header.js"></script>
     <script src="js/login.js"></script>
     <script src="js/tablaMedicamento.js"></script>
-    <script src="js/admin.js"></script>
-    <script src="js/tablas.js"></script>
 </head>
 <body>
     <!--HEADER-->
     <?php require("footerHeader/header.php")?>
     <!--/HEADER-->
+
+    <?php
+    $busqueda_opcion = strtolower($_REQUEST['busqueda']);
+
+    if(empty($busqueda_opcion)){
+        header('location: tablaMedicamentos.php');
+    }
+
+    ?>
 <!--/HEADER-->
 <!--DIV DE TABLA-->
 <div id="divTabla">
@@ -33,7 +40,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <!-- BOTON DE BUSCAR TABLA MEDICAMENTOS -->
         <form action="buscar-medicamento.php" class="form-busqueda" method="get" name="formu">
                 <div class="botones-filtrar" style='display:flex'> 
-                    <input class="input-busqueda" type="text" name="busqueda" placeholder="Buscar"/>
+                    <input class="input-busqueda" name="busqueda" type="text" placeholder="Buscar" value='<?php echo $busqueda_opcion;?>'/>
                     <input class="btn-busqueda" type="submit" value="Buscar"/>
                 </div>
             </form>
@@ -69,19 +76,20 @@ include_once("bbdd/connexionBaseDeDatos.php");
 </form>
 <!--/FORMULARIO DE COMPROBACIÓN PARA ELIMINAR USUARIO -->
 
+
 <!-- FORMULARIO DE COMPROBACIÓN PARA MODIFICAR USUARIO -->
 <table id="tablaModificar">
         <thead>
             <tr>
                 <th>NOMBRE</th>
-                <th>ID</th>
-                <th>INCHI</th>
-                <th>SMILES</th>
-                <th>ESTADO</th>
-                <th>NOMBRE FICHERO</th>
-                <th>TIPO FICHERO</th>
-                <th>FECHA</th>
-                <th>PRECIO</th>
+                <th>APELLIDOS</th>
+                <th>DNI</th>
+                <th>CÓDIGO POSTAL</th>
+                <th>TELEFONO</th>
+                <th>EMAIL</th>
+                <th>USUARIO</th>
+                <th>ROL</th>
+                <th>CONTRASEÑA</th>
                 <th>ACCIONES</th>
         </thead>
             </tr>
@@ -89,21 +97,24 @@ include_once("bbdd/connexionBaseDeDatos.php");
         <form action="bbdd/modificarUsuario.php" method="post">
             <input id="idMod" name="id" type="hidden" value="0">
         <td titulo='NOMBRE:'><input id="nombreMod" name="nombre" type="text"></th>
-        <td titulo='ID:'><input id="idMod" name="id" type="text"></td>
-        <td titulo='INCHI:'><input id="inchiMod" name="inchi" type="text"></td>
-        <td titulo='SMILES:'><input id="smilesMod" name="smiles" type="number"></td>
-        <td titulo='ESTADO:'><input id="estadoMod" name="estado" type="number"></td>
-        <td titulo='NOMBRE FICHERO:'><input id="nombreFicherolMod" name="nombreFichero" type="email"></td>
-        <td titulo='TIPO FICHERO:'><input id="tipoFicheroMod" name="tipoFichero" type="text"></td>
-        <td titulo='FECHA:'><input type="datetime-local" name="fecha" ></td>
-        <td titulo='PRECIO:'><input id="precioMod" type="text" name='precio'></td>
-        <!-- <td titulo='CONTRASEÑA:'><input id="contrasenaMod" name="contrasena" type="password"></td> -->
+        <td titulo='APELLIDOS:'><input id="apellidosMod" name="apellidos" type="text"></td>
+        <td titulo='DNI:'><input id="dniMod" name="dni" type="text"></td>
+        <td titulo='CODIGO POSTAL:'><input id="cpMod" name="cp" type="number"></td>
+        <td titulo='TELEFONO:'><input id="telefonoMod" name="telefono" type="number"></td>
+        <td titulo='EMAIL:'><input id="emailMod" name="email" type="email"></td>
+        <td titulo='USUARIO:'><input id="usuarioMod" name="usuario" type="text"></td>
+        <td titulo='ROL:'><select id="rolMod" name="rol">
+                <option value="administrador">Administrador</option>
+                <option value="editor">Editor</option>
+                <option value="usuario">Usuario</option>
+            </select>
+        </td>
+        <td titulo='CONTRASEÑA:'><input id="contrasenaMod" name="contrasena" type="password"></td>
         <td titulo='VERIFICAR CAMBIOS:'><input type="submit" value="Verificar cambios"></td>
         </form>
         </tr>
     </table>
 <!-- /FORMULARIO DE COMPROBACIÓN PARA MODIFICAR USUARIO -->
-
 
 
 <!-- ANADIR MEDICAMENTO -->        
@@ -163,7 +174,13 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <!-- /ANADIR MEDICAMENTO -->
         <?php
         //CONSULTA PARA PILLAR LOS DATOS DE LA TABLA MEDICAMENTO MEDIANTE EL NOMBRE
-        $sql= mysqli_query($conexion, "SELECT * FROM medicamento ORDER BY nombre");
+        // $sql= mysqli_query($conexion, "SELECT * FROM medicamento ORDER BY nombre");
+        // $resultado = mysqli_num_rows($sql);
+
+
+        $sql = mysqli_query($conexion, "SELECT * FROM medicamento
+        WHERE nombre LIKE '%$busqueda_opcion%' 
+        ORDER BY nombre ASC");
         $resultado = mysqli_num_rows($sql);
 
         if ($resultado > 0){//SI EN LAS COLUMN ES MAYOR QUE 0 PUES SE CREARA LA TABLA CON CON SUS COLUMNS
@@ -246,3 +263,8 @@ include_once("bbdd/connexionBaseDeDatos.php");
     ?>
 </body>
 </html>
+
+<?php
+    unset($_SESSION['mensajeError']);
+    unset($_SESSION['ExitoRegistro']);
+?>

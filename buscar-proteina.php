@@ -28,6 +28,17 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <!--/HEADER-->
 
 
+<?php
+
+$busqueda_proteina = strtolower($_REQUEST['busqueda']);
+
+if(empty($busqueda_proteina)){
+ header("location: tablaProteinas.php");
+}
+
+
+?>
+
 
 <!--/HEADER-->
     <!--DIV DE TABLA-->
@@ -38,7 +49,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <div class="conjunto-buscar-anadir">
     <form action="buscar-proteina.php" class="form-busqueda" method="get" name="formu">
                 <div  class="botones-filtrar" style='display:flex'>
-                    <input class="input-busqueda" name='busqueda' type="text" placeholder="Buscar"/>
+                    <input class="input-busqueda" type="text" name='busqueda' placeholder="Buscar"/>
                     <input class="btn-busqueda-proteina" type="submit" value="Buscar"/>
                 </div>
     </form>
@@ -75,6 +86,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <input type="submit" value ="Aceptar">
 </form>
 <!--/FORMULARIO DE COMPROBACIÓN PARA ELIMINAR PROTEINA -->
+
 <!-- FORMULARIO DE COMPROBACIÓN PARA MODIFICAR PROTEINA -->
 <table id="tablaModificar">
         <thead>
@@ -87,11 +99,10 @@ include_once("bbdd/connexionBaseDeDatos.php");
                 <th>TIPO FICHERO</th>
                 <th>FECHA</th>
                 <th>METODO</th>
-                <th>ACCIONES</th>
         </thead>
             </tr>
         <tr>
-        <form action="bbdd/modificarUsuario.php" method="post">
+        <form action="bbdd/modificarProteina.php" method="post">
             <input id="idMod" name="id" type="hidden" value="0">
         <td titulo='NOMBRE:'><input id="nombreMod" name="nombre" type="text"></th>
         <td titulo='ESPECIE:'><input id="especieMod" name="especie" type="text"></td>
@@ -100,7 +111,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
         <td titulo='NOMBRE FICHERO:'><input id="nombreFicheroMod" name="nombreFichero" type="text"></td>
         <td titulo='TIPO FICHERO:'><input id="tipoFicheroMod" name="tipoFichero" type="text"></td>
         <td titulo='FECHA:'><input type="datetime-local" name="fecha" placeholder="Fecha"></td>
-        <td titulo='METODO:'><input id='metodoMod' name='metoddo'/></td>
+        <td titulo='METODO:'><input id='metodoMod' name='metoddo'></input></td>
         <td titulo='VERIFICAR CAMBIOS:'><input type="submit" value="Verificar cambios"></td>
         </form>
         </tr>
@@ -160,7 +171,9 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
     <?php
     //CONSULTA PARA PILLAR LOS DATOS DE LA TABLA MEDICAMENTO MEDIANTE EL NOMBRE
-    $sql= mysqli_query($conexion, "SELECT * FROM proteina ORDER BY nombre");
+    $sql= mysqli_query($conexion, "SELECT * FROM proteina
+    WHERE id LIKE '%$busqueda_proteina%' 
+    ORDER BY id ASC");
     $resultado = mysqli_num_rows($sql);
 
     if ($resultado > 0){//SI EN LAS COLUMN ES MAYOR QUE 0 PUES SE CREARA LA TABLA CON CON SUS COLUMNS

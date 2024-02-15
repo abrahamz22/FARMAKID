@@ -34,6 +34,7 @@ window.addEventListener('load', function() {
             // Mostrar el texto obtenido
             document.getElementById("anadir").style.display = "none";
             document.getElementById("compEliminarUsuario").style.display="block";
+            document.getElementById("compEliminarUsuario").style.margin ="auto";
             document.getElementById("tablaModificar").style.display="none";
             document.getElementById("infoBlockEliminar").innerHTML="Seguro que deseas eliminar al usuario con la id " + textoCeldaIzquierda;
             document.getElementById("idValueEliminar").value= textoCeldaIzquierda;

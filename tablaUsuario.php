@@ -22,9 +22,8 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
 <!--HEADER-->
 <?php require("footerHeader/header.php")?>
+<!--/HEADER-->
 
-<!--/HEADER-->
-<!--/HEADER-->
 <!--DIV DE TABLA-->
 <div id="divTabla">
     <div class="contenedor-botones">

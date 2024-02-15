@@ -198,7 +198,7 @@ echo "<h3 style='text-align:-webkit-center'>No encontrado</h3>";
 }
 ?>
 </table>
-
+<a href="administrador.php">Volver a opciones de administrador</a>
 </div>
 <!--FOOTER-->
 <?php require("footerHeader/footer.php")?>
