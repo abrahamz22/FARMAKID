@@ -204,6 +204,7 @@ main{
     border: 1px solid #ebeaea;
     width: 73%;
     display: flex;
+    margin-bottom: 75px;
 }
 
 .container-info{

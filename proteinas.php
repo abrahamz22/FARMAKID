@@ -52,11 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['busqueda'])) {
    if (!empty($nombre) || !empty($id) || !empty($fecha) || !empty($especie) || !empty($resolucion) || !empty($metodo) || !empty($nombreFichero) || !empty($tipoFichero)) {
     $sql .= " ORDER BY nombre";
     $result = mysqli_query($conexion, $sql);
-    $resultado = mysqli_num_rows($result);
-  } else {
-    $resultado = 0; // Si todos los campos están vacíos, establece $resultado a 0
-  }
-
+  } 
   
   }
 
@@ -152,7 +148,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['busqueda'])) {
 
 <?php
 // Verificar si se encontraron resultados de la búsqueda
-if (isset($resultado) && $resultado > 0) {
+if (isset($result) && mysqli_num_rows($result) > 0): ?>
+    <?php
     while ($row = mysqli_fetch_assoc($result)) {
         $id = $row["id"];
         $nombre = $row["nombre"];
@@ -162,41 +159,30 @@ if (isset($resultado) && $resultado > 0) {
         $especie = $row["especie"];
         $metodo = $row["metodo"];
         $resolucion = $row["resolucion"];
-?>
 
 
-<div class="container-general">
-    <!-- <div class="title-prote">
-        <h1>Proteinas</h1>
-    </div> -->
 
-    <!-- <div id="btn-admin">
-        <input id="añadir" value="Añadir proteina" type="button" ></input>
-    </div> -->
+echo "<div class='container-general'>
 
-        <div class="proteina">
-            <a><img class="img-ejem" src="multimedia/proteinas/Albumina.jpg"></a>
-            <div class="superpos">
-                <p>Id: <?php echo "$id"?></p>
-                <p>Nombre: <?php echo "$nombre"?></p>
-                <p>Resolución: <?php echo "$resolucion"?></p>
-                <p>Especie: <?php echo "$especie"?></p>
-                <p>Metodo: <?php echo "$metodo"?></p>
-                <p>Tipo de fichero: <?php echo "$tipoFichero"?></p>
-                <p>Nombre fichero: <?php echo "$nombreFichero"?></p>
-                <p>Fecha: <?php echo "$fecha"?></p>
-                <!-- <input class="boton" type="button" value="Borrar"> -->
+
+        <div class='proteina'>
+            <a><img class='img-ejem' src='multimedia/proteinas/Albumina.jpg'></a>
+            <div class='superpos'>
+                <p>Id:  ".$id."</p>
+                <p>Nombre:  ".$nombre."</p>
+                <p>Resolución:  ".$resolucion."</p>
+                <p>Especie: ".$especie."</p>
+                <p>Metodo:  ".$metodo."</p>
+                <p>Tipo de fichero:  ".$tipoFichero."</p>
+                <p>Nombre fichero:  ".$nombreFichero."</p>
+                <p>Fecha:  ".$fecha."</p>
             </div>
         </div>
-</div>
-
-<?php
+</div>";
     }
-    
-} else {
-    echo "<h3 style='text-align:center'>No se ha encontrado la búsqueda</h3>";
-}
 ?>
+<?php elseif(isset($result) && mysqli_num_rows($result) ==0):?>
+<?php endif ?>
 
     <!--FOOTER-->
     <?php require("footerHeader/footer.php")?>
