@@ -49,12 +49,8 @@ $estado = $_POST["estado"];
 
  if (!empty($nombre) || !empty($id) || !empty($fecha) || !empty($inchi) || !empty($smiles) || !empty($nombreFichero) || !empty($tipoFichero) || !empty($estado)) {
   $sql .= " ORDER BY nombre";
-  $result = mysqli_query($conexion, $sql);
-  $resultado = mysqli_num_rows($result);
-} else {
-  $resultado = 0; // Si todos los campos están vacíos, establece $resultado a 0
+  $result = mysqli_query($conexion, $sql); 
 }
-
 }
 ?>
 
@@ -152,9 +148,8 @@ $estado = $_POST["estado"];
       </div>
   </div>
 </main>
-      <?php
-// Verificar si se encontraron resultados de la búsqueda
-if (isset($resultado) && $resultado > 0) {
+  <?php if (isset($result) && mysqli_num_rows($result) > 0):?>
+    <?php
     while ($row = mysqli_fetch_assoc($result)) {
         $id_farmaco = $row["id"];
         $nombre = $row["nombre"];
@@ -165,33 +160,31 @@ if (isset($resultado) && $resultado > 0) {
         $inChl = $row["inchi"];
         $estado = $row["estadoMedicamento"];
         $precio = $row['precio'];
-?>
-        <!-- Código para mostrar cada resultado -->
-        <div class="container-medica">
-            <div class="med">
+
+        echo "<div class='container-medica'>
+            <div class='med'>
                 <a>
-                    <img class="img-ej" src="multimedia/proteinas/Albumina.jpg">
+                    <img class='img-ej' src='multimedia/proteinas/Albumina.jpg'>
                 </a>
-                <div class="superpos">
-                    <p>Id: <?php echo "$id_farmaco"?></p>
-                    <p>Nombre: <?php echo "$nombre"?></p>
-                    <p>Inchl: <?php echo "$inChl"?></p>
-                    <p>Smiles: <?php echo "$smiles"?></p>
-                    <p>Estado: <?php echo "$estado"?></p>
-                    <p>Precio: <?php echo "$precio"?></p>
-                    <p>Tipo fichero: <?php echo "$tipoFichero"?></p>
-                    <p>Nombre fichero: <?php echo "$nombreFichero"?></p>
-                    <p>Fecha: <?php echo "$fecha"?></p>
+                <div class='superpos'>
+                    <p>Id:  ".$id_farmaco."</p>
+                    <p>Nombre:".$nombre."</p>
+                    <p>Inchl:  ".$inChl."</p>
+                    <p>Smiles:  ".$smiles."</p>
+                    <p>Estado: ".$estado."</p>
+                    <p>Precio: ".$precio."</p>
+                    <p>Tipo fichero:   ".$tipoFichero."</p>
+                    <p>Nombre fichero:  ".$nombreFichero."</p>
+                    <p>Fecha:  ".$fecha."</p>
                 </div>
             </div>
-        </div>
-<?php
+        </div>";
     }
-    
-} else {
-    echo "<h3 style='text-align:center'>No se ha encontrado la búsqueda</h3>";
-}
-?>
+    ?>
+ <?php elseif(isset($result) && mysqli_num_rows($result) == 0 ):?>
+    <h3 style='text-align:center'>No se ha encontrado la búsqueda</h3>;
+  <?php endif;?>
+
     
   <!--FOOTER-->
   <?php require("footerHeader/footer.php")?>
