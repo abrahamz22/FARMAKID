@@ -44,7 +44,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
             <a href="crear_medicamento.php" class="btn_anadir"><i class="fa-solid fa-user-plus"></i>&nbsp AÑADIR MEDICAMENTO</a>
         </div> -->
         <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
-        <button id="anadirButton">Añadir usuario</button>
+        <button id="anadirButton">Añadir medicamento</button>
     </div>
 </div>
 
@@ -148,6 +148,10 @@ include_once("bbdd/connexionBaseDeDatos.php");
             <span class='detalles'>Fecha</span>
             <input type="datetime-local" name="fecha" placeholder="Fecha">
         </div>
+        <div class="input-box">
+            <span class='detalles'>Stock</span>
+            <input type="number" name="stock" placeholder="stock">
+        </div>
         
         <div class="input-box" style="width: 100%">
             <span class='detalles'>Inchi</span>
@@ -179,6 +183,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
                             <th>NOMBRE FICHERO</th>
                             <th>TTIPO FICHERO</th>
                             <th>FECHA</th>
+                            <th>STOCK</th>
                             <th>PRECIO</th>
                             <th>ACCIONES</th>
                         </tr>
@@ -195,7 +200,8 @@ include_once("bbdd/connexionBaseDeDatos.php");
                 $nombreFichero = $row["nombreFichero"];
                 $tipoFichero = $row["tiposFichero"];
                 $fecha = $row["fecha"];
-                $precio = $row["precio"];
+                $stock = $row["stock"];
+                $precio =number_format($row["precio"], 2);
 
                 echo "
                
@@ -209,7 +215,8 @@ include_once("bbdd/connexionBaseDeDatos.php");
                     <td titulo='NOMBRE FICHERO:'>$nombreFichero</td>
                     <td titulo='TIPO FICHERO:'>$tipoFichero</td>
                     <td titulo='FECHA:'>$fecha</td>
-                    <td titulo='PRECIO:'>$precio</td>
+                    <td titulo='STOCK:'>$stock</td>
+                    <td titulo='PRECIO:'>$precio$</td>
                     
                     <td titulo='ACCIONES:' class='td-btn'>
                         <button class='modificar'>MODIFICAR</button>
@@ -242,6 +249,8 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
     <?php
     mysqli_close($conexion); //cierra la BBDD
+    unset($_SESSION['mensajeError']);
+    unset($_SESSION['ExitoRegistro']);
 
     ?>
 </body>
