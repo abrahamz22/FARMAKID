@@ -63,7 +63,44 @@ session_start();
             unset($_SESSION['mensajeError']);
         }
     }
-    
+    //MODIFICAR MEDICAMENTO
+    //MODIFICAR MEDICO
+    function modificarMedicamento($compFormularios,$nombre,$principiosActivos,$precio,$smile,$estado, $nombreFichero,$extension, $fecha, $stock, $inchi, $idMedicamento,$conexion){
+        $inchi = "InChI=" . $inchi;
+        if($compFormularios){
+            $query = "UPDATE `medicamento` SET `inchi`='".$inchi."',`smiles`='".$smile."',`estadoMedicamento`='".$estado."',`precio`=".$precio.",`nombre`='".$nombre."',`nombreFichero`='".$nombreFichero."',`tiposFichero`='".$extension."',`fecha`='".$fecha."',`stock`=".$stock.",`principioActivo`='".$principiosActivos."' WHERE id LIKE '".$idMedicamento."'";
+            echo $query;
+            mysqli_query($conexion, $query);
+            $_SESSION["ExitoRegistro"] = "El medicamento con la id " . $id . " fue modificado exitosamente.";
+        }
+    }
+    //MODIFICAR  TABLA MEDICAMENTO
+   function modificarTablaMedicamento($compFormularios,$nombre,$principiosActivos,$precio,$smile,$estado, $nombreFichero,$extension, $fecha, $stock, $inchi, $idMedicamento,&$mensajeError,$conexion){
+    $nombre = strtolower($nombre);
+    $principiosActivos = strtolower($principiosActivos);
+    $nombreFichero = strtolower($nombreFichero);
+    $extension = strtolower($extension);
+
+    $compFormularios = vacioLenghtmasCaracteres($compFormularios, $nombre, "nombre del medicamento",150,"/^[A-Za-z ]+$/","caracteres especiales o caracteres númericos",$mensajeError);//nombre;
+    $compFormularios = vacioLenghtmasCaracteres($compFormularios, $principiosActivos , "principios activos",300,"/^[a-zA-Z, ]+$/","caracteres númericos o caracteres especiales",$mensajeError);
+    $compFormularios = isVariableVacia($compFormularios,$precio, "precio", $mensajeError);
+    $compFormularios = vacioLenghtmasCaracteres($compFormularios, $smile, "smile",100,"/^[A-Za-z0-9()\[\]\/\\=@#%*+-.,:;$\?!&\'_~<>{}\|^]+$/","otro tipo de caracter que no sea númerico,especial o letra",$mensajeError);//apellido
+    $compFormularios = vacioLenghtmasCaracteres($compFormularios, $nombreFichero, "nombre del fichero",100,"/\.[a-zA-Z]+$/","otro tipo de nombre que no acabe con su extensión(ej= ficheroEjemplo.smi)",$mensajeError);//nombre;
+    $compFormularios = vacioLenghtmasCaracteres($compFormularios, $extension, "extensión del archivo",10,"/^\./","un comienzo que no sea un \".\"",$mensajeError);//apellido
+    $compFormularios = isVariableVacia($compFormularios,$fecha, "fecha", $mensajeError);
+    $compFormularios = comprobracionStock($compFormularios,$stock,"stock",$mensajeError);
+    $compFormularios = vacioLenghtmasCaracteres($compFormularios, $inchi, "inchi",200,"/^[A-Za-z0-9()\[\]\/\\=@#%*+-.,:;$\?!&\'_~<>{}\|^]+$/","otro tipo de caracter que no sea númerico,especial o letra",$mensajeError);//apellido
+    $inchi = "InChI=" . $inchi;
+    $idMedicamento = asignarIdMedicamento($conexion);
+    if($compFormularios){
+        insertarMedicamento($compFormularios,$nombre,$principiosActivos,$precio,$smile,$estado,$nombreFichero,$extension, $fecha, $stock, $inchi, $idMedicamento, $conexion);
+    }
+    unset($_SESSION['mensajeError']);
+    if(!empty($mensajeError)){
+        $_SESSION["mensajeError"] = $mensajeError;
+    }
+}
+
 
    //AÑADIR MEDICAMENTO
    function anadirMedicamento($compFormularios,$nombre,$principiosActivos,$precio,$smile,$estado, $nombreFichero,$extension, $fecha, $stock, $inchi, $idMedicamento,&$mensajeError,$conexion){

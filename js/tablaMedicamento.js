@@ -39,7 +39,7 @@ window.addEventListener('load', function() {
             document.getElementById("idValueEliminar").value= textoCeldaIzquierda;
         });
     });
-    /*
+    
 
     //FUNCIONALIDAD DE MODIFICAR
     let botonesModificar = document.querySelectorAll('.modificar');
@@ -59,17 +59,18 @@ window.addEventListener('load', function() {
             // Hacer algo con los valores, por ejemplo, imprimirlos en la consola
             console.log(valores);
             document.getElementById("nombreMod").value = valores[0];
-            document.getElementById("apellidosMod").value = valores[1];
-            document.getElementById("dniMod").value = valores[2];
-            document.getElementById("cpMod").value = valores[3];
-            document.getElementById("telefonoMod").value = valores[4];
-            document.getElementById("emailMod").value = valores[5];
-            document.getElementById("usuarioMod").value = valores[6];
-            document.getElementById("rolMod").value = valores[7];
-            document.getElementById("contrasenaMod").value = valores[8];
-            document.getElementById("idMod").value = valores[9];
+            document.getElementById("principiosMod").value = valores[1];
+            document.getElementById("inchiMod").value = valores[2].slice(6);
+            document.getElementById("smilesMod").value = valores[3];
+            document.getElementById("estadoMod").value = valores[4];
+            document.getElementById("nombreFicherolMod").value = valores[5];
+            document.getElementById("tipoFicheroMod").value = valores[6];
+            document.getElementById("fechaMod").value = valores[7];
+            document.getElementById("stockMod").value = valores[8];
+            document.getElementById("precioMod").value = valores[9].slice(0, -1);
+            document.getElementById("idMod").value = valores[10];
 
         });
-    }); */
+    }); 
 
 });

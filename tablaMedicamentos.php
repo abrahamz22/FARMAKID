@@ -73,29 +73,42 @@ include_once("bbdd/connexionBaseDeDatos.php");
         <thead>
             <tr>
                 <th>NOMBRE</th>
-                <th>ID</th>
+                <th>PRINCIPIOS ACTIVOS</th>
                 <th>INCHI</th>
                 <th>SMILES</th>
                 <th>ESTADO</th>
                 <th>NOMBRE FICHERO</th>
                 <th>TIPO FICHERO</th>
                 <th>FECHA</th>
+                <th>STOCK</th>
                 <th>PRECIO</th>
                 <th>ACCIONES</th>
         </thead>
             </tr>
         <tr>
-        <form action="bbdd/modificarUsuario.php" method="post">
-            <input id="idMod" name="id" type="hidden" value="0">
-        <td titulo='NOMBRE:'><input id="nombreMod" name="nombre" type="text"></th>
-        <td titulo='ID:'><input id="idMod" name="id" type="text"></td>
-        <td titulo='INCHI:'><input id="inchiMod" name="inchi" type="text"></td>
-        <td titulo='SMILES:'><input id="smilesMod" name="smiles" type="number"></td>
-        <td titulo='ESTADO:'><input id="estadoMod" name="estado" type="number"></td>
-        <td titulo='NOMBRE FICHERO:'><input id="nombreFicherolMod" name="nombreFichero" type="email"></td>
-        <td titulo='TIPO FICHERO:'><input id="tipoFicheroMod" name="tipoFichero" type="text"></td>
-        <td titulo='FECHA:'><input type="datetime-local" name="fecha" ></td>
-        <td titulo='PRECIO:'><input id="precioMod" type="text" name='precio'></td>
+        <form action="bbdd/modificarMedicamento.php" method="post">
+            <input id="idMod" name="idMod" type="hidden" value="0">
+        <td titulo='NOMBRE:'><input id="nombreMod" name="nombreMod" type="text"></th>
+        <td titulo='PRINCIPIOS ACTIVOS:'><input id="principiosMod" name="principiosMod" type="text"></th>
+        <td titulo='INCHI:'><input id="inchiMod" name="inchiMod" type="text"></td>
+        <td titulo='SMILES:'><input id="smilesMod" name="smilesMod" type="text"></td>
+        <td titulo='ESTADO:'>
+            <select id="estadoMod" name="estadoMod" >
+                <option value="aprobado">Aprobado</option>
+                <option value="regulacion">Regulación</option>
+                <option value="ensayo clinico">Ensayo clínico</option>
+                <option value="en desarrollo">En desarrollo</option>
+                <option value="suspendido">suspendido</option>
+                <option value="retirado del mercado">Retirado del mercado</option>
+                <option value="rechazado">rechazado</option>
+                <option value="investigacion preclinica">Investigación preclínica</option>
+            </select>
+        </td>
+        <td titulo='NOMBRE FICHERO:'><input id="nombreFicherolMod" name="nombreFicheroMod" type="text"></td>
+        <td titulo='TIPO FICHERO:'><input id="tipoFicheroMod" name="tipoFicheroMod" type="text"></td>
+        <td titulo='FECHA:'><input  type="datetime-local"  id="fechaMod" name="fechaMod" placeholder="yyyy-mm-dd hh:mm:ss"></td>
+        <td titulo='STOCK:'><input type="number"  id="stockMod" name="stockMod" ></td>
+        <td titulo='PRECIO:'><input id="precioMod" step="0.01" min="0.00"  type="number" name='precioMod'></td>
         <!-- <td titulo='CONTRASEÑA:'><input id="contrasenaMod" name="contrasena" type="password"></td> -->
         <td titulo='VERIFICAR CAMBIOS:'><input type="submit" value="Verificar cambios"></td>
         </form>
@@ -146,7 +159,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
         <div class="input-box">
             <span class='detalles'>Fecha</span>
-            <input type="datetime-local" name="fecha" placeholder="Fecha">
+            <input type="datetime-local" name="fecha" placeholder="Fecha" placeholder="yyyy-mm-dd hh:mm:ss">
         </div>
         <div class="input-box">
             <span class='detalles'>Stock</span>
