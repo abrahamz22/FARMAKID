@@ -58,7 +58,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <?php endif;?>
 <!-- /DIVS CON LOS MENSAJES DE COMPROBACIÓN -->
 <!-- FORMULARIO DE COMPROBACIÓN PARA ELIMINAR USUARIO -->
-<form  id="compEliminarUsuario" action="bbdd/eliminarMedico.php" method="post">
+<form  id="compEliminarUsuario" style='margin:auto' action="bbdd/eliminarMedico.php" method="post">
     <p id="infoBlockEliminar" ></p>
     <input id="idValueEliminar" name="idValueEliminar" type="hidden" value="0">
     <input id="checkbox1" type="checkBox" name="si">
@@ -70,21 +70,22 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <!--/FORMULARIO DE COMPROBACIÓN PARA ELIMINAR USUARIO -->
 <!-- FORMULARIO DE COMPROBACIÓN PARA MODIFICAR USUARIO -->
     <table id="tablaModificar">
-        <tr>
-            <th>NOMBRE</th>
-            <th>APELLIDOS</th>
-            <th>ESPECIALIDAD</th>
-            <th>NUMERO DE COLEGIADO</th>
-            <th>EMAIL</th>
-            <th>TELEFONO</th>
-            <th>ACCIONES</th>
-        </tr>
+        <thead>
+            <tr>
+                <!-- <th>DOCTOR</th> -->
+                <th>USUARIO</th>
+                <th>OBSERVACIONES</th>
+                <th>DISPONIBILIDAD</th>
+                <th>FECHA</th>
+                <th>ACCIONES</th>
+            </tr>
+        </thead>
         <tr>
         <form action="bbdd/modificarMedico.php" method="post">
         <input id="idMod" name="id" type="hidden" value="0">
-        <th><input id="nombreMod" name="nombre" type="text"></th>
-        <th><input id="apellidosMod" name="apellidos" type="text"></th>
-        <th><select id="especialidadMod" name="especialidad">
+        <td titulo='USUARIO:'><input id="nombreMod" name="nombre" type="text"></td>
+        <td titulo='OBSERVACIONES:'><input id="apellidosMod" name="apellidos" type="text"></td>
+        <td titulo='DISPONIBILIDAD:'><select id="especialidadMod" name="especialidad">
                 <option value="alergologo">Alergólogo</option>
                 <option value="neonatologo">Neonatólogo</option>
                 <option value="cardiologo">Cardiólogo</option>
@@ -94,11 +95,9 @@ include_once("bbdd/connexionBaseDeDatos.php");
                 <option value="ortopedia">Ortopedia</option>
                 <option value="otorrinolaringologia">Otorrinolaringología</option>
             </select>
-        </th>
-        <th><input id="numColegiadoMod" name="numColegiado" type="number"></th>
-        <th><input id="emailMod" name="email" type="email"></th>
-        <th><input id="telefonoMod" name="telefono" type="number"></th>
-        <th><input type="submit" value="Verificar cambios"></th>
+        </td>
+        <td titulo='FECHA:'><input id="numColegiadoMod" name="numColegiado" type="number"></td>
+        <td titulo='ACCIONES:'><input type="submit" value="Verificar cambios"></td>
         </form>
         </tr>
     </table>
@@ -158,7 +157,7 @@ $resultado = mysqli_num_rows($sql);
 
 if($resultado > 0){
     echo "
-    <table>
+    <table id='tabla_citas'>
         <thead>
             <tr>
                 <th>ID DEL DOCTOR</th>

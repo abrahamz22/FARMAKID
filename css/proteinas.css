@@ -6,12 +6,15 @@
 }
 /*------------PROTEINAS INCIOOOOO---------*/
 .container-general{
-    width: 100%;
-    max-width: 1200px;
+       /* width: 100%; */
+    /* max-width: 1200px; */
+    /* margin: auto; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* padding: 45px; */
+    width: 75%;
     margin: auto;
-    display: flex;
-    flex-direction: column;
-    padding: 45px;
+    margin-top: 54px;
     
 }   
 
@@ -53,24 +56,39 @@
     cursor: pointer;
 }
 .container-proteinas{
-    display: grid;
-    grid-gap: 34px;
-    padding: 15px;
-    padding-top: 123px;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   /* display: grid; */
+    /* grid-gap: 34px; */
+    /* padding: 15px; */
+    /* padding-top: 123px; */
+    /* justify-content: center; */
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    border: 1px solid #928A8A;
+    /* width: 73%; */
+    border-radius: 15px;
+    padding: 22px;
+    position: relative;
+    /* padding-bottom: 30px; */
+    flex: 1 1 calc(25% - 20px);
+    display: flex;
+    margin-bottom: 100px;
 }
 
 .proteina{
     border: 1px solid #928A8A;
-    max-width: 244px;
+    /* width: 73%; */
     border-radius: 15px;
-    padding: 15px;
+    padding: 22px;
     position: relative;
-    padding-bottom: 30px;
+    /* padding-bottom: 30px; */
     flex: 1 1 calc(25% - 20px);
+    display: flex;
+    margin-bottom: 100px;
 }
 
+
+.proteina .superpos {
+    margin: auto;
+}
 .proteina  .img-ejem {
     width: 100%;
     max-width: 300px;
@@ -79,14 +97,14 @@
 }
 
 .proteina .superpos{
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    color: white;
+    color: white; */
 }
 
-.proteina  p{
+/* .proteina  p{
     text-align: center;
-}
+} */
 
 .boton{
     background-color: #79B4E3;
@@ -293,8 +311,14 @@ tr:nth-child(even){
     padding: 10px;
     border-radius: 15px;
     color: white;
+    transition: .3s;
+    cursor: pointer;
 }
 
+.formulario_prot .enviar:hover{
+    background-color: #214f70cc;
+    scale: 1.05;
+}
 .enviar > a{
     color: white;
 }
@@ -448,7 +472,7 @@ tr:nth-child(even){
     display: flex;
     flex-direction: column;
     padding: 45px;
-
+    margin-top: 150px;
 }
 
 /* Estilos para el div con la clase .title */

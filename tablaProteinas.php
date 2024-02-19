@@ -88,8 +88,9 @@ include_once("bbdd/connexionBaseDeDatos.php");
                 <th>FECHA</th>
                 <th>METODO</th>
                 <th>ACCIONES</th>
-        </thead>
+        
             </tr>
+        </thead>    
         <tr>
         <form action="bbdd/modificarUsuario.php" method="post">
             <input id="idMod" name="id" type="hidden" value="0">

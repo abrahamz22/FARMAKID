@@ -3,7 +3,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">f
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,8 +80,9 @@ include_once("bbdd/connexionBaseDeDatos.php");
                 <th>ROL</th>
                 <th>CONTRASEÑA</th>
                 <th>ACCIONES</th>
-        </thead>
+        
             </tr>
+            </thead>
         <tr>
         <form action="bbdd/modificarUsuario.php" method="post">
             <input id="idMod" name="id" type="hidden" value="0">
@@ -99,7 +100,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
             </select>
         </td>
         <td titulo='CONTRASEÑA:'><input id="contrasenaMod" name="contrasena" type="password"></td>
-        <td titulo='VERIFICAR CAMBIOS:'><input type="submit" value="Verificar cambios"></td>
+        <td titulo='ACCIONES:'><input type="submit" value="Verificar cambios"></td>
         </form>
         </tr>
     </table>

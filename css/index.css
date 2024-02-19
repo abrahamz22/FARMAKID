@@ -275,7 +275,7 @@
     /* margin: auto; */
     /* justify-content: center; */
     /* align-items: center; */
-    /* padding: 20px; */
+    padding: 20px;
     width: 100%;
     max-width: 1650px;
 }
@@ -295,10 +295,32 @@
     margin-bottom: 40px;
     display: flex;
     padding: 1px;
+    text-align: justify;
+}
+
+.graficas{
+padding: 20px;
+}
+
+.noticias{
+    background-color: #80c8a3;
+    display: flex;
+    /* margin: auto; */
+    width: 100%;
+    /* max-width: 600px; */
+    height: 400px;
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid black;
+    margin-bottom: 100px;
 }
 
 
-
+.titulo_grafica{
+    padding: 20px;
+}
 
 /*/----------------MAS INFORMACION EN HOME-------------- PONERLOOOOO GUARDARR*/
 
@@ -604,6 +626,7 @@
     text-align: center;
     color: red;
     border:2px solid red;
+    margin-top: 200px;
 }
 #ExitoRegistro{
     margin: auto;

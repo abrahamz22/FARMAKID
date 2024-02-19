@@ -1,3 +1,68 @@
+<?php
+
+include_once("bbdd/connexionBaseDeDatos.php");
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['busqueda'])) {
+
+  $nombre = $_POST["nombre"];
+  $id = $_POST["id"];
+  $fecha = $_POST["fecha"];
+  $nombreFichero = $_POST["nombreFichero"];
+  $tipoFichero = $_POST["tipoFichero"];
+  $especie = $_POST["especie"];
+  $resolucion = $_POST["resolucion"];
+  $metodo = $_POST["metodo"];
+  
+   // paos a realizar la búsqueda en la base de datos
+   $sql = "SELECT * FROM proteina WHERE 1";
+  
+   if (!empty($nombre)) {
+       $sql .= " AND nombre LIKE '%$nombre%'";
+   }
+   
+   if (!empty($id)) {
+       $sql .= " AND id LIKE '%$id%'";
+   }
+   
+   if (!empty($fecha)) {
+       $sql .= " AND fecha LIKE '%$fecha%'";
+   }
+   
+   if (!empty($especie)) {
+       $sql .= " AND especie LIKE '%$especie%'";
+   }
+   
+   if (!empty($resolucion)) {
+       $sql .= " AND resolucion LIKE '%$resolucion%'";
+   }
+
+   if(!empty($metodo)){
+      $sql .= "AND metodo LIKE '%$metodo%'";
+   }
+
+   if (!empty($nombreFichero)) {
+       $sql .= " AND nombreFichero LIKE '%$nombreFichero%'";
+   }
+   
+   if (!empty($tipoFichero)) {
+       $sql .= " AND tipoFichero LIKE '%$tipoFichero%'";
+   }
+  
+  
+   if (!empty($nombre) || !empty($id) || !empty($fecha) || !empty($especie) || !empty($resolucion) || !empty($metodo) || !empty($nombreFichero) || !empty($tipoFichero)) {
+    $sql .= " ORDER BY nombre";
+    $result = mysqli_query($conexion, $sql);
+    $resultado = mysqli_num_rows($result);
+  } else {
+    $resultado = 0; // Si todos los campos están vacíos, establece $resultado a 0
+  }
+
+  
+  }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,12 +87,10 @@
 
    <!--CONTENEDOR DE BUSQUEDA DE PROTEINAS-->
    <div class="contenedor-principal" style='margin-top: 134px'>
-    <div class="contenedor-titulo">
-        <h1>Búsqueda de estructura</h1>
+        <div class="contenedor-titulo">
+            <h1>Búsqueda de estructura</h1>
+        </div>    
     </div>
-
-    
-</div>
 
 
 
@@ -36,59 +99,117 @@
 
         <img class="img1" src="multimedia/proteinas/Albumina.jpg" alt="Imagen no encontarda">
         <input class="edit-prot" type="submit" value="EDITAR FOTO" ></input>
-
-
     </div>
 
 <div class="container-info">
     <div class="container-table">
+      <form action="proteinas.php" method='post' class="formulario_prot">
         <table>
             
             <tr class="edit_tr1">
               <td id="columna1">Name:</td>
-              <td ><input type="text" id="name"></input></td>
+              <td ><input type="text" name='nombre' id="name"></input></td>
             </tr>
             <tr class="edit_tr1">
               <td id="columna1">ID:</td>
-              <td><input type="text" id="id"></td>
+              <td><input type="text" name='id' id="id"></td>
             </tr>
             <tr class="edit_tr1">
               <td id="columna1">Data:</td>
-              <td><input type="text" id="data"></td>
+              <td><input type="text" name='fecha' id="data"></td>
             </tr>
             <tr class="edit_tr1">
               <td id="columna1">Especie(Animal/Vegetal):</td>
-              <td><input type="text" id="especie"></td>
+              <td><input type="text" name='especie' id="especie"></td>
             </tr>
             <tr class="edit_tr1">
                 <td id="columna1">Método:</td>
-                <td><input type="text" id="metodo"></td>
+                <td><input type="text" name='metodo' id="metodo"></td>
               </tr>
               <tr class="edit_tr1">
                 <td id="columna1">Resolución:</td>
-                <td><input type="text" id="resolucion"></td>
+                <td><input type="text" name='resolucion' id="resolucion"></td>
               </tr>
               <tr class="edit_tr1">
                 <td id="columna1">Nombre del fichero:</td>
-                <td><input type="text" id="nombre_fichero"></td>
+                <td><input type="text" name='nombreFichero' id="nombre_fichero"></td>
               </tr>
               <tr class="edit_tr1">
                 <td id="columna1">Tipos del fichero:</td>
-                <td><input type="text" id="tipos"></td>
+                <td><input type="text" name='tipoFichero' id="tipos"></td>
               </tr>
           </table>
+          <div class="input_field">
+            <button type="submit"  name='busqueda' class="enviar">Buscar</button>
+        </div>
+        </form>
     </div>
 </div>
 </main>
 
-<div class="input_field">
-    <button type="button"  class="enviar"><a href="proteina-busqueda.php">BUSCAR</a></button>
-</div>
+
 <!--CONTENEDOR DE BUSQUEDA DE PROTEINAS-->
 
+<?php
+// Verificar si se encontraron resultados de la búsqueda
+if (isset($resultado) && $resultado > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $id = $row["id"];
+        $nombre = $row["nombre"];
+        $fecha = $row["fecha"];
+        $nombreFichero = $row["nombreFichero"];
+        $tipoFichero = $row["tipoFichero"];
+        $especie = $row["especie"];
+        $metodo = $row["metodo"];
+        $resolucion = $row["resolucion"];
+?>
+
+
+<div class="container-general">
+    <!-- <div class="title-prote">
+        <h1>Proteinas</h1>
+    </div> -->
+
+    <!-- <div id="btn-admin">
+        <input id="añadir" value="Añadir proteina" type="button" ></input>
+    </div> -->
+
+        <div class="proteina">
+            <a><img class="img-ejem" src="multimedia/proteinas/Albumina.jpg"></a>
+            <div class="superpos">
+                <p>Id: <?php echo "$id"?></p>
+                <p>Nombre: <?php echo "$nombre"?></p>
+                <p>Resolución: <?php echo "$resolucion"?></p>
+                <p>Especie: <?php echo "$especie"?></p>
+                <p>Metodo: <?php echo "$metodo"?></p>
+                <p>Tipo de fichero: <?php echo "$tipoFichero"?></p>
+                <p>Nombre fichero: <?php echo "$nombreFichero"?></p>
+                <p>Fecha: <?php echo "$fecha"?></p>
+                <!-- <input class="boton" type="button" value="Borrar"> -->
+            </div>
+        </div>
+</div>
+
+<?php
+    }
+    
+} else {
+    echo "<h3 style='text-align:center'>No se ha encontrado la búsqueda</h3>";
+}
+?>
 
     <!--FOOTER-->
     <?php require("footerHeader/footer.php")?>
     <!--/FOOTER-->
+<?php
+
+    mysqli_close($conexion); //cierra la BBDD
+
+?>
 </body>
 </html>
+
+<?php
+    unset($_SESSION['mensajeError']);
+    unset($_SESSION['ExitoRegistro']);
+?>

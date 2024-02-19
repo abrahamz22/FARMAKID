@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,13 +15,10 @@
     <input  id="selector" type="hidden" value="1">
 </head>
 <body>
-    <!--HEADER-->
     <?php require("footerHeader/header.php")?>
-    <!--/HEADER-->
 
     
 
-   <!--SECCION DE EDITAR MEDICAMENTOS-->
    
    <div class="contenedor-principal">
     <div class="contenedor-titulo">
@@ -93,13 +90,11 @@
 <div class="input_field">
     <button type="submit" value="SAVE" class="enviar">SAVE</button>
 </div>
-   <!--/SECCION DE EDITAR MEDICAMENTOS-->
 
 
 
-    <!--/HEADER-->
-    <!--FOOTER-->
+    
     <?php require("footerHeader/footer.php")?>
-    <!--/FOOTER-->
+   
 </body>
-</html>
+</html> -->

@@ -37,10 +37,14 @@
     border-radius:7px;
     border: none;
     padding: 14px;
+    margin-bottom: 12px;
+    transition: .3s;
 }
+
 
 .botonUsuario:hover{
     background-color: #055d41cc;
+    scale: 1.05;
 }
 
 .botonUsuario a{ 

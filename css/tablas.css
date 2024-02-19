@@ -320,7 +320,7 @@ table {
     /* margin-top: 5%; */
     width: 100%;
     text-align: center;
-    max-width: 326px;
+    max-width: 365px;
     padding: 4px;
     /* font-size: calc(15px + 0.25vw); */
     font-weight: normal;
@@ -658,29 +658,36 @@ table tr:nth-child(odd){
 
 
 
-     /* RESPONSIVE TABLAS DE USUARIO */
+     /* RESPONSIVE TABLAS DE USUARIO, MEDICOS Y CITAS */
 
      @media screen and (max-width:1267px){
         #divTabla table td:last-child,
-        #divTablaProteina table td:last-child {
+        #divTablaProteina table td:last-child
+         {
             padding: 10px;
             background-color: initial;
             justify-content: initial;
         }
 
         #tabla-user tr,
-        #tabla_proteina tr {
+        #tabla_proteina tr,
+        #tabla_Medico tr,
+        #tabla_citas tr {
             display: flex;
             flex-direction: column;
         }
 
         #tabla-user thead,
-        #tabla_proteina thead {
+        #tabla_proteina thead,
+        #tabla_Medico thead,
+        #tabla_citas thead {
             display: none;
         }
     
         #tabla-user .clase_tbody,
-        #tabla_proteina .clase_tbody{
+        #tabla_proteina .clase_tbody,
+        #tabla_Medico .clase_tbody,
+        #tabla_citas .clase_tbody{
             margin-top: 30px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -690,7 +697,9 @@ table tr:nth-child(odd){
         }
 
         #divTabla #tabla-user td[titulo],
-        #divTablaProteina #tabla_proteina td[titulo]{
+        #divTablaProteina #tabla_proteina td[titulo],
+        #divTabla #tabla_Medico td[titulo],
+        #divTabla #tabla_citas td[titulo]{
             display: flex;
             padding: 10px;
             border: 1px solid black;
@@ -701,7 +710,9 @@ table tr:nth-child(odd){
         }
         
         #tabla-user td[titulo]::before,
-        #tabla_proteina td[titulo]::before {
+        #tabla_proteina td[titulo]::before,
+        #tabla_Medico td[titulo]::before,
+        #tabla_citas td[titulo]::before {
             content: attr(titulo);
             padding: 0 10px 0 0;
             font-weight: bold;

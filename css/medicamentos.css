@@ -25,7 +25,7 @@
     display: flex;
     flex-direction: column;
     padding: 45px;
-    margin-top: 140px;
+    /* margin-top: 140px; */
     
 }   
 
@@ -67,23 +67,28 @@
 
 
 .container-medica{
-    display: grid;
+    /* display: grid;
     grid-gap: 34px;
     display: flex;
     padding: 15px;
-    padding-top: 123px;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
+
+    width: 75%;
+    margin: auto;
+    margin-top: 54px;
 }
 
 .med{
     border: 1px solid #928A8A;
-    max-width: 244px;
+    /* width: 73%; */
     border-radius: 15px;
-    padding: 15px;
+    padding: 22px;
     position: relative;
-    padding-bottom: 30px;
+    /* padding-bottom: 30px; */
     flex: 1 1 calc(25% - 20px);
+    display: flex;
+    margin-bottom: 100px;
 }
 
 
@@ -95,9 +100,7 @@
 }
 
 .med .superpos{
-    display: flex;
-    justify-content: center;
-    color: white;
+    margin: auto;
 }
 
 .med > p{
@@ -223,7 +226,7 @@
     width: 100%;
     max-width: 1200px;
     padding: 45px;
-    
+    margin-top: 150px;
 
 }
 
@@ -519,18 +522,25 @@ td:nth-child(even) {
     max-width: 100px;
     background-color: #47B191;
     box-shadow: 0 6px 5px #c7c2c2;
-    margin-bottom: 67%;
+    /* margin-bottom: 67%; */
     cursor: pointer;
     border: none;
     padding: 10px;
     border-radius: 15px;
     color: white;
+    cursor: pointer;
+    transition: .3s;
 }
 
 .enviar > a{
     color: white;
 }
 
+
+.buscar_medicamento .enviar:hover{
+    scale: 1.05;
+    background-color: #055d41cc;
+} 
 @media screen and (max-width: 1146px){
      .edit {
         font-size: 1vw;

@@ -24,7 +24,9 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <?php require("footerHeader/header.php")?>
     <!--/HEADER-->
     
-   
+    <?php
+        
+    ?>
     
     
     <!--AQUI VA MEDICAMENTOS INICIOO-->

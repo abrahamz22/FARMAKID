@@ -58,7 +58,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <?php endif;?>
 <!-- /DIVS CON LOS MENSAJES DE COMPROBACIÓN -->
 <!-- FORMULARIO DE COMPROBACIÓN PARA ELIMINAR USUARIO -->
-<form  id="compEliminarUsuario" action="bbdd/eliminarMedico.php" method="post">
+<form id="compEliminarUsuario" style='margin:auto' action="bbdd/eliminarMedico.php" method="post">
     <p id="infoBlockEliminar" ></p>
     <input id="idValueEliminar" name="idValueEliminar" type="hidden" value="0">
     <input id="checkbox1" type="checkBox" name="si">
@@ -70,15 +70,17 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <!--/FORMULARIO DE COMPROBACIÓN PARA ELIMINAR USUARIO -->
 <!-- FORMULARIO DE COMPROBACIÓN PARA MODIFICAR USUARIO -->
     <table id="tablaModificar">
-        <tr>
-            <th>NOMBRE</th>
-            <th>APELLIDOS</th>
-            <th>ESPECIALIDAD</th>
-            <th>NUMERO DE COLEGIADO</th>
-            <th>EMAIL</th>
-            <th>TELEFONO</th>
-            <th>ACCIONES</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>NOMBRE</th>
+                <th>APELLIDOS</th>
+                <th>ESPECIALIDAD</th>
+                <th>NUMERO DE COLEGIADO</th>
+                <th>EMAIL</th>
+                <th>TELEFONO</th>
+                <th>ACCIONES</th>
+            </tr>
+        </thead>
         <tr>
         <form action="bbdd/modificarMedico.php" method="post">
         <input id="idMod" name="id" type="hidden" value="0">
@@ -158,7 +160,7 @@ $resultado = mysqli_num_rows($sql);
 
 if($resultado > 0){
     echo "
-    <table>
+    <table id='tabla_Medico'>
         <thead>
             <tr>
                 <th>NOMBRE</th>

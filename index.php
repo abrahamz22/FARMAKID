@@ -20,7 +20,61 @@
     <script src="header.js"></script>
     <script src="js/login.js"></script>
     <input  id="selector" type="hidden" value="0">
-    
+    <!-- GOOGLE CHARTS -->
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Paracetamol',     11],
+          ['Ibuprofeno',      2],
+          ['Ibuprofeno',  2],
+          ['Ibuprofeno', 2],
+          ['Ibuprofeno',    7]
+        ]);
+
+        var options = {
+          title: 'Consumo de medicamentos en infantes'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Proteínas magras ',     9],
+          ['Pavo',      3],
+          ['Pediasure',  6],
+          ['Alubias(hemoglobina)', 3],
+          ['Peces y mariscos ',    5]
+        ]);
+
+        var options = {
+          title: 'Consumo de proteinas en infantes'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+        chart.draw(data, options);
+      }
+    </script>
    
 </head>
 <body>
@@ -92,13 +146,28 @@
 
         </p>
       </div>
-  
+      <div class="titulo_grafica">
+      <h2>Estadisticas</h2>
+      </div>
+      <div class="graficas">
+      <div class="noticias">
+
+        
+      <div id="piechart" style="width: 50%; height: 100%;"></div>
+
+      <div id="piechart2" style="width: 50%; height: 100%;"></div>
+
+      </div> 
+      </div>
+
+
       <!--/CONTENEDOR MAS INFO HOME-->
 
     <!--/HEADER-->
-    <!--FOOTER-->
 
     <?php require("footerHeader/footer.php")?>
+    <!--FOOTER-->
+
     
 </body>
 </html>
