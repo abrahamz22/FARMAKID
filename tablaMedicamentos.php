@@ -103,15 +103,16 @@ include_once("bbdd/connexionBaseDeDatos.php");
         </tr>
     </table>
 <!-- /FORMULARIO DE COMPROBACIÓN PARA MODIFICAR USUARIO -->
-
-
-
 <!-- ANADIR MEDICAMENTO -->        
     <form  id="anadir" action="bbdd/anadirMedicamento.php" method="post">
         <div class="anadir-usuario">
         <div class="input-box">
             <span class='detalles'>Nombre </span>
             <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+        </div>
+        <div class="input-box">
+            <span class='detalles'>Principios activos</span>
+            <input type="text" id="principiosActivos" name="principiosActivos" placeholder="Principios Activos">
         </div>
         <div class="input-box" >
             <span class='detalles'>Precio</span>
@@ -176,6 +177,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
                     <thead>
                         <tr>
                             <th>NOMBRE</th>
+                            <th>PRINCIPIOS ACTIVOS</th>
                             <th>ID</th>
                             <th>INCHI</th>
                             <th>SMILES</th>
@@ -193,6 +195,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
             
             while($row = mysqli_fetch_assoc($sql)){//GENERO UN BUCLE EN DONDE  VOY A IMPRIMIR TODOS LOS VALORES DE LAS
                 $nombre = $row["nombre"];
+                $principiosActivos = $row["principioActivo"];
                 $id = $row['id'];
                 $inchi = $row["inchi"];
                 $smiles= $row["smiles"];
@@ -207,7 +210,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
                
                 <tr>
                     <td titulo='NOMBRE:'>$nombre</td>
-
+                    <td titulo='PRINCIPIOS ACTIVOS:'>$principiosActivos</td>
                     <td titulo='ID:'>$id</td>
                     <td style='text-align:left' titulo='INCHI:'>$inchi</td>
                     <td titulo='SMILES:'>$smiles</td>

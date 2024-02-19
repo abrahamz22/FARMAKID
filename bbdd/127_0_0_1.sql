@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2024 at 08:35 PM
+-- Generation Time: Feb 19, 2024 at 08:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -76,17 +76,17 @@ CREATE TABLE `medicamento` (
   `id` varchar(10) NOT NULL,
   `nombreFichero` varchar(100) NOT NULL,
   `tiposFichero` varchar(10) NOT NULL,
-  `fecha` datetime NOT NULL
+  `fecha` datetime NOT NULL,
+  `stock` int(11) NOT NULL,
+  `principioActivo` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Dumping data for table `medicamento`
 --
 
-INSERT INTO `medicamento` (`inchi`, `smiles`, `estadoMedicamento`, `precio`, `nombre`, `id`, `nombreFichero`, `tiposFichero`, `fecha`) VALUES
-('1S/C13H18O2/c1-9(2)8-11-4-6-12(7-5-11)10(3)13(14)15/h4-7,9-10H,8H2,1-3H3,(H,14,15)', 'CC(C)Cc1ccc(C(C)C(=O)O)cc1', 'Aprobado', 4.12, 'IBUPROFEN', 'CHEMBL521', 'CHEMBL521.smi', '(.smi)', '2020-11-09 16:48:44'),
-('1S/C13H18O2/c1-9(2)8-11-4-6-12(7-5-11)10(3)13(14)15/h4-7,9-10H,8H2,1-3H3,(H,14,15)', 'CC(C)Cc1ccc(C(C)C(=O)O)cc1', 'Aprobado', 5.2, 'AMOXICILINA', 'CHEMBL530', 'CHEMBL521.smi', '(.smi)', '2018-02-04 16:50:03'),
-('1S/C13H18O2/c1-9(2)8-11-4-6-12(7-5-11)10(3)13(14)15/h4-7,9-10H,8H2,1-3H3,(H,14,15)', 'CC(C)Cc1ccc(C(C)C(=O)O)cc1', 'Aprobado', 6.15, 'PARACETAMOL', 'CHEMBL540', 'CHEMBL521.smi', '(.smi)', '2019-05-04 16:50:12');
+INSERT INTO `medicamento` (`inchi`, `smiles`, `estadoMedicamento`, `precio`, `nombre`, `id`, `nombreFichero`, `tiposFichero`, `fecha`, `stock`, `principioActivo`) VALUES
+('InChI=1S/C8H9NO2/c1-6(10)9-7-2-4-8(11)5-3-7/h2-5,11H,1H3,(H,9,10)', 'CC(=O)Nc1ccc(O)cc1', 'aprobado', 12.5, 'gelocatil', 'f1', 'paracetamol.exe', '.exe', '2024-02-05 19:35:00', 12, 'paracetamol');
 
 -- --------------------------------------------------------
 
@@ -159,7 +159,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`codigoPostal`, `nombre`, `apellidos`, `email`, `usuario`, `telefono`, `contrasena`, `dni`, `idUsuario`, `rol`) VALUES
-('00909', 'Abraham', 'Zambrano', 'abrahamZ@gmail.es', '665626456', 665626345, '1234', '12345678o', '#1', 'administrador'),
+('00909', 'Abraham', 'Zambrano', 'abrahamZ@gmail.es', 'abraham', 665626345, '1234', '12345678o', '#1', 'administrador'),
 ('00909', 'Ernesto', 'Diaz Jimenez', 'ernestoD@gmail.es', 'ernesto', 665626234, 'abc', '12345678b', '#2', 'administrador'),
 ('00909', 'Ismael', 'Zambrano', 'ismaelZ@gmail.es', 'ismael', 665626234, 'ab34', '12345678b', '#3', 'editor'),
 ('80467', 'Juan', 'Merino', 'juanM@gmail.es', 'juan', 624567855, 'ef45', '12345678e', '#4', 'usuario');
