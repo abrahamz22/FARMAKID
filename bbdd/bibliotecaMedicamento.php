@@ -27,7 +27,7 @@ session_start();
         $idAsignada = false;
         if(mysqli_num_rows($sql) > 0){
             while($row = mysqli_fetch_assoc($sql)){
-                $numId = substr($row["idUsuario"], 1);
+                $numId = substr($row["id"], 1);
                 if($numId != $cont){
                     $newId = "f" . $cont;
                     $idAsignada = true;
@@ -53,6 +53,17 @@ session_start();
             $_SESSION["ExitoRegistro"] = "El resgitro fue realizado con exito.";
         }
     }
+
+    //FUNCIÓN PARA ELIMINAR MEDICO
+    function eliminarMedicamento($comprobacion, $id, $conexion){
+        if($comprobacion){
+            $query = "DELETE FROM medicamento WHERE id LIKE '" .$id. "';";
+            mysqli_query($conexion, $query);
+            $_SESSION["ExitoRegistro"] = "El medicamento con la id " . $id . " fue eliminado exitosamente.";
+            unset($_SESSION['mensajeError']);
+        }
+    }
+    
 
    //AÑADIR MEDICAMENTO
    function anadirMedicamento($compFormularios,$nombre,$principiosActivos,$precio,$smile,$estado, $nombreFichero,$extension, $fecha, $stock, $inchi, $idMedicamento,&$mensajeError,$conexion){

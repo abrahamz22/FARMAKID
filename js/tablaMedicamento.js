@@ -1,5 +1,5 @@
 window.addEventListener('load', function() {
-  /*  //FUNCIÓN PARA DESMARCAR LAS CASILLAS DE LAS CHEXBOXES DEL FORMULARIO ELIMINAR
+ //FUNCIÓN PARA DESMARCAR LAS CASILLAS DE LAS CHEXBOXES DEL FORMULARIO ELIMINAR
     let checkbox1 = document.getElementById("checkbox1");
     let checkbox2 = document.getElementById("checkbox2");
     
@@ -17,7 +17,7 @@ window.addEventListener('load', function() {
         if (checkbox2.checked) {
             checkbox1.checked = false;
         }
-    });*/
+    });
 
     //FUNCIONALIDAD DE AÑADIR
     document.getElementById("anadirButton").addEventListener("click", function() {
@@ -25,7 +25,7 @@ window.addEventListener('load', function() {
         document.getElementById("compEliminarUsuario").style.display="none";
         document.getElementById("tablaModificar").style.display="none";
     });
-  /*  //FUNCIONALIDAD DE ELIMINAR
+  //FUNCIONALIDAD DE ELIMINAR
     let botonesEliminar = document.querySelectorAll(".eliminar"); 
 
     botonesEliminar.forEach(function(elemento) {
@@ -35,10 +35,11 @@ window.addEventListener('load', function() {
             document.getElementById("anadir").style.display = "none";
             document.getElementById("compEliminarUsuario").style.display="block";
             document.getElementById("tablaModificar").style.display="none";
-            document.getElementById("infoBlockEliminar").innerHTML="Seguro que deseas eliminar al usuario con la id " + textoCeldaIzquierda;
+            document.getElementById("infoBlockEliminar").innerHTML="Seguro que deseas eliminar el medicamento con la id " + textoCeldaIzquierda;
             document.getElementById("idValueEliminar").value= textoCeldaIzquierda;
         });
     });
+    /*
 
     //FUNCIONALIDAD DE MODIFICAR
     let botonesModificar = document.querySelectorAll('.modificar');

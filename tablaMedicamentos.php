@@ -18,7 +18,6 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <script src="js/login.js"></script>
     <script src="js/tablaMedicamento.js"></script>
     <script src="js/admin.js"></script>
-    <script src="js/tablas.js"></script>
 </head>
 <body>
     <!--HEADER-->
@@ -58,7 +57,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <!-- /DIVS CON LOS MENSAJES DE COMPROBACIÓN -->
 
 <!-- FORMULARIO DE COMPROBACIÓN PARA ELIMINAR USUARIO -->
-<form  id="compEliminarUsuario" action="bbdd/eliminarUsuario.php" method="post">
+<form  id="compEliminarUsuario" action="bbdd/eliminarMedicamento.php" method="post">
     <p id="infoBlockEliminar" ></p>
     <input id="idValueEliminar" name="idValueEliminar" type="hidden" value="0">
     <input id="checkbox1" type="checkBox" name="si">
@@ -178,7 +177,6 @@ include_once("bbdd/connexionBaseDeDatos.php");
                         <tr>
                             <th>NOMBRE</th>
                             <th>PRINCIPIOS ACTIVOS</th>
-                            <th>ID</th>
                             <th>INCHI</th>
                             <th>SMILES</th>
                             <th>ESTADO</th>
@@ -187,6 +185,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
                             <th>FECHA</th>
                             <th>STOCK</th>
                             <th>PRECIO</th>
+                            <th>ID</th>
                             <th>ACCIONES</th>
                         </tr>
                     </thead>
@@ -196,7 +195,6 @@ include_once("bbdd/connexionBaseDeDatos.php");
             while($row = mysqli_fetch_assoc($sql)){//GENERO UN BUCLE EN DONDE  VOY A IMPRIMIR TODOS LOS VALORES DE LAS
                 $nombre = $row["nombre"];
                 $principiosActivos = $row["principioActivo"];
-                $id = $row['id'];
                 $inchi = $row["inchi"];
                 $smiles= $row["smiles"];
                 $estado = $row["estadoMedicamento"];
@@ -204,6 +202,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
                 $tipoFichero = $row["tiposFichero"];
                 $fecha = $row["fecha"];
                 $stock = $row["stock"];
+                $id = $row['id'];
                 $precio =number_format($row["precio"], 2);
 
                 echo "
@@ -211,7 +210,6 @@ include_once("bbdd/connexionBaseDeDatos.php");
                 <tr>
                     <td titulo='NOMBRE:'>$nombre</td>
                     <td titulo='PRINCIPIOS ACTIVOS:'>$principiosActivos</td>
-                    <td titulo='ID:'>$id</td>
                     <td style='text-align:left' titulo='INCHI:'>$inchi</td>
                     <td titulo='SMILES:'>$smiles</td>
                     <td titulo='ESTADO:'>$estado</td>
@@ -220,6 +218,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
                     <td titulo='FECHA:'>$fecha</td>
                     <td titulo='STOCK:'>$stock</td>
                     <td titulo='PRECIO:'>$precio$</td>
+                    <td titulo='ID:'>$id</td>
                     
                     <td titulo='ACCIONES:' class='td-btn'>
                         <button class='modificar'>MODIFICAR</button>
