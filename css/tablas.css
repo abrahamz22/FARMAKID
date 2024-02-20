@@ -364,7 +364,11 @@ table{
     padding: 10px;
 }
 
-#tabla_medicamento tr:nth-child(odd){
+
+
+#tabla-user tr:nth-child(odd),
+#tabla_medicamento tr:nth-child(odd),
+#tabla_Medico tr:nth-child(odd){
     background-color: #97DECE;
     
 }
@@ -573,6 +577,13 @@ table{
         display: none;
     }
 
+    #divTabla #tablaModificar th {
+        background-color: #439A97;
+        color: #fff;
+        padding: 10px;
+    
+    }
+
     /* #tablaModificar form td #nombreMod{
         width: 135px;
     } */
@@ -597,6 +608,7 @@ table{
         scale: 1.09;
     }
 
+    
    
 
 
