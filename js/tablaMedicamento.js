@@ -41,6 +41,9 @@ window.addEventListener('load', function() {
     });
     
 
+
+
+
     //FUNCIONALIDAD DE MODIFICAR
     let botonesModificar = document.querySelectorAll('.modificar');
 

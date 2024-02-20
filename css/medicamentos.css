@@ -475,7 +475,7 @@ table .edit2{
 }
 
 
-table input{
+#tabla_med input{
     padding: 10px;
     
 }
@@ -506,7 +506,7 @@ td:nth-child(even) {
     width: 56%;
 }
 
-.container-table table{
+.container-table #tabla_med{
     width: 100%;
 } 
 

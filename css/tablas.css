@@ -364,7 +364,7 @@ table{
     padding: 10px;
 }
 
-table tr:nth-child(odd){
+#tabla_medicamento tr:nth-child(odd){
     background-color: #97DECE;
     
 }

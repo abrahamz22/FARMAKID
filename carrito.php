@@ -16,16 +16,11 @@ if (isset($_POST['addToCart'])) {
 }
 
 
-// Verifico si se ha enviado el formulario de pago
 if (isset($_POST['pagar'])) {
-    // Aquí debes agregar la lógica para procesar el pago
-    // Puedes actualizar la base de datos, enviar correos electrónicos, etc.
-    // ...
+   
 
-    // Limpiar el carrito después de realizar el pago
     $_SESSION['carrito'] = array();
 
-    // Redirige a una página de confirmación 
     header('Location: confirmacionPago.php');
     exit();
 }
@@ -125,9 +120,9 @@ if (isset($_POST['pagar'])) {
             <button class="boton-item">Agregar al carrito</button>
         </div>
     </div>    
-</div>
+
 <!-- CARRITO DE COMPRA -->
-<form method="post" action="carrito.php">
+<!-- <form method="post" action="carrito.php"> -->
     <div class="carrito">
         <div class="header-carrito">
             <h2>Tu carrito</h2>        
@@ -174,13 +169,14 @@ if (isset($_POST['pagar'])) {
                     </span>
                 </div>
             
-                <button class="btn-pagar" type="submit" name="pagar">Pagar <i class="fa-solid fa-bag-shopping"></i></button>
+                <button class="btn-pagar" >Pagar <i class="fa-solid fa-bag-shopping"></i></button>
 
             </div>
 
         </div>
 </div>
-    </form>
+</div>
+    <!-- </form> -->
 <!--/CONTENEDOR CARRITO-->
 
 

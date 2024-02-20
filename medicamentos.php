@@ -66,10 +66,66 @@ $estado = $_POST["estado"];
     <link rel="stylesheet" type="text/css" href="css/medicamentos.css" >
     <link rel="stylesheet" type="text/css" href="css/header.css" >
     <link rel="stylesheet" type="text/css" href="css/footer.css" >
-    <!-- <link rel="stylesheet" type="text/css" href="css/tablas.css" > -->
+    <link rel="stylesheet" type="text/css" href="css/tablas.css" >
     <script src="header.js"></script>
     <script src="js/login.js"></script>
-    <script src="js/tablaMedicamento.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var btnModificar = document.getElementById('btn_modificar');
+    var tablaModificar = document.getElementById('tablaModificar');
+
+    btnModificar.addEventListener('click', function() {
+        // Cambia el estilo de la tabla entre display: none y display: block
+        tablaModificar.style.display = (tablaModificar.style.display === 'none' || tablaModificar.style.display === '') ? 'block' : 'none';
+
+        let valores = [];
+            for (let i = 0; i < fila.cells.length - 1; i++) { // No incluir la última celda con el botón
+                valores.push(fila.cells[i].textContent);
+            }
+            // Hacer algo con los valores, por ejemplo, imprimirlos en la consola
+            console.log(valores);
+            document.getElementById("nombreMod").value = valores[0];
+            document.getElementById("principiosMod").value = valores[1];
+            document.getElementById("inchiMod").value = valores[2].slice(6);
+            document.getElementById("smilesMod").value = valores[3];
+            document.getElementById("estadoMod").value = valores[4];
+            document.getElementById("nombreFicherolMod").value = valores[5];
+            document.getElementById("tipoFicheroMod").value = valores[6];
+            document.getElementById("fechaMod").value = valores[7];
+            document.getElementById("stockMod").value = valores[8];
+            document.getElementById("precioMod").value = valores[9].slice(0, -1);
+            document.getElementById("idMod").value = valores[10];
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var btnEliminar = document.getElementById('btn_eliminar');
+    var tablaModificar = document.getElementById('compEliminarUsuario');
+
+    btnModificar.addEventListener('click', function() {
+        // Cambia el estilo de la tabla entre display: none y display: block
+        tablaModificar.style.display = (tablaModificar.style.display === 'none' || tablaModificar.style.display === '') ? 'block' : 'none';
+
+        let valores = [];
+            for (let i = 0; i < fila.cells.length - 1; i++) { // No incluir la última celda con el botón
+                valores.push(fila.cells[i].textContent);
+            }
+            // Hacer algo con los valores, por ejemplo, imprimirlos en la consola
+            console.log(valores);
+            document.getElementById("nombreMod").value = valores[0];
+            document.getElementById("principiosMod").value = valores[1];
+            document.getElementById("inchiMod").value = valores[2].slice(6);
+            document.getElementById("smilesMod").value = valores[3];
+            document.getElementById("estadoMod").value = valores[4];
+            document.getElementById("nombreFicherolMod").value = valores[5];
+            document.getElementById("tipoFicheroMod").value = valores[6];
+            document.getElementById("fechaMod").value = valores[7];
+            document.getElementById("stockMod").value = valores[8];
+            document.getElementById("precioMod").value = valores[9].slice(0, -1);
+            document.getElementById("idMod").value = valores[10];
+    });
+});
+</script>
     <input id="selector" type="hidden" value="1">
 </head>
 <body>
@@ -93,7 +149,7 @@ $estado = $_POST["estado"];
   <div class="container-info">
     <div class="container-table">
       <form action="medicamentos.php" method='post' class="buscar_medicamento">
-        <table>
+        <table id='tabla_med'>
             
             <tr class="edit_tr1">
               <td class="columna">Name:</td>
@@ -151,7 +207,20 @@ $estado = $_POST["estado"];
   </div>
 </main>
 
-<!-- <table id="tablaModificar">
+
+<!-- FORMULARIO DE COMPROBACIÓN PARA ELIMINAR USUARIO -->
+<form  id="compEliminarUsuario" action="bbdd/eliminarMedicamento.php" method="post">
+    <p id="infoBlockEliminar" ></p>
+    <input id="idValueEliminar" name="idValueEliminar" type="hidden" value="0">
+    <input id="checkbox1" type="checkBox" name="si">
+    <label for="si">Sí</label>
+    <input id="checkbox2" type="checkBox" name="no">
+    <label for="no">No</label>
+    <input type="submit" value ="Aceptar">
+</form>
+<!--/FORMULARIO DE COMPROBACIÓN PARA ELIMINAR USUARIO -->
+
+<table id="tablaModificar">
         <thead>
             <tr>
                 <th>NOMBRE</th>
@@ -194,7 +263,7 @@ $estado = $_POST["estado"];
         <td titulo='VERIFICAR CAMBIOS:'><input type="submit" value="Verificar cambios"></td>
         </form>
         </tr>
-    </table> -->
+    </table>
 
 
   <?php if (isset($result) && mysqli_num_rows($result) > 0):?>
@@ -226,10 +295,18 @@ $estado = $_POST["estado"];
                     <p>Tipo fichero:   ".$tipoFichero."</p>
                     <p>Nombre fichero:  ".$nombreFichero."</p>
                     <p>Fecha:  ".$fecha."</p>
-                    <form method='post' action='carrito.php'>
-                        <input type='hidden' name='idMedicamento' value='".$id_farmaco."'>
-                        <button type='submit' class='comprar' name='addToCart'>AÑADIR A CARRITO</button>
-                    </form>
+                  <form method='post' action='carrito.php'>
+                      <input type='hidden' name='idMedicamento' value='".$id_farmaco."'>
+                      <button type='submit' class='comprar' name='addToCart'>AÑADIR A CARRITO</button>
+                      
+                  </form>
+
+                    <table>
+                    <td class='td-btn'>
+                    <button style='width:30%' id='btn_modificar'>MODIFICAR</button>
+                        <button style='width:30%' id='btn_eliminar'>ELIMINAR</button>
+                        </td>
+                        </table>
                 </div>
             </div>
         </div>";
