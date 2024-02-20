@@ -16,7 +16,8 @@
 <?php
 
    
-anadirCita($compFormularios,$idDoctor,$idUsuario,$hora1,$hora2,$fecha,$mensajeError,$conexion);
+anadirCita($compFormularios,$idDoctor,$idUsuario,$hora1,$hora2,$fecha,$mensajeError,$motivo,$conexion);
+
     header("location: ../tablaCitas.php");
     
 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2024 at 03:19 AM
+-- Generation Time: Feb 20, 2024 at 11:59 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,6 +34,14 @@ CREATE TABLE `citar` (
   `disponibilidad` varchar(16) NOT NULL,
   `fecha` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Dumping data for table `citar`
+--
+
+INSERT INTO `citar` (`doctorId`, `usuarioId`, `observaciones`, `disponibilidad`, `fecha`) VALUES
+('m1', '#2', 'me pica el pito', '10:36-10:36', '2024-02-07 22:36:00'),
+('m1', '#2', 'me pica el culo', '10:54-10:54', '2025-02-13 10:54:00');
 
 -- --------------------------------------------------------
 
@@ -84,7 +92,7 @@ CREATE TABLE `medicamento` (
 --
 
 INSERT INTO `medicamento` (`inchi`, `smiles`, `estadoMedicamento`, `precio`, `nombre`, `id`, `nombreFichero`, `tiposFichero`, `fecha`, `stock`, `principioActivo`) VALUES
-('InChI=1S/C8H9NO2/c1-6(10)9-7-2-4-8(11)5-3-7/h2-5,11H,1H3,(H,9,10)', 'CC(=O)Nc1ccc(O)cc1', 'ensayo clinico', 12.5, 'gelocatil', 'f1', 'paracetamol.exe', '.exe', '2024-02-18 23:40:00', 14, 'paracetamol');
+('InChI=1S/C8H9NO2/c1-6(10)9-7-2-4-8(11)5-3-7/h2-5,11H,1H3,(H,9,10)', 'CC(=O)Nc1ccc(O)cc1', 'regulacion', 12.5, 'gelocatil', 'f1', 'paracetamol.exe', '.rar', '2024-02-18 23:40:00', 14, 'paracetamol');
 
 -- --------------------------------------------------------
 
@@ -131,7 +139,7 @@ CREATE TABLE `proteina` (
 --
 
 INSERT INTO `proteina` (`especie`, `metodo`, `resolucion`, `nombre`, `id`, `nombreFichero`, `tipoFichero`, `fecha`) VALUES
-('homo sapiens', 'x-ray diffraction', '1.90  Å', 't state human hemoglobin [alpha v96w]', 'y1', '1vwt.pdb', '.pdb', '2024-02-14 03:14:00');
+('homo sapiens', 'x-ray diffraction', '1.92  Å', 't state human hemoglobin [alpha v96w]', 'y1', '1vwt.pdb', '.pdb', '2024-02-14 03:14:00');
 
 -- --------------------------------------------------------
 

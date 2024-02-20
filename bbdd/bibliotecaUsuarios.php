@@ -42,9 +42,10 @@
     function compIdBbdd($compFormularios,$tabla, $atributoId,$id,$conexion ,&$mensajeError){
         $query = "SELECT * FROM ".$tabla." WHERE ".$atributoId." LIKE '".$id."'";
         $sql = mysqli_query($conexion,$query);
-        if(mysqli_num_rows($sql) == 0){
+        if(mysqli_num_rows($sql) == 0 && !empty($id)){
             $mensajeError .= "-No existe un ".$tabla." con la id ".$id.".</br>";
             $compFormularios = false;
+            echo $id;
         }
         return $compFormularios;
     } 
