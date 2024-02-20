@@ -20,7 +20,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <script src="header.js"></script>
     <script src="js/login.js"></script>
     <script src="js/admin.js"></script>
-    <script src="js/tablas.js"></script>
+    <script src="js/tablaProteina.js"></script>
 </head>
 <body>
 <!--HEADER-->
@@ -65,7 +65,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
 
 <!-- FORMULARIO DE COMPROBACIÓN PARA ELIMINAR PROTEINA -->
-<form  id="compEliminarUsuario" action="bbdd/eliminarUsuario.php" method="post">
+<form  id="compEliminarUsuario" action="bbdd/eliminarProteina.php" method="post">
     <p id="infoBlockEliminar" ></p>
     <input id="idValueEliminar" name="idValueEliminar" type="hidden" value="0">
     <input id="checkbox1" type="checkBox" name="si">
@@ -166,13 +166,13 @@ include_once("bbdd/connexionBaseDeDatos.php");
                 <thead>
                     <tr>
                         <th>NOMBRE</th>
-                        <th>ID</th>
                         <th>METODO</th>
                         <th>RESOLUCION</th>
                         <th>ESPECIE</th>
                         <th>NOMBRE DE FICHERO</th>
                         <th>TIPOS DE FICHERO</th>
                         <th>FECHA</th>
+                        <th>ID</th>
                         <th>ACCIONES</th>
                     </tr>
                 <thead>
@@ -182,26 +182,26 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
         while($row = mysqli_fetch_assoc($sql)){//GENERO UN BUCLE EN DONDE  VOY A IMPRIMIR TODOS LOS VALORES DE LAS COLUMNAS
             $nombre = $row["nombre"];
-            $id = $row['id'];
             $metodo = $row["metodo"];
             $resolucion= $row["resolucion"];
             $especie = $row["especie"];
             $nombreFichero = $row["nombreFichero"];
             $tipoFichero = $row["tipoFichero"];
             $fecha = $row["fecha"];
+            $id = $row['id'];
 
             echo "
             
             <tr>
                 <td titulo='NOMBRE:'>$nombre</td>
 
-                <td titulo='ID:'>$id</td>
                 <td titulo='METODO:'>$metodo</td>
                 <td titulo='RESOLUCION:'>$resolucion</td>
                 <td titulo='ESPECIE:'>$especie</td>
                 <td titulo='NOMBRE FICHERO:'>$nombreFichero</td>
                 <td titulo='TIPO FICHERO:'>$tipoFichero</td>
                 <td titulo='FECHA:'>$fecha</td>
+                <td titulo='ID:'>$id</td>
                 
                 <td titulo='ACCIONES:' class='td-btn'>
                 <button class='modificar'>MODIFICAR</button>

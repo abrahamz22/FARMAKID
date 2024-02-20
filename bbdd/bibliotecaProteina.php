@@ -32,6 +32,15 @@ include("bibliotecaMedicamento.php");
         comprobacionLengthMayor($compFormularios,$columna, $nombreColumna, $length,$mensajeError);
         return $compFormularios;
     }
+    //ELIMINAR PROTEINA
+    function eliminarProteina($comprobacion, $id,$conexion){
+        if($comprobacion){
+            $query = "DELETE FROM proteina WHERE id LIKE '" .$id. "';";
+            mysqli_query($conexion, $query);
+            $_SESSION["ExitoRegistro"] = "La proteina con la id " . $id . " fue eliminado exitosamente.";
+            unset($_SESSION['mensajeError']);
+        }
+    }
     //INSERTAR PROTEINA
     function insertarProteina($compFormularios,$nombre,$especie,$resolucion,$nombreFichero,$extension,$fecha,$metodo,$idProteina, $conexion){
         $consultaUsuario = "INSERT INTO `proteina`(`especie`, `metodo`, `resolucion`, `nombre`, `id`, `nombreFichero`, `tipoFichero`, `fecha`) VALUES ('".$especie."','".$metodo."','".$resolucion."','".$nombre."','".$idProteina."','".$nombreFichero."','".$extension."','".$fecha."')";
