@@ -80,28 +80,26 @@ include_once("bbdd/connexionBaseDeDatos.php");
         <thead>
             <tr>
                 <th>NOMBRE</th>
-                <th>ESPECIE</th>
+                <th>METODO</th>
                 <th>RESOLUCION</th>
-                <th>ID</th>
+                <th>ESPECIE</th>
                 <th>NOMBRE FICHERO</th>
                 <th>TIPO FICHERO</th>
                 <th>FECHA</th>
-                <th>METODO</th>
                 <th>ACCIONES</th>
         
             </tr>
         </thead>    
         <tr>
-        <form action="bbdd/modificarUsuario.php" method="post">
-            <input id="idMod" name="id" type="hidden" value="0">
-        <td titulo='NOMBRE:'><input id="nombreMod" name="nombre" type="text"></th>
-        <td titulo='ESPECIE:'><input id="especieMod" name="especie" type="text"></td>
-        <td titulo='RESOLUCION:'><input id="resolucionMod" name="resolucion" type="text"></td>
-        <td titulo='ID:'><input id="idMod" name="id" type="text"></td>
-        <td titulo='NOMBRE FICHERO:'><input id="nombreFicheroMod" name="nombreFichero" type="text"></td>
-        <td titulo='TIPO FICHERO:'><input id="tipoFicheroMod" name="tipoFichero" type="text"></td>
-        <td titulo='FECHA:'><input type="datetime-local" name="fecha" placeholder="Fecha"></td>
-        <td titulo='METODO:'><input id='metodoMod' name='metoddo'/></td>
+        <form action="bbdd/modificarProteina.php" method="post">
+            <input id="idMod" name="idMod" type="hidden" value="0">
+        <td titulo='NOMBRE:'><input id="nombreMod" name="nombreMod" type="text"></th>
+        <td titulo='METODO:'><input type="text" id='metodoMod' name='metodoMod'/></td>
+        <td titulo='RESOLUCION:'><input id="resolucionMod" name="resolucionMod" step="0.01" min="0.00"  type="number"></td>
+        <td titulo='ESPECIE:'><input id="especieMod" name="especieMod" type="text"></td>
+        <td titulo='NOMBRE FICHERO:'><input id="nombreFicheroMod" name="nombreFicheroMod" type="text"></td>
+        <td titulo='TIPO FICHERO:'><input id="tipoFicheroMod" name="tipoFicheroMod" type="text"></td>
+        <td titulo='FECHA:'><input type="datetime-local"  id="fechaMod" name="fechaMod" placeholder="yyyy-mm-dd hh:mm:ss"></td>
         <td titulo='VERIFICAR CAMBIOS:'><input type="submit" value="Verificar cambios"></td>
         </form>
         </tr>
@@ -224,6 +222,12 @@ include_once("bbdd/connexionBaseDeDatos.php");
     </table>
     <a href="administrador.php">Volver a opciones de administrador</a>
 </div>
+<?php
+    mysqli_close($conexion); //cierra la BBDD
+    unset($_SESSION['mensajeError']);
+    unset($_SESSION['ExitoRegistro']);
+
+    ?>
 <!--/DIV DE TABLA-->
 <!--FOOTER-->
 <?php require("footerHeader/footer.php")?>

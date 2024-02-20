@@ -50,6 +50,41 @@ include("bibliotecaMedicamento.php");
             $_SESSION["ExitoRegistro"] = "La proteina fue registrada con exito.";
         }
     }
+     //MODIFICAR PROTEINA
+     function modificarProteina($compFormularios,$nombre,$especie,$resolucion,$nombreFichero,$extension,$fecha,$metodo,$idProteina,$conexion){
+         if($compFormularios){
+             $query = "UPDATE `proteina` SET `especie`='".$especie."',`metodo`='".$metodo."',`resolucion`='".$resolucion."',`nombre`='".$nombre."',`nombreFichero`='".$nombreFichero."',`tipoFichero`='".$extension."',`fecha`='".$fecha."' WHERE id LIKE '".$idProteina."';";
+             echo $query;
+             mysqli_query($conexion, $query);
+             $_SESSION["ExitoRegistro"] = "La proteína con la id " . $idProteina . " fue modificado exitosamente.";
+         }
+     }
+
+    //MODIFICAR PROTEINA TABLA
+   function modificarTablaProteina($compFormularios,$nombre,$especie,$resolucion,$nombreFichero,$extension,$fecha,$metodo,$idProteina,&$mensajeError,$conexion){
+    $nombre = strtolower($nombre);
+    $metodo = strtolower($metodo);
+    $especie = strtolower($especie);
+    $nombreFichero = strtolower($nombreFichero);
+    $extension = strtolower($extension);
+
+    $resolucion .= "  Å";
+
+    $compFormularios = comprobarNombreProteina($compFormularios,$nombre, "nombre",150, $mensajeError);
+    $compFormularios = comprobarNombreProteina($compFormularios,$metodo, "método",100, $mensajeError);
+    $compFormularios = isVariableVacia($compFormularios,$resolucion, "resolucion", $mensajeError);
+    $compFormularios = vacioLenghtmasCaracteres($compFormularios, $especie, "especie",150,"/^[A-Za-z ]+$/","caracteres especiales o caracteres númericos",$mensajeError);
+    $compFormularios = vacioLenghtmasCaracteres($compFormularios, $nombreFichero, "nombre del fichero",100,"/\.[a-zA-Z]+$/","otro tipo de nombre que no acabe con su extensión(ej= ficheroEjemplo.smi)",$mensajeError);//nombre;
+    $compFormularios = vacioLenghtmasCaracteres($compFormularios, $extension, "extensión del archivo",10,"/^\./","un comienzo que no sea un \".\"",$mensajeError);//apellido
+    $compFormularios = isVariableVacia($compFormularios,$fecha, "fecha", $mensajeError);
+    if($compFormularios){
+        modificarProteina($compFormularios,$nombre,$especie,$resolucion,$nombreFichero,$extension,$fecha,$metodo,$idProteina,$conexion);
+    }
+    unset($_SESSION['mensajeError']);
+    if(!empty($mensajeError)){
+        $_SESSION["mensajeError"] = $mensajeError;
+    }
+}
    //AÑADIR PROTEINA
    function anadirProteina($compFormularios,$nombre,$especie,$resolucion,$nombreFichero,$extension,$fecha,$metodo,$idProteina,&$mensajeError,$conexion){
     $nombre = strtolower($nombre);

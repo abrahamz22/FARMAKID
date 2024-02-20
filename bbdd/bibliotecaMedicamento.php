@@ -71,7 +71,7 @@ session_start();
             $query = "UPDATE `medicamento` SET `inchi`='".$inchi."',`smiles`='".$smile."',`estadoMedicamento`='".$estado."',`precio`=".$precio.",`nombre`='".$nombre."',`nombreFichero`='".$nombreFichero."',`tiposFichero`='".$extension."',`fecha`='".$fecha."',`stock`=".$stock.",`principioActivo`='".$principiosActivos."' WHERE id LIKE '".$idMedicamento."'";
             echo $query;
             mysqli_query($conexion, $query);
-            $_SESSION["ExitoRegistro"] = "El medicamento con la id " . $id . " fue modificado exitosamente.";
+            $_SESSION["ExitoRegistro"] = "El medicamento con la id " . $idMedicamento . " fue modificado exitosamente.";
         }
     }
     //MODIFICAR  TABLA MEDICAMENTO
@@ -91,7 +91,6 @@ session_start();
     $compFormularios = comprobracionStock($compFormularios,$stock,"stock",$mensajeError);
     $compFormularios = vacioLenghtmasCaracteres($compFormularios, $inchi, "inchi",200,"/^[A-Za-z0-9()\[\]\/\\=@#%*+-.,:;$\?!&\'_~<>{}\|^]+$/","otro tipo de caracter que no sea númerico,especial o letra",$mensajeError);//apellido
     $inchi = "InChI=" . $inchi;
-    $idMedicamento = asignarIdMedicamento($conexion);
     if($compFormularios){
         insertarMedicamento($compFormularios,$nombre,$principiosActivos,$precio,$smile,$estado,$nombreFichero,$extension, $fecha, $stock, $inchi, $idMedicamento, $conexion);
     }
