@@ -20,8 +20,6 @@
 
 <?php
 
-    echo "nombre:". $nombre . " precio:" . $precio. " smiles:" . $smile . " estado:" . $estado . " nombre del ficher:" . $nombreFichero . " fecha:" . $fecha . " ichi:" . $inchi . " id:" . $idMedicamento;
-    echo "</br>" .$mensajeError;
 
     anadirMedicamento($compFormularios,$nombre,$principiosActivos,$precio,$smile,$estado, $nombreFichero,$extension, $fecha, $stock, $inchi, $idMedicamento,$mensajeError,$conexion);
 

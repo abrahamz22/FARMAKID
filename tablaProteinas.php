@@ -108,7 +108,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
     </table>
 <!-- /FORMULARIO DE COMPROBACIÓN PARA MODIFICAR PROTEINA -->
 
-<form  id="anadir" action="">
+<form  id="anadir" action="bbdd/anadirProteina.php" method="post">
     <div class="anadir-usuario">
         <div class="input-box">
             <span class='detalles'>Nombre </span>
@@ -123,26 +123,22 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
         <div class="input-box">
             <span class='detalles'>Resolución</span>
-            <input style="background-color:#a2c1e7" type="text" name="resolucion" placeholder="Resolución">
-        </div>
-        <div class="input-box">
-            <span class='detalles'>Id</span>
-            <input style="background-color:#a2c1e7" type="number" name="id-prote" placeholder="Id">
+            <input style="background-color:#a2c1e7" type="number" step="0.01" min="0.00"  name="resolucion" placeholder="Resolución">
         </div>
 
         <div class="input-box">
             <span class='detalles'>Nombre fichero</span>
-            <input style="background-color:#a2c1e7" type="id" name="nombre-fichero-prote" placeholder="Nombre fichero">
+            <input style="background-color:#a2c1e7" type="text" name="nombreFichero" placeholder="Nombre fichero">
         </div>
 
         <div class="input-box">
             <span class='detalles'>Tipo fichero</span>
-            <input style="background-color:#a2c1e7" type="number" name="tipo-fichero-prote" placeholder="Tipo fichero">
+            <input style="background-color:#a2c1e7" type="text" name="tipoFichero" placeholder="Tipo fichero">
         </div>
 
         <div class="input-box" >
             <span class='detalles'>Fecha</span>
-            <input style="background-color:#a2c1e7" type="text" name="fecha" placeholder="Fecha">
+            <input style="background-color:#a2c1e7" name="fecha" type="datetime-local"   placeholder="yyyy-mm-dd hh:mm:ss" >
         </div>
         
        

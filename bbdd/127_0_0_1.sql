@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2024 at 08:28 PM
+-- Generation Time: Feb 20, 2024 at 03:18 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -86,7 +86,7 @@ CREATE TABLE `medicamento` (
 --
 
 INSERT INTO `medicamento` (`inchi`, `smiles`, `estadoMedicamento`, `precio`, `nombre`, `id`, `nombreFichero`, `tiposFichero`, `fecha`, `stock`, `principioActivo`) VALUES
-('InChI=1S/C8H9NO2/c1-6(10)9-7-2-4-8(11)5-3-7/h2-5,11H,1H3,(H,9,10)', 'CC(=O)Nc1ccc(O)cc1', 'aprobado', 12.5, 'gelocatil', 'f1', 'paracetamol.exe', '.exe', '2024-02-05 19:35:00', 12, 'paracetamol');
+('InChI=1S/C8H9NO2/c1-6(10)9-7-2-4-8(11)5-3-7/h2-5,11H,1H3,(H,9,10)', 'CC(=O)Nc1ccc(O)cc1', 'ensayo clinico', 12.5, 'gelocatil', 'f1', 'paracetamol.exe', '.exe', '2024-02-18 23:40:00', 14, 'paracetamol');
 
 -- --------------------------------------------------------
 
@@ -133,7 +133,7 @@ CREATE TABLE `proteina` (
 --
 
 INSERT INTO `proteina` (`especie`, `metodo`, `resolucion`, `nombre`, `id`, `nombreFichero`, `tipoFichero`, `fecha`) VALUES
-('Homo sapiens', 'X-RAY DIFFRACTION', '1.90 Å', 'T STATE HUMAN HEMOGLOBIN [ALPHA V96W]', '1VWT', '1vwt.pdb', '(.pdb)	', '0000-00-00 00:00:00');
+('homo sapiens', 'x-ray diffraction', '1.90  Å', 't state human hemoglobin [alpha v96w]', 'y1', '1vwt.pdb', '.pdb', '2024-02-14 03:14:00');
 
 -- --------------------------------------------------------
 
