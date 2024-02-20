@@ -66,8 +66,10 @@ $estado = $_POST["estado"];
     <link rel="stylesheet" type="text/css" href="css/medicamentos.css" >
     <link rel="stylesheet" type="text/css" href="css/header.css" >
     <link rel="stylesheet" type="text/css" href="css/footer.css" >
+    <!-- <link rel="stylesheet" type="text/css" href="css/tablas.css" > -->
     <script src="header.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/tablaMedicamento.js"></script>
     <input id="selector" type="hidden" value="1">
 </head>
 <body>
@@ -148,6 +150,53 @@ $estado = $_POST["estado"];
       </div>
   </div>
 </main>
+
+<!-- <table id="tablaModificar">
+        <thead>
+            <tr>
+                <th>NOMBRE</th>
+                <th>PRINCIPIOS ACTIVOS</th>
+                <th>INCHI</th>
+                <th>SMILES</th>
+                <th>ESTADO</th>
+                <th>NOMBRE FICHERO</th>
+                <th>TIPO FICHERO</th>
+                <th>FECHA</th>
+                <th>STOCK</th>
+                <th>PRECIO</th>
+                <th>ACCIONES</th>
+        </thead>
+            </tr>
+        <tr>
+        <form action="bbdd/modificarMedicamento.php" method="post">
+            <input id="idMod" name="idMod" type="hidden" value="0">
+        <td titulo='NOMBRE:'><input id="nombreMod" name="nombreMod" type="text"></th>
+        <td titulo='PRINCIPIOS ACTIVOS:'><input id="principiosMod" name="principiosMod" type="text"></th>
+        <td titulo='INCHI:'><input id="inchiMod" name="inchiMod" type="text"></td>
+        <td titulo='SMILES:'><input id="smilesMod" name="smilesMod" type="text"></td>
+        <td titulo='ESTADO:'>
+            <select id="estadoMod" name="estadoMod" >
+                <option value="aprobado">Aprobado</option>
+                <option value="regulacion">Regulación</option>
+                <option value="ensayo clinico">Ensayo clínico</option>
+                <option value="en desarrollo">En desarrollo</option>
+                <option value="suspendido">suspendido</option>
+                <option value="retirado del mercado">Retirado del mercado</option>
+                <option value="rechazado">rechazado</option>
+                <option value="investigacion preclinica">Investigación preclínica</option>
+            </select>
+        </td>
+        <td titulo='NOMBRE FICHERO:'><input id="nombreFicherolMod" name="nombreFicheroMod" type="text"></td>
+        <td titulo='TIPO FICHERO:'><input id="tipoFicheroMod" name="tipoFicheroMod" type="text"></td>
+        <td titulo='FECHA:'><input  type="datetime-local"  id="fechaMod" name="fechaMod" placeholder="yyyy-mm-dd hh:mm:ss"></td>
+        <td titulo='STOCK:'><input type="number"  id="stockMod" name="stockMod" ></td>
+        <td titulo='PRECIO:'><input id="precioMod" step="0.01" min="0.00"  type="number" name='precioMod'></td>
+        <td titulo='VERIFICAR CAMBIOS:'><input type="submit" value="Verificar cambios"></td>
+        </form>
+        </tr>
+    </table> -->
+
+
   <?php if (isset($result) && mysqli_num_rows($result) > 0):?>
     <?php
     while ($row = mysqli_fetch_assoc($result)) {
@@ -162,6 +211,7 @@ $estado = $_POST["estado"];
         $precio = $row['precio'];
 
         echo "<div class='container-medica'>
+        
             <div class='med'>
                 <a>
                     <img class='img-ej' src='multimedia/proteinas/Albumina.jpg'>
@@ -176,6 +226,10 @@ $estado = $_POST["estado"];
                     <p>Tipo fichero:   ".$tipoFichero."</p>
                     <p>Nombre fichero:  ".$nombreFichero."</p>
                     <p>Fecha:  ".$fecha."</p>
+                    <form method='post' action='carrito.php'>
+                        <input type='hidden' name='idMedicamento' value='".$id_farmaco."'>
+                        <button type='submit' class='comprar' name='addToCart'>AÑADIR A CARRITO</button>
+                    </form>
                 </div>
             </div>
         </div>";

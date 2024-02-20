@@ -1,3 +1,37 @@
+<?php
+include_once("bbdd/connexionBaseDeDatos.php");
+
+session_start();
+if (isset($_POST['addToCart'])) {
+    $idMedicamento = $_POST['idMedicamento'];
+
+ 
+
+    // Agrega el medicamento al carrito
+    $_SESSION['carrito'][] = $idMedicamento;
+
+    // redirigo  a la página del carrito 
+    header('Location: carrito.php');
+    exit();
+}
+
+
+// Verifico si se ha enviado el formulario de pago
+if (isset($_POST['pagar'])) {
+    // Aquí debes agregar la lógica para procesar el pago
+    // Puedes actualizar la base de datos, enviar correos electrónicos, etc.
+    // ...
+
+    // Limpiar el carrito después de realizar el pago
+    $_SESSION['carrito'] = array();
+
+    // Redirige a una página de confirmación 
+    header('Location: confirmacionPago.php');
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,8 +125,9 @@
             <button class="boton-item">Agregar al carrito</button>
         </div>
     </div>    
-
+</div>
 <!-- CARRITO DE COMPRA -->
+<form method="post" action="carrito.php">
     <div class="carrito">
         <div class="header-carrito">
             <h2>Tu carrito</h2>        
@@ -139,13 +174,13 @@
                     </span>
                 </div>
             
-                <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i></button>
+                <button class="btn-pagar" type="submit" name="pagar">Pagar <i class="fa-solid fa-bag-shopping"></i></button>
 
             </div>
 
         </div>
-    </div>
 </div>
+    </form>
 <!--/CONTENEDOR CARRITO-->
 
 
@@ -158,75 +193,5 @@
     <?php require("footerHeader/footer.php")?>
     <!--/FOOTER-->
 
-<!-- 
-    <div class="carrito1">
-                <p>Apiretal 100mg
-                    5,49$</p>
-            </div>
-            
-
-            <div class="carrito">
-                
-                <img class="img" src="multimedia/carrito/carnotprim.png" alt="no se encuentra">
-                <p>Carnotprim 100ml
-                    13,33$</p>
-                
-            </div>
-
-
-            <div class="carrito">
-                
-                <img class="img" src="multimedia/carrito/Ensoy.jpg" alt="no se encuentra">
-                <p>Ensoy 400gr
-                    13,67$</p>
-            </div>
-        
-
-            <div class="carrito">
-                <img class="img" src="multimedia/carrito/pediasure.jpg" alt="no se encuentra">
-                <p>Pediasure 850 gr
-                    19,98$</p>
-                
-            </div>
-
-            <div class="carrito">
-                <img class="img" src="multimedia/carrito/dramame.png" alt="no se encuentra">
-                
-                <p>Dramame 250mg/100ml
-                    5,49$</p>
-                
-            </div>
-
-
-
-            <div class="carrito">
-               
-                <img class="img" src="multimedia/carrito/pediasure.jpg" alt="no se encuentra">
-                <p>Pediasure 850 gr
-                    19,98$</p>
-            </div>
-
-        
-            <div class="carrito">
-                <img class="img" src="multimedia/carrito/dalsy.png" alt="no se encuentra">
-                <p>Dalsy 40 mg/ml</p><br>
-               
-            </div>
-
-            <div class="carrito">
-                
-                <img class="img" src="multimedia/carrito/meritene.jpg" alt="no se encuentra">
-                <p>Meritene 100mg/ml
-                    5,49$</p>
-                
-            </div>
-
-
-            <div class="carrito">
-                
-                <img class="img" src="multimedia/carrito/ensure.png" alt="no se encuentra">
-                <p>Ensure 400gr
-                    15,40$</p>
-            </div> -->
 </body>
 </html>

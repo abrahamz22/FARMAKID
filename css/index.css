@@ -969,8 +969,14 @@ padding: 20px;
     scale: 1.05;
 }
 
-
-
+/* PAGO METODO */
+.contenedor_pago{
+    margin-top: 200px;
+    display: flex;
+    /* margin: auto; */
+    padding: 25px;
+    flex-direction: column;
+}
 
 
 /* seccion responsive */

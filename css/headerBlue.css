@@ -272,7 +272,8 @@ header button{
     
 }
 #desplegableMedicamentos ul li, #desplegableProteinas ul li {
-    margin-top: 10%;
+    /* margin-top: 10%; */
+    margin: 7px 0;
     width: 100%;
 }
 
