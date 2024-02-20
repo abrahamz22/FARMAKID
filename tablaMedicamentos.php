@@ -159,7 +159,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 
         <div class="input-box">
             <span class='detalles'>Fecha</span>
-            <input type="datetime-local" name="fecha" placeholder="Fecha" placeholder="yyyy-mm-dd hh:mm:ss">
+            <input type="datetime-local" name="fecha" placeholder="yyyy-mm-dd hh:mm:ss">
         </div>
         <div class="input-box">
             <span class='detalles'>Stock</span>

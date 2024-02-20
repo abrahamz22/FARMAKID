@@ -103,48 +103,32 @@ include_once("bbdd/connexionBaseDeDatos.php");
     </table>
 <!-- /FORMULARIO DE COMPROBACIÓN PARA MODIFICAR USUARIO -->
 <!-- BOTON DE AÑADIR USUARIOS A LA BASE DE DATOS Y A LA TABLA -->
-    <form  id="anadir" action="bbdd/anadirMedico.php" method="post">
+    <form  id="anadir" action="bbdd/anadirCita.php" method="post">
         <div class="anadir-usuario">
         <div class="input-box">
-            <span class='detalles'>Nombre </span>
-            <input type="text" id="nombre" name="nombre" placeholder="Nombre" >
-
+            <span class='detalles'>Id del doctor</span>
+            <input type="text" id="idDoctor" name="idDoctor" placeholder="ID del doctor" >
         </div>
         <div class="input-box">    
-            <span class='detalles'>Apellido</span>
-            <input type="text" name="apellido" placeholder="Apellidos">
-        </div>
-        
-        <div class="input-box" >
-            <span class='detalles'>Especialidad</span>
-            <select name="especialidad" id="especialidad">
-                <option value="alergologo">Alergólogo</option>
-                <option value="neonatologo">Neonatólogo</option>
-                <option value="cardiologo">Cardiólogo</option>
-                <option value="dermatologia">Dermatología</option>
-                <option value="odontopediatria">Odontopediatría</option>
-                <option value="oftalmologia">Oftalmología</option>
-                <option value="ortopedia">Ortopedia</option>
-                <option value="otorrinolaringologia">Otorrinolaringología</option>
-            </select>
-        </div>
-
-        <div class="input-box">
-            <span class='detalles'>Número de colegiado</span>
-            <input type="number" name="numColegiado" placeholder="Número de colegiado">
+            <span class='detalles'>Id del usuario</span>
+            <input type="text" id="idUsuario" name="idUsuario" placeholder="ID del usuario">
         </div>
         <div class="input-box">
-            <span class='detalles'>Email</span>
-            <input type="email" name="email" placeholder="Email">
+            <span class='detalles'>Disponibilidad horaria</span>
+                <input  class="input2" name="hora1" type="time">
+                <input class="input2" name="hora2" type="time">
         </div>
-
         <div class="input-box">
-            <span class='detalles'>Teléfono</span>
-            <input type="number" name="telefono" placeholder="Télefono">
+            <span class='detalles'>Fecha de la cita</span>
+            <input type="datetime-local" name="fecha"  placeholder="yyyy-mm-dd hh:mm:ss">
+        </div>
+        <div class="input-box">
+            <span class='detalles'>Observaciones</span>
+            <textarea name="motivo"  cols="30" rows="10" placeholder="Describe brevemente el motivo de tu consulta"></textarea>
         </div>
         <div class="input-box"  >
             <span class='detalles'>Crear</span>
-            <button type="submit" name="registrarse">Añadir especialista</button>
+            <button type="submit" name="registrarse">Crear cita</button>
         </div>
         </div>
     </form>

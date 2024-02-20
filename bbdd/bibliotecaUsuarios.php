@@ -38,6 +38,23 @@
         }
         return $compFormularios;
     }
+    //COMPROBACION ID EN LA BBDD
+    function compIdBbdd($compFormularios,$tabla, $atributoId,$id,$conexion ,&$mensajeError){
+        $query = "SELECT * FROM ".$tabla." WHERE ".$atributoId." LIKE '".$id."'";
+        $sql = mysqli_query($conexion,$query);
+        if(mysqli_num_rows($sql) == 0){
+            $mensajeError .= "-No existe un ".$tabla." con la id ".$id.".</br>";
+            $compFormularios = false;
+        }
+        return $compFormularios;
+    } 
+
+    //COMPROBACION ID
+    function comprobarId($compFormularios,$tabla, $atributoId,$id,$conexion, &$mensajeError){
+        $compFormularios =  isVariableVacia($compFormularios, $id,"id", $mensajeError);
+        $compFormularios = compIdBbdd($compFormularios,$tabla, $atributoId,$id,$conexion ,$mensajeError);
+         return $compFormularios;
+    }
     //COMPROBACION EN LA BASE DE DATOS DEL USUARIO
     function compUsuarioBbdd($compFormularios,$columna, $sql, &$mensajeError){
         if(mysqli_num_rows($sql) > 0){
