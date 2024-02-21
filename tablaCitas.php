@@ -16,7 +16,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
     <script src="header.js"></script>
     <script src="js/login.js"></script>
     <script src="js/admin.js"></script>
-    <script src="js/tablaMedico.js"></script>
+    <script src="js/tablaCitas.js"></script>
 </head>
 <body>
 
@@ -58,7 +58,7 @@ include_once("bbdd/connexionBaseDeDatos.php");
 <?php endif;?>
 <!-- /DIVS CON LOS MENSAJES DE COMPROBACIÓN -->
 <!-- FORMULARIO DE COMPROBACIÓN PARA ELIMINAR USUARIO -->
-<form  id="compEliminarUsuario" style='margin:auto' action="bbdd/eliminarMedico.php" method="post">
+<form  id="compEliminarUsuario" style='margin:auto' action="bbdd/eliminarCita.php" method="post">
     <p id="infoBlockEliminar" ></p>
     <input id="idValueEliminar" name="idValueEliminar" type="hidden" value="0">
     <input id="checkbox1" type="checkBox" name="si">
@@ -73,30 +73,24 @@ include_once("bbdd/connexionBaseDeDatos.php");
         <thead>
             <tr>
                 <!-- <th>DOCTOR</th> -->
-                <th>USUARIO</th>
+                <th>ID DEL DOCTOR</th>
+                <th>ID DEL USUARIO</th>
                 <th>OBSERVACIONES</th>
-                <th>DISPONIBILIDAD</th>
+                <th>DESDE CUANDO</th>
+                <th>HASTA CUANDO</th>
                 <th>FECHA</th>
                 <th>ACCIONES</th>
             </tr>
         </thead>
         <tr>
-        <form action="bbdd/modificarMedico.php" method="post">
-        <input id="idMod" name="id" type="hidden" value="0">
-        <td titulo='USUARIO:'><input id="nombreMod" name="nombre" type="text"></td>
-        <td titulo='OBSERVACIONES:'><input id="apellidosMod" name="apellidos" type="text"></td>
-        <td titulo='DISPONIBILIDAD:'><select id="especialidadMod" name="especialidad">
-                <option value="alergologo">Alergólogo</option>
-                <option value="neonatologo">Neonatólogo</option>
-                <option value="cardiologo">Cardiólogo</option>
-                <option value="dermatologia">Dermatología</option>
-                <option value="odontopediatria">Odontopediatría</option>
-                <option value="oftalmologia">Oftalmología</option>
-                <option value="ortopedia">Ortopedia</option>
-                <option value="otorrinolaringologia">Otorrinolaringología</option>
-            </select>
-        </td>
-        <td titulo='FECHA:'><input id="numColegiadoMod" name="numColegiado" type="number"></td>
+        <form action="bbdd/modificarCita.php" method="post">
+        <input id="fechaAntigua" name="fechaAntigua" type="hidden" value="0">
+        <td titulo='ID DEL DOCTOR:'><input id="idDoctorMod" name="idDoctorMod" type="text"></td>
+        <td titulo='ID DEL USUARIO:'><input id="idUsuarioMod" name="idUsuarioMod" type="text"></td>
+        <td titulo='OBSERVACIONES:'><input id="observacionesMod" name="observacionesMod" type="text"></td>
+        <td titulo='DESDE CUANDO:'><input id="hora1Mod" name="hora1Mod" type="time"></td>
+        <td titulo='HASTA CUANDO:'><input id="hora2Mod" name="hora2Mod" type="time"></td>
+        <td titulo='FECHA:'><input id="fechaMod" name="fechaMod"  type="datetime-local" placeholder="yyyy-mm-dd hh:mm:ss"></td>
         <td titulo='ACCIONES:'><input type="submit" value="Verificar cambios"></td>
         </form>
         </tr>

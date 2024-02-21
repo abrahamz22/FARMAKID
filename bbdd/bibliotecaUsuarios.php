@@ -53,7 +53,9 @@
     //COMPROBACION ID
     function comprobarId($compFormularios,$tabla, $atributoId,$id,$conexion, &$mensajeError){
         $compFormularios =  isVariableVacia($compFormularios, $id,"id", $mensajeError);
-        $compFormularios = compIdBbdd($compFormularios,$tabla, $atributoId,$id,$conexion ,$mensajeError);
+        if($compFormularios){
+            $compFormularios = compIdBbdd($compFormularios,$tabla, $atributoId,$id,$conexion ,$mensajeError);
+        }
          return $compFormularios;
     }
     //COMPROBACION EN LA BASE DE DATOS DEL USUARIO

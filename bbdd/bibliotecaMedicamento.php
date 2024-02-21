@@ -63,7 +63,6 @@ session_start();
             unset($_SESSION['mensajeError']);
         }
     }
-    //MODIFICAR MEDICAMENTO
     //MODIFICAR MEDICO
     function modificarMedicamento($compFormularios,$nombre,$principiosActivos,$precio,$smile,$estado, $nombreFichero,$extension, $fecha, $stock, $inchi, $idMedicamento,$conexion){
         $inchi = "InChI=" . $inchi;
