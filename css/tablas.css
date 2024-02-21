@@ -357,8 +357,9 @@ table{
 
 
 #divTabla #tabla-user th,
-#divTabla #tabla_medicamento th
-{
+#divTabla #tabla_medicamento th,
+#divTabla #tabla_Medico th,
+#divTabla #tabla_citas th{
     background-color: #439A97;
     color: #fff;
     padding: 10px;
@@ -368,7 +369,8 @@ table{
 
 #tabla-user tr:nth-child(odd),
 #tabla_medicamento tr:nth-child(odd),
-#tabla_Medico tr:nth-child(odd){
+#tabla_Medico tr:nth-child(odd),
+#tabla_citas tr:nth-child(odd){
     background-color: #97DECE;
     
 }

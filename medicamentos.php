@@ -1,9 +1,25 @@
 <?php
 include_once("bbdd/connexionBaseDeDatos.php");
 // include("bibliotecaUsuarios.php");
-// session_start();
 // unset($_SESSION['mensajeError']);
 // unset($_SESSION['ExitoRegistro']);
+
+session_start(); // Asegúrate de iniciar la sesión al principio del archivo
+// ...
+$claseEliminar = "";
+$claseModificar = "";
+
+if (isset($_SESSION["rol"])) {
+    $rol_user = $_SESSION["rol"];
+
+    // Aquí puedes verificar el rol del usuario y asignar las clases CSS según sea necesario
+    if ($rol_user === "usuario") {
+        // Si el usuario es de tipo "usuario", ocultar los botones asignando clases
+        $claseEliminar = "oculto";
+        $claseModificar = "oculto";
+    }
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['busqueda'])) {
 
 $nombre = $_POST["nombre"];
@@ -69,8 +85,9 @@ $estado = $_POST["estado"];
     <link rel="stylesheet" type="text/css" href="css/tablas.css" >
     <script src="header.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/medicamentoBusqueda.js"></script>
     <script>
-document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
     var btnModificar = document.getElementById('btn_modificar');
     var tablaModificar = document.getElementById('tablaModificar');
 
@@ -98,34 +115,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    var btnEliminar = document.getElementById('btn_eliminar');
-    var tablaModificar = document.getElementById('compEliminarUsuario');
 
-    btnModificar.addEventListener('click', function() {
-        // Cambia el estilo de la tabla entre display: none y display: block
-        tablaModificar.style.display = (tablaModificar.style.display === 'none' || tablaModificar.style.display === '') ? 'block' : 'none';
-
-        let valores = [];
-            for (let i = 0; i < fila.cells.length - 1; i++) { // No incluir la última celda con el botón
-                valores.push(fila.cells[i].textContent);
-            }
-            // Hacer algo con los valores, por ejemplo, imprimirlos en la consola
-            console.log(valores);
-            document.getElementById("nombreMod").value = valores[0];
-            document.getElementById("principiosMod").value = valores[1];
-            document.getElementById("inchiMod").value = valores[2].slice(6);
-            document.getElementById("smilesMod").value = valores[3];
-            document.getElementById("estadoMod").value = valores[4];
-            document.getElementById("nombreFicherolMod").value = valores[5];
-            document.getElementById("tipoFicheroMod").value = valores[6];
-            document.getElementById("fechaMod").value = valores[7];
-            document.getElementById("stockMod").value = valores[8];
-            document.getElementById("precioMod").value = valores[9].slice(0, -1);
-            document.getElementById("idMod").value = valores[10];
-    });
-});
-</script>
+    </script>
     <input id="selector" type="hidden" value="1">
 </head>
 <body>
@@ -303,8 +294,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     <table>
                     <td class='td-btn'>
-                    <button style='width:30%' id='btn_modificar'>MODIFICAR</button>
-                        <button style='width:30%' id='btn_eliminar'>ELIMINAR</button>
+                    
+                    <button style='width:30%' id='btn_modificar' $claseEliminar>MODIFICAR</button>
+                        <button style='width:30%'  id='btn_eliminar' $claseModificar>ELIMINAR</button>
                         </td>
                         </table>
                 </div>
